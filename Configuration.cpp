@@ -179,6 +179,7 @@
 #include "StationList.hpp"
 #include "NetworkServerLookup.hpp"
 #include "JTDXMessageBox.hpp"
+#include "Ntp.h"
 
 #include "pimpl_impl.hpp"
 
@@ -543,6 +544,14 @@ private:
   Q_SLOT void on_bandComboBox_4_currentTextChanged (QString const&);
   Q_SLOT void on_bandComboBox_5_currentTextChanged (QString const&);
 
+  Q_SLOT void on_ntp_sync_now_push_button_clicked ();
+  Q_SLOT void handle_ntp_offset (double offsetSeconds, double roundTripSeconds);
+  Q_SLOT void handle_ntp_error (QString const& message);
+  Q_SLOT void ntp_timer_fired ();
+
+  void start_ntp_sync (QString const& host);
+  void restart_ntp_timer ();
+
   // typenames used as arguments must match registered type names :(
   Q_SIGNAL void start_transceiver (unsigned seqeunce_number,JTDXDateTime * jtdxtime) const;
   Q_SIGNAL void set_transceiver (Transceiver::TransceiverState const&,
@@ -560,7 +569,12 @@ private:
   QSettings * settings_;
 
   JTDXDateTime * jtdxtime_;
-  
+
+  Ntp * ntp_client_;
+  QTimer * ntp_sync_timer_;
+  QString ntp_server_;
+  int ntp_sync_interval_min_;   // 0 = manual only, else 5/30/60
+
   QDir doc_dir_;
   QDir data_dir_;
   QDir temp_dir_;
@@ -1342,6 +1356,9 @@ Configuration::impl::impl (Configuration * self, QSettings * settings, QWidget *
   , self_ {self}
   , ui_ {new Ui::configuration_dialog}
   , settings_ {settings}
+  , ntp_client_ {new Ntp {this}}
+  , ntp_sync_timer_ {new QTimer {this}}
+  , ntp_sync_interval_min_ {30}
   , doc_dir_ {doc_path ()}
   , data_dir_ {data_path ()}
   , restart_sound_input_device_ {false}
@@ -1371,6 +1388,10 @@ Configuration::impl::impl (Configuration * self, QSettings * settings, QWidget *
   {
     ui_->configuration_dialog_button_box->button(QDialogButtonBox::Ok)->setText(tr("&OK"));
     ui_->configuration_dialog_button_box->button(QDialogButtonBox::Cancel)->setText(tr("&Cancel"));
+
+    connect (ntp_client_, &Ntp::offsetComputed, this, &Configuration::impl::handle_ntp_offset);
+    connect (ntp_client_, &Ntp::error, this, &Configuration::impl::handle_ntp_error);
+    connect (ntp_sync_timer_, &QTimer::timeout, this, &Configuration::impl::ntp_timer_fired);
     // Create a temporary directory in a suitable location
     QString temp_location {QStandardPaths::writableLocation (QStandardPaths::TempLocation)};
     if (!temp_location.isEmpty ())
@@ -2031,6 +2052,15 @@ Radio::convert_dark("#fafbfe",useDarkStyle_),Radio::convert_dark("#dcdef1",useDa
   ui_->autolog_check_box->setChecked (autolog_);
   ui_->insert_blank_check_box->setChecked (insert_blank_);
   ui_->useDarkStyle_check_box->setChecked (useDarkStyle_);
+  ui_->ntp_server_line_edit->setText (ntp_server_);
+  {
+    int idx = 0;
+    if (ntp_sync_interval_min_ == 5) idx = 1;
+    else if (ntp_sync_interval_min_ == 30) idx = 2;
+    else if (ntp_sync_interval_min_ == 60) idx = 3;
+    ui_->ntp_sync_interval_combo_box->setCurrentIndex (idx);
+  }
+  restart_ntp_timer ();
   ui_->countryName_check_box->setChecked (countryName_);
   ui_->countryPrefix_check_box->setChecked (countryName_ && countryPrefix_);
   ui_->callNotif_check_box->setChecked (callNotif_);
@@ -2597,6 +2627,15 @@ void Configuration::impl::read_settings ()
   if(settings_->value ("pwrBandTuneMemory").toString()=="false" || settings_->value ("pwrBandTuneMemory").toString()=="true")
     pwrBandTuneMemory_ = settings_->value("pwrBandTuneMemory").toBool ();
   else pwrBandTuneMemory_ = false;
+
+  ntp_server_ = settings_->value ("NTPServer", "pool.ntp.org").toString ();
+  if (ntp_server_.trimmed ().isEmpty ()) ntp_server_ = "pool.ntp.org";
+  ntp_sync_interval_min_ = settings_->value ("NTPSyncIntervalMinutes", 30).toInt ();
+  if (ntp_sync_interval_min_ != 0 && ntp_sync_interval_min_ != 5
+      && ntp_sync_interval_min_ != 30 && ntp_sync_interval_min_ != 60)
+    {
+      ntp_sync_interval_min_ = 30;
+    }
 }
 
 void Configuration::add_callsign_hideFilter (QString basecall)
@@ -2854,7 +2893,58 @@ void Configuration::impl::write_settings ()
   settings_->setValue ("CalibrationSlopePPM", frequency_calibration_slope_ppm_);
   settings_->setValue ("pwrBandTxMemory", pwrBandTxMemory_);
   settings_->setValue ("pwrBandTuneMemory", pwrBandTuneMemory_);
-  settings_->setValue ("Region", QVariant::fromValue (region_));  
+  settings_->setValue ("Region", QVariant::fromValue (region_));
+  settings_->setValue ("NTPServer", ntp_server_);
+  settings_->setValue ("NTPSyncIntervalMinutes", ntp_sync_interval_min_);
+}
+
+void Configuration::impl::start_ntp_sync (QString const& host)
+{
+  if (host.isEmpty () || ntp_client_->isBusy ())
+    {
+      return;
+    }
+  ui_->ntp_status_label->setText (tr ("Synchronizing with %1 ...").arg (host));
+  ui_->ntp_sync_now_push_button->setEnabled (false);
+  ntp_client_->query (host);
+}
+
+void Configuration::impl::restart_ntp_timer ()
+{
+  ntp_sync_timer_->stop ();
+  if (ntp_sync_interval_min_ > 0)
+    {
+      ntp_sync_timer_->start (ntp_sync_interval_min_ * 60 * 1000);
+    }
+}
+
+void Configuration::impl::on_ntp_sync_now_push_button_clicked ()
+{
+  start_ntp_sync (ui_->ntp_server_line_edit->text ().trimmed ());
+}
+
+void Configuration::impl::ntp_timer_fired ()
+{
+  start_ntp_sync (ntp_server_);
+}
+
+void Configuration::impl::handle_ntp_offset (double offsetSeconds, double roundTripSeconds)
+{
+  ui_->ntp_sync_now_push_button->setEnabled (true);
+  if (jtdxtime_)
+    {
+      jtdxtime_->SetOffset (float (offsetSeconds));
+    }
+  ui_->ntp_status_label->setText (tr ("Synced at %1 UTC: clock offset %2 s, round trip %3 s")
+                                   .arg (QDateTime::currentDateTimeUtc ().toString ("hh:mm:ss"))
+                                   .arg (offsetSeconds, 0, 'f', 3)
+                                   .arg (roundTripSeconds, 0, 'f', 3));
+}
+
+void Configuration::impl::handle_ntp_error (QString const& message)
+{
+  ui_->ntp_sync_now_push_button->setEnabled (true);
+  ui_->ntp_status_label->setText (message);
 }
 
 void Configuration::impl::set_rig_invariants ()
@@ -3288,6 +3378,18 @@ void Configuration::impl::accept ()
 
   my_callsign_ = ui_->callsign_line_edit->text ();
   my_grid_ = ui_->grid_line_edit->text ();
+  {
+    ntp_server_ = ui_->ntp_server_line_edit->text ().trimmed ();
+    if (ntp_server_.isEmpty ()) ntp_server_ = "pool.ntp.org";
+    static int const ntp_intervals[] = {0, 5, 30, 60};
+    int const idx = qBound (0, ui_->ntp_sync_interval_combo_box->currentIndex (), 3);
+    int const new_interval = ntp_intervals[idx];
+    if (new_interval != ntp_sync_interval_min_)
+      {
+        ntp_sync_interval_min_ = new_interval;
+        restart_ntp_timer ();
+      }
+  }
   timeFrom_ = ui_->logTime_line_edit->text ();
   content_ = ui_->content_line_edit->text ();
   countries_ = ui_->countries_line_edit->text ();

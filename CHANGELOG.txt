@@ -1,0 +1,37 @@
+JTDX Changelog
+==============
+
+v2.3.1
+------
+
+New Features
+  - Settings > Sync: NTP-based clock synchronization, alongside the
+    existing decoded-signal clock sync. Configurable NTP server
+    (default: pool.ntp.org, supports both IPv4 and IPv6), an automatic
+    re-sync interval (Manual / 5 min / 30 min / 1 hour), and a
+    "Sync NTP server now" button for on-demand synchronization.
+
+
+v2.3.0
+------
+
+Translations
+  - Updated all existing translations (ca_ES, da_DK, en_US, es_ES,
+    et_EE, fr_FR, hr_HR, hu_HU, it_IT, ja_JP, lv_LV, nl_NL, pl_PL,
+    pt_BR, pt_PT, ru_RU, sv_SE, zh_CN, zh_HK).
+  - Added new Turkish (tr_TR) and Ukrainian (uk_UA) translations.
+
+Fixes
+  - About dialog: made the credits label's links clickable and
+    adjusted the dialog layout.
+  - DX Lab Suite Commander CAT: fixed command_with_reply() to return
+    the decoded reply instead of discarding it under some conditions.
+  - Frequency list: added the QO-100 satellite FT8 frequency
+    (10489.540 MHz).
+  - HRD CAT: increased the Yaesu inter-command delay (250 -> 350 ms)
+    and the reply retry count (3 -> 30) for more reliable rig control.
+  - PTT polling: ensure the initial PTT state is always initialized.
+  - Waterfall (Bins/Pixel): removed a stale duplicate read of the
+    setting that could override the value the user just set in the
+    spinner.
+  - Waterfall dialog: layout fixes (spin box widths, palette label).

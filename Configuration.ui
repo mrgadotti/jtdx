@@ -7231,6 +7231,125 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="sync_tab">
+      <attribute name="title">
+       <string>S&amp;ync</string>
+      </attribute>
+      <attribute name="toolTip">
+       <string>Computer clock synchronization settings.</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_ntp">
+       <item>
+        <widget class="QGroupBox" name="ntp_group_box">
+         <property name="title">
+          <string>NTP time synchronization</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_ntp">
+          <item row="0" column="0">
+           <widget class="QLabel" name="ntp_server_label">
+            <property name="text">
+             <string>NTP &amp;server:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ntp_server_line_edit</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="2">
+           <widget class="QLineEdit" name="ntp_server_line_edit">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Host name or IP address (IPv4 or IPv6) of the NTP server used to check the computer clock. A global pool such as pool.ntp.org is a good default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="ntp_sync_interval_label">
+            <property name="text">
+             <string>Auto sync &amp;interval:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ntp_sync_interval_combo_box</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="ntp_sync_interval_combo_box">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;How often to automatically query the NTP server and correct the JTDX clock offset. Select Manual to only sync when the button below is clicked.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Manual</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Every 5 minutes</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Every 30 minutes</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Every hour</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <spacer name="ntp_horizontal_spacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0" colspan="3">
+           <widget class="QPushButton" name="ntp_sync_now_push_button">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Query the NTP server now and immediately correct the JTDX clock offset.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="text">
+             <string>Sync NTP server now</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="3">
+           <widget class="QLabel" name="ntp_status_label">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="ntp_vertical_spacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
    <item row="1" column="0">

@@ -248,6 +248,7 @@ set (wsjtx_CXXSRCS
   WSPRBandHopping.cpp
   JTDXMessageBox.cpp
   JTDXDateTime.cpp
+  Ntp.cpp
   )
 
 set (wsjt_CXXSRCS
