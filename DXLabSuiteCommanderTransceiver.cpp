@@ -451,12 +451,14 @@ QString DXLabSuiteCommanderTransceiver::command_with_reply (QString const& cmd, 
   //     qDebug () << i << ":" << hex << int (result[i]);
   //   }
 
-  if (!no_debug)
+  if (!result.isNull ())
     {
-      TRACE_CAT ("DXLabSuiteCommanderTransceiver", cmd << "->" << result);
-    }
-
-  return result;                // converting raw UTF-8 bytes to QString
+      if(!no_debug)
+        {
+          TRACE_CAT ("DXLabSuiteCommanderTransceiver", cmd << "->" << result);
+        }
+      return result;        // converting raw UTF-8 bytes to QString
+    } else return "";
 }
 
 bool DXLabSuiteCommanderTransceiver::write_to_port (QString const& s)

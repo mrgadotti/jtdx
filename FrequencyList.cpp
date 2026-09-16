@@ -168,8 +168,8 @@ namespace
       {3400065000, Modes::JT65, IARURegions::ALL,true},
       
       {5760065000, Modes::JT65, IARURegions::ALL,true},
-      
-	  
+      {10489540000, Modes::FT8, IARURegions::ALL,true}
+
     };
 }
 
