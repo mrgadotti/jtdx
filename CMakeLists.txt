@@ -971,6 +971,8 @@ set (LANGUAGES
   ca_ES
   da_DK
   sv_SE
+  tr_TR
+  uk_UA
   )
 foreach (lang_ ${LANGUAGES})
   file (TO_NATIVE_PATH translations/jtdx_${lang_}.ts ts_)

@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_HK" sourcelanguage="en_US">
+<TS version="2.1" language="tr_TR" sourcelanguage="en_US">
 <context>
     <name>Bands</name>
     <message>
         <location filename="../Bands.cpp" line="136"/>
         <source>Band name</source>
-        <translation>波段名稱</translation>
+        <translation>Band Adı</translation>
     </message>
     <message>
         <location filename="../Bands.cpp" line="137"/>
         <source>Lower frequency limit</source>
-        <translation>頻率下限</translation>
+        <translation>Alt frekans sınırı</translation>
     </message>
     <message>
         <location filename="../Bands.cpp" line="138"/>
         <source>Upper frequency limit</source>
-        <translation>頻率上限</translation>
+        <translation>Üst frekans sınırı</translation>
     </message>
     <message>
         <location filename="../Bands.cpp" line="200"/>
         <source>Band</source>
-        <translation>波段</translation>
+        <translation>Band</translation>
     </message>
     <message>
         <location filename="../Bands.cpp" line="201"/>
         <source>Lower Limit</source>
-        <translation>下限</translation>
+        <translation>Alt Sınır</translation>
     </message>
     <message>
         <location filename="../Bands.cpp" line="202"/>
         <source>Upper Limit</source>
-        <translation>上限</translation>
+        <translation>Üst Sınır</translation>
     </message>
 </context>
 <context>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../about.ui" line="9"/>
         <source>About JTDX</source>
-        <translation>關於JTDX</translation>
+        <translation>JTDX Hakkında</translation>
     </message>
     <message>
         <location filename="../about.ui" line="60"/>
         <source>OK</source>
-        <translation>確定</translation>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../GetUserId.cpp" line="29"/>
         <source>Callsign</source>
-        <translation>呼號</translation>
+        <translation>Çağrı İşareti</translation>
     </message>
 </context>
 <context>
@@ -60,84 +60,92 @@
     <message>
         <location filename="../Configuration.cpp" line="1515"/>
         <source>&amp;OK</source>
-        <translation>確定(&amp;O)</translation>
+        <translation>&amp;Tamam</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1516"/>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation>&amp;İptal</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1531"/>
         <source>Create temporary directory error: </source>
-        <translation>創建臨時目錄錯誤: </translation>
+        <translation>Geçici dizin oluştur hatası: </translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1537"/>
         <source>Create temporary directory error:
 %1
 Another application may be locking the directory</source>
-        <translation>創建臨時目錄錯誤:
+        <translation>Geçici dizin oluştur hatası:
 %1
-另一個應用程序可能正在鎖定目錄</translation>
+Başka bir uygulama dizini kilitliyor olabilir</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1554"/>
         <source>Create data directory error: </source>
-        <translation>創建數據目錄錯誤: </translation>
+        <translation>Veri dizini oluştur hatası: </translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="1563"/>
+        <location filename="../Configuration.cpp" line="1574"/>
+        <source>Create Directory</source>
+        <comment>Cannot create directory &quot;</comment>
+        <translatorcomment>Dizin oluşturulamıyor &quot;</translatorcomment>
+        <translation>Dizin Oluştur</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1742"/>
         <location filename="../Configuration.cpp" line="1773"/>
         <location filename="../Configuration.cpp" line="1825"/>
         <source>&amp;Delete</source>
-        <translation>刪除(&amp;D)</translation>
+        <translation>&amp;Sil</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1777"/>
         <location filename="../Configuration.cpp" line="1829"/>
         <source>&amp;Insert ...</source>
-        <translation>插入(&amp;I)...</translation>
+        <translation>&amp;Ekle ...</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1781"/>
         <source>&amp;Load ...</source>
-        <translation>載入(&amp;L) ...</translation>
+        <translation>&amp;Yükle ...</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1785"/>
         <source>&amp;Save as ...</source>
-        <translation>另存為(&amp;S) ...</translation>
+        <translation>&amp;Farklı kaydet ...</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1789"/>
         <source>&amp;Merge ...</source>
-        <translation>合併(&amp;M) ...</translation>
+        <translation>&amp;Birleştir ...</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="1793"/>
         <source>&amp;Reset</source>
-        <translation>重置頻率(&amp;R)</translation>
+        <translation>&amp;Sıfırla</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="2812"/>
         <source>Hamlib Version</source>
-        <translation>Hamlib 版本</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3200"/>
         <source>Serial Port:</source>
-        <translation>序列埠:</translation>
+        <translation>Seri port:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3201"/>
         <source>Serial port used for CAT control</source>
-        <translation>用於CAT控制的序列埠</translation>
+        <translation>CAT kontrolunda kullanılan seri port</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3208"/>
         <source>TCI Server:</source>
-        <translation>TCI 伺服器:</translation>
+        <translation>TCI Sunucusu:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3209"/>
@@ -147,17 +155,17 @@ Formats:
 	hostname:port
 	IPv4-address:port
 	[IPv6-address]:port</source>
-        <translation>TCI 服務的可選主機名稱和埠.
-為此機器上的合理預設值留空.
-格式:
-	主機名稱:埠號
-	IPv4-地址:埠號
-	[IPv6-地址]:埠號</translation>
+        <translation>İsteğe bağlı hostname ve TCI servis portu.
+Uygun bir varsayılan için boş bırakın.
+Formatlar:
+	hostname:port
+	IPv4-address:port
+	[IPv6-address]:port</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3221"/>
         <source>Network Server:</source>
-        <translation>網路伺服器:</translation>
+        <translation>Ağ Sunucusu:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3222"/>
@@ -167,17 +175,17 @@ Formats:
 	hostname:port
 	IPv4-address:port
 	[IPv6-address]:port</source>
-        <translation>可選主機名和網路服務埠號.
-為無線電設備合理預設值保留空白.
-格式:
-主機名:埠號
-IP v4-地址:埠號
-[IPv6-地址]:埠號</translation>
+        <translation>İsteğe bağlı hostname ve ağ servisi portu.
+Uygun bir varsayılan için boş bırakın.
+Formatlar:
+	hostname:port
+	IPv4-address:port
+	[IPv6-address]:port</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3234"/>
         <source>USB Device:</source>
-        <translation>USB 設備:</translation>
+        <translation>USB aygıtı:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3235"/>
@@ -185,211 +193,200 @@ IP v4-地址:埠號
 Leave blank for a sensible default for the rig.
 Format:
 	[VID[:PID[:VENDOR[:PRODUCT]]]]</source>
-        <translation>可選設備標識.
-為無線電設備合理預設值保留空白.
-格式:
-[VID[:PID[:供應商[:產品]]]]</translation>
+        <translation>İsteğe bağlı aygıt kimliği.
+Uygun bir varsayılan için boş bırakın.
+Format:
+	[VID[:PID[:VENDOR[:PRODUCT]]]]</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3270"/>
         <source>Invalid audio input device</source>
-        <translation>無效的音頻輸入設備</translation>
+        <translation>Geçersiz ses giriş aygıtı</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3277"/>
         <source>Invalid audio output device</source>
-        <translation>無效的音頻輸出設備</translation>
+        <translation>Geçersiz ses çıkış aygıtı</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3283"/>
         <source>Invalid PTT method</source>
-        <translation>無效的PTT方法</translation>
+        <translation>Geçersiz PTT yöntemi</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3293"/>
         <source>Invalid PTT port</source>
-        <translation>無效的PTT埠號</translation>
+        <translation>Geçersiz PTT portu</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3879"/>
         <source>CQ/73 in message</source>
-        <translation>CQ/73 在訊息內</translation>
+        <translation>Mesaj içinde CQ/73</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="3880"/>
         <source>CQ in message</source>
-        <translation>CQ 在訊息內</translation>
+        <translation>Mesaj içinde CQ</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5189"/>
         <source>Error Loading CTY.DAT</source>
-        <translation>CTY.DAT 載入出錯</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5222"/>
         <source>Error Loading state_data.bin</source>
-        <translation>state_data.bin 載入出錯</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5255"/>
         <source>Error Loading grid_data.bin</source>
-        <translation>grid_data.bin 載入出錯</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5288"/>
         <source>Error Loading lotw-user-activity.csv</source>
-        <translation>lotw-user-activity.csv 載入出錯</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5304"/>
         <source>JTDX Decoded Text Font Chooser</source>
-        <translation>JTDX 解碼文本字型選擇</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="5356"/>
-        <source>Error Loading libhamlib-5.dll</source>
-        <translation>libhamlib-5.dll 載入出錯</translation>
+        <translation>JTDX Çözülmüş Metin Font Seçici</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5380"/>
         <source>Hamlib Update successful 
 
 New Hamlib will be used after restart</source>
-        <translation>Hamlib 更新成功 
-
-重新啟動後將使用新的 Hamlib</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5411"/>
         <source>Hamlib successfully reverted 
 
 Reverted Hamlib will be used after restart</source>
-        <translation>Hamlib 已成功還原 
-
-重新啟動後將使用恢復的 Hamlib</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5416"/>
         <source>No Hamlib update found that could be reverted</source>
-        <translation>沒有發現可以恢復的 Hamlib 更新</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5557"/>
         <source>Enter Grid error: 4/6/8/10 char grid will be accepted</source>
-        <translation>輸入網格錯誤: 祗接受 4/6/8/10 字元網格</translation>
+        <translation>Grid Giriş hatası: 4/6/8/10 karakter kabul edilir</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6112"/>
         <location filename="../Configuration.cpp" line="6143"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6108"/>
         <source>Load Working Frequencies</source>
-        <translation>載入工作頻率</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="1563"/>
-        <location filename="../Configuration.cpp" line="1574"/>
-        <source>Create Directory</source>
-        <comment>Cannot create directory &quot;</comment>
-        <translation>創建目錄</translation>
+        <translation>Çalışma Frekanslarını Yükle</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="5348"/>
         <location filename="../Configuration.cpp" line="5419"/>
         <source>Hamlib update only available on Mac or Windows.</source>
-        <translation>Hamlib 更新僅在 Mac 或 Windows 上可用.</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="5358"/>
-        <source>Error Loading libhamlib.5.dylib</source>
-        <translation>libhamlib.5.dylib 載入出錯</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6110"/>
-        <location filename="../Configuration.cpp" line="6141"/>
-        <location filename="../Configuration.cpp" line="6195"/>
-        <source>Frequency files (*.qrg);;All files (*.*)</source>
-        <translation>頻率檔案 (*.qrg);;全部檔案 (*.*)</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6126"/>
-        <source>Replace Working Frequencies</source>
-        <translation>替換工作頻率</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6127"/>
-        <source>Are you sure you want to discard your current working frequencies and replace them with the loaded ones?</source>
-        <translation>是否確實要放棄當前工作頻率, 並將其替換為載入的頻率?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6139"/>
         <source>Merge Working Frequencies</source>
-        <translation>合併工作頻率</translation>
+        <translation>Çalışma Frekanslarını Birleştir</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6166"/>
         <location filename="../Configuration.cpp" line="6175"/>
         <location filename="../Configuration.cpp" line="6185"/>
         <source>Not a valid frequencies file</source>
-        <translation>不是有效頻率檔案</translation>
+        <translation>Geçerli bir frekans dosyası değil</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6166"/>
         <source>Incorrect file magic</source>
-        <translation>檔案內容不正確</translation>
+        <translation>Yanlış file magic</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6175"/>
         <source>Version is too new</source>
-        <translation>版本太新</translation>
+        <translation>Sürüm çok yeni</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6185"/>
         <source>Contents corrupt</source>
-        <translation>內容已損壞</translation>
+        <translation>İçindekiler bozuk</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6195"/>
         <source>Save Working Frequencies</source>
-        <translation>儲存工作頻率</translation>
+        <translation>Çalışma Frekanslarını Kaydet</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6205"/>
         <source>Only Save Selected  Working Frequencies</source>
-        <translation>只儲存選取的工作頻率</translation>
+        <translation>Yalnızca Seçili Çalışma Frekanslarını Kaydet</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6207"/>
         <source>Are you sure you want to save only the working frequencies that are currently selected? Click No to save all.</source>
-        <translation>是否要儲存目前選擇的工作頻率? 按一下 否 可儲存全部.</translation>
+        <translation>Yalnızca  seçili çalışma frekanslarını kaydetmek istediğinizden emin misiniz? Tümünü kaydetmek için Hayır&apos;ı tıklayın.</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6234"/>
         <source>Reset Working Frequencies</source>
-        <translation>重置工作頻率</translation>
+        <translation>Çalışma Frekanslarını Sıfırla</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6236"/>
         <source>Are you sure you want to discard your current working frequencies and replace them with default ones?</source>
-        <translation>您確定要放棄您當前的工作頻率並用預設值頻率替換它們嗎?</translation>
+        <translation>Mevcut çalışma frekanslarınızı varsayılan frekanslarla değiştirmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6296"/>
         <source>Save Directory</source>
-        <translation>儲存目錄</translation>
+        <translation>Kayıt Dizini</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6312"/>
         <source>Failed to open connection to rig</source>
-        <translation>無法開啟與無線電設備的連接</translation>
+        <translation>Cihaza bağlanılamadı</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6949"/>
         <source>Rig failure</source>
-        <translation>無線電設備故障</translation>
+        <translation>Cihaz arızası</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6110"/>
+        <location filename="../Configuration.cpp" line="6141"/>
+        <location filename="../Configuration.cpp" line="6195"/>
+        <source>Frequency files (*.qrg);;All files (*.*)</source>
+        <translation>Frekans dosyaları (*.qrg);;Tüm dosyalar (*.*)</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="5356"/>
+        <source>Error Loading libhamlib-5.dll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="5358"/>
+        <source>Error Loading libhamlib.5.dylib</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6126"/>
+        <source>Replace Working Frequencies</source>
+        <translation>Çalışma Frekanslarını Değiştirin</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6127"/>
+        <source>Are you sure you want to discard your current working frequencies and replace them with the loaded ones?</source>
+        <translation>Mevcut çalışma frekanslarınızı yüklü olanlarla değiştirmek istediğinizden emin misiniz?</translation>
     </message>
 </context>
 <context>
@@ -397,1737 +394,1737 @@ Reverted Hamlib will be used after restart</source>
     <message>
         <location filename="../logbook/countrydat.cpp" line="37"/>
         <source>where?</source>
-        <translation>不詳?</translation>
+        <translation>nerede?</translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="38"/>
         <source>Sov Mil Order of Malta</source>
-        <translation>馬耳他騎士團</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="39"/>
         <source>Spratly Is.</source>
-        <translation>南沙群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="40"/>
         <source>Monaco</source>
-        <translation>摩納哥</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="41"/>
         <source>Agalega &amp; St. Brandon</source>
-        <translation>阿加萊加群島及聖布蘭登群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="42"/>
         <source>Mauritius</source>
-        <translation>毛里求斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="43"/>
         <source>Rodriguez Is.</source>
-        <translation>羅德里格斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="44"/>
         <source>Equatorial Guinea</source>
-        <translation>赤道幾內亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="45"/>
         <source>Annobon Is.</source>
-        <translation>安諾本島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="46"/>
         <source>Fiji</source>
-        <translation>斐濟</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="47"/>
         <source>Conway Reef</source>
-        <translation>康威礁</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="48"/>
         <source>Rotuma Is.</source>
-        <translation>羅圖馬島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="49"/>
         <source>Kingdom of Eswatini</source>
-        <translation>斯威士蘭王國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="50"/>
         <source>Tunisia</source>
-        <translation>突尼斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="51"/>
         <source>Vietnam</source>
-        <translation>越南</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="52"/>
         <source>Guinea</source>
-        <translation>幾內亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="53"/>
         <source>Bouvet</source>
-        <translation>布韋島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="54"/>
         <source>Peter 1 Is.</source>
-        <translation>彼得一世島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="55"/>
         <source>Azerbaijan</source>
-        <translation>阿塞拜疆</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="56"/>
         <source>Georgia</source>
-        <translation>格魯吉亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="57"/>
         <source>Montenegro</source>
-        <translation>黑山共和國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="58"/>
         <source>Sri Lanka</source>
-        <translation>斯里蘭卡</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="59"/>
         <source>ITU HQ</source>
-        <translation>國際電聯總部</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="60"/>
         <source>United Nations HQ</source>
-        <translation>聯合國總部</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="61"/>
         <source>Vienna Intl Ctr</source>
-        <translation>維也納國際中心</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="62"/>
         <source>Timor - Leste</source>
-        <translation>東帝汶</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="63"/>
         <source>Israel</source>
-        <translation>以色列</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="64"/>
         <source>Libya</source>
-        <translation>利比亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="65"/>
         <source>Cyprus</source>
-        <translation>塞浦路斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="66"/>
         <source>Tanzania</source>
-        <translation>坦桑尼亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="67"/>
         <source>Nigeria</source>
-        <translation>尼日利亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="68"/>
         <source>Madagascar</source>
-        <translation>馬達加斯加</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="69"/>
         <source>Mauritania</source>
-        <translation>毛里塔尼亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="70"/>
         <source>Niger</source>
-        <translation>尼日爾</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="71"/>
         <source>Togo</source>
-        <translation>多哥</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="72"/>
         <source>Samoa</source>
-        <translation>薩摩亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="73"/>
         <source>Uganda</source>
-        <translation>烏干達</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="74"/>
         <source>Kenya</source>
-        <translation>肯尼亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="75"/>
         <source>Senegal</source>
-        <translation>塞內加爾</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="76"/>
         <source>Jamaica</source>
-        <translation>牙買加</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="77"/>
         <source>Yemen</source>
-        <translation>也門</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="78"/>
         <source>Lesotho</source>
-        <translation>萊索托</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="79"/>
         <source>Malawi</source>
-        <translation>馬拉維</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="80"/>
         <source>Algeria</source>
-        <translation>阿爾及利亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="81"/>
         <source>Barbados</source>
-        <translation>巴巴多斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="82"/>
         <source>Maldives</source>
-        <translation>馬爾代夫</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="83"/>
         <source>Guyana</source>
-        <translation>圭亞那</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="84"/>
         <source>Croatia</source>
-        <translation>克羅地亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="85"/>
         <source>Ghana</source>
-        <translation>加納</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="86"/>
         <source>Malta</source>
-        <translation>馬爾他</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="87"/>
         <source>Zambia</source>
-        <translation>贊比亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="88"/>
         <source>Kuwait</source>
-        <translation>科威特</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="89"/>
         <source>Sierra Leone</source>
-        <translation>塞拉利昂</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="90"/>
         <source>W. Malaysia</source>
-        <translation>西馬來西亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="91"/>
         <source>E. Malaysia</source>
-        <translation>東馬來西亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="92"/>
         <source>Nepal</source>
-        <translation>尼泊爾</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="93"/>
         <source>Dem. Rep. of the Congo</source>
-        <translation>剛果民主共和國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="94"/>
         <source>Burundi</source>
-        <translation>布隆迪</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="95"/>
         <source>Singapore</source>
-        <translation>新加坡</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="96"/>
         <source>Rwanda</source>
-        <translation>盧旺達</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="97"/>
         <source>Trinidad &amp; Tobago</source>
-        <translation>特立尼達和多巴哥共和國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="98"/>
         <source>Botswana</source>
-        <translation>博茨瓦納</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="99"/>
         <source>Tonga</source>
-        <translation>湯加</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="100"/>
         <source>Oman</source>
-        <translation>阿曼</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="101"/>
         <source>Bhutan</source>
-        <translation>不丹</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="102"/>
         <source>United Arab Emirates</source>
-        <translation>阿拉伯聯合酋長國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="103"/>
         <source>Qatar</source>
-        <translation>卡塔爾</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="104"/>
         <source>Bahrain</source>
-        <translation>巴林</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="105"/>
         <source>Pakistan</source>
-        <translation>巴基斯坦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="106"/>
         <source>Scarborough Reef</source>
-        <translation>黃岩島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="107"/>
         <source>Taiwan</source>
-        <translation>臺灣</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="108"/>
         <source>Pratas Is.</source>
-        <translation>東沙群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="109"/>
         <source>China</source>
-        <translation>中國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="110"/>
         <source>Nauru</source>
-        <translation>瑙魯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="111"/>
         <source>Andorra</source>
-        <translation>安道爾</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="112"/>
         <source>The Gambia</source>
-        <translation>岡比亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="113"/>
         <source>Bahamas</source>
-        <translation>巴哈馬</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="114"/>
         <source>Mozambique</source>
-        <translation>莫桑比克</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="115"/>
         <source>Chile</source>
-        <translation>智利</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="116"/>
         <source>San Felix &amp; San Ambrosio</source>
-        <translation>聖菲利斯和聖安佈羅西奧島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="117"/>
         <source>Easter Is.</source>
-        <translation>復活節島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="118"/>
         <source>Juan Fernandez Is.</source>
-        <translation>胡安費南德斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="119"/>
         <source>Antarctica</source>
-        <translation>南極洲</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="120"/>
         <source>Cuba</source>
-        <translation>古巴</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="121"/>
         <source>Morocco</source>
-        <translation>摩洛哥</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="122"/>
         <source>Bolivia</source>
-        <translation>玻利維亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="123"/>
         <source>Portugal</source>
-        <translation>葡萄牙</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="124"/>
         <source>Madeira Is.</source>
-        <translation>馬德拉島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="125"/>
         <source>Azores</source>
-        <translation>亞速爾群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="126"/>
         <source>Uruguay</source>
-        <translation>烏拉圭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="127"/>
         <source>Sable Is.</source>
-        <translation>塞布爾島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="128"/>
         <source>St. Paul Is.</source>
-        <translation>聖保羅島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="129"/>
         <source>Angola</source>
-        <translation>安哥拉</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="130"/>
         <source>Cape Verde</source>
-        <translation>佛得角</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="131"/>
         <source>Comoros</source>
-        <translation>科摩羅</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="132"/>
         <source>Germany</source>
-        <translation>德國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="133"/>
         <source>Philippines</source>
-        <translation>菲律賓</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="134"/>
         <source>Eritrea</source>
-        <translation>厄立特里亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="135"/>
         <source>Palestine</source>
-        <translation>巴勒斯坦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="136"/>
         <source>N. Cook Is.</source>
-        <translation>北庫克群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="137"/>
         <source>S. Cook Is.</source>
-        <translation>南庫克群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="138"/>
         <source>Niue</source>
-        <translation>紐埃</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="139"/>
         <source>Bosnia-Herzegovina</source>
-        <translation>波斯尼亞和黑塞哥維那</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="140"/>
         <source>Spain</source>
-        <translation>西班牙</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="141"/>
         <source>Balearic Is.</source>
-        <translation>巴利亞利群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="142"/>
         <source>Canary Is.</source>
-        <translation>加那利群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="143"/>
         <source>Ceuta &amp; Melilla</source>
-        <translation>休達和梅利利亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="144"/>
         <source>Ireland</source>
-        <translation>愛爾蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="145"/>
         <source>Armenia</source>
-        <translation>亞美尼亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="146"/>
         <source>Liberia</source>
-        <translation>利比里亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="147"/>
         <source>Iran</source>
-        <translation>伊朗</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="148"/>
         <source>Moldova</source>
-        <translation>摩爾多瓦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="149"/>
         <source>Estonia</source>
-        <translation>愛沙尼亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="150"/>
         <source>Ethiopia</source>
-        <translation>埃塞俄比亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="151"/>
         <source>Belarus</source>
-        <translation>白俄羅斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="152"/>
         <source>Kyrgyzstan</source>
-        <translation>吉爾吉斯斯坦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="153"/>
         <source>Tajikistan</source>
-        <translation>塔吉克斯坦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="154"/>
         <source>Turkmenistan</source>
-        <translation>土庫曼斯坦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="155"/>
         <source>France</source>
-        <translation>法國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="156"/>
         <source>Guadeloupe</source>
-        <translation>瓜德羅普島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="157"/>
         <source>Mayotte</source>
-        <translation>馬約特島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="158"/>
         <source>St. Barthelemy</source>
-        <translation>聖巴特勒米島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="159"/>
         <source>New Caledonia</source>
-        <translation>新喀里多尼亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="160"/>
         <source>Chesterfield Is.</source>
-        <translation>切斯特菲爾德島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="161"/>
         <source>Martinique</source>
-        <translation>馬提尼克島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="162"/>
         <source>Fr. Polynesia</source>
-        <translation>法屬波利尼西亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="163"/>
         <source>Austral Is.</source>
-        <translation>南方群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="164"/>
         <source>Clipperton Is.</source>
-        <translation>克利珀頓島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="165"/>
         <source>Marquesas Is.</source>
-        <translation>馬克薩斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="166"/>
         <source>St. Pierre &amp; Miquelon</source>
-        <translation>聖皮埃爾和密克隆島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="167"/>
         <source>Reunion Is.</source>
-        <translation>留尼旺島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="168"/>
         <source>St. Martin</source>
-        <translation>法屬聖馬丁島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="169"/>
         <source>Glorioso Is.</source>
-        <translation>格洛里厄斯群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="170"/>
         <source>Juan de Nova, Europa</source>
-        <translation>新胡安島歐, 歐羅巴島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="171"/>
         <source>Tromelin Is.</source>
-        <translation>特羅姆蘭島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="172"/>
         <source>Crozet Is.</source>
-        <translation>克羅澤特島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="173"/>
         <source>Kerguelen Is.</source>
-        <translation>凱爾蓋朗群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="174"/>
         <source>Amsterdam &amp; St. Paul Is.</source>
-        <translation>阿姆斯特丹島和聖保羅島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="175"/>
         <source>Wallis &amp; Futuna Is.</source>
-        <translation>瓦利斯和富圖納群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="176"/>
         <source>Fr. Guiana</source>
-        <translation>法屬圭亞那</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="177"/>
         <source>England</source>
-        <translation>英格蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="178"/>
         <source>Isle of Man</source>
-        <translation>馬恩島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="179"/>
         <source>N. Ireland</source>
-        <translation>北愛爾蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="180"/>
         <source>Jersey</source>
-        <translation>澤西島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="181"/>
         <source>Shetland Is.</source>
-        <translation>設特蘭群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="182"/>
         <source>Scotland</source>
-        <translation>蘇格蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="183"/>
         <source>Guernsey</source>
-        <translation>根西島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="184"/>
         <source>Wales</source>
-        <translation>威爾士</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="185"/>
         <source>Solomon Is.</source>
-        <translation>所羅門群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="186"/>
         <source>Temotu Province</source>
-        <translation>泰莫圖省群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="187"/>
         <source>Hungary</source>
-        <translation>匈牙利</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="188"/>
         <source>Switzerland</source>
-        <translation>瑞士</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="189"/>
         <source>Liechtenstein</source>
-        <translation>列支敦士登</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="190"/>
         <source>Ecuador</source>
-        <translation>厄瓜多爾</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="191"/>
         <source>Galapagos Is.</source>
-        <translation>加拉帕戈斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="192"/>
         <source>Haiti</source>
-        <translation>海地</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="193"/>
         <source>Dominican Rep.</source>
-        <translation>多明尼加共和國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="194"/>
         <source>Colombia</source>
-        <translation>哥倫比亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="195"/>
         <source>San Andres &amp; Providencia</source>
-        <translation>聖安德列斯和普羅維登西亞島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="196"/>
         <source>Malpelo Is.</source>
-        <translation>馬爾佩洛島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="197"/>
         <source>Rep. of Korea</source>
-        <translation>韓國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="198"/>
         <source>Panama</source>
-        <translation>巴拿馬</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="199"/>
         <source>Honduras</source>
-        <translation>洪都拉斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="200"/>
         <source>Thailand</source>
-        <translation>泰國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="201"/>
         <source>Vatican City</source>
-        <translation>梵蒂岡</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="202"/>
         <source>Saudi Arabia</source>
-        <translation>沙特阿拉伯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="203"/>
         <source>Italy</source>
-        <translation>意大利</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="204"/>
         <source>AF Italy</source>
-        <translation>意大利非洲屬地</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="205"/>
         <source>Sardinia</source>
-        <translation>撒丁島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="206"/>
         <source>Sicily</source>
-        <translation>西西里島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="207"/>
         <source>Djibouti</source>
-        <translation>吉布提</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="208"/>
         <source>Grenada</source>
-        <translation>格林納達</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="209"/>
         <source>Guinea-Bissau</source>
-        <translation>幾內亞比紹</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="210"/>
         <source>St. Lucia</source>
-        <translation>聖盧西亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="211"/>
         <source>Dominica</source>
-        <translation>多米尼克</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="212"/>
         <source>St. Vincent</source>
-        <translation>聖文森特島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="213"/>
         <source>Japan</source>
-        <translation>日本</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="214"/>
         <source>Minami Torishima</source>
-        <translation>南鳥島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="215"/>
         <source>Ogasawara</source>
-        <translation>小笠原島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="216"/>
         <source>Mongolia</source>
-        <translation>蒙古</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="217"/>
         <source>Svalbard</source>
-        <translation>斯瓦爾巴群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="218"/>
         <source>Bear Is.</source>
-        <translation>熊島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="219"/>
         <source>Jan Mayen</source>
-        <translation>揚馬延島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="220"/>
         <source>Jordan</source>
-        <translation>約旦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="221"/>
         <source>U.S.A.</source>
-        <translation>美國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="222"/>
         <source>Guantanamo Bay</source>
-        <translation>關塔那摩灣</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="223"/>
         <source>Mariana Is.</source>
-        <translation>馬利亞納群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="224"/>
         <source>Baker &amp; Howland Is.</source>
-        <translation>貝克島和豪蘭島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="225"/>
         <source>Guam</source>
-        <translation>關島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="226"/>
         <source>Johnston Is.</source>
-        <translation>約翰斯頓島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="227"/>
         <source>Midway Is.</source>
-        <translation>中途島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="228"/>
         <source>Palmyra &amp; Jarvis Is.</source>
-        <translation>巴爾米拉環礁和賈維斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="229"/>
         <source>Hawaii</source>
-        <translation>夏威夷</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="230"/>
         <source>Kure Is.</source>
-        <translation>庫雷環礁</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="231"/>
         <source>American Samoa</source>
-        <translation>美屬薩摩亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="232"/>
         <source>Swains Is.</source>
-        <translation>斯溫斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="233"/>
         <source>Wake Is.</source>
-        <translation>威克島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="234"/>
         <source>Alaska</source>
-        <translation>阿拉斯加</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="235"/>
         <source>Navassa Is.</source>
-        <translation>納弗沙島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="236"/>
         <source>US Virgin Is.</source>
-        <translation>美屬維京群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="237"/>
         <source>Puerto Rico</source>
-        <translation>波多黎各</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="238"/>
         <source>Desecheo Is.</source>
-        <translation>德塞切奧島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="239"/>
         <source>Norway</source>
-        <translation>挪威</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="240"/>
         <source>Argentina</source>
-        <translation>阿根廷</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="241"/>
         <source>Luxembourg</source>
-        <translation>盧森堡</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="242"/>
         <source>Lithuania</source>
-        <translation>立陶宛</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="243"/>
         <source>Bulgaria</source>
-        <translation>保加利亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="244"/>
         <source>Peru</source>
-        <translation>秘魯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="245"/>
         <source>Lebanon</source>
-        <translation>黎巴嫩</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="246"/>
         <source>Austria</source>
-        <translation>奧地利</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="247"/>
         <source>Finland</source>
-        <translation>芬蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="248"/>
         <source>Aland Is.</source>
-        <translation>奧蘭群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="249"/>
         <source>Market Reef</source>
-        <translation>馬凱特礁</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="250"/>
         <source>Czech Rep.</source>
-        <translation>捷克</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="251"/>
         <source>Slovak Rep.</source>
-        <translation>斯洛伐克</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="252"/>
         <source>Belgium</source>
-        <translation>比利時</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="253"/>
         <source>Greenland</source>
-        <translation>格陵蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="254"/>
         <source>Faroe Is.</source>
-        <translation>法羅群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="255"/>
         <source>Denmark</source>
-        <translation>丹麥</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="256"/>
         <source>Papua New Guinea</source>
-        <translation>巴布亞新幾內亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="257"/>
         <source>Aruba</source>
-        <translation>阿魯巴</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="258"/>
         <source>DPR of Korea</source>
-        <translation>朝鮮</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="259"/>
         <source>Netherlands</source>
-        <translation>荷蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="260"/>
         <source>Curacao</source>
-        <translation>庫拉索島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="261"/>
         <source>Bonaire</source>
-        <translation>博奈爾島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="262"/>
         <source>Saba &amp; St. Eustatius</source>
-        <translation>薩巴島和聖尤斯特歇斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="263"/>
         <source>Sint Maarten</source>
-        <translation>荷屬聖馬丁島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="264"/>
         <source>Brazil</source>
-        <translation>巴西</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="265"/>
         <source>Fernando de Noronha</source>
-        <translation>費爾南多迪諾羅尼亞群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="266"/>
         <source>St. Peter &amp; St. Paul</source>
-        <translation>聖彼得與聖保羅岩</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="267"/>
         <source>Trindade &amp; Martim Vaz</source>
-        <translation>特林達迪和馬丁瓦斯群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="268"/>
         <source>Suriname</source>
-        <translation>蘇里南</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="269"/>
         <source>Franz Josef Land</source>
-        <translation>法蘭士約瑟夫地群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="270"/>
         <source>Western Sahara</source>
-        <translation>西薩哈拉</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="271"/>
         <source>Bangladesh</source>
-        <translation>孟加拉國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="272"/>
         <source>Slovenia</source>
-        <translation>斯洛文尼亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="273"/>
         <source>Seychelles</source>
-        <translation>塞舌爾</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="274"/>
         <source>Sao Tome &amp; Principe</source>
-        <translation>聖多美和普林西比</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="275"/>
         <source>Sweden</source>
-        <translation>瑞典</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="276"/>
         <source>Poland</source>
-        <translation>波蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="277"/>
         <source>Sudan</source>
-        <translation>蘇丹</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="278"/>
         <source>Egypt</source>
-        <translation>埃及</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="279"/>
         <source>Greece</source>
-        <translation>希臘</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="280"/>
         <source>Mount Athos</source>
-        <translation>阿索斯聖山</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="281"/>
         <source>Dodecanese</source>
-        <translation>多德卡尼斯群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="282"/>
         <source>Crete</source>
-        <translation>克里特島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="283"/>
         <source>Tuvalu</source>
-        <translation>圖瓦盧</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="284"/>
         <source>W. Kiribati</source>
-        <translation>西基里巴斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="285"/>
         <source>C. Kiribati</source>
-        <translation>中基里巴斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="286"/>
         <source>E. Kiribati</source>
-        <translation>東基里巴斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="287"/>
         <source>Banaba Is.</source>
-        <translation>巴納巴島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="288"/>
         <source>Somalia</source>
-        <translation>索馬里</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="289"/>
         <source>San Marino</source>
-        <translation>聖馬力諾</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="290"/>
         <source>Palau</source>
-        <translation>帛琉</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="291"/>
         <source>AS Turkey</source>
-        <translation>土耳其 亞洲部分</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="292"/>
         <source>EU Turkey</source>
-        <translation>土耳其 歐洲部分</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="293"/>
         <source>Iceland</source>
-        <translation>冰島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="294"/>
         <source>Guatemala</source>
-        <translation>危地馬拉</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="295"/>
         <source>Costa Rica</source>
-        <translation>哥斯達黎加</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="296"/>
         <source>Cocos Is.</source>
-        <translation>科科斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="297"/>
         <source>Cameroon</source>
-        <translation>喀麥隆</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="298"/>
         <source>Corsica</source>
-        <translation>科西嘉島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="299"/>
         <source>C. African Rep.</source>
-        <translation>中非共和國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="300"/>
         <source>Rep. of the Congo</source>
-        <translation>剛果共和國</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="301"/>
         <source>Gabon</source>
-        <translation>加蓬</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="302"/>
         <source>Chad</source>
-        <translation>乍得</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="303"/>
         <source>Cote d&apos;Ivoire</source>
-        <translation>科特迪瓦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="304"/>
         <source>Benin</source>
-        <translation>貝寧</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="305"/>
         <source>Mali</source>
-        <translation>馬里</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="306"/>
         <source>EU Russia</source>
-        <translation>俄羅斯 歐洲部分</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="307"/>
         <source>Kaliningrad</source>
-        <translation>加里寧格勒</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="308"/>
         <source>AS Russia</source>
-        <translation>俄羅斯 亞洲部分</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="309"/>
         <source>Uzbekistan</source>
-        <translation>烏玆別克斯坦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="310"/>
         <source>Kazakhstan</source>
-        <translation>哈薩克斯坦</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="311"/>
         <source>Ukraine</source>
-        <translation>烏克蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="312"/>
         <source>Antigua &amp; Barbuda</source>
-        <translation>安提瓜及巴布達</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="313"/>
         <source>Belize</source>
-        <translation>伯利玆</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="314"/>
         <source>St. Kitts &amp; Nevis</source>
-        <translation>聖基茨和尼維斯</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="315"/>
         <source>Namibia</source>
-        <translation>納米比亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="316"/>
         <source>Micronesia</source>
-        <translation>密克羅尼西亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="317"/>
         <source>Marshall Is.</source>
-        <translation>馬紹爾群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="318"/>
         <source>Brunei Darussalam</source>
-        <translation>文萊</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="319"/>
         <source>Canada</source>
-        <translation>加拿大</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="320"/>
         <source>Australia</source>
-        <translation>澳洲</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="321"/>
         <source>Heard Is.</source>
-        <translation>赫德島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="322"/>
         <source>Macquarie Is.</source>
-        <translation>麥格理島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="323"/>
         <source>Cocos (Keeling) Is.</source>
-        <translation>科科斯(基林)群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="324"/>
         <source>Lord Howe Is.</source>
-        <translation>豪勛爵島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="325"/>
         <source>Mellish Reef</source>
-        <translation>梅利什礁</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="326"/>
         <source>Norfolk Is.</source>
-        <translation>諾福克島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="327"/>
         <source>Willis Is.</source>
-        <translation>威利斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="328"/>
         <source>Christmas Is.</source>
-        <translation>聖誕島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="329"/>
         <source>Anguilla</source>
-        <translation>安圭拉島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="330"/>
         <source>Montserrat</source>
-        <translation>蒙特塞拉特島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="331"/>
         <source>British Virgin Is.</source>
-        <translation>英屬維京群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="332"/>
         <source>Turks &amp; Caicos Is.</source>
-        <translation>特克斯和凱科斯群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="333"/>
         <source>Pitcairn Is.</source>
-        <translation>皮特凱恩群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="334"/>
         <source>Ducie Is.</source>
-        <translation>迪西島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="335"/>
         <source>Falkland Is.</source>
-        <translation>福克蘭群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="336"/>
         <source>S. Georgia Is.</source>
-        <translation>南喬治亞島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="337"/>
         <source>S. Shetland Is.</source>
-        <translation>南設特蘭群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="338"/>
         <source>S. Orkney Is.</source>
-        <translation>南奧克尼島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="339"/>
         <source>S. Sandwich Is.</source>
-        <translation>南桑德韋奇島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="340"/>
         <source>Bermuda</source>
-        <translation>百慕大</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="341"/>
         <source>Chagos Is.</source>
-        <translation>查戈斯群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="342"/>
         <source>Hong Kong</source>
-        <translation>香港</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="343"/>
         <source>India</source>
-        <translation>印度</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="344"/>
         <source>Andaman &amp; Nicobar Is.</source>
-        <translation>安達曼群島和尼科巴群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="345"/>
         <source>Lakshadweep Is.</source>
-        <translation>拉克沙威島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="346"/>
         <source>Mexico</source>
-        <translation>墨西哥</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="347"/>
         <source>Revillagigedo</source>
-        <translation>雷維亞希赫多群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="348"/>
         <source>Burkina Faso</source>
-        <translation>布基納法索</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="349"/>
         <source>Cambodia</source>
-        <translation>柬埔寨</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="350"/>
         <source>Laos</source>
-        <translation>老撾</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="351"/>
         <source>Macao</source>
-        <translation>澳門</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="352"/>
         <source>Myanmar</source>
-        <translation>緬甸</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="353"/>
         <source>Afghanistan</source>
-        <translation>阿富汗</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="354"/>
         <source>Indonesia</source>
-        <translation>印尼</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="355"/>
         <source>Iraq</source>
-        <translation>伊拉克</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="356"/>
         <source>Vanuatu</source>
-        <translation>瓦努阿圖</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="357"/>
         <source>Syria</source>
-        <translation>敘利亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="358"/>
         <source>Latvia</source>
-        <translation>拉脫維亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="359"/>
         <source>Nicaragua</source>
-        <translation>尼加拉瓜</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="360"/>
         <source>Romania</source>
-        <translation>羅馬尼亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="361"/>
         <source>El Salvador</source>
-        <translation>薩爾瓦多</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="362"/>
         <source>Serbia</source>
-        <translation>塞爾維亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="363"/>
         <source>Venezuela</source>
-        <translation>委內瑞拉</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="364"/>
         <source>Aves Is.</source>
-        <translation>阿維斯島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="365"/>
         <source>Zimbabwe</source>
-        <translation>津巴布韋</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="366"/>
         <source>N. Macedonia</source>
-        <translation>北馬其頓</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="367"/>
         <source>Rep. of Kosovo</source>
-        <translation>科索沃</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="368"/>
         <source>Rep. of S. Sudan</source>
-        <translation>南蘇丹</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="369"/>
         <source>Albania</source>
-        <translation>阿爾巴尼亞</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="370"/>
         <source>Gibraltar</source>
-        <translation>直布羅陀</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="371"/>
         <source>UK Base Areas on Cyprus</source>
-        <translation>英屬塞浦路斯基地</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="372"/>
         <source>St. Helena</source>
-        <translation>聖赫勒拿島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="373"/>
         <source>Ascension Is.</source>
-        <translation>阿森松島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="374"/>
         <source>Tristan da Cunha &amp; Gough</source>
-        <translation>特里斯坦達庫尼亞島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="375"/>
         <source>Cayman Is.</source>
-        <translation>開曼群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="376"/>
         <source>Tokelau Is.</source>
-        <translation>托克勞群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="377"/>
         <source>New Zealand</source>
-        <translation>新西蘭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="378"/>
         <source>Chatham Is.</source>
-        <translation>查塔姆島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="379"/>
         <source>Kermadec Is.</source>
-        <translation>克馬德克群島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="380"/>
         <source>N.Z. Subantarctic Is.</source>
-        <translation>新西蘭亞南極島</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="381"/>
         <source>Paraguay</source>
-        <translation>巴拉圭</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="382"/>
         <source>S. Africa</source>
-        <translation>南非</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../logbook/countrydat.cpp" line="383"/>
         <source>Pr. Edward &amp; Marion Is.</source>
-        <translation>愛德華王子和馬里恩島</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2136,89 +2133,89 @@ Reverted Hamlib will be used after restart</source>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="73"/>
         <source>Failed to connect to DX Lab Suite Commander
 </source>
-        <translation>無法連接到DX Lab Suite Commander
+        <translation>DX Lab Suite Commander&apos;a bağlanılamadı
 </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="129"/>
         <source>DX Lab Suite Commander didn&apos;t respond correctly reading frequency: </source>
-        <translation>DX Lab Suite Commander 在讀取頻率時沒有正確回應: </translation>
+        <translation>DX Lab Suite Commander okuma frekansına doğru yanıt vermedi: </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="176"/>
         <source>DX Lab Suite Commander sent an unrecognised TX state: </source>
-        <translation>DX Lab Suite Commander 傳送無法識別的發射狀態: </translation>
+        <translation>DX Lab Suite Commander tanınmayan bir TX durumu gönderdi: </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="182"/>
         <source>DX Lab Suite Commander didn&apos;t respond correctly polling TX status: </source>
-        <translation>DX Lab Suite Commander 沒有正確回應輪詢發射狀態: </translation>
+        <translation>DX Lab Suite Commander, TX durumunu yoklamak için doğru yanıt vermedi: </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="190"/>
         <source>DX Lab Suite Commander rig did not respond to PTT: </source>
-        <translation>DX Lab Suite Commander 無線電設備沒有回應PTT: </translation>
+        <translation>DX Lab Suite Commander cihazı PTT&apos;ye yanıt vermedi: </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="276"/>
         <source>DX Lab Suite Commander didn&apos;t respond correctly polling frequency: </source>
-        <translation>DX Lab Suite Commander 沒有正確回應輪詢頻率: </translation>
+        <translation>DX Lab Suite Commander yoklama frekansına doğru yanıt vermedi: </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="297"/>
         <source>DX Lab Suite Commander didn&apos;t respond correctly polling TX frequency: </source>
-        <translation>DX Lab Suite Commander 沒有正確回應輪詢發射頻率: </translation>
+        <translation>DX Lab Suite Commander, yoklama TX frekansını doğru şekilde yanıtlamadı: </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="316"/>
         <source>DX Lab Suite Commander sent an unrecognised split state: </source>
-        <translation>DX Lab Suite Commander 發送無法識別的異頻狀態: </translation>
+        <translation>DX Lab Suite Commander tanınmayan bir bölünmüş durum gönderdi: </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="322"/>
         <source>DX Lab Suite Commander didn&apos;t respond correctly polling split status: </source>
-        <translation>DX Lab Suite Commander 沒有正確響應輪詢異頻狀態： </translation>
+        <translation>DX Lab Suite Commander, bölünmüş durumu sorgulamaya doğru yanıt vermedi: </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="378"/>
         <source>DX Lab Suite Commander sent an unrecognised mode: &quot;</source>
-        <translation>DX Lab Suite Commander 發送無法識別的模式: &quot;</translation>
+        <translation>DX Lab Suite Commander tanınmayan bir mod gönderdi: &quot;</translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="385"/>
         <source>DX Lab Suite Commander didn&apos;t respond correctly polling mode: </source>
-        <translation>DX Lab Suite Commander 沒有正確響應輪詢模式: </translation>
+        <translation>DX Lab Suite Commander, yoklama moduna doğru yanıt vermedi: </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="402"/>
         <source>DX Lab Suite Commander send command failed
 </source>
-        <translation>DX Lab Suite Commander 發送命令失敗
+        <translation>DX Lab Suite Commander gönderme komutu başarısız oldu
 </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="414"/>
         <source>DX Lab Suite Commander failed to send command &quot;%1&quot;: %2
 </source>
-        <translation>DX Lab Suite Commander 發送命令失敗 &quot;%1&quot;: %2
+        <translation>DX Lab Suite Commander komutunu gönderemedi &quot;%1&quot;: %2
 </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="431"/>
         <source>DX Lab Suite Commander send command &quot;%1&quot; read reply failed: %2
 </source>
-        <translation>DX Lab Suite Commander 發送命令 &quot;%1&quot; 讀取回復失敗: %2
+        <translation>DX Lab Suite Commander gönderme komutu &quot;%1&quot; okuma yanıtı başarısız oldu: %2
 </translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="442"/>
         <source>DX Lab Suite Commander retries exhausted sending command &quot;%1&quot;</source>
-        <translation>DX Lab Suite Commander 發送命令重試失敗 &quot;%1&quot;</translation>
+        <translation>DX Lab Suite Commander tükenen &quot;%1&quot; komutunu göndermeyi yeniden deniyor</translation>
     </message>
     <message>
         <location filename="../DXLabSuiteCommanderTransceiver.cpp" line="507"/>
         <source>DX Lab Suite Commander sent an unrecognized frequency</source>
-        <translation>DX Lab Suite Commander 發送無法識別的頻率</translation>
+        <translation>DX Lab Suite Commander tanınmayan bir frekans gönderdi</translation>
     </message>
 </context>
 <context>
@@ -2226,32 +2223,32 @@ Reverted Hamlib will be used after restart</source>
     <message>
         <location filename="../decodedtext.cpp" line="27"/>
         <source>partial loss of data</source>
-        <translation>部份資料遺失</translation>
+        <translation>kısmi veri kaybı</translation>
     </message>
     <message>
         <location filename="../decodedtext.cpp" line="28"/>
         <source>ALLCALL7.TXT is too short or broken?</source>
-        <translation>ALLCALL7.TXT 太短或破損?</translation>
+        <translation>ALLCALL 7.TEXT çok kısa veya bozuk mu?</translation>
     </message>
     <message>
         <location filename="../decodedtext.cpp" line="29"/>
         <source>nQSOProgress</source>
-        <translation>通聯進度</translation>
+        <translation>nQSOProgress</translation>
     </message>
     <message>
         <location filename="../decodedtext.cpp" line="30"/>
         <source>input signal low rms</source>
-        <translation>輸入信號均方根值低</translation>
+        <translation>giriş sinyali düşük rms</translation>
     </message>
     <message>
         <location filename="../decodedtext.cpp" line="31"/>
         <source>audio gap detected</source>
-        <translation>偵測到音效間隙</translation>
+        <translation>ses boşluğu algılandı</translation>
     </message>
     <message>
         <location filename="../decodedtext.cpp" line="32"/>
         <source>nfqso is out of bandwidth</source>
-        <translation>標準通聯的頻寬不足</translation>
+        <translation>nfqso bant genişliği dışında</translation>
     </message>
 </context>
 <context>
@@ -2259,53 +2256,53 @@ Reverted Hamlib will be used after restart</source>
     <message>
         <location filename="../WFPalette.cpp" line="122"/>
         <source>&amp;OK</source>
-        <translation>確定(&amp;O)</translation>
+        <translation>&amp;Tamam</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="123"/>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation>&amp;İptal</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="126"/>
         <source>&amp;Import...</source>
-        <translation>匯入(&amp;I)...</translation>
+        <translation>&amp;İçe aktar...</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="129"/>
         <source>&amp;Export...</source>
-        <translation>匯出(&amp;E)...</translation>
+        <translation>&amp;Dışa aktar...</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="191"/>
         <source>&amp;Delete</source>
-        <translation>刪除(&amp;D)</translation>
+        <translation>&amp;Sil</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="200"/>
         <source>&amp;Insert ...</source>
-        <translation>插入(&amp;I)...</translation>
+        <translation>&amp;Ekle ...</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="208"/>
         <source>Insert &amp;after ...</source>
-        <translation>插入之後(&amp;a)...</translation>
+        <translation>&amp;sonra ekle...</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="223"/>
         <source>Import Palette</source>
-        <translation>匯入調色板</translation>
+        <translation>Paleti İçe Aktar</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="223"/>
         <location filename="../WFPalette.cpp" line="234"/>
         <source>Palettes (*.pal)</source>
-        <translation>調色板 (*.pal)</translation>
+        <translation>Paletler (*.pal)</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="234"/>
         <source>Export Palette</source>
-        <translation>匯出調色板</translation>
+        <translation>Paleti Dışa Aktar</translation>
     </message>
 </context>
 <context>
@@ -2313,7 +2310,7 @@ Reverted Hamlib will be used after restart</source>
     <message>
         <location filename="../WSPRBandHopping.cpp" line="110"/>
         <source>Gray time:</source>
-        <translation>灰線時間:</translation>
+        <translation>Gri zaman:</translation>
     </message>
 </context>
 <context>
@@ -2321,25 +2318,25 @@ Reverted Hamlib will be used after restart</source>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="51"/>
         <source>File</source>
-        <translation>檔案</translation>
+        <translation type="unfinished">Dosya</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="51"/>
         <source>Progress</source>
-        <translation>進度</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="115"/>
         <location filename="../SampleDownloader/Directory.cpp" line="192"/>
         <source>URL Error</source>
-        <translation>網址錯誤</translation>
+        <translation>URL Hatası</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="116"/>
         <location filename="../SampleDownloader/Directory.cpp" line="193"/>
         <source>Invalid URL:
 &quot;%1&quot;</source>
-        <translation>無效的網址: 
+        <translation>Geçersiz URL:
 &quot;%1&quot;</translation>
     </message>
     <message>
@@ -2351,64 +2348,64 @@ Reverted Hamlib will be used after restart</source>
         <location filename="../SampleDownloader/Directory.cpp" line="228"/>
         <location filename="../SampleDownloader/Directory.cpp" line="235"/>
         <source>JSON Error</source>
-        <translation>JSON錯誤</translation>
+        <translation>JSON Hatası</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="135"/>
         <source>Contents file syntax error %1 at character offset %2</source>
-        <translation>內容檔案在字符偏移量 %2 處出現語法錯誤 %1</translation>
+        <translation>İçerik dosyası syntax hatası %1 character offset %2</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="142"/>
         <source>Contents file top level must be a JSON array</source>
-        <translation>內容檔案頂層必須是JSON陣列</translation>
+        <translation>İçerik dosyası üst seviyesi bir JSON dizisi olmalıdır</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="153"/>
         <source>File System Error</source>
-        <translation>檔案系統錯誤</translation>
+        <translation>Dosya Sistemi Hatası</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="154"/>
         <source>Failed to open &quot;%1&quot;
 Error: %2 - %3</source>
-        <translation>無法開啟 &quot;%1&quot;
-錯誤: %2 - %3</translation>
+        <translation>&quot;%1&quot;açılamadı 
+Hata: %2 - %3</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="211"/>
         <source>Contents entries must be a JSON array</source>
-        <translation>輸入內容必須是JSON陣列</translation>
+        <translation>İçerik girişleri bir JSON dizisi olmalıdır</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="217"/>
         <source>Contents entries must have a valid type</source>
-        <translation>輸入內容必須具有有效的類型</translation>
+        <translation>İçerik girişlerinin geçerli bir türü olmalıdır</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="223"/>
         <source>Contents entries must have a valid name</source>
-        <translation>輸入內容必須具有有效的名稱</translation>
+        <translation>İçerik girişlerinin geçerli bir adı olmalıdır</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="229"/>
         <source>Contents entries must be JSON objects</source>
-        <translation>輸入內容必須是JSON對象</translation>
+        <translation>İçerik girişleri JSON nesneleri olmalıdır</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="236"/>
         <source>Contents directories must be relative and within &quot;%1&quot;</source>
-        <translation>目錄內容必須是相對的並且在 &quot;%1&quot;</translation>
+        <translation>İçerik dizinleri göreli ve &quot;%1&quot; içinde olmalıdır</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="322"/>
         <source>Network Error</source>
-        <translation>網路錯誤</translation>
+        <translation>Ağ hatası</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/Directory.cpp" line="322"/>
         <source>Authentication required</source>
-        <translation>需要認證</translation>
+        <translation>Kimlik doğrulama gerekli</translation>
     </message>
 </context>
 <context>
@@ -2416,7 +2413,7 @@ Error: %2 - %3</source>
     <message>
         <location filename="../EmulateSplitTransceiver.cpp" line="50"/>
         <source>Emulated split mode requires rig to be in simplex mode</source>
-        <translation>模擬異頻模式要求無線電設備處於單工模式</translation>
+        <translation>Emule split mod cihazın simplexde olmasını gerektirir</translation>
     </message>
 </context>
 <context>
@@ -2425,22 +2422,19 @@ Error: %2 - %3</source>
         <location filename="../FileDownload.cpp" line="98"/>
         <source>Network Error - SSL/TLS support not installed, cannot fetch:
 &apos;%1&apos;</source>
-        <translation>網路錯誤 - 未安裝SSL/TLS支持, 無法獲取:
-&apos;%1&apos;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../FileDownload.cpp" line="110"/>
         <source>Network Error - Too many redirects:
 &apos;%1&apos;</source>
-        <translation>網路錯誤 - 重定嚮太多:
-&apos;%1&apos;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../FileDownload.cpp" line="124"/>
         <source>Network Error:
 %1</source>
-        <translation>網路錯誤:
-%1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2448,32 +2442,32 @@ Error: %2 - %3</source>
     <message>
         <location filename="../Configuration.cpp" line="223"/>
         <source>Add Frequency</source>
-        <translation>新增頻率</translation>
+        <translation>Frequency Ekle</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="228"/>
         <source>IARU &amp;Region:</source>
-        <translation>IA&amp;RU 分區:</translation>
+        <translation>IARU &amp;Bölgesi:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="229"/>
         <source>&amp;Mode:</source>
-        <translation>模式(&amp;M):</translation>
+        <translation>&amp;Mod:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="230"/>
         <source>&amp;Frequency (MHz):</source>
-        <translation>頻率 (MH&amp;z):</translation>
+        <translation>&amp;Frekans (MHz):</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="236"/>
         <source>&amp;OK</source>
-        <translation>確定(&amp;O)</translation>
+        <translation>&amp;Tamam</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="237"/>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation>&amp;İptal</translation>
     </message>
 </context>
 <context>
@@ -2482,31 +2476,31 @@ Error: %2 - %3</source>
         <location filename="../FrequencyList.cpp" line="513"/>
         <location filename="../FrequencyList.cpp" line="700"/>
         <source>IARU Region</source>
-        <translation>IARU 分區</translation>
+        <translation>IARU Bölgesi</translation>
     </message>
     <message>
         <location filename="../FrequencyList.cpp" line="534"/>
         <location filename="../FrequencyList.cpp" line="701"/>
         <source>Mode</source>
-        <translation>模式</translation>
+        <translation>Mod</translation>
     </message>
     <message>
         <location filename="../FrequencyList.cpp" line="566"/>
         <location filename="../FrequencyList.cpp" line="702"/>
         <source>Frequency</source>
-        <translation>頻率</translation>
+        <translation>Frekans</translation>
     </message>
     <message>
         <location filename="../FrequencyList.cpp" line="597"/>
         <location filename="../FrequencyList.cpp" line="703"/>
         <source>Frequency (MHz)</source>
-        <translation>頻率 (兆赫)</translation>
+        <translation>Frekans (MHz)</translation>
     </message>
     <message>
         <location filename="../FrequencyList.cpp" line="620"/>
         <location filename="../FrequencyList.cpp" line="704"/>
         <source>Mode Frequency</source>
-        <translation>模式 頻率</translation>
+        <translation>Mod Frekansı</translation>
     </message>
 </context>
 <context>
@@ -2516,84 +2510,84 @@ Error: %2 - %3</source>
         <location filename="../HRDTransceiver.cpp" line="153"/>
         <source>Failed to connect to Ham Radio Deluxe
 </source>
-        <translation>無法連接到 Ham Radio Deluxe
+        <translation>Ham Radio Deluxe&apos;e bağlanılamadı
 </translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="162"/>
         <source>Failed to open file &quot;%1&quot;: %2.</source>
-        <translation>無法開啟檔案 &quot;%1&quot;: %2.</translation>
+        <translation>Dosya açılamadı &quot;%1&quot;: %2.</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="177"/>
         <location filename="../HRDTransceiver.cpp" line="201"/>
         <source>Ham Radio Deluxe: no rig found</source>
-        <translation>Ham Radio Deluxe: 未找到無線電設備</translation>
+        <translation>Ham Radio Deluxe:cihaz bulunamadı</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="425"/>
         <source>Ham Radio Deluxe: rig doesn&apos;t support mode</source>
-        <translation>Ham Radio Deluxe: 無線電設備不支援模式</translation>
+        <translation>Ham Radio Deluxe: cihaz modu desteklemiyor</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="444"/>
         <source>Ham Radio Deluxe: sent an unrecognised mode</source>
-        <translation>Ham Radio Deluxe: 發送了一個無法識別的模式</translation>
+        <translation>Ham Radio Deluxe: tanınmayan bir mod gönderdi</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="479"/>
         <source>Ham Radio Deluxe: item not found in %1 dropdown list</source>
-        <translation>Ham Radio Deluxe: 在 %1 下拉清單中找不到項目</translation>
+        <translation>Ham Radio Deluxe: %1 açılır listesinde öğe bulunamadı</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="523"/>
         <source>Ham Radio Deluxe: button not available</source>
-        <translation>Ham Radio Deluxe: 按鈕不可用</translation>
+        <translation>Ham Radio Deluxe: düğme mevcut değil</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="889"/>
         <source>Ham Radio Deluxe didn&apos;t respond as expected</source>
-        <translation>Ham Radio Deluxe 沒有如預期的那樣響應</translation>
+        <translation>Ham Radio Deluxe beklendiği gibi yanıt vermedi</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="1038"/>
         <source>Ham Radio Deluxe: rig has disappeared or changed</source>
-        <translation>Ham Radio Deluxe: 無線電設備已經消失或改變</translation>
+        <translation>Ham Radio Deluxe: cihaz kayboldu veya değişti</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="1053"/>
         <source>Ham Radio Deluxe send command &quot;%1&quot; failed %2
 </source>
-        <translation>Ham Radio Deluxe 發送命令 &quot;%1&quot; 失敗 %2
+        <translation>Ham Radio Deluxe gönderme komutu &quot;%1&quot; başarısız oldu %2
 </translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="1066"/>
         <location filename="../HRDTransceiver.cpp" line="1079"/>
         <source>Ham Radio Deluxe: failed to write command &quot;%1&quot;</source>
-        <translation>Ham Radio Deluxe: 無法寫入命令 &quot;%1&quot;</translation>
+        <translation>Ham Radio Deluxe: &quot;%1&quot; komutu yazılamadı</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="1096"/>
         <source>Ham Radio Deluxe sent an invalid reply to our command &quot;%1&quot;</source>
-        <translation>Ham Radio Deluxe 對我們的命令發出了無效的回復 &quot;%1&quot;</translation>
+        <translation>Ham Radio Deluxe &quot;%1&quot; komutumuza geçersiz bir yanıt gönderdi</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="1150"/>
         <source>Ham Radio Deluxe failed to reply to command &quot;%1&quot; %2
 </source>
-        <translation>Ham Radio Deluxe 無法回復命令 &quot;%1&quot; %2
+        <translation>Ham Radio Deluxe &quot;%1&quot; %2 komutuna yanıt veremedi
 </translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="1160"/>
         <source>Ham Radio Deluxe retries exhausted sending command &quot;%1&quot;</source>
-        <translation>Ham Radio Deluxe 發送命令重試失敗 &quot;%1&quot;</translation>
+        <translation>Ham Radio Deluxe, &quot;%1&quot; biten gönderme komutunu yeniden deniyor</translation>
     </message>
     <message>
         <location filename="../HRDTransceiver.cpp" line="1173"/>
         <source>Ham Radio Deluxe didn&apos;t respond to command &quot;%1&quot; as expected</source>
-        <translation>Ham Radio Deluxe 沒有回應預期的命令 &quot;%1&quot;</translation>
+        <translation>Ham Radio Deluxe &quot;%1&quot; komutuna beklendiği gibi yanıt vermedi</translation>
     </message>
 </context>
 <context>
@@ -2602,175 +2596,175 @@ Error: %2 - %3</source>
         <location filename="../HamlibTransceiver.cpp" line="219"/>
         <location filename="../HamlibTransceiver.cpp" line="309"/>
         <source>Hamlib initialisation error</source>
-        <translation>Hamlib 初始化錯誤</translation>
+        <translation>Hamlib başlatma hatası</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="264"/>
         <source>Command completed successfully</source>
-        <translation>命令成功完成</translation>
+        <translation>Komut başarıyla tamamlandı</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="265"/>
         <source>Invalid parameter</source>
-        <translation>無效參數</translation>
+        <translation>Geçersiz parametre</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="266"/>
         <source>Invalid configuration</source>
-        <translation>配置無效</translation>
+        <translation>Geçersiz yapılandırma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="267"/>
         <source>Memory shortage</source>
-        <translation>記憶體不足</translation>
+        <translation>Yetersiz hafıza</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="268"/>
         <source>Feature not implemented</source>
-        <translation>功能未實現</translation>
+        <translation>Özellik uygulanmadı</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="269"/>
         <source>Communication timed out</source>
-        <translation>通信超時</translation>
+        <translation>İletişim zaman aşımına uğradı</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="270"/>
         <source>IO error</source>
-        <translation>IO 錯誤</translation>
+        <translation>IO hatası</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="271"/>
         <source>Internal Hamlib error</source>
-        <translation>Hamlib 內部錯誤</translation>
+        <translation>Dahili Hamlib hatası</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="272"/>
         <source>Protocol error</source>
-        <translation>協定錯誤</translation>
+        <translation>Protokol hatası</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="273"/>
         <source>Command rejected by the rig</source>
-        <translation>被無線電設備拒絕的命令</translation>
+        <translation>Cihaz tarafından reddedilen komut</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="274"/>
         <source>Command performed, but arg truncated, result not guaranteed</source>
-        <translation>命令已執行, 但 arg 截斷, 結果不能保證</translation>
+        <translation>Komut gerçekleştirildi, ancak arg kesildi, sonuç garanti değil</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="275"/>
         <source>Feature not available</source>
-        <translation>功能不可用</translation>
+        <translation>Özellik mevcut değil</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="276"/>
         <source>Target VFO unaccessible</source>
-        <translation>目標 VFO 無法訪問</translation>
+        <translation>Hedef VFO&apos;ya erişilemiyor</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="277"/>
         <source>Communication bus error</source>
-        <translation>通信匯流排錯誤</translation>
+        <translation>İletişim veri yolu hatası</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="278"/>
         <source>Communication bus collision</source>
-        <translation>通信匯流排碰撞</translation>
+        <translation>İletişim veriyolu çakışması</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="279"/>
         <source>NULL RIG handle or invalid pointer parameter</source>
-        <translation>空無線電設備控制碼或無效指標參數</translation>
+        <translation>NULL RIG işlemi veya geçersiz işaretçi parametresi</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="280"/>
         <source>Invalid VFO</source>
-        <translation>不正確 VFO</translation>
+        <translation>Geçersiz VFO</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="281"/>
         <source>Argument out of domain of func</source>
-        <translation>參數功能範圍外</translation>
+        <translation>İşlev alanı dışında değer</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="445"/>
         <source>Hamlib settings file error: %1 at character offset %2</source>
-        <translation>Hamlib 設定檔案錯誤: %1 字符偏移量 %2</translation>
+        <translation>Hamlib ayarları dosyası hatası: %1 character offset %2</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="451"/>
         <source>Hamlib settings file error: top level must be a JSON object</source>
-        <translation>Hamlib 設定檔案錯誤: 頂層必須是 JSON 對象</translation>
+        <translation>Hamlib ayarları dosyası hatası: üst düzey bir JSON nesnesi olmalıdır</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="463"/>
         <source>Hamlib settings file error: config must be a JSON object</source>
-        <translation>Hamlib 設定檔案錯誤: 配置必須是JSON對象</translation>
+        <translation>Hamlib ayarları dosyası hatası: config bir JSON nesnesi olmalıdır</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="371"/>
         <source>Unsupported CAT type</source>
-        <translation>不支援 CAT 類型</translation>
+        <translation>Desteklenmeyen CAT türü</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="487"/>
         <source>Hamlib error: %1 while %2</source>
-        <translation>Hamlib 錯誤: %1 當 %2</translation>
+        <translation>Hamlib hatası: %1 iken %2</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="504"/>
         <source>opening connection to rig</source>
-        <translation>開啟連接無線電設備</translation>
+        <translation>cihaza bağlantı açma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="572"/>
         <source>getting current frequency</source>
-        <translation>獲取當前頻率</translation>
+        <translation>geçerli frekansı almak</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="581"/>
         <source>getting current mode</source>
-        <translation>獲取當前模式</translation>
+        <translation>geçerli modu almak</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="630"/>
         <location filename="../HamlibTransceiver.cpp" line="665"/>
         <source>exchanging VFOs</source>
-        <translation>在 VFOs 之間切換</translation>
+        <translation>VFO değişikliği</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="638"/>
         <location filename="../HamlibTransceiver.cpp" line="1238"/>
         <source>getting other VFO frequency</source>
-        <translation>獲取其他 VFO 頻率</translation>
+        <translation>diğer VFO frekansını alma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="647"/>
         <source>getting other VFO mode</source>
-        <translation>獲取其他 VFO 模式</translation>
+        <translation>diğer VFO modunu alma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="675"/>
         <source>setting current VFO</source>
-        <translation>設定當前 VFO</translation>
+        <translation>geçerli VFO&apos;yu ayarlama</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="684"/>
         <source>getting frequency</source>
-        <translation>獲取頻率</translation>
+        <translation>frekans alma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="693"/>
         <source>getting mode</source>
-        <translation>獲取模式</translation>
+        <translation>modu alma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="715"/>
         <location filename="../HamlibTransceiver.cpp" line="1153"/>
         <source>getting current VFO</source>
-        <translation>獲取當前 VFO</translation>
+        <translation>geçerli VFO&apos;yu alma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="774"/>
@@ -2778,7 +2772,7 @@ Error: %2 - %3</source>
         <location filename="../HamlibTransceiver.cpp" line="796"/>
         <location filename="../HamlibTransceiver.cpp" line="1212"/>
         <source>getting current VFO frequency</source>
-        <translation>獲取當前 VFO 頻率</translation>
+        <translation>geçerli VFO frekansını alma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="780"/>
@@ -2788,7 +2782,7 @@ Error: %2 - %3</source>
         <location filename="../HamlibTransceiver.cpp" line="914"/>
         <location filename="../HamlibTransceiver.cpp" line="976"/>
         <source>setting frequency</source>
-        <translation>設定頻率</translation>
+        <translation>ayar frekansı</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="904"/>
@@ -2796,7 +2790,7 @@ Error: %2 - %3</source>
         <location filename="../HamlibTransceiver.cpp" line="1061"/>
         <location filename="../HamlibTransceiver.cpp" line="1074"/>
         <source>getting current VFO mode</source>
-        <translation>獲取當前 VFO 模式</translation>
+        <translation>geçerli VFO modunu alma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="910"/>
@@ -2805,69 +2799,69 @@ Error: %2 - %3</source>
         <location filename="../HamlibTransceiver.cpp" line="1067"/>
         <location filename="../HamlibTransceiver.cpp" line="1080"/>
         <source>setting current VFO mode</source>
-        <translation>設定當前 VFO 模式</translation>
+        <translation>geçerli VFO modunu ayarlama</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="921"/>
         <source>setting VFOB mode</source>
-        <translation>設定 VFOB 模式</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="963"/>
         <location filename="../HamlibTransceiver.cpp" line="1032"/>
         <source>setting/unsetting split mode</source>
-        <translation>設定/取消 異頻模式</translation>
+        <translation>split mod ayarlama/sıfırlama</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="974"/>
         <location filename="../HamlibTransceiver.cpp" line="1014"/>
         <source>setting split mode</source>
-        <translation>設定異頻模式</translation>
+        <translation>split mod ayarlama</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="1002"/>
         <source>setting split TX frequency and mode</source>
-        <translation>設定異頻發射頻率和模式</translation>
+        <translation>split TX frekansını ve modunu ayarlama</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="1007"/>
         <source>setting split TX frequency</source>
-        <translation>設定異頻發射頻率</translation>
+        <translation>split TX frekansını ayarlama</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="1085"/>
         <source>getting split TX VFO mode</source>
-        <translation>獲得異頻發射 VFO 模式</translation>
+        <translation>split TX VFO modunu alma</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="1092"/>
         <source>setting split TX VFO mode</source>
-        <translation>設定異頻發射 VFO 模式</translation>
+        <translation>split TX VFO modunu ayarlama</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="1467"/>
         <source>getting PTT state</source>
-        <translation>獲取PTT 狀態</translation>
+        <translation>PTT durumu almak</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="1503"/>
         <source>setting PTT on</source>
-        <translation>設定PTT 開啟</translation>
+        <translation>PTT&apos;yi açmak</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="1511"/>
         <source>setting PTT off</source>
-        <translation>設定PTT 關閉</translation>
+        <translation>PTT&apos;yi kapatmak</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="1523"/>
         <source>setting a configuration item</source>
-        <translation>設定配置項目</translation>
+        <translation>bir yapılandırma öğesi ayarlama</translation>
     </message>
     <message>
         <location filename="../HamlibTransceiver.cpp" line="1533"/>
         <source>getting a configuration item</source>
-        <translation>獲取配置項目</translation>
+        <translation>bir yapılandırma öğesi alma</translation>
     </message>
 </context>
 <context>
@@ -2876,7 +2870,7 @@ Error: %2 - %3</source>
         <location filename="../IARURegions.cpp" line="58"/>
         <location filename="../IARURegions.cpp" line="85"/>
         <source>IARU Region</source>
-        <translation>IARU 分區</translation>
+        <translation>IARU Bölgesi</translation>
     </message>
 </context>
 <context>
@@ -2884,94 +2878,94 @@ Error: %2 - %3</source>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="39"/>
         <source>&amp;OK</source>
-        <translation>確定(&amp;O)</translation>
+        <translation>&amp;Tamam</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="40"/>
         <source>Save</source>
-        <translation>儲存</translation>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="41"/>
         <source>Save All</source>
-        <translation>儲存全部</translation>
+        <translation>Tümünü Kaydet</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="42"/>
         <source>Open</source>
-        <translation>開啟</translation>
+        <translation>Aç</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="43"/>
         <location filename="../mainwindow.cpp" line="4825"/>
         <source>&amp;Yes</source>
-        <translation>確定(&amp;Y)</translation>
+        <translation>&amp;Evet</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="44"/>
         <source>Yes to &amp;All</source>
-        <translation>確定全部(&amp;A)</translation>
+        <translation>&amp;Tümüne Evet</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="45"/>
         <location filename="../mainwindow.cpp" line="4828"/>
         <source>&amp;No</source>
-        <translation>否(&amp;N)</translation>
+        <translation>&amp;Hayır</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="46"/>
         <source>N&amp;o to All</source>
-        <translation>全部否(&amp;o)</translation>
+        <translation>Tümüne &amp;Hayır</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="47"/>
         <source>Abort</source>
-        <translation>中止</translation>
+        <translation>Durdur</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="48"/>
         <source>&amp;Retry</source>
-        <translation>重試(&amp;R)</translation>
+        <translation>&amp;Tekrar dene</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="49"/>
         <source>Ignore</source>
-        <translation>忽略</translation>
+        <translation>Atla</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="50"/>
         <source>Close</source>
-        <translation>關閉</translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="51"/>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation>&amp;İptal</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="52"/>
         <source>Discard</source>
-        <translation>丟棄</translation>
+        <translation>Geç</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="53"/>
         <source>Help</source>
-        <translation>說明</translation>
+        <translation>Yardım</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="54"/>
         <source>Apply</source>
-        <translation>套用</translation>
+        <translation>Uygula</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="55"/>
         <source>Reset</source>
-        <translation>重置</translation>
+        <translation>Sıfırla</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="56"/>
         <source>Restore Defaults</source>
-        <translation>回復預設值</translation>
+        <translation>Varsayılanları Geri Yükle</translation>
     </message>
 </context>
 <context>
@@ -2979,17 +2973,17 @@ Error: %2 - %3</source>
     <message>
         <location filename="../logqso.ui" line="28"/>
         <source>Click OK to confirm the following QSO:</source>
-        <translation>單擊 確定 確認以下通聯:</translation>
+        <translation>QSO&apos;yu onaylamak için Tamam&apos;a tıklayın:</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="44"/>
         <source>Call</source>
-        <translation>呼號</translation>
+        <translation>Çağrı</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="66"/>
         <source>Start</source>
-        <translation>開始</translation>
+        <translation>Başlangıç</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="82"/>
@@ -3000,32 +2994,32 @@ Error: %2 - %3</source>
     <message>
         <location filename="../logqso.ui" line="98"/>
         <source>End</source>
-        <translation>結束</translation>
+        <translation>Bitiş</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="134"/>
         <source>Mode</source>
-        <translation>模式</translation>
+        <translation>Mod</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="163"/>
         <source>Band</source>
-        <translation>波段</translation>
+        <translation>Band</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="192"/>
         <source>Sent Rpt Rcvd</source>
-        <translation type="unfinished"></translation>
+        <translation>Verilen Rap Alınan</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="235"/>
         <source>Grid</source>
-        <translation>網格</translation>
+        <translation>Grid</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="267"/>
         <source>Name</source>
-        <translation>姓名</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="290"/>
@@ -3035,7 +3029,7 @@ Error: %2 - %3</source>
     <message>
         <location filename="../logqso.ui" line="300"/>
         <source>Tx power</source>
-        <translation>發射功率</translation>
+        <translation>TX gücü</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="310"/>
@@ -3043,12 +3037,12 @@ Error: %2 - %3</source>
         <location filename="../logqso.ui" line="376"/>
         <location filename="../logqso.ui" line="409"/>
         <source>Retain</source>
-        <translation>保留</translation>
+        <translation>Unutma</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="329"/>
         <source>Comments</source>
-        <translation>評語</translation>
+        <translation>Yorumlar</translation>
     </message>
     <message>
         <location filename="../logqso.ui" line="362"/>
@@ -3058,27 +3052,27 @@ Error: %2 - %3</source>
     <message>
         <location filename="../logqso.ui" line="395"/>
         <source>EQSL MSG</source>
-        <translation>EQSL 訊息</translation>
+        <translation>EQSL Mesajı</translation>
     </message>
     <message>
         <location filename="../logqso.cpp" line="29"/>
         <source>&amp;OK</source>
-        <translation>確定(&amp;O)</translation>
+        <translation>&amp;Tamam</translation>
     </message>
     <message>
         <location filename="../logqso.cpp" line="30"/>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation>&amp;İptal</translation>
     </message>
     <message>
         <location filename="../logqso.cpp" line="78"/>
         <source>Enter Grid error: 4/6/8/10 char grid will be accepted</source>
-        <translation>輸入網格錯誤: 祗接受 4/6/8/10 字元網格</translation>
+        <translation type="unfinished">Grid Giriş hatası: 4/6/8/10 karakter kabul edilir</translation>
     </message>
     <message>
         <location filename="../logqso.cpp" line="263"/>
         <source>Cannot open &quot;%1&quot; for append: %2</source>
-        <translation>無法開啟 &quot;%1&quot; 對於附加: %2</translation>
+        <translation>%2 eklemek için &quot;%1&quot; açılamıyor</translation>
     </message>
 </context>
 <context>
@@ -3086,23 +3080,23 @@ Error: %2 - %3</source>
     <message>
         <location filename="../mainwindow.ui" line="26"/>
         <source>JTDX</source>
-        <translation></translation>
+        <translation>JTDX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="175"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Avg: accumulated average DT of decoded signals on current band.&lt;/p&gt;&lt;p&gt;Lag: it is decoder lag calculated relatively to beginning of next interval, negative values mean there is spare time available to increase decoding depth, positive values is decoder&apos;s lag into TX or next interval meaning there may be no enough CPU resources for selected decoding depth to provide reliable signal transmission.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Lag depends on CPU performance, noise conditions, band fullness and other programs using computer, it can be decreased by reducing waterfall bandwidth. If Lag is constantly negative then CPU handling well interval decoding and you can try to make decoding more aggressive to get more decodes.&lt;/p&gt;&lt;p&gt;FT8: if Lag is 0 .. 0.4 then you can still use Autoseq 3/7 (autoselect will trigger change of TX message early enough to transmit full message). If Lag &gt; 0.4 then you should try to decrease decoding aggressivity. If still Lag &gt; 0.4 then Autoseq 2/6 should be used as responding to incoming call will be partially damaged at transmission in AutoSeq 3/7. If constantly Lag  &gt; 2 then your CPU is unsuitable to operate in FT8 with current decoder settings. Sure You can monitor as SWL.&lt;/p&gt;&lt;p&gt;/xx: number of decoded messages in last interval.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;平均: 當前波段解碼信號的累計平均時差.&lt;/p&gt;&lt;p&gt;滯後: 它是計算相對於下一個間隔的開始解碼的滯後, 負值意味著有空閒時間可以新增解碼深度, 正值表示解碼延遲到發射或下一個間隔, 這意味著可能沒有足夠的中央處理器資源用於所選的解碼深度來提供可靠的訊息傳輸.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;滯後取決於中央處理器性能, 雜訊條件, 頻帶充滿度和電腦其他使用的程式, 可以通過減少瀑布頻寬來降低滯後. 如果滯後是持續負值, 那麼中央處理器有良好處理間隔解碼, 你可以嘗試使解碼更積極, 以獲得更多的解碼.&lt;/p&gt;&lt;p&gt;FT8: 如果滯後是 0 至 0.4,則您仍可以使用 自動程式 3/7 (自動選擇將足夠早地觸發發射訊息, 足以傳輸完整訊息). 如果滯後大於 0.4, 那麼你應該嘗試降低解碼深度. 如果滯後仍然大於 0.4, 則應使用自動程式 2/6 應用作回應呼叫, 因為在自動程式 3/7 發射時部分訊息將損壞. 如果滯後持續大於 2, 則中央處理器不適合在當前解碼設定下在 FT8 中運行. 當然, 你可以像SWL一樣監聽.&lt;/p&gt;&lt;p&gt;/xx: 上次間隔中解碼的訊息數目.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Avg (Ortalama): Geçerli bantta kodu çözülen sinyallerin toplamsal ortalama DT&apos;si.&lt;/p&gt;&lt;p&gt;Lag (Gecikme): Sonraki döngünün başlangıcına göre hesaplanan kod çözücü gecikmesidir. Negatif değerler, kod çözme derinliğini artırmak için boş zaman olduğu anlamına gelir. Pozitif değerler kod çözücünün TX&apos;e veya sonraki döngüye girme gecikmesidir. Yani seçilen kod çözme derinliği için güvenilir sinyal iletimi sağlamaya yeterli CPU kaynağı olmayabilir.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p &gt;Gecikme, CPU performansına, gürültü koşullarına, bant doluluğuna ve bilgisayarı kullanan diğer programlara bağlıdır. Şelalenin bant genişliği daraltılarak azaltılabilir. Gecikme sürekli olarak negatifse, CPU aralıklı kod çözme işlemini iyi gerçekleştirir ve daha fazla kod çözme elde etmek için kod çözmeyi daha agresif hale getirmeyi deneyebilirsiniz.&lt;/p&gt;&lt;p&gt;FT8: Gecikme 0 .. 0.4 ise, yine de Autoseq 3/7&apos;yi kullanabilirsiniz (otomatik seçim, tam mesajı iletmek için yeterince erken TX mesajının değişimini tetikleyecektir). Gecikme &gt; 0.4 ise, kod çözme saldırganlığını azaltmaya çalışmalısınız. Hala Gecikme &gt; 0.4 ise, AutoSeq 2/6, AutoSeq 3/7&apos;deki iletimde kısmen zarar göreceğinden, gelen çağrıya yanıt vermek için kullanılmalıdır. Sürekli Gecikme &gt; 2 ise, CPU&apos;nuz mevcut dekoder ayarlarıyla FT8&apos;de çalışmaya uygun değildir. Elbette SWL olarak izleyebilirsiniz.&lt;/p&gt;&lt;p&gt;/xx: Son aralıktaki kodu çözülen mesaj sayısı.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="181"/>
         <location filename="../mainwindow.ui" line="2854"/>
         <source>UTC           dB            DT           Freq          Dr </source>
-        <translation>UTC          分貝           時差          頻率          Dr </translation>
+        <translation>UTC           dB            DT           Freq          Dr </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="283"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Lost audio blocks. FT8 15sec interval has 52 blocks of audio data, where decoder being triggered if audio data reached 51 blocks in &apos;SWL/late strat of decoder&apos; modes or 50 blocks otherwise. Under Windows OS there were multiple reports audio data being lost, for Windows OS there is workaround implemented to start FT8 decoder if there at least 46 out of 52 audio blocks received. Lost audio blocks notification lets user know there is something wrong in the setup.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;丟失的音頻片段. FT8 15秒間隔有 52 個音訊數據塊, 如果音訊數據在 &apos;SWL/解碼器的後期層&apos; 模式下達到 51 個塊, 或者以其他模式達到 50 個塊,則觸發解碼器. 在 Windows 作業系統下, 有多個報告音訊數據丟失, 對於 Windows 作業系統, 如果收到 52 個音訊塊中至少有 46 個,則實施啟動 FT8 解碼器的解決方法. 丟失的音訊塊通知可讓使用者知道設定中出現問題 .&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kayıp ses blokları. FT8&apos;in 15sn&apos;lik döngüsünde 52 ses verisi bloğu vardır. Burada dekoder, ses verileri &apos;SWL/dekoderin geç katmanı&apos; modlarında 51 bloğa veya aksi takdirde 50 bloğa ulaştığında tetiklenir. Windows işletim sistemi altında ses verilerinin kaybolduğuna dair birden fazla rapor vardır. Windows işletim sistemi için 52 ses bloğundan en az 46&apos;sı alındığında, FT8 kod çözücüyü başlatmak için uygulanan bir geçici çözüm vardır. Kayıp ses blokları bildirimi, kullanıcının kurulumda yanlış bir şey olduğunu bilmesini sağlar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="289"/>
@@ -3114,17 +3108,17 @@ Error: %2 - %3</source>
         <location filename="../mainwindow.cpp" line="7646"/>
         <location filename="../mainwindow.cpp" line="7657"/>
         <source>Band Activity</source>
-        <translation>波段活動</translation>
+        <translation>Band Hareketi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="401"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If orange or red there has been a rig control failure, click to reset and read the dial frequency.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果出現橙色或紅色表示無線電設備控制故障, 請單擊以重置並讀取頻率.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Turuncu veya kırmızı ise, bir teçhizat kontrol arızası olmuştur. Sıfırlamak ve arama frekansını okumak için tıklayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="421"/>
         <source>?</source>
-        <translation></translation>
+        <translation>?</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="491"/>
@@ -3143,99 +3137,99 @@ Error: %2 - %3</source>
         <location filename="../mainwindow.ui" line="1167"/>
         <location filename="../mainwindow.ui" line="1219"/>
         <source>USB dial frequency</source>
-        <translation>上邊帶頻率</translation>
+        <translation>USB arama frekansı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1272"/>
         <source>Menu</source>
-        <translation>選單</translation>
+        <translation>Menü</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1282"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use this control to show or hide spot edit line&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用此控件顯示或隱藏Spot編輯行&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Spot düzenlemeyi göstermek veya gizlemek için bu kontrolü kullanın &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1288"/>
         <source>Spt</source>
-        <translation></translation>
+        <translation>Spt</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1307"/>
         <source>Select operating band or frequency in MHz</source>
-        <translation>波段選擇兆赫</translation>
+        <translation>Çalışma bandını veya frekansını MHz cinsinden seçin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1352"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DXSummit spot information field preview.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DXSummit spot 訊息預覽.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DXSummit spot bilgisi önizleme.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1355"/>
         <source>info:</source>
-        <translation>訊息:</translation>
+        <translation>info:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1367"/>
         <location filename="../mainwindow.ui" line="1377"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DXSummit spot line edit: mode in the information field being spotted automatically, user can add own text message in the information field. Available macros: #D is for distance, #G is for &quot;Grid1&lt;&gt;Grid2&quot;, #R is for report value. Information field preview is available.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DXSummit spot 編輯: 模式在訊息字段中自動被發現,用戶可以在訊息字段中新增自己的文本訊息.可用宏:#D表示距離,#G表示網格1 網格2,#R表示報表值.訊息字段預覽可用.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DXSummit spot düzenleme: Bilgi alanındaki mod otomatik olarak belirlenir, kullanıcı bilgi alanına kendi metin mesajını ekleyebilir. Kullanılabilir makrolar: #D mesafe içindir, #G &quot;Grid1&lt;&gt;Grid2&quot; içindir, #R rapor değeri içindir. Bilgi alanı önizlemesi mevcuttur. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1370"/>
         <source>edit</source>
-        <translation>編輯</translation>
+        <translation>düzenle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1384"/>
         <location filename="../mainwindow.ui" line="1394"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Type of the propagation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;傳播的類型.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Propagasyon türü.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1387"/>
         <source>prop</source>
-        <translation>傳播</translation>
+        <translation>prop</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1545"/>
         <source>DX Grid</source>
-        <translation>DX 網格</translation>
+        <translation>DX Grid</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1567"/>
         <source>Locator of station to be worked</source>
-        <translation>正在通聯的電臺的網格</translation>
+        <translation>Çalışılan istasyonun Locator&apos;ü</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1586"/>
         <source>Callsign of station to be worked</source>
-        <translation>正在通聯的電臺呼號</translation>
+        <translation>Çalışılan istasyonun çağrı işareti</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1605"/>
         <source>Search for callsign in database</source>
-        <translation>在數據庫中搜索此呼號的網格數據</translation>
+        <translation>Veritabanında çağrı işareti arayın</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1608"/>
         <source>&amp;Lookup</source>
-        <translation>檢索(&amp;L)</translation>
+        <translation>&amp;Arama</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1621"/>
         <source>Add callsign and locator to database</source>
-        <translation>這呼號及網格的數據新增在數據庫中</translation>
+        <translation>Veritabanına çağrı işareti ve locator ekleyin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1624"/>
         <source>Add</source>
-        <translation>新增</translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1659"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click by left mouse&apos;s button to spot DX call to dxsummit.fi (spotting shall be enabled in Reporting tab of the settings). Click by right mouse&apos;s button to add callsign to the &apos;Hide messages from callsigns&apos; filter.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;單擊鼠標左鍵可發報至 Dxsummit.fi 的dx網站 (在日誌設定頁中的發報選項中啟用發報).單擊鼠標右鍵, 將呼號新增到 &quot;隱藏此呼號的訊息篩選器中.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DX çağrısını DXsummit.fi&apos;ye spotlamak için farenin sol tuşu ile tıklayın. (Spot, ayarların Raporlama sekmesinde etkinleştirilecektir). &apos;Çağrı işaretlerinden mesajları gizle&apos; filtresine çağrı işareti eklemek için farenin sağ tuşu ile tıklayın. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1662"/>
@@ -3243,198 +3237,198 @@ Error: %2 - %3</source>
         <location filename="../mainwindow.cpp" line="6680"/>
         <location filename="../mainwindow.cpp" line="7163"/>
         <source>DX Call</source>
-        <translation>DX 呼號</translation>
+        <translation>DX Çağrı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1963"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;01:23:45 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;01:23:45 &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1997"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Toggle TX minute&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;切換發射時間周期&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TX döngüsünü değiştir&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2003"/>
         <source>TX minute</source>
-        <translation>TX 分鐘</translation>
+        <translation>TX döngüsü</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2330"/>
         <source>Audio Rx frequency</source>
-        <translation>音頻接收頻率</translation>
+        <translation>RX ses frekansı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2230"/>
         <location filename="../mainwindow.ui" line="2336"/>
         <location filename="../mainwindow.ui" line="5805"/>
         <source>  Hz</source>
-        <translation>  赫茲</translation>
+        <translation>  Hz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2339"/>
         <source>Rx  </source>
-        <translation>接收  </translation>
+        <translation>Rx  </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2397"/>
         <source>Toggle Tx mode</source>
-        <translation>切換發射模式</translation>
+        <translation>TX modu değiştir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2400"/>
         <source>Tx JT9 @</source>
-        <translation></translation>
+        <translation>Tx JT9 @</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2043"/>
         <location filename="../mainwindow.cpp" line="3570"/>
         <location filename="../mainwindow.cpp" line="3593"/>
         <source>Hound</source>
-        <translation>獵犬</translation>
+        <translation>Avcı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2071"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Signal report (dB)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;信號報告 (分貝)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sinyal raporu (dB)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2074"/>
         <source>Report </source>
-        <translation>報告 </translation>
+        <translation>Rapor </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2224"/>
         <source>Audio Tx frequency</source>
-        <translation>音頻發射頻率</translation>
+        <translation>TX ses frekansı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2233"/>
         <location filename="../mainwindow.ui" line="5808"/>
         <source>Tx  </source>
-        <translation>發射  </translation>
+        <translation>Tx  </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2446"/>
         <location filename="../mainwindow.cpp" line="1836"/>
         <location filename="../mainwindow.cpp" line="2333"/>
         <source>S meter</source>
-        <translation>電平表</translation>
+        <translation>S metre</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2275"/>
         <source>▲</source>
-        <translation></translation>
+        <translation>▲</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2303"/>
         <source>▼</source>
-        <translation></translation>
+        <translation>▼</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2361"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use different Rx/Tx AF frequencies or set Tx frequency equal to Rx AF frequency.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用不同的 接收/發射 音頻頻率或將發射頻率設定為等於接收音頻頻率.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Farklı Rx/Tx AF frekansları kullanabilir veya Tx frekansını Rx AF frekansına eşit olarak ayarlayabilirsiniz. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2367"/>
         <source>Split Tx/Rx</source>
-        <translation>異頻 Tx/Rx</translation>
+        <translation>Split Tx/Rx</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2300"/>
         <source>Set Rx frequency to Tx Frequency</source>
-        <translation>將接收頻率位置移往發射頻率位置</translation>
+        <translation>Rx frekansını Tx Frekansına ayarla</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2099"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable semi-automatic message sequencing. In calling CQ operation autoselect by default searching for response with the highiest priority.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;啟用半自動訊息排序.在呼號 CQ 操作時, 預設值自動選擇搜索具有最高優先級的響應.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Yarı otomatik mesaj sıralamasını etkinleştirin. CQ çağırırken, en yüksek önceliğe sahip yanıtı aramak için varsayılan olarak otomatik seçim yapın. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2113"/>
         <location filename="../mainwindow.ui" line="6242"/>
         <source>AutoSeq</source>
-        <translation>自動程序</translation>
+        <translation>OtoSeri</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2143"/>
         <source>AutoTX</source>
-        <translation>自動發射</translation>
+        <translation>OtoTX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2272"/>
         <source>Set Tx frequency to Rx Frequency</source>
-        <translation>將發射頻率位置移往接收頻率位置</translation>
+        <translation>TX frekansını RX frekansına ayarlayın</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2159"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use this control to show or hide wanted callsign/prefix edit lines&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用此控件可顯示或隱藏想要的回叫/前綴編輯行&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aranan Çağrı İşareti/Önek düzenleme satırlarını göstermek veya gizlemek için bu kontrolü kullanın &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2162"/>
         <source>Wanted</source>
-        <translation>渴望</translation>
+        <translation>Aranan</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2181"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Candidate list thinning, this feature is dedicated to wideband decoding with slow CPUs and &apos;minimum&apos; wideband decoder sensitivity setting. Candidate list being sorted by synchonization pattern level with applied DT weight factor, candidates with low value will not be processed by decoder to decrease time spent for interval decoding. This feature is not applied to QSO RX frequency.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;候選清單細化, 該特性專用於慢速中央處理器的寬頻帶解碼和 &apos;最小&apos; 寬頻帶解碼器靈敏度設定. 按應用的 DT 權重因數的同步模式級別對候選清單進行排序, 低值候選者將不由解碼器處理, 以減少間隔解碼所花費的時間. 此功能不應用於通聯接收頻率.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aday listesi incelmesi, bu özellik yavaş CPU&apos;lar ve &apos;minimum&apos; geniş bant kod çözücü hassasiyet ayarı ile geniş bant kod çözmeye adanmıştır. Aday listesi, uygulanan DT ağırlık faktörü ile senkronizasyon modeli seviyesine göre sıralanır, düşük değerli adaylar, aralıklı kod çözme için harcanan zamanı azaltmak için kod çözücü tarafından işlenmez. Bu özellik, QSO RX frekansına uygulanmaz. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2440"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The button provides choice between S-meter units and dBm. CAT shall be set up via Hamlib or TCI to get S-meter working, some rigs may not be supported.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;該按鈕提供了電平單位和dBm之間的選擇. CAT 應設定通過 Hamlib 或 TCI 以電平表工作，某些無線電設備可能不支援.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Düğme, S-metre birimleri ve dBm arasında seçim sağlar. CAT, S-metrenin çalışması için Hamlib veya TCI aracılığıyla kurulacaktır, bazı donanımlar desteklenmeyebilir. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2493"/>
         <source> Pwr</source>
-        <translation> 功率</translation>
+        <translation> Güç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2515"/>
         <source>Adjust Tx audio level</source>
-        <translation>調整發射音頻輸出音量</translation>
+        <translation>TX ses seviye ayarı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2584"/>
         <location filename="../mainwindow.ui" line="2600"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Comma separated list of the wanted callsigns. Autoselection under AutoSeq 1..7 will process wanted callsign according to the choosen notifications/priorities, this functionality is not supported under AutoSeq0. Non FT8 modes only: for compound callsigns the base callsign shall be used in the list, sometimes base callsign will be copied from the decoded message: when logging such QSO user will have to change correspondent&apos;s callsign to compound one if needed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;逗號分隔的通緝呼號清單. 自動程序 1..7下的自動選擇..7將根據所選擇的 通知/優先級 處理所需的呼號, 此功能在 自動程序0 不受支持.僅適用於非FT8模式:對於復合呼號, 清單中應使用基本呼號, 有時基本呼號將從解碼的訊息中復制:當登錄時, 這種通聯用戶將不得不更改相應的如果需要的話, 用呼號錶示復合呼號.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aranan çağrı işaretlerinin virgülle ayrılmış listesi. OtoSeri 1..7 altında otomatik seçim, istenen çağrı işaretini seçilen bildirimlere/önceliklere göre işleyecektir. Bu işlevsellik OtoSeri0 altında desteklenmez. Yalnızca FT8 olmayan modlarda; bileşik çağrı işaretleri için listede temel çağrı işareti kullanılacaktır, bazen temel çağrı işareti kodu çözülmüş mesajdan kopyalanacaktır: böyle bir QSO kullanıcısının günlüğe kaydederken, gerekirse bildirimcinin çağrı işaretini bileşik çağrı işaretiyle değiştirmesi gerekecektir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2587"/>
         <source>callsign:</source>
-        <translation>呼號:</translation>
+        <translation>Çağrı İşareti:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2613"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Clear callsign from this list at logging of the QSO.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在記錄通聯時清除此清單中的呼號.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QSO loglanınca bu listeden çağrı işaretini temizleyin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2619"/>
         <location filename="../mainwindow.ui" line="2695"/>
         <source>Clr</source>
-        <translation>清除</translation>
+        <translation>Tmz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2666"/>
         <location filename="../mainwindow.ui" line="2682"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Comma separated list of the wanted grid squares where four char grid being supported only. Autoselection under AutoSeq 1..7 will process wanted grid according to the choosen notifications/priorities, this functionality is not supported under AutoSeq0.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;逗號分隔的所需網格方塊清單, 其中僅支援四個字符網格.自動程序下的 1..7 自動選擇將根據選擇的通知/優先級處理所需的網格, 此功能在自動請求下不受支援 自動程序0.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Yalnızca dört karakter gridin desteklendiği istenen gridlerin virgülle ayrılmış listesi. OtoSeri 1..7 altında otomatik seçim, istenen gridi seçilen bildirimlere/önceliklere göre işleyecektir, bu işlevsellik OtoSeri0 altında desteklenmez. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2669"/>
         <source>grid:</source>
-        <translation>網格:</translation>
+        <translation>Grid:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2689"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Clear grid from this list at logging of the QSO.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在記錄通聯時從此清單中清除網格.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QSO loglanınca listeden gridi temizleyin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2708"/>
@@ -3455,7 +3449,7 @@ UA2,UA9,UK,UN,UR,V2,V3,V4,V5,V6,V7,V8,VE,VK,VK0H,VK0M,VK9C,VK9L,VK9M,VK9N,VK9W,V
 VP2E,VP2M,VP2V,VP5,VP6,VP6/D,VP8,VP8/G,VP8/H,VP8/O,VP8/S,VP9,VQ9,VR,VU,VU4,VU7,XE,&lt;br&gt;
 XF4,XT,XU,XW,XX9,XZ,YA,YB,YI,YJ,YK,YL,YN,YO,YS,YU,YV,YV0,Z2,Z3,Z6,Z8,ZA,ZB,ZC4,ZD7,&lt;br&gt;
 ZD8,ZD9,ZF,ZK3,ZL,ZL7,ZL8,ZL9,ZP,ZS,ZS8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;被渴望國家的逗號分隔名單: 應在此清單中使用主要國家前綴.對於復合呼號前綴, 在呼號的開頭被識別. 自動程序下的 1..7 將根據選擇通知優先級處理所需的國家/, 在 自動程序0 下不支援此功能.非 FT8 模式: 有時基本的呼號將從解碼的訊息復制: 在記錄這樣的通聯用戶將改變代理的呼號復合一個, 如果需要.主要國家前綴清單: 1A,1S,3A,3B6,3B8,3B9,3C,3C0,3D2,3D2/C,&lt;br&gt;
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aranan ülkelerin virgülle ayrılmış listesi: Bu listede ana ülke ön eki kullanılacaktır. Bileşik çağrı işaretleri için ön ek, çağrı işaretinin başında tanınır. OtoSeri 1..7 altında otomatik seçim, istenen ülkeyi seçilen bildirimlere/önceliklere göre işleyecektir, bu işlevsellik OtoSeri0 altında desteklenmez. Yalnızca FT8 olmayan modlarda: bazen temel çağrı işareti, kodu çözülen mesajdan kopyalanır: böyle bir QSO kullanıcısının oturum açarken, gerekirse bildiricinin çağrı işaretini bileşik olanla değiştirmesi gerekir. Ana ülke öneklerinin listesi: 1A,1S,3A,3B6,3B8,3B9,3C,3C0,3D2,3D2/C,&lt;br&gt;
 3D2/R,3DA,3V,3W,3X,3Y/B,3Y/P,4J,4L,4O,4S,4U1I,4U1U,*4U1V,4W,4X,5A,5B,5H,5N,5R,5T,&lt;br&gt;
 5U,5V,5W,5X,5Z,6W,6Y,7O,7P,7Q,7X,8P,8Q,8R,9A,9G,9H,9J,9K,9L,9M2,9M6,9N,9Q,9U,9V,9X,&lt;br&gt;
 9Y,A2,A3,A4,A5,A6,A7,A9,AP,BS7,BV,BV9P,BY,C2,C3,C5,C6,C9,CE,CE0X,CE0Y,CE0Z,CE9,CM,&lt;br&gt;
@@ -3475,189 +3469,189 @@ ZD8,ZD9,ZF,ZK3,ZL,ZL7,ZL8,ZL9,ZP,ZS,ZS8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</tra
     <message>
         <location filename="../mainwindow.ui" line="2726"/>
         <source>country:</source>
-        <translation>國家:</translation>
+        <translation>Ülke:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2932"/>
         <location filename="../mainwindow.cpp" line="7598"/>
         <source>Rx Frequency</source>
-        <translation>接收訊息</translation>
+        <translation>RX Frekansı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3018"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Transmit a pure tone. Tune timer can be set in General tab of the settings.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;傳送一個固定的音調. 可以在一般設定選項中設定 調諧計時器.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Saf bir ton iletin. Tuner zamanlayıcı ayarların Genel sekmesinde ayarlanabilir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3032"/>
         <location filename="../mainwindow.cpp" line="8275"/>
         <source>&amp;Tune</source>
-        <translation>調諧(&amp;T)</translation>
+        <translation>&amp;Tune</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3060"/>
         <source>Start monitoring</source>
-        <translation>開始監聽訊號</translation>
+        <translation>İzlemeye başla</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3074"/>
         <source>&amp;Monitor</source>
-        <translation>監聽(&amp;M)</translation>
+        <translation>&amp;Monitör</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3105"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bypass all text filters option, duplicates action in the Misc tab.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;繞過設置過濾頁, 和雜項選單中的隱藏及過濾選項.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tüm metin filtrelerini atla seçeneği, Çeşitli sekmesinde eylemi kopyalar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3119"/>
         <source>Bypass</source>
-        <translation>繞過過濾</translation>
+        <translation>Bypass</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3150"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Single shot QSO AutoSeq option&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;自動程序 本次通聯結束後停止發射&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tek QSO OtoSeri seçeneği&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3164"/>
         <source>1 QSO</source>
-        <translation>單次通聯</translation>
+        <translation>1 QSO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3195"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Answer worked B4 AutoSeq option&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;自動程序 回答曾經通聯過的電臺&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Önceden çalışılmışa OtoSeri cevap seçeneği&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3209"/>
         <source>AnsB4</source>
-        <translation>回答B4</translation>
+        <translation>CvpB4</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3237"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Stop monitoring input signal, stop playing pack of the audio wav files&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;停止監聽接收輸入信號, 及停止播放音頻 wav 檔案&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Giriş sinyalini izlemeyi durdurun. Wav ses dosyalarının paketini oynatmayı durdurun&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3240"/>
         <source>&amp;Stop</source>
-        <translation>停止(&amp;S)</translation>
+        <translation>&amp;Durdur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3327"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In base mode activates AGC compensation functionality for incoming audio signal in JTDX. Other mode adds AGC control in receiver by JTDX displaying values on the button, it shall be activated in advance in Audio tab of Configuration settings in case if it is supported by transceiver capabilities and in Hamlib or over ExpertSDR TCI interface. Both modes can raise up decoding efficiency if AGC must be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在基本模式下, 激活 JTDX 中傳入音頻信號的 AGC 補償功能. 其他模式通過 JTDX 在按鈕上顯示值, 在接收器中增加 AGC 控制, 如果收發機能支持在 Hamlib 或 ExpertSDR TCI 接口上, 應在配置設置的音頻選項卡中提前激活. 如果必須使用 AGC, 這兩種模式都可以提高解碼效率.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3498"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Decode again most recent Rx period or last played wav audio file for any Hint/Filter/SWL mode buttons combination&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;再次解碼, 最新的接收期間或最後播放的 wav 音頻檔案, 或對於任何 自動增益/多次解碼/窄頻解碼 模式按鈕組合再次解碼.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Herhangi bir İpucu/Filtre/SWL modu düğmeleri kombinasyonu için en son RX döngüsünün veya en son çalınan wav ses dosyasının kodunu tekrar çözün&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3512"/>
         <source>Dec&amp;ode</source>
-        <translation>解碼(&amp;o)</translation>
+        <translation>K&amp;odu Çöz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3470"/>
         <location filename="../mainwindow.cpp" line="2483"/>
         <location filename="../mainwindow.cpp" line="2491"/>
         <source>E&amp;nable Tx</source>
-        <translation>啟用發射(&amp;n)</translation>
+        <translation>TX Etki&amp;n</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3431"/>
         <location filename="../mainwindow.cpp" line="2509"/>
         <location filename="../mainwindow.cpp" line="8287"/>
         <source>&amp;Halt Tx</source>
-        <translation>終止發射(&amp;H)</translation>
+        <translation>&amp;TX&apos;i durdur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3540"/>
         <source>Enter this QSO in ADIF log</source>
-        <translation>此次通聯紀錄存入日誌</translation>
+        <translation>Bu QSO&apos;yu ADIF loga kaydet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3543"/>
         <source>Log &amp;QSO</source>
-        <translation>記錄通聯(&amp;Q)</translation>
+        <translation>Log &amp;QSO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3372"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Left mouse button: Erase decoded text(left) window. Right mouse button: Erase QSO Frequency window. Double-click for both windows.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;鼠標左鍵: 擦除波段活動(左) 視窗.鼠標右鍵: 擦除接收訊息視窗(右)視窗.雙擊擦除這兩個視窗.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sol fare düğmesi: Kodu çözülen metni sil (sol pencere). Sağ fare düğmesi: QSO Frekansı metnini sil (sağ pencere). Her iki pencere için çift tıklayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3375"/>
         <source>&amp;Erase</source>
-        <translation>擦除視窗(&amp;E)</translation>
+        <translation>&amp;Sil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3675"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Increase number of decoding attempts&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;新增解碼嘗試次數&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kod çözme girişim sayısını artırın&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3689"/>
         <source>S&amp;WL mode</source>
-        <translation>S&amp;WL 模式</translation>
+        <translation>S&amp;WL modu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3573"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activates group of decoders based on the matched filters, in FT8 mode activates FT8AP functionality&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在FT8模式下激活一組基於匹配濾波器的解碼器, 激活FT8AP解碼功能&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Eşleşen filtrelere göre kod çözücü grubunu etkinleştirir, FT8 modunda FT8AP işlevselliğini etkinleştirir&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3587"/>
         <source>Hint</source>
-        <translation>增強解碼</translation>
+        <translation>İpucu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3279"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bandwidth, FT8 170Hz, FT8 hound mode 580Hz, FT4 274Hz, JT9 115Hz, T10 225Hz. JT65 signals: 580Hz decoding, 300 Hz for displaying messages. Filter is centered to the RX signal spectrum. Filter functionality can not improve signal decoding, it is dedicated for use with slow CPUs to let decoder finish processing before signal transmission and avoid message change at transmission. All incoming calls out of Filter bandwidth will be lost, use Filter functionaly only if it is really needed for your CPU.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;帶寬, FT8 170hz, FT8 獵犬模式 580hz,FT4 274Hz,  JT9 115hz,  T10 225Hz. JT65 信號: 580hz 解碼, 300 hz 用於顯示訊息. 濾波器以頻譜的接收信號為中心. 濾波器功能不能改善信號解碼, 它專用於慢速處理器, 讓解碼器在信號傳輸前完成處理. 避免傳輸時的訊息變化. 全部超出過濾頻寬的來電都將丟失, 只有當您的CPU確實需要過濾功能時才使用它.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bant genişliği, FT8 170Hz, FT8 avcı modu 580Hz, FT4 274Hz, JT9 115Hz, T10 225Hz. JT65 sinyalleri: 580Hz kod çözme, mesajları görüntülemek için 300 Hz. Filtre, RX sinyal spektrumuna ortalanmıştır. Filtre işlevi sinyal kod çözmeyi iyileştiremez, kod çözücünün sinyal iletiminden önce işlemeyi bitirmesine ve iletimde mesaj değişikliğini önlemesine izin vermek için yavaş CPU&apos;larla kullanım için ayrılmıştır. Filtre bant genişliğinden gelen tüm aramalar kaybolacak, Filtre işlevini yalnızca CPU&apos;nuz için gerçekten gerekliyse kullanın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2029"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable FT8 DXpedition Hound mode (left button), SuperHound mode (rigth button). MSHV multianswering mode is supported in common FT8 bands, WSJT-X DXpedition mode with frequency control is supported on the special DXpedition frequencies.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;啟用 FT8 DX遠徵獵犬模式 (左鍵), 超級獵犬模式 (右鍵). 常見的 FT8 頻段支持 MSHV 多路應答模式, 特殊 DX遠徵頻率支持 WSJT-X DX遠徵模式和頻率控制.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2633"/>
         <location filename="../mainwindow.ui" line="2649"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Comma separated list of the wanted prefixes/suffixes. Autoselection under AutoSeq 1..7 will process wanted prefix/suffix according to the choosen notifications/priorities, this functionality is not supported under AutoSeq0. For compound callsigns prefix is recognized at beginning of the callsign. Autoselection will process wanted callsign according to the choosen notifications/priorities. Non FT8 modes only: sometimes the base callsign will be copied from the decoded message: when logging such QSO user will have to change correspondent&apos;s callsign to compound one if needed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;以逗號分隔所需的 前綴/後綴 列表. 在自動選擇下, 自動程序 1..7 將根據選擇的通知/優先級處理所需的 前綴/後綴, 該功能在 自動程序 0 下不受支持. 對於複合呼號, 前綴在呼號的開頭被識別. 自動選擇將根據選擇的通知/優先級處理所需的呼號. 非 FT8 模式僅適用: 有時基礎呼號將從解碼訊息中複製: 在記錄此類通聯 時, 使用者需要在必要時將對方的呼號更改為複合呼號.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3293"/>
         <source>Filter</source>
-        <translation>窄 頻</translation>
+        <translation>Filtre</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3341"/>
         <source>AGCc</source>
-        <translation>AGC補償</translation>
+        <translation>AGCc</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3400"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Left mouse button: Erase data from DX Call and DX Grid windows. Right mouse button: Erase data from DX Call, DX Grid windows, QSO history and blacklist. CTRL+Right mouse button: add callsign from DX Call window to blacklist, erase data from DX Call, DX Grid windows and QSO history.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;鼠標左鍵: 擦除 DX呼號 和 DX網格 視窗中的數據. 鼠標右鍵: 擦除 DX呼號, DX網格視窗通聯曆史紀錄和黑名單中的數據. CTRL+鼠標右鍵: 從 DX呼號 視窗新增呼號到黑名單, 擦除DX呼號 和 DX網格視窗, 和通聯曆史紀錄中的數據.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sol fare düğmesi: DX Call ve DX Grid pencerelerinden verileri silin. Sağ fare düğmesi: DX Call, DX Grid pencereleri, QSO geçmişi ve kara listeden verileri silin. CTRL+Sağ fare düğmesi: DX Çağrı penceresinden kara listeye çağrı işareti ekleyin, DX Çağrısından, DX Izgara pencerelerinden ve QSO geçmişinden veri silin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3403"/>
         <source>Clear D&amp;X</source>
-        <translation>清除 D&amp;X</translation>
+        <translation>D&amp;X Temizle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3428"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Stop transmitting immediately, also Enable Tx goes off. Right mouse button enables Waiting state.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;立即停止發射, 並且會關閉啟用發射按鈕. 右鍵啟用等待狀態.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3456"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Toggle Tx Enable On/Off in Enable Tx mode. In Reply Tx mode awaiting for incoming call to make single QSO, this mode can be activated by the right mouse&apos;s button.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在啟用發射模式下切換 啟用發射 開/關. 在回復發射模式等待來電進行單次通聯, 可以通過鼠標右鍵激活該模式.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3618"/>
@@ -3675,20 +3669,7 @@ Note:&lt;br&gt;
 If Sync button is clicked with left mouse&apos;s button it goes to &apos;awaiting for execution state&apos; with changed color, similar to &apos;Enable Tx&apos; button. Rough/precise sync execution occurs at end of decoding of current interval, sync to specific signal is executed immediately. JTDX will change appearance of Sync button if it is executed or when decoding is finished. Sync button&apos;s color will be changed if JTDX internal time has non-zero offset to system time.&lt;br&gt;&lt;br&gt;
 If Sync button is clicked with right mouse&apos;s button setting JTDX time to system time is executed immediately.&lt;br&gt;&lt;br&gt;
 Sync button in active state has yellow color and shows current value of JTDX time offset to system time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;此選項可以相對於系統時間移動JTDX內部時間，以提供更好的同步.&lt;br&gt;
-支持的場景:&lt;br&gt;
-- 粗略同步, 如果在瀑佈上看到偏移的信號併且沒有解碼的信號, 則在解碼器中使用最小功率值來評估直到間隔開始的時差&lt;br&gt;
-- 更精確的同步, 如果在當前間隔中有解碼的信號併且平均時差在-0.19之外..0.19秒範圍. 平均時差值用於JTDX內部時間偏移.&lt;br&gt;
-- 設置JTDX內部時間以匹配某些特定解碼信號的時差. 按下同步按鈕, 當同步按鈕處於活動狀態時, 按住ALT+CTRL鍵盤按鈕, 併在下一次啟動解碼器之前在解碼的消息上單擊兩次. 如果信號的時差頻繁跳變, 避免試圖改變JTDX內部時間, 因為這會使情況變得更糟.&lt;br&gt;
-- 將JTDX內部時間設置回系統時間.&lt;br&gt;
-建議在兩次隨後的粗略和精確同步嘗試之間保持幾個間隔間隙.&lt;br&gt;
-當前和下一個間隔的解碼可以被時移中斷.&lt;br&gt;
-註意:&lt;br&gt;
--如果您的計算機時鐘時差超過7.5秒, 您可能會在錯誤的時間時差內發送SPOT消息, QSO開始/結束時間也會受到影響&lt;br&gt;
--如果您試圖補償由SDR軟件中的緩沖引起的接收音頻流延遲, 發射信號的時差將受到錯誤的影響.&lt;br&gt;&lt;br &gt;
-如果用鼠標左鍵點擊同步按鈕, 它將進入 “等待執行狀態”, 併改變顏色, 類似於 “啟用發送” 按鈕. 粗略/精確同步執行發生在當前間隔解碼結束時, 與特定信號的同步立即執行. 如果同步按鈕被執行或解碼完成, JTDX將改變同步按鈕的外觀. 如果JTDX內部時間與系統時間之間存在非零偏差, 同步按鈕的顏色將會改變.&lt;br&gt;&lt;br &gt;
-如果用鼠標右鍵單擊 同步按鈕, 將立即執行JTDX時間設置為系統時間.&lt;br&gt;&lt;br &gt;
-處於活動狀態的同步按鈕為黃色, 顯示JTDX時間相對於系統時間的當前值.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3805"/>
@@ -3697,58 +3678,58 @@ Sync button in active state has yellow color and shows current value of JTDX tim
         <location filename="../mainwindow.ui" line="7611"/>
         <location filename="../mainwindow.ui" line="7635"/>
         <source>1</source>
-        <translation></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3848"/>
         <source>Generate standard messages for minimal QSO</source>
-        <translation>為此通聯生成標准訊息</translation>
+        <translation>Minimum QSO için standart mesajlar oluşturun</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3851"/>
         <source>GenMsgs</source>
-        <translation>生成訊息</translation>
+        <translation>Msj Oluştur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3880"/>
         <location filename="../mainwindow.ui" line="7286"/>
         <source>CQ</source>
-        <translation></translation>
+        <translation>CQ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3927"/>
         <location filename="../mainwindow.ui" line="4549"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Directional CQ, range from AA to ZZ is being supported.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;支持 CQ 指定範圍從 AA 到 ZZ.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hedefli CQ: &lt;br&gt;AA&apos;dan ZZ&apos;ye desteklenir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3930"/>
         <location filename="../mainwindow.ui" line="4552"/>
         <source>DX</source>
-        <translation></translation>
+        <translation>DX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3943"/>
         <location filename="../mainwindow.ui" line="4581"/>
         <source>Check to generate &apos;RRR&apos; message, uncheck to generate &apos;RR73&apos;</source>
-        <translation>選擇生成 &apos;RRR&apos; 訊息, 取消選擇以生成 &apos;RR73&apos;</translation>
+        <translation>&apos;RRR&apos; mesajı oluşturmak için işaretleyin, &apos;RR73&apos; oluşturmak için işareti kaldırın</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3949"/>
         <location filename="../mainwindow.ui" line="4587"/>
         <source>RRR</source>
-        <translation></translation>
+        <translation>RRR</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3962"/>
         <location filename="../mainwindow.ui" line="4635"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Skip transmitting message with QTH Grid locator&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用跳過發射 QTH 網格定位器訊息&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QTH Grid Locator ile ileti göndermeyi atla&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3968"/>
         <source>SkipTx1</source>
-        <translation>跳過Tx1</translation>
+        <translation>TX1&apos;i atla</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4013"/>
@@ -3758,12 +3739,12 @@ Sync button in active state has yellow color and shows current value of JTDX tim
         <location filename="../mainwindow.ui" line="4323"/>
         <location filename="../mainwindow.ui" line="4396"/>
         <source>Send this message in next Tx interval</source>
-        <translation>在下一個發射間隔內發送此訊息</translation>
+        <translation>Bu mesajı sonraki TX döngüsünde gönder</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4019"/>
         <source>Ctrl+1</source>
-        <translation></translation>
+        <translation>Ctrl+1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4044"/>
@@ -3773,62 +3754,62 @@ Sync button in active state has yellow color and shows current value of JTDX tim
         <location filename="../mainwindow.ui" line="4351"/>
         <location filename="../mainwindow.ui" line="4427"/>
         <source>Switch to this Tx message NOW</source>
-        <translation>立即切換到此發射訊息</translation>
+        <translation>Bu Tx mesajına ŞİMDİ geçin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4050"/>
         <source>Tx &amp;1</source>
-        <translation></translation>
+        <translation>Tx &amp;1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4053"/>
         <source>Alt+1</source>
-        <translation></translation>
+        <translation>Alt+1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4101"/>
         <source>Ctrl+2</source>
-        <translation></translation>
+        <translation>Ctrl+2</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4126"/>
         <source>Tx &amp;2</source>
-        <translation></translation>
+        <translation>Tx &amp;2</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4129"/>
         <source>Alt+2</source>
-        <translation></translation>
+        <translation>Alt+2</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4171"/>
         <source>Ctrl+3</source>
-        <translation></translation>
+        <translation>Ctrl+3</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4196"/>
         <source>Tx &amp;3</source>
-        <translation></translation>
+        <translation>Tx &amp;3</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4199"/>
         <source>Alt+3</source>
-        <translation></translation>
+        <translation>Alt+3</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4241"/>
         <source>Ctrl+4</source>
-        <translation></translation>
+        <translation>Ctrl+4</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4266"/>
         <source>Tx &amp;4</source>
-        <translation></translation>
+        <translation>Tx &amp;4</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4269"/>
         <source>Alt+4</source>
-        <translation></translation>
+        <translation>Alt+4</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4301"/>
@@ -3837,40 +3818,40 @@ Sync button in active state has yellow color and shows current value of JTDX tim
 or select a predefined macro from the dropdown list.
 Press ENTER to add the current text to the predefined
 list. The list can be maintained in Settings (F2).</source>
-        <translation>輸入一條自定義文本訊息 (最多13個字符)
-或從下拉清單中選擇一個預定義的自定義文本.
-按 (ENTER) 將當前文本新增到預定義清單.
-該清單可以在設定自定義文本 (F2) 中維護.</translation>
+        <translation>Serbest bir metin mesajı girin (maksimum 13 karakter)
+veya açılır listeden önceden tanımlanmış bir makro seçin.
+Geçerli metni önceden tanımlanmış listeye eklemek için
+ ENTER&apos;a basın. Bu liste, Ayarlar&apos;da (F2) korunabilir.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4329"/>
         <source>Ctrl+5</source>
-        <translation></translation>
+        <translation>Ctrl+5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4354"/>
         <source>Tx &amp;5</source>
-        <translation></translation>
+        <translation>Tx &amp;5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4357"/>
         <source>Alt+5</source>
-        <translation></translation>
+        <translation>Alt+5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4402"/>
         <source>Ctrl+6</source>
-        <translation></translation>
+        <translation>Ctrl+6</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4430"/>
         <source>Tx &amp;6</source>
-        <translation></translation>
+        <translation>Tx &amp;6</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4433"/>
         <source>Alt+6</source>
-        <translation></translation>
+        <translation>Alt+6</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4451"/>
@@ -3880,102 +3861,103 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="7619"/>
         <location filename="../mainwindow.ui" line="7643"/>
         <source>2</source>
-        <translation></translation>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4505"/>
         <source>CQ </source>
-        <translation></translation>
+        <translation>CQ </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4619"/>
         <source>AnsCQ </source>
-        <translation>回應CQ </translation>
+        <translation>CvpCQ </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4641"/>
         <source>SkpGrid</source>
-        <translation>跳過網格</translation>
+        <translation>GridiAtla</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4668"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Generate CQ or directional CQ message&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;生成CQ 或 定向CQ訊息&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CQ veya hedefli CQ mesajı oluşturun&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4671"/>
         <source>CQ/CQ DX</source>
-        <translation></translation>
+        <translation>CQ/CQ DX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4696"/>
         <source>Generate message for replying to a CQ</source>
-        <translation>生成回應CQ的訊息</translation>
+        <translation>Bir CQ&apos;yu yanıtlamak için mesaj oluştur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4699"/>
         <source>Grid</source>
-        <translation>網格</translation>
+        <translation>Grid</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4724"/>
         <source>Generate message with report</source>
-        <translation>生成報告訊息</translation>
+        <translation>Raporlu mesaj oluştur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4727"/>
         <source>dB</source>
-        <translation>分貝</translation>
+        <translation>dB</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4752"/>
         <source>Generate message with R+report</source>
-        <translation>生成 R+ 報告訊息</translation>
+        <translation>R+raporu ile mesaj oluştur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4755"/>
         <source>R+dB</source>
-        <translation>R+分貝</translation>
+        <translation>R+dB</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4780"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Generate message with RR73 if RRR checkbox is unchecked, generate RRR message if RRR checkbox is checked&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果未選中 RRR 復選框, 則使用 RR73 生成訊息, 如果選中 RRR 復選框, 則生成 RRR 訊息&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;RRR onay kutusu işaretli değilse RR73 ile mesaj oluştur, RRR onay kutusu işaretliyse RRR mesajı oluştur&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4783"/>
         <source>RRR/RR73</source>
-        <translation></translation>
+        <translation>RRR/RR73</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4808"/>
         <source>Generate message with 73</source>
-        <translation>生成73訊息</translation>
+        <translation>73 ile mesaj oluştur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4811"/>
         <source>73</source>
-        <translation></translation>
+        <translation>73</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4859"/>
         <source>Send this standard (generated) message</source>
-        <translation>發送此標准(生成)訊息</translation>
+        <translation>Bu standart (oluşturulmuş) mesajı gönder</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4862"/>
         <source>Gen msg</source>
-        <translation>生成訊息</translation>
+        <translation>Msj Oluştur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4927"/>
         <source>Send this free-text message (max 13 characters)</source>
-        <translation>發送此自定義文本訊息(最多13個字符)</translation>
+        <translation>Bir serbest metin mesajı gönderin
+(en fazla 13 karakter)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4930"/>
         <source>Free msg</source>
-        <translation>自定義文本</translation>
+        <translation>Serbest Msj</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5044"/>
@@ -3990,52 +3972,52 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5843"/>
         <source>Band Hopping</source>
-        <translation>波段預案</translation>
+        <translation>Bant Atlama</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5852"/>
         <source>Choose bands and times of day for band-hopping.</source>
-        <translation>選擇波段和一天之中的時間進行波段跳躍.</translation>
+        <translation>Bant atlama için bantları ve günün saatlerini seçin.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5855"/>
         <source>Schedule ...</source>
-        <translation>時間流程 ...</translation>
+        <translation>Zamanlama ...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5869"/>
         <source>Upload decoded messages to WSPRnet.org.</source>
-        <translation>將解碼的訊息上載到 WSPRnet.org.</translation>
+        <translation>Kodu çözülmüş mesajları WSPRnet.org&apos;a yükleyin.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5872"/>
         <source>Upload spots</source>
-        <translation>上傳 spots</translation>
+        <translation>Spotları yükle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5879"/>
         <source>Transmit during the next 2-minute sequence.</source>
-        <translation>在接下來的2分鐘序列中輸送.</translation>
+        <translation>Sonraki 2 dakikalık seri sırasında iletin.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5893"/>
         <source>Tx Next</source>
-        <translation>發射下一個訊息</translation>
+        <translation>Sonraki TX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5910"/>
         <source>Set Tx power in dBm (dB above 1 mW) as part of your WSPR message.</source>
-        <translation>將發射功率設定為 dBm (分貝高於 1 mW) 作為 WSPR 訊息的一部分.</translation>
+        <translation>WSPR mesajınızın bir parçası olarak Tx gücünü dBm (1 mW üzerinde dB) olarak ayarlayın.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5824"/>
         <source>Percentage of 2-minute sequences devoted to transmitting.</source>
-        <translation>專用於輸送的2分鐘序列的百分比.</translation>
+        <translation>Gönderim için ayrılmış 2 dakikalık serilerin yüzdesi.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="607"/>
         <source>,</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="503"/>
@@ -4050,12 +4032,12 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="1127"/>
         <location filename="../mainwindow.ui" line="1179"/>
         <source>0</source>
-        <translation></translation>
+        <translation type="unfinished">0</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="815"/>
         <source>.</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2129"/>
@@ -4065,37 +4047,37 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="2184"/>
         <source> %</source>
-        <translation></translation>
+        <translation> %</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2187"/>
         <source>CL  </source>
-        <translation>帶寬  </translation>
+        <translation>CL  </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2413"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DT weighting functionality for candidate list thinning option, median value of DT distribution of decoded signals should be set there. This value depends on system clock synchronization accuracy and on overcrowded bands is close to average DT value of decoded signals. Correct value raises up decoding efficiency in the candidate list thinning option.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;候選清單精簡選項的時差加權功能, 應設定解碼信號的時差分佈的中位數. 此值取決於系統時鐘同步精度, 並且過度擁擠的頻段接近解碼信號的平均時差值. 正確的值提高了候選清單精簡選項中的解碼效率.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aday liste inceltme seçeneği için DT ağırlıklandırma işlevi, kodu çözülen sinyallerin DT dağılımının medyan değeri burada ayarlanmalıdır. Bu değer, sistem saati senkronizasyon doğruluğuna bağlıdır ve aşırı kalabalık bantlarda, kodu çözülen sinyallerin ortalama DT değerine yakındır. Doğru değer, aday listesi inceltme seçeneğinde kod çözme verimliliğini artırır. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2416"/>
         <source>DT </source>
-        <translation>時差 </translation>
+        <translation>DT </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2419"/>
         <source> s</source>
-        <translation> 秒</translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2490"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CAT shall be set up via Hamlib or TCI, TCI and Hamlib for some transceivers does support getting output power data.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CAT應通過Hamlib或TCI, 某些收發器使用TCI和Hamlib才獲取支持輸出功率數據.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CAT, bazı alıcı-vericiler için çıkış gücü verilerinin alınmasını desteklediği için Hamlib veya TCI, TCI ve Hamlib üzerinden kurulacaktır. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2636"/>
         <source>(pre/suf)fix:</source>
-        <translation>(前/後)綴:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3645"/>
@@ -4106,7 +4088,7 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.cpp" line="5868"/>
         <location filename="../mainwindow.cpp" line="8103"/>
         <source>Sync</source>
-        <translation>時差修正</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5001"/>
@@ -4116,7 +4098,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5004"/>
         <source>70cm</source>
-        <translation type="unfinished">70厘米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5011"/>
@@ -4126,7 +4108,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5014"/>
         <source>30m</source>
-        <translation type="unfinished">30 米</translation>
+        <translation type="unfinished">30m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5030"/>
@@ -4146,7 +4128,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5106"/>
         <source>12m</source>
-        <translation type="unfinished">12 米</translation>
+        <translation type="unfinished">12m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5113"/>
@@ -4156,7 +4138,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5116"/>
         <source>40m</source>
-        <translation type="unfinished">40 米</translation>
+        <translation type="unfinished">40m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5123"/>
@@ -4166,7 +4148,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5126"/>
         <source>10m</source>
-        <translation type="unfinished">10 米</translation>
+        <translation type="unfinished">10m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5133"/>
@@ -4176,7 +4158,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5136"/>
         <source>6m</source>
-        <translation type="unfinished">6 米</translation>
+        <translation type="unfinished">6m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5143"/>
@@ -4186,7 +4168,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5146"/>
         <source>60m</source>
-        <translation type="unfinished">60 米</translation>
+        <translation type="unfinished">60m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5159"/>
@@ -4196,7 +4178,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5162"/>
         <source>160m</source>
-        <translation type="unfinished">160 米</translation>
+        <translation type="unfinished">160m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5169"/>
@@ -4206,7 +4188,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5172"/>
         <source>80m</source>
-        <translation type="unfinished">80 米</translation>
+        <translation type="unfinished">80m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5179"/>
@@ -4216,7 +4198,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5182"/>
         <source>20m</source>
-        <translation type="unfinished">20 米</translation>
+        <translation type="unfinished">20m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5189"/>
@@ -4226,7 +4208,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5192"/>
         <source>17m</source>
-        <translation type="unfinished">17 米</translation>
+        <translation type="unfinished">17m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5199"/>
@@ -4236,7 +4218,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5202"/>
         <source>4m</source>
-        <translation type="unfinished">4 米</translation>
+        <translation type="unfinished">4m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5209"/>
@@ -4246,7 +4228,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5212"/>
         <source>15m</source>
-        <translation type="unfinished">15 米</translation>
+        <translation type="unfinished">15m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5219"/>
@@ -4256,7 +4238,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5222"/>
         <source>2m</source>
-        <translation type="unfinished">2 米</translation>
+        <translation type="unfinished">2m</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5229"/>
@@ -4389,183 +4371,183 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="5830"/>
         <source>  %</source>
-        <translation></translation>
+        <translation>  %</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5833"/>
         <source>Tx Pct </source>
-        <translation></translation>
+        <translation>Tx Yzd </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="5903"/>
         <source>No own call decodes</source>
-        <translation>解碼中沒有自己的呼號</translation>
+        <translation>Kendi çağrını çözme yok</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6005"/>
         <source>File</source>
-        <translation>檔案</translation>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6023"/>
         <source>View</source>
-        <translation>顯示</translation>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6030"/>
         <source>Decode</source>
-        <translation>解碼</translation>
+        <translation>Kodu Çöz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6034"/>
         <source>FT8 threads</source>
-        <translation>FT8 線程處理</translation>
+        <translation>FT8 konuları</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6064"/>
         <source>JT9 WSPR decoding</source>
-        <translation>JT9 WSPR 解碼</translation>
+        <translation>JT9 WSPR kodu çöz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6072"/>
         <source>FT8 decoding</source>
-        <translation>FT8 解碼</translation>
+        <translation>FT8 kodu çöz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6076"/>
         <source>decoder sensitivity</source>
-        <translation>解碼靈敏度</translation>
+        <translation>kod çözücü hassasiyeti</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6084"/>
         <source>QSO RX freq sensitivity</source>
-        <translation>通聯接收頻率靈敏度</translation>
+        <translation>QSO RX frekans hassasiyeti</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6126"/>
         <source>FT4 decoding</source>
-        <translation>FT4 解碼</translation>
+        <translation>FT4 kodu çöz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6143"/>
         <source>Save</source>
-        <translation>儲存</translation>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6151"/>
         <source>Language</source>
-        <translation>語言</translation>
+        <translation>Dil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6177"/>
         <source>Help</source>
-        <translation>說明</translation>
+        <translation>Yardım</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6193"/>
         <source>Mode</source>
-        <translation>模式</translation>
+        <translation>Mod</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6205"/>
         <source>Misc</source>
-        <translation>雜項</translation>
+        <translation>Çeşitli</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6209"/>
         <source>Accept UDP Reply messages</source>
-        <translation>處理從UDP 傳入的訊息</translation>
+        <translation>UDP Yanıt mesajlarını kabul et</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6246"/>
         <source>Minutes from history</source>
-        <translation>歷史分鐘記錄</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6259"/>
         <source>Auto RX frequency Filter</source>
-        <translation>接收頻率自動窄帶過濾</translation>
+        <translation>Otomatik RX frekansı Filtresi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6285"/>
         <source>DXpedition</source>
-        <translation>DX遠征</translation>
+        <translation>DXpedition</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6307"/>
         <source>Exit</source>
-        <translation>關閉程式</translation>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6310"/>
         <source>Alt+F4</source>
-        <translation></translation>
+        <translation>Alt+F4</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6321"/>
         <source>Configuration</source>
-        <translation>配置檔</translation>
+        <translation>Yapılandırma</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6324"/>
         <location filename="../mainwindow.ui" line="6760"/>
         <source>F2</source>
-        <translation></translation>
+        <translation>F2</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6329"/>
         <source>About JTDX</source>
-        <translation>關於 JTDX</translation>
+        <translation>JTDX Hakkında</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6332"/>
         <source>Ctrl+F1</source>
-        <translation></translation>
+        <translation>Ctrl+F1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6337"/>
         <source>Waterfall</source>
-        <translation>頻譜圖</translation>
+        <translation>Şelale</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6342"/>
         <source>PSK reporter</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6347"/>
         <source>Open</source>
-        <translation>開啟檔案</translation>
+        <translation>Aç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6350"/>
         <source>Ctrl+O</source>
-        <translation></translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6355"/>
         <source>Open next in directory</source>
-        <translation>開啟下一個檔案</translation>
+        <translation>Dizinde sonrakini aç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6358"/>
         <source>F6</source>
-        <translation></translation>
+        <translation>F6</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6363"/>
         <source>Decode remaining files in directory</source>
-        <translation>開啟余下檔案</translation>
+        <translation>Dizindeki kalan dosyaların kodunu çöz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6366"/>
         <source>Shift+F6</source>
-        <translation></translation>
+        <translation>Shift+F6</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6371"/>
         <source>Delete all *.wav &amp;&amp; *.c2 files in SaveDir</source>
-        <translation>刪除全部在SaveDir目錄內 *.wav &amp;&amp; *.c2</translation>
+        <translation>SaveDir dizinindeki tüm *.wav &amp;&amp; *.c2 dosyalarını silin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6382"/>
@@ -4573,57 +4555,57 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="7213"/>
         <location filename="../mainwindow.ui" line="7519"/>
         <source>fast</source>
-        <translation>快速</translation>
+        <translation>hızlı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6393"/>
         <source>None</source>
-        <translation>不儲存</translation>
+        <translation>Hiçbiri</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6401"/>
         <source>Save all</source>
-        <translation>儲存全部</translation>
+        <translation>Tümünü kaydet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6511"/>
         <source>JTDX Web site</source>
-        <translation>JTDX 網站</translation>
+        <translation>JTDX Web sitesi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6514"/>
         <source>F1</source>
-        <translation></translation>
+        <translation>F1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6519"/>
         <source>Keyboard shortcuts</source>
-        <translation>鍵盤快捷鍵</translation>
+        <translation>Klavye kısayolları</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6522"/>
         <source>F3</source>
-        <translation></translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6527"/>
         <source>Special mouse commands</source>
-        <translation>滑鼠特殊組合</translation>
+        <translation>Özel fare komutları</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6530"/>
         <source>F5</source>
-        <translation></translation>
+        <translation>F5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6541"/>
         <source>JT9</source>
-        <translation></translation>
+        <translation>JT9</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6552"/>
         <source>Save decoded</source>
-        <translation>儲存解碼</translation>
+        <translation>Çözülmüş kodu kaydet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6563"/>
@@ -4632,7 +4614,7 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="7487"/>
         <location filename="../mainwindow.ui" line="7527"/>
         <source>medium</source>
-        <translation>中度</translation>
+        <translation>orta</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6574"/>
@@ -4640,297 +4622,297 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="7232"/>
         <location filename="../mainwindow.ui" line="7538"/>
         <source>deep</source>
-        <translation>深度</translation>
+        <translation>derin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6582"/>
         <source>Monitor OFF at startup</source>
-        <translation>啟動時關閉監聽</translation>
+        <translation>BaşlangıçtaMonitör KAPALI</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6587"/>
         <source>Erase ALL.TXT</source>
-        <translation>刪除 ALL.TXT</translation>
+        <translation>ALL.TXT&apos;i sil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6592"/>
         <source>Erase QSO LOG file wsjtx_log.adi</source>
-        <translation>刪除通聯日誌 wsjtx_log.adi</translation>
+        <translation>QSO LOG dosyası wsjtx_log.adi&apos;yi sil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6597"/>
         <source>Open wsjtx_log.adi</source>
-        <translation>開啟 wsjtx_log.adi</translation>
+        <translation>wsjtx_log.adi dosyasını aç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6600"/>
         <source>F7</source>
-        <translation></translation>
+        <translation>F7</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6608"/>
         <source>Convert mode to RTTY for logging</source>
-        <translation>將日誌紀錄 模式轉換為RTTY</translation>
+        <translation>Loglama için modu RTTY&apos;ye dönüştürün</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6616"/>
         <source>Log dB reports to Comments</source>
-        <translation>將分貝報告記錄到評語</translation>
+        <translation>dB raporlarını Yorumlara kaydedin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6624"/>
         <source>Prompt me to log QSO</source>
-        <translation>提示我記錄通聯</translation>
+        <translation>QSO&apos;yu kaydederken bana sor</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6632"/>
         <source>Blank line between decoding periods</source>
-        <translation>解碼期間之間新增空白行</translation>
+        <translation>Kod çözme döngüleri arasındaki boş satır</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6640"/>
         <source>Clear DX Call and Grid after logging</source>
-        <translation>日誌記錄後清除 DX 呼號和網格</translation>
+        <translation>DX Çağrı ve Grid&apos;i loglamadan sonra temizle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6648"/>
         <source>Display distance in miles</source>
-        <translation>顯示距離以英里為單位</translation>
+        <translation>Mesafeyi mil olarak göster</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6656"/>
         <source>Double-click on call sets Tx Enable</source>
-        <translation>雙擊呼號啟用發射</translation>
+        <translation>Tx Etkinleştirme için Çağrı satırına çift tıklayın</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6664"/>
         <source>Tx disabled after sending 73</source>
-        <translation>發送 73 後停止發射</translation>
+        <translation>73&apos;den sonra TX&apos;i durdur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6672"/>
         <source>Runaway Tx watchdog</source>
-        <translation>運行發射監管計時器</translation>
+        <translation>Kontrolsüz Tx watchdog</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6680"/>
         <source>Allow multiple instances</source>
-        <translation>允許多個情況</translation>
+        <translation>Çoklu örneğe izin ver</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6688"/>
         <source>Tx freq locked to Rx freq</source>
-        <translation>&gt;發射頻率鎖定到接收頻率</translation>
+        <translation>Tx frekansı, Rx frekansına kilitlendi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6696"/>
         <source>Skip Tx 1</source>
-        <translation>跳過 Tx 1</translation>
+        <translation>Tx 1&apos;i atla</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6704"/>
         <source>JT65</source>
-        <translation></translation>
+        <translation>JT65</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6715"/>
         <source>JT9+JT65</source>
-        <translation></translation>
+        <translation>JT9+JT65</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6723"/>
         <source>Tx messages to Rx Frequency window</source>
-        <translation>發射訊息發送到接收訊息視窗</translation>
+        <translation>Tx mesajları Rx Frekans penceresine</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6731"/>
         <source>Gray1</source>
-        <translation></translation>
+        <translation>Gri1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6739"/>
         <source>Show DXCC entity and worked B4 status</source>
-        <translation>顯示 DXCC 實體和曾經通聯狀態</translation>
+        <translation>DXCC varlığını ve çalışılan B4 durumunu göster</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6747"/>
         <source>Astronomical data</source>
-        <translation>天文數據</translation>
+        <translation>Astronomik veri</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6752"/>
         <source>Short list of add-on prefixes and suffixes</source>
-        <translation>前綴和後綴簡短清單</translation>
+        <translation>Eklenti ön ekleri ve son eklerinin kısa listesi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6757"/>
         <source>Settings...</source>
-        <translation>設定...</translation>
+        <translation>Ayarlar...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6768"/>
         <source>JTDX forum</source>
-        <translation>JTDX 論壇</translation>
+        <translation>JTDX forum</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6773"/>
         <source>Open log directory</source>
-        <translation>開啟日誌檔案目錄</translation>
+        <translation>Log dizinini aç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6784"/>
         <source>Include averaging</source>
-        <translation>包括平均值</translation>
+        <translation>Ortalamayı dahil et</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6798"/>
         <source>JT65 hinted decoding</source>
-        <translation>JT65 提升解碼</translation>
+        <translation>JT65 ipucu ile kod çözme</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6809"/>
         <source>WSPR-2</source>
-        <translation></translation>
+        <translation>WSPR-2</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6814"/>
         <source>Save reference spectrum</source>
-        <translation>儲存參考頻譜</translation>
+        <translation>Referans spektrumunu kaydet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6819"/>
         <source>&amp;Download Samples ...</source>
-        <translation>下載範例(&amp;D) ...</translation>
+        <translation>&amp;Örnekleri İndir ...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6822"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Download sample audio files demonstrating the various modes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;下載演示各種模式的示例音頻檔案.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çeşitli modları gösteren örnek ses dosyalarını indirin. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6830"/>
         <source>T10</source>
-        <translation></translation>
+        <translation>T10</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6841"/>
         <source>Bypass text filters on RX frequency</source>
-        <translation>接收訊息視窗不使用訊息過濾</translation>
+        <translation>RX frekansında metin filtrelerini atla</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6852"/>
         <source>Use Rig Rx bw info</source>
-        <translation>使用無線電設備接收帶寬資訊</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6863"/>
         <source>Bypass all text filters</source>
-        <translation>繞過全部訊息過濾</translation>
+        <translation>Tüm metin filtrelerini atla</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6866"/>
         <source>Alt+F</source>
-        <translation></translation>
+        <translation>Alt+F</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6874"/>
         <source>Show messages decoded from JT65 harmonics</source>
-        <translation>顯示JT65從諧波中解碼的訊息</translation>
+        <translation>JT65 harmoniklerinden kodu çözülen mesajları göster</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6885"/>
         <source>Enable main window popup</source>
-        <translation>主視窗每次解碼後都跳到桌面前</translation>
+        <translation>Ana pencere popup penceresini etkinleştir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6896"/>
         <source>Messages with my callsign to RX frequency window </source>
-        <translation>接收訊息視窗顯示有我呼號訊息 </translation>
+        <translation>Çağrı işaretim olan mesajlar RX frekans penceresine </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6901"/>
         <source>Copyright notice from WSJT Development Group</source>
-        <translation>WSJT 研發組的版權聲明</translation>
+        <translation>WSJT Geliştirme Grubundan telif hakkı bildirimi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6915"/>
         <source>FT8</source>
-        <translation></translation>
+        <translation>FT8</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6923"/>
         <source>FT8 call first</source>
-        <translation>FT8 優先呼叫</translation>
+        <translation>FT8 İlk çağır</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6934"/>
         <source>Call priority and search CQ</source>
-        <translation>呼叫優先和搜索 CQ</translation>
+        <translation>Öncelikli çağrı ve CQ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6937"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Autoselect searching for response to CQ with priorities, if failed then searching for CQ messages with higher priority&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;自動選擇搜索具有優先的 CQ 響應, 如果失敗, 則搜索優先級較高的 CQ 訊息&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Öncelikli CQ için arama yanıtını otomatik olarak seçin, başarısız olursa daha yüksek önceliğe sahip CQ mesajlarını arayın&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6945"/>
         <source>FT8 call last</source>
-        <translation>FT8 呼叫最後</translation>
+        <translation>FT8 Son çağır</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6953"/>
         <source>FT8 manual call</source>
-        <translation>FT8 手動選擇</translation>
+        <translation>FT8 Manuel çağır</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6961"/>
         <source>0  Call None</source>
-        <translation>0  手動選擇</translation>
+        <translation>0 Gelen aramalar arasında manuel seçim</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6969"/>
         <source>1  Call first</source>
-        <translation>1  呼叫首先解碼</translation>
+        <translation>1  İlk çağır</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6977"/>
         <source>4+ Call and search through CQ messages</source>
-        <translation>4+ 自動搜索及自動回應別人的CQ訊息</translation>
+        <translation>4+ CQ mesajlarını çağır ve ara</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6985"/>
         <source>2  Call decoded till start of TX interval</source>
-        <translation>2  解碼至發射間隔期間</translation>
+        <translation>2 TX döngüsünün başlangıcından önceki tüm çağrılar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6993"/>
         <source>3  Call based on end of decoding</source>
-        <translation>3  直到解碼結束</translation>
+        <translation>3 Tüm sinyallerin kodunun çözülmesini bekle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7001"/>
         <source>Single shot QSO</source>
-        <translation>單次通聯</translation>
+        <translation>Tek QSO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7009"/>
         <source>Erase band activity window at start of decoding</source>
-        <translation>開始解碼時把舊訊息清除</translation>
+        <translation>Kod çözme başlangıcında hareket penceresini temizle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7017"/>
         <source>Disabled</source>
-        <translation>停用</translation>
+        <translation type="unfinished">Devre dışı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7081"/>
         <source>Answer worked B4 calls</source>
-        <translation>回答曾經通聯的電臺</translation>
+        <translation>Tekrar (B4) çağrılara cevap ver</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7092"/>
         <source>Auto</source>
-        <translation>自動</translation>
+        <translation>Otomatik</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7358"/>
@@ -4940,7 +4922,7 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.ui" line="7587"/>
         <source>Enable Message system</source>
-        <translation>啟用訊息系統</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7049"/>
@@ -4948,134 +4930,134 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="7763"/>
         <location filename="../mainwindow.ui" line="7811"/>
         <source>4</source>
-        <translation></translation>
+        <translation>4</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7127"/>
         <location filename="../mainwindow.ui" line="7795"/>
         <location filename="../mainwindow.ui" line="7843"/>
         <source>8</source>
-        <translation></translation>
+        <translation>8</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7135"/>
         <source>12</source>
-        <translation></translation>
+        <translation>12</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7143"/>
         <source>Erase both message windows at band change</source>
-        <translation>當轉換波段時清除全部視窗訊息</translation>
+        <translation>Bant değişiminde her iki mesaj penceresini de sil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7181"/>
         <source>deep with 4 passes</source>
-        <translation>通過4重深度解碼</translation>
+        <translation>Derin 4 geçiş</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7189"/>
         <source>Max distance instead of best SNR</source>
-        <translation>最遠距離取代最佳信噪比</translation>
+        <translation>En iyi SNR yerine en uzak mesafe</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7197"/>
         <source>Messages with wanted call to RX frequency window</source>
-        <translation>接收訊息視窗顯示訊息內容渴望的呼號</translation>
+        <translation>Aranan çağrı içeren mesajlar RX frekans penceresine</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7205"/>
         <source>use low thresholds</source>
-        <translation>使用低閾值</translation>
+        <translation>Düşük eşikler kullan</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7240"/>
         <source>use subpass</source>
-        <translation>使用子通道</translation>
+        <translation>Kod çözme alt geçişini kullan</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7251"/>
         <source>minimum</source>
-        <translation>最少</translation>
+        <translation>minimum</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7259"/>
         <source>early start of decoder</source>
-        <translation>提前啟動解碼</translation>
+        <translation>erken kod çözücü başlangıcı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7267"/>
         <source>Call worked B4 callsigns</source>
-        <translation>呼叫曾經通聯過的電臺</translation>
+        <translation>Tekrar gelen (B4) istasyonlara cevap vermek</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7275"/>
         <source>Call higher than new calls priority callsigns</source>
-        <translation>呼叫優先呼號高於新呼叫的呼號</translation>
+        <translation>Yeni çağrı işaretinin önceliğinden daha yüksek önceliğe sahip istasyonları seçin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7294"/>
         <source>CQ and 73</source>
-        <translation>CQ 及 73</translation>
+        <translation>CQ ve 73</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7302"/>
         <source>any messages</source>
-        <translation>任何訊息</translation>
+        <translation>Herhangi mesaj</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7310"/>
         <source>Enable</source>
-        <translation>啟用</translation>
+        <translation>Etkinleştir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7318"/>
         <source>Switch Filter OFF at sending 73</source>
-        <translation>發送73後關閉窄帶過濾</translation>
+        <translation>73 Gönderirken Filtreyi KAPAT</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7326"/>
         <source>Switch Filter OFF at getting 73</source>
-        <translation>接收73後關閉窄帶過濾</translation>
+        <translation>73 alırken Filtreyi KAPAT</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7334"/>
         <source>Hide FT8 dupe messages</source>
-        <translation>隱藏 FT8 重復訊息</translation>
+        <translation>Tekrarlanan FT8 mesajlarını gizle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7342"/>
         <source>Display output power</source>
-        <translation>顯示輸出功率</translation>
+        <translation>Çıkış gücünü göster</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7350"/>
         <source>Report message priority</source>
-        <translation>報告訊息優先</translation>
+        <translation>Mesaj önceliğini bildir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7374"/>
         <source>Enable hound mode</source>
-        <translation>啟用獵犬模式</translation>
+        <translation>Avcı modunu etkinleştir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7385"/>
         <source>Use hound TX frequency control</source>
-        <translation>使用獵犬發射頻率控制</translation>
+        <translation>Avcı TX frekans kontrolünü kullan</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7393"/>
         <source>Disable TX after sending RRR/RR73/73 in manual mode</source>
-        <translation>在手動模式下發送 RRR/RR73/73 後停止發射</translation>
+        <translation>Manuel modda RRR/RR73/73 gönderdikten sonra TX&apos;i kes</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7404"/>
         <source>Show tooltips in main window</source>
-        <translation>在主視窗顯示提示</translation>
+        <translation>Araç ipuçlarını ana pencerede göster</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7412"/>
         <source>Color Tx message buttons</source>
-        <translation>訊息按鈕顏色提示</translation>
+        <translation>Renkli Tx mesaj düğmeleri</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4948"/>
@@ -5084,7 +5066,7 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="7627"/>
         <location filename="../mainwindow.ui" line="7651"/>
         <source>3</source>
-        <translation></translation>
+        <translation>3</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7065"/>
@@ -5092,12 +5074,12 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="7779"/>
         <location filename="../mainwindow.ui" line="7827"/>
         <source>6</source>
-        <translation></translation>
+        <translation>6</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7436"/>
         <source>10</source>
-        <translation></translation>
+        <translation>10</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7057"/>
@@ -5105,17 +5087,17 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="7771"/>
         <location filename="../mainwindow.ui" line="7819"/>
         <source>5</source>
-        <translation></translation>
+        <translation>5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6092"/>
         <source>decoding passes</source>
-        <translation>解碼通過</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="6104"/>
         <source>SWL decoding passes</source>
-        <translation>SWL 解碼通過</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7073"/>
@@ -5123,154 +5105,154 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.ui" line="7787"/>
         <location filename="../mainwindow.ui" line="7835"/>
         <source>7</source>
-        <translation></translation>
+        <translation>7</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7366"/>
         <source>Enable Super hound mode</source>
-        <translation>啟用超級獵犬模式</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7460"/>
         <location filename="../mainwindow.ui" line="7803"/>
         <location filename="../mainwindow.ui" line="7851"/>
         <source>9</source>
-        <translation></translation>
+        <translation>9</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7468"/>
         <source>11</source>
-        <translation></translation>
+        <translation>11</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7476"/>
         <source>low</source>
-        <translation>低</translation>
+        <translation>düşük</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7495"/>
         <source>high</source>
-        <translation>高</translation>
+        <translation>yüksek</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7503"/>
         <source>Hide FT contest messages</source>
-        <translation>隱藏 FT 競賽訊息</translation>
+        <translation>FT yarışma mesajlarını gizle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7511"/>
         <source>FT4</source>
-        <translation></translation>
+        <translation>FT4</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7546"/>
         <source>wideband DX Call search</source>
-        <translation>帶寬 DX 呼號搜索</translation>
+        <translation>geniş bant DX Çağrı arama</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7554"/>
         <source>6 pass SWL mode</source>
-        <translation>通過6次 SWL 模式</translation>
+        <translation>6 geçişli SWL modu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7565"/>
         <source>Callsign to clipboard at double-click|autoselect</source>
-        <translation>雙擊|自動選擇 時對方呼號複製到剪貼簿</translation>
+        <translation>Çift tıklama veya otomatik seçimde panoya çağrı işareti kopyala</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7576"/>
         <source>Show Callsign QSOs</source>
-        <translation>顯示該呼號所有通聯</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7595"/>
         <source>Crossband 160m operation with Japan</source>
-        <translation>與日本的160米跨波段通聯</translation>
+        <translation>Japonya ile 160m çapraz bant operasyonu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7603"/>
         <source>Crossband 160m operation with Korea</source>
-        <translation>與韓國的160米跨波段通聯</translation>
+        <translation>Kore ile 160m çapraz bant operasyonu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7659"/>
         <source>Hide telemetry messages</source>
-        <translation>隱藏遙測訊息</translation>
+        <translation>Telemetri mesajlarını gizle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7667"/>
         <source>13</source>
-        <translation></translation>
+        <translation>13</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7675"/>
         <source>14</source>
-        <translation></translation>
+        <translation>14</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7683"/>
         <source>15</source>
-        <translation></translation>
+        <translation>15</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7691"/>
         <source>16</source>
-        <translation></translation>
+        <translation>16</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7699"/>
         <source>17</source>
-        <translation></translation>
+        <translation>17</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7707"/>
         <source>18</source>
-        <translation></translation>
+        <translation>18</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7715"/>
         <source>19</source>
-        <translation></translation>
+        <translation>19</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7723"/>
         <source>20</source>
-        <translation></translation>
+        <translation>20</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7731"/>
         <source>21</source>
-        <translation></translation>
+        <translation>21</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7739"/>
         <source>22</source>
-        <translation></translation>
+        <translation>22</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7747"/>
         <source>23</source>
-        <translation></translation>
+        <translation>23</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="7755"/>
         <source>24</source>
-        <translation></translation>
+        <translation>24</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="525"/>
         <source>Do you want to reconfigure the radio interface?</source>
-        <translation>是否要重新配置無線電設備界面?</translation>
+        <translation>Telsiz arayüzünü yeniden yapılandırmak istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="909"/>
         <source>Error Writing WAV File</source>
-        <translation>寫入 WAV 檔案時錯誤</translation>
+        <translation>WAV Dosyası Yazma Hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1054"/>
         <source>Error Killing jtdxjt9.exe Process</source>
-        <translation>結束 jtdxjt9.exe 過程錯誤</translation>
+        <translation>jtdxjt9.exe İşlemi sonlandırma hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1032"/>
@@ -5280,32 +5262,32 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.cpp" line="7653"/>
         <location filename="../mainwindow.cpp" line="7654"/>
         <source>Freq   Message</source>
-        <translation>頻率   訊息</translation>
+        <translation>Frekans   Mesajı</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1055"/>
         <source>KillByName return code: %1</source>
-        <translation>按結束名稱返回代碼: %1</translation>
+        <translation>KillByName dönüş kodu: %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1072"/>
         <source>Error removing &quot;%1&quot;</source>
-        <translation>刪除時錯誤 &quot;%1&quot;</translation>
+        <translation>&quot;%1&quot; kaldırılırken hata oluştu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1073"/>
         <source>Click OK to retry</source>
-        <translation>單擊 確定 重試</translation>
+        <translation>Yeniden denemek için Tamam&apos;a basın</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1948"/>
         <source>TX Even</source>
-        <translation>偶數發射</translation>
+        <translation>Çift TX</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1955"/>
         <source>TX Odd</source>
-        <translation>奇數發射</translation>
+        <translation>Tek TX</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2018"/>
@@ -5317,7 +5299,7 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.cpp" line="8591"/>
         <location filename="../mainwindow.cpp" line="8837"/>
         <source>File Open Error</source>
-        <translation>檔案開啟錯誤</translation>
+        <translation>Dosya Açma Hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2019"/>
@@ -5330,145 +5312,206 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.cpp" line="8838"/>
         <location filename="../mainwindow.cpp" line="9213"/>
         <source>Cannot open &quot;%1&quot; for append: %2</source>
-        <translation>無法開啟 &quot;%1&quot; 用於附加: %2</translation>
+        <translation>%2 eklemek için &apos;%1&apos; açılamıyor</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2071"/>
         <source>lost audio </source>
-        <translation>遺失音頻 </translation>
+        <translation>kayıp ses </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2165"/>
         <source>Error saving c2 file</source>
-        <translation>保存c2檔案錯誤</translation>
+        <translation>c2 dosyası kaydedilirken hata oluştu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2242"/>
         <source>Error in SoundInput</source>
-        <translation>聲音輸入錯誤</translation>
+        <translation>Ses Girişinde Hata</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2243"/>
         <source>Error in SoundOutput</source>
-        <translation>聲音輸出錯誤</translation>
+        <translation>Ses Çıkışında Hata</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2335"/>
         <source>Pwr</source>
-        <translation>功率</translation>
+        <translation>Güç</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2476"/>
         <source>Reply Tx</source>
-        <translation>回應發射</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2890"/>
         <location filename="../mainwindow.cpp" line="3558"/>
         <location filename="../mainwindow.cpp" line="7954"/>
         <source>Hound mode TX frequency control requires *Split* rig control (either *Rig* or *Fake It* set in the *Settings | Radio* tab.)</source>
-        <translation>獵犬模式 發射頻率控制需要在電臺設定卡內 *異頻操作* 裡, (選擇 *無線電設備* 或 *軟體虛擬*.)</translation>
+        <translation>Hound modu TX frekans kontrolü; *Split* teçhizat kontrolü gerektirir (*Ayarlar | Radyo* sekmesinde *Cihaz (Rig)* veya *Fake It* ayarlanır.)</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3129"/>
         <source>Subprocess Error</source>
-        <translation>子流程錯誤</translation>
+        <translation>Alt İşlem Hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3130"/>
         <source>Subprocess failed with exit code %1</source>
-        <translation>子流程失敗, 退出代碼為 %1</translation>
+        <translation>Alt işlem %1 çıkış koduyla başarısız oldu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3132"/>
         <location filename="../mainwindow.cpp" line="3151"/>
         <source>Running: %1
 %2</source>
-        <translation>運行: %1
+        <translation>Çalışıyor: %1
 %2</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3150"/>
         <source>Subprocess error</source>
-        <translation>子進程錯誤</translation>
+        <translation>alt işlem hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3221"/>
         <source>Spotted</source>
-        <translation>發佈 Spot</translation>
+        <translation>Spotlandı</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3228"/>
         <source>Can not establish/complete connection to dxsummit server</source>
-        <translation>無法 建立/完全 連接到 Dxsummit 伺服器</translation>
+        <translation>dxsummit sunucusuna bağlantı kurulamıyor/tamamlanamıyor</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3266"/>
         <source>The algorithms, source code, look-and-feel of WSJT-X and related programs, and protocol specifications for the modes FSK441, FT8, JT4, JT6M, JT9, JT65, JTMS, QRA64, ISCAT, MSK144 are Copyright (C) 2001-2018 by one or more of the following authors: Joseph Taylor, K1JT; Bill Somerville, G4WJS; Steven Franke, K9AN; Nico Palermo, IV3NWV; Greg Beam, KI7MT; Michael Black, W9MDB; Edson Pereira, PY2SDR; Philip Karn, KA9Q; and other members of the WSJT Development Group.</source>
-        <translation>WSJT-X 和相關程序的算法、源代碼、外觀和感覺, 以及模式FSK441、FT8、JT4、JT6M、JT9、JT65、JTMS、QRA64、ISCAT、MSK144的協議規範是由以下一個或多個作者版權全部(C) 2001-2018:Joseph Taylor, K1JT; Bill Somerville, G4WJS; Steven Franke, K9AN; Nico Palermo, IV3NWV; Greg Beam, KI7MT; Michael Black, W9MDB; Edson Pereira, PY2SDR; Philip Karn, KA9Q和 WSJT 發展小組的其他成員.</translation>
+        <translation>FSK441, FT8, JT4, JT6M, JT9, JT65, JTMS, QRA64, ISCAT, MSK144 modları için WSJT-X ve ilgili programların algoritmaları, kaynak kodu, görünümü ve hissi ve protokol özellikleri 2001-2018 Telif Hakkı (C) aşağıdaki yazarlardan biri veya birkaçına aittir: Joseph Taylor, K1JT; Bill Somerville, G4WJS; Steven Franke, K9AN; Nico Palermo, IV3NWV; Greg Beam, KI7MT; Michael Black, W9MDB; Edson Pereira, PY2SDR; Philip Karn, KA9Q; ve WSJT Geliştirme Grubunun diğer üyeleri.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3396"/>
         <source>No data read from disk. Wrong file format?</source>
-        <translation>沒有從磁碟讀取數據. 檔案格式錯誤?</translation>
+        <translation>Diskten veri okunmuyor. Yanlış dosya biçimi?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3403"/>
         <source>Confirm Delete</source>
-        <translation>確認刪除</translation>
+        <translation>Silmeyi Onayla</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3404"/>
         <source>Are you sure you want to delete all *.wav and *.c2 files in
 </source>
-        <translation>是否確實要刪除全部 *.wav 和 *.c2 檔案在
+        <translation>içindeki tüm *.wav ve *.c2 dosyalarını silmek istediğinizden emin misiniz
 </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3449"/>
         <source>AutoSeq0</source>
-        <translation>自動程序0</translation>
+        <translation>OtoSeri0</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3462"/>
         <source>AutoSeq1</source>
-        <translation>自動程序1</translation>
+        <translation>OtoSeri1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3471"/>
         <location filename="../mainwindow.cpp" line="3497"/>
         <source>AutoSeq2</source>
-        <translation>自動程序2</translation>
+        <translation>OtoSeri2</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3472"/>
         <location filename="../mainwindow.cpp" line="3493"/>
         <source>AutoSeq6</source>
-        <translation>自動程序6</translation>
+        <translation>OtoSeri6</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3481"/>
         <location filename="../mainwindow.cpp" line="3498"/>
         <source>AutoSeq3</source>
-        <translation>自動程序3</translation>
+        <translation>OtoSeri3</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3482"/>
         <location filename="../mainwindow.cpp" line="3494"/>
         <source>AutoSeq7</source>
-        <translation>自動程序7</translation>
+        <translation>OtoSeri7</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3543"/>
         <location filename="../mainwindow.cpp" line="3570"/>
         <source>SHound</source>
-        <translation>超級獵犬</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3570"/>
-        <location filename="../mainwindow.cpp" line="3592"/>
-        <source>HoundFC</source>
-        <translation>獵犬FC</translation>
+        <location filename="../mainwindow.cpp" line="3681"/>
+        <source>&lt;table cellspacing=1&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F1       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Online User&apos;s Guide&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F1  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;About JTDX&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F2       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Open configuration window&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F3       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Display keyboard shortcuts&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F4       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Clear DX Call/Grid and Tx messages&lt;/td&gt;&lt;td&gt;&lt;b&gt;Alt+F4   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Exit program&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F5       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Display special mouse commands&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F6       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Open next file in directory&lt;/td&gt;&lt;td&gt;&lt;b&gt;Shift+F6 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Decode all remaining files in directory&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F7       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Open log by assigned in the operating system viewer&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F11      &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Move Rx frequency down 1 Hz&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F11 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Move Rx and Tx frequencies down 1 Hz&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F12      &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Move Rx frequency up 1 Hz&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F12 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Move Rx and Tx frequencies up 1 Hz&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+1-6  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Set now transmission to this number on Tab 1&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Ctl+1-6  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Set next transmission to this number on Tab 1&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Ctrl+A    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Clear wanted callsign list&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+B/C  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Switch to FT8/FT4 mode&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+D    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Decode again at QSO frequency&lt;/td&gt;&lt;td&gt;&lt;b&gt;Shift+D  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Full decode (both windows)&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+E    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Erase&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+F    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Toggle bypass all text filters&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Edit the free text message box&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+G    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Generate standard messages&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+H    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Halt Tx&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Ctrl+L   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Lookup callsign in database, generate standard messages&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+M    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Monitor&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+N    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Enable Tx&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Q    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Log QSO&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+S    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Stop monitoring&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+T    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Tune&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+V    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Save the most recently completed *.wav file&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Z    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Filter, this shortcut is being supported in main UI and widegraph UI&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Esc    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Halt Tx&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</source>
+        <extracomment>Keyboard shortcuts help window contents</extracomment>
+        <translation>&lt;table cellspacing=1&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F1       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Online Kullanım Kılavuzu&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F1  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;JTDX Hakkında&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F2       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Yapılandırma penceresini aç&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F3       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Klavye kısayollarını göster&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F4       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;DX Çağrı/Grid ve Tx mesajlarını temizle&lt;/td&gt;&lt;td&gt;&lt;b&gt;Alt+F4   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Programdan çık&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F5       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Özel fare komutlarını göster&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F6       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Dizinde sonraki dosyayı aç&lt;/td&gt;&lt;td&gt;&lt;b&gt;Shift+F6 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Dizindeki kalan tüm dosyaların kodunu çöz&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F7       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Logu not defterinde aç&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F11      &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Rx frekansını 1 Hz aşağı taşı&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F11 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Rx ve Tx frekanslarını 1 Hz aşağı taşı&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F12      &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Rx frekansını 1 Hz yukarı taşı&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F12 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Rx ve Tx frekanslarını 1 Hz yukarı taşı&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+1-6  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Sekme 1&apos;de TX&apos;i şimdi bu numaraya ayarlayın&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Ctl+1-6  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Sekme 1&apos;de bir sonraki TX&apos;i bu numaraya ayarla&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Ctrl+A    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Aranan çağrı işareti listesini temizle&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+B/C  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;FT8/FT4 moduna geç&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+D    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;QSO frekansında tekrar kod çöz&lt;/td&gt;&lt;td&gt;&lt;b&gt;Shift+D  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Tam kod çözme (her iki pencere)&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+E    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Sil&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+F    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Tüm metin filtrelerini atla&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Serbest mesaj kutusunu düzenle&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+G    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Standart mesajlar oluştur&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+H    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Tx&apos;i durdur&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Ctrl+L   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Veritabanında çağrı işareti arayın, standart mesajlar oluşturun&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+M    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Monitör&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+N    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Tx&apos;i etkinleştir&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Q    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;QSO&apos;yu Logla&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+S    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;İzlemeyi durdur&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+T    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Tune&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+V    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;En son tamamlanan *.wav dosyasını kaydedin&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Z    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Filtre, ana pencereden ve şelale penceresinden kontrol&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Esc    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Tx&apos;i durdur&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="3720"/>
+        <source>Special Mouse Commands</source>
+        <translation>Özel Fare Komutları</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3720"/>
@@ -5512,38 +5555,38 @@ list. The list can be maintained in Settings (F2).</source>
 </source>
         <translation>&lt;table cellpadding=5&gt;
   &lt;tr&gt;
-    &lt;th align=&quot;right&quot;&gt;點擊&lt;/th&gt;
-    &lt;th align=&quot;left&quot;&gt;行動&lt;/th&gt;
+    &lt;th align=&quot;right&quot;&gt;Tıklayın&lt;/th&gt;
+    &lt;th align=&quot;left&quot;&gt;Eylem&lt;/th&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td align=&quot;right&quot;&gt;瀑布圖:&lt;/td&gt;
-    &lt;td&gt;設定 Rx 頻率.&lt;br/&gt;
-        按兩下以設定 Rx 頻率並在那裡解碼.&lt;br/&gt;
-        點擊以設定 Rx 和 Tx 頻率.&lt;br/&gt;
-        解鎖 TX=RX:&lt;br/&gt;
-        使用左鍵設定RX頻率&lt;br/&gt;
-        使用ALT+左鍵設定RX頻率並打開篩檢程式&lt;br/&gt;
-        使用右鍵設定TX頻率
+    &lt;td align=&quot;right&quot;&gt;Şelale:&lt;/td&gt;
+    &lt;td&gt;Rx frekansını ayarla.&lt;br/&gt;
+        Rx frekansını ayarlamak ve orada kod çözmek için çift tıklayın.&lt;br/&gt;
+        Rx ve Tx frekanslarını ayarlamak için Ctrl tuşuna basarak tıklayın.&lt;br/&gt;
+        Kilitlenmemiş TX=RX:&lt;br/&gt;
+        RX frekansını ayarlamak için sol düğmeyi kullanın&lt;br/&gt;
+        RX frekansını ayarlamak ve Filtreyi açmak için ALT+sol düğmesini kullanın&lt;br/&gt;
+        TX frekansını ayarlamak için sağ düğmeyi kullanın
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td align=&quot;right&quot;&gt;解碼文字:&lt;/td&gt;
-    &lt;td&gt;按兩下將第二個呼號複製到 Dx 呼號框,&lt;br/&gt;
-        定位訊息複製到Dx網格框;將Rx和Tx頻率更改為&lt;br/&gt;
-        解碼信號的頻率;生成標準訊息.&lt;br/&gt;
-        如果第一個呼叫信號是您自己的. 則 Tx 頻率不會更改&lt;br/&gt;
-        除非 CTRL 在雙擊時被按住.&lt;br/&gt;&lt;br/&gt;
-        如果啟用 Tx 按鈕處於活動狀態, ALT+按兩下也將停止 Tx.&lt;br/&gt;&lt;br/&gt;
-        CTRL+ALT+按兩下只會新增解碼後的第二個呼號&lt;br/&gt;
-        將消息新增到渴望的呼號清單中.
+    &lt;td align=&quot;right&quot;&gt;Kodu çözülen metin:&lt;/td&gt;
+    &lt;td&gt;İkinci çağrı işaretini Dx Call&apos;a, konumlandırıcıyı Dx Grid&apos;e kopyalamak&lt;br/&gt;
+        için çift tıklayın; Rx ve Tx frekanslarını kodu çözülen sinyalin&lt;br/&gt;
+        frekansına değiştirin; standart mesajlar oluşturun. İlk çağrı işareti size&lt;br/&gt;
+        aitse, çift tıklandığında CTRL basılı tutulmadığı sürece Tx frekansı&lt;br/&gt;
+        değişmez.&lt;br/&gt;&lt;br/&gt;
+         ALT+çift tıklama, Tx&apos;i Etkinleştir düğmesi etkinse Tx&apos;i de durduracaktır.&lt;br/&gt;&lt;br/&gt;
+         CTRL+ALT+çift tıklama, kodu çözülmüş mesajdan aranan çağrı&lt;br/&gt;
+        işareti listesine yalnızca ikinci çağrı işaretini ekler.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td align=&quot;right&quot;&gt;擦除按鈕:&lt;/td&gt;
-    &lt;td&gt;點擊右鍵以擦除QSO視窗.&lt;br/&gt;
-        按下左鍵以擦除波段活動視窗.&lt;br/&gt;
-        按兩鍵或右鍵以擦除 QSO &lt;br/&gt;
-        和波段活動視窗.
+    &lt;td align=&quot;right&quot;&gt;Sil düğmesi:&lt;/td&gt;
+    &lt;td&gt;QSO penceresini silmek için sağ tuşa tıklayın.&lt;br/&gt;
+        Bant Etkinliği penceresini silmek için sol düğmeyi tıklayın.&lt;br/&gt;
+        QSO ve Band Activity pencerelerini silmek için sol veya sağ&lt;br/&gt;
+        düğmeyi çift tıklayın.
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -5552,122 +5595,101 @@ list. The list can be maintained in Settings (F2).</source>
     <message>
         <location filename="../mainwindow.cpp" line="5511"/>
         <source>Clear waiting state</source>
-        <translation>清除等待狀態</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5512"/>
         <source>Waiting</source>
-        <translation>等待</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="6791"/>
-        <location filename="../mainwindow.cpp" line="6819"/>
-        <source>Add to callgrid</source>
-        <translation>新增到呼號網格</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="7212"/>
-        <source>Enter Grid error: 4/6/8/10 char grid will be accepted</source>
-        <translation>輸入網格錯誤: 祗接受 4/6/8/10 字元網格</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="9442"/>
-        <source>WD %1m</source>
-        <translation>WD %1分鐘</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2893"/>
-        <location filename="../mainwindow.cpp" line="3561"/>
-        <location filename="../mainwindow.cpp" line="7957"/>
-        <source>Hound TX frequency control warning</source>
-        <translation>獵犬 發射頻率控制警告</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="3679"/>
-        <source>Keyboard Shortcuts</source>
-        <translation>鍵盤快捷鍵</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="3720"/>
-        <source>Special Mouse Commands</source>
-        <translation>滑鼠特殊組合</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="4459"/>
-        <source>Avg=</source>
-        <translation>平均=</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4459"/>
         <location filename="../mainwindow.cpp" line="4484"/>
         <source>Freq  </source>
-        <translation>頻率  </translation>
+        <translation>Frek  </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="3570"/>
+        <location filename="../mainwindow.cpp" line="3592"/>
+        <source>HoundFC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="4459"/>
+        <source>Avg=</source>
+        <translation>Ort=</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4459"/>
         <location filename="../mainwindow.cpp" line="4484"/>
         <source>Lag=</source>
-        <translation>滯後=</translation>
+        <translation>Gckm=</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4465"/>
         <location filename="../mainwindow.cpp" line="4474"/>
         <source>check time</source>
-        <translation>檢查時間</translation>
+        <translation>saat kontrol</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4813"/>
         <location filename="../mainwindow.cpp" line="4819"/>
         <source>Confirm change Language</source>
-        <translation>確認更改語言</translation>
+        <translation>Dil değişikliğini onaylayın</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4815"/>
         <location filename="../mainwindow.cpp" line="4822"/>
         <source>Are You sure to change UI Language to English, JTDX will restart?</source>
-        <translation>是否一定要將用戶語言介面更改為繁體中文, JTDX 將重新啟動?</translation>
+        <translation>JTDX yeniden başlatılacak Dili Türkçe olarak değiştirmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4994"/>
         <source>Please choose another Tx frequency. JTDX will not knowingly transmit another mode in the WSPR sub-band.</source>
-        <translation>請選擇另一個發射頻率. JTDX不會故意在WSPR副頻段中發射另一種模式.</translation>
+        <translation>Lütfen başka bir Tx frekansı seçin. JTDX, WSPR alt bandında bilerek başka bir modu iletmeyecektir.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4999"/>
         <location filename="../mainwindow.cpp" line="5002"/>
         <source>WSPR Guard Band</source>
-        <translation>WSPR保護頻段</translation>
+        <translation>WSPR Koruma Bandı</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="5005"/>
+        <source>Please choose another Tx frequency. JTDX will not allow to Call below 1000 Hz in DXped mode.</source>
+        <translation>Lütfen başka bir Tx frekansı seçin. JTDX, DXped modunda 1000 Hz&apos;nin altında Çağrı yapılmasına izin vermez.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="5010"/>
+        <location filename="../mainwindow.cpp" line="5013"/>
+        <source>FT8 F/H Tx Guard</source>
+        <translation>FT8 F/H Tx Koruma</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5133"/>
         <source>TUNE</source>
-        <translation>調諧</translation>
+        <translation>TUNE</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5134"/>
         <location filename="../mainwindow.cpp" line="5642"/>
         <source>LastTx: </source>
-        <translation>最後發射： </translation>
+        <translation>SonTx: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5409"/>
         <source>Tx: TUNE</source>
-        <translation>發射: 調諧</translation>
+        <translation>Tx: TUNE</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5410"/>
         <source>Tx: </source>
-        <translation>發射: </translation>
+        <translation>Tx: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5415"/>
         <source>Receiving </source>
-        <translation>接收 </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="8539"/>
-        <source>Pwr&lt;br&gt;%1 W</source>
-        <translation>功率&lt;br&gt;%1 瓦</translation>
+        <translation>Dinleme </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="6773"/>
@@ -5675,207 +5697,168 @@ list. The list can be maintained in Settings (F2).</source>
         <location filename="../mainwindow.cpp" line="6871"/>
         <location filename="../mainwindow.cpp" line="6897"/>
         <source>Add to CALL3.TXT</source>
-        <translation>新增到 CALL3.TXT</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="3681"/>
-        <source>&lt;table cellspacing=1&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F1       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Online User&apos;s Guide&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F1  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;About JTDX&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F2       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Open configuration window&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F3       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Display keyboard shortcuts&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F4       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Clear DX Call/Grid and Tx messages&lt;/td&gt;&lt;td&gt;&lt;b&gt;Alt+F4   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Exit program&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F5       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Display special mouse commands&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F6       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Open next file in directory&lt;/td&gt;&lt;td&gt;&lt;b&gt;Shift+F6 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Decode all remaining files in directory&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F7       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Open log by assigned in the operating system viewer&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F11      &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Move Rx frequency down 1 Hz&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F11 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Move Rx and Tx frequencies down 1 Hz&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F12      &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Move Rx frequency up 1 Hz&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F12 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Move Rx and Tx frequencies up 1 Hz&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+1-6  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Set now transmission to this number on Tab 1&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Ctl+1-6  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Set next transmission to this number on Tab 1&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Ctrl+A    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Clear wanted callsign list&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+B/C  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Switch to FT8/FT4 mode&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+D    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Decode again at QSO frequency&lt;/td&gt;&lt;td&gt;&lt;b&gt;Shift+D  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Full decode (both windows)&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+E    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Erase&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+F    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Toggle bypass all text filters&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Edit the free text message box&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+G    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Generate standard messages&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+H    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Halt Tx&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Ctrl+L   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Lookup callsign in database, generate standard messages&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+M    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Monitor&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+N    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Enable Tx&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Q    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Log QSO&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+S    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Stop monitoring&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+T    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Tune&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+V    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Save the most recently completed *.wav file&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Z    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Filter, this shortcut is being supported in main UI and widegraph UI&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Esc    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;Halt Tx&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;</source>
-        <extracomment>Keyboard shortcuts help window contents</extracomment>
-        <translation>&lt;table cellspacing=1&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F1       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;線上使用者指南&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F1  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;About JTDX&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F2       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;打開配置視窗&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F3       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;顯示鍵盤快捷方式&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F4       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;清除 DX 呼叫/網格和 Tx 消息&lt;/td&gt;&lt;td&gt;&lt;b&gt;Alt+F4   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;退出程式&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F5       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;顯示特殊的滑鼠命令&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F6       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;在目錄中打開下一個檔&lt;/td&gt;&lt;td&gt;&lt;b&gt;Shift+F6 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;解碼目錄中的全部剩餘檔&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F7       &lt;/b&gt;&lt;/td&gt;&lt;td&gt;操作系統分配的查看器中打開日誌&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F11      &lt;/b&gt;&lt;/td&gt;&lt;td&gt;移動Rx頻率下降1赫茲&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F11 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;移動Rx和Tx頻率下降1赫茲&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;F12      &lt;/b&gt;&lt;/td&gt;&lt;td&gt;移動Rx頻率上升1 赫茲&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F12 &lt;/b&gt;&lt;/td&gt;&lt;td&gt;移動Rx和Tx頻率上升1 赫茲&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+1-6  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;立即在 Tab 1 上設定傳輸到此號碼&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Ctl+1-6  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;在Tab 1上將下一個傳輸到此號碼&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Ctrl+A    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;清除渴望清單&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+B/C  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;切換到 FT8/FT4 模式&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+D    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;在QSO頻率再次解碼&lt;/td&gt;&lt;td&gt;&lt;b&gt;Shift+D  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;完全解碼 (兩個視窗)&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+E    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;擦除&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+F    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;切換繞過全部文本過濾器&lt;/td&gt;&lt;td&gt;&lt;b&gt;Ctrl+F   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;編輯自定義文本訊息框&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+G    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;生成標準訊息&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+H    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;停止 Tx&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Ctrl+L   &lt;/b&gt;&lt;/td&gt;&lt;td&gt;查找資料庫中的呼號, 生成標準訊息&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+M    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;監聽&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+N    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;啟用發射&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Q    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;記錄通聯&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+S    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;停止監聽&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+T    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;調諧&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+V    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;保存最近完成的*.wav 檔&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Alt+Z    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;過濾, 此快捷方式在主視窗和寬圖視窗中支援&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Esc    &lt;/b&gt;&lt;/td&gt;&lt;td&gt;停止發射&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="5005"/>
-        <source>Please choose another Tx frequency. JTDX will not allow to Call below 1000 Hz in DXped mode.</source>
-        <translation>請選擇另一個發射頻率. JTDX 將不允許在 DX遠征模式下低於 1000 赫兹 的發射呼叫.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="5010"/>
-        <location filename="../mainwindow.cpp" line="5013"/>
-        <source>FT8 F/H Tx Guard</source>
-        <translation>FT8 F/H 發射警衛</translation>
+        <translation>CALL3.TXT&apos;e ekle</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="6774"/>
         <source>Please enter a valid grid locator</source>
-        <translation>請輸入有效的網格定位</translation>
+        <translation>Lütfen geçerli bir grid locator girin</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="6791"/>
+        <location filename="../mainwindow.cpp" line="6819"/>
+        <source>Add to callgrid</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="6792"/>
         <location filename="../mainwindow.cpp" line="6853"/>
         <source>Cannot open &quot;%1&quot; for read/write: %2</source>
-        <translation>無法開啟 &quot;%1&quot; 用於讀/寫: %2</translation>
+        <translation>%2&apos;ye Okuma/yazma için &quot;%1&quot; açılamıyor</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="6820"/>
         <location filename="../mainwindow.cpp" line="6872"/>
         <source>Cannot open &quot;%1&quot; for writing: %2</source>
-        <translation>無法開啟 &quot;%1&quot; 用於寫入: %2</translation>
+        <translation>%2&apos;ye yazma için &quot;%1&quot; açılamıyor</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="6895"/>
         <source>%1
 is already in CALL3.TXT, do you wish to replace it?</source>
-        <translation>%1 已經在 CALL3.TXT, 您想替換它嗎?</translation>
+        <translation>%1
+zaten CALL3.TXT&apos;de var, değiştirmek istiyor musunuz?</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="7212"/>
+        <source>Enter Grid error: 4/6/8/10 char grid will be accepted</source>
+        <translation type="unfinished">Grid Giriş hatası: 4/6/8/10 karakter kabul edilir</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="7289"/>
         <source>Error sending QSO ADIF data to secondary UDP server</source>
-        <translation>將通聯 ADIF 數據發送到輔助 UDP 伺服器時錯誤</translation>
+        <translation>QSO ADIF verilerini ikincil UDP sunucusuna gönderirken hata oluştu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="7289"/>
         <source>Write returned &quot;%1&quot;</source>
-        <translation>寫入返回 &quot;%1&quot;</translation>
+        <translation>&quot;%1&quot; yazma geri döndü</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="7537"/>
         <source>Tx WSPR</source>
-        <translation>發射 WSPR</translation>
+        <translation>Tx WSPR</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="7644"/>
         <source>    Freq     Drift  Call          Grid    dBm   Dist</source>
-        <translation>    頻率     漂移  呼號          網格    dBm   距離</translation>
+        <translation>    Freq     Drift  Call          Grid    dBm   Dist</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="7746"/>
         <location filename="../mainwindow.cpp" line="7758"/>
         <source>Confirm Erase</source>
-        <translation>確認擦除</translation>
+        <translation>Silmeyi Onayla</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="7747"/>
         <source>Are you sure you want to erase file ALL.TXT ?</source>
-        <translation>是否確實要擦除 ALL.TXT ?</translation>
+        <translation>ALL.TXT dosyasını silmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="7759"/>
         <source>Are you sure you want to erase your QSO LOG?</source>
-        <translation>是否確實要擦除 通聯日誌?</translation>
+        <translation>QSO LOG&apos;unuzu silmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="8461"/>
         <source>Lockd Tx=Rx</source>
-        <translation>鎖定Tx=Rx</translation>
+        <translation>Tx=Rx Kilitli</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="8462"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Push button to allow Tx/Rx AF frequencies split operation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>允許 發射/接收 音頻頻率異頻操作的按鈕</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tx/Rx AF frekansları ayırma işlemine izin düğmesi.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="8469"/>
         <source>Tx/Rx Split</source>
-        <translation>Tx/Rx異頻</translation>
+        <translation>Tx/Rx Ayırma</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="8470"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Push button to lock Tx frequency to the Rx AF frequency.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>綠色按鈕: 鎖定發射頻率, 黃色按鈕: 發射頻率移到接收頻率</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tx frekansını Rx AF frekansına kilitlemek için düğmeye basın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="8539"/>
+        <source>Pwr&lt;br&gt;%1 W</source>
+        <translation>Güç&lt;br&gt;%1 W</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="8630"/>
         <source>Rig Control Error</source>
-        <translation>無線電設備控制錯誤</translation>
+        <translation>Cihaz Kontrol Hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="8710"/>
         <source>Tune digital gain</source>
-        <translation>調諧數字增益</translation>
+        <translation>ayar modu ses seviyesi</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="8711"/>
         <source>Transmit digital gain</source>
-        <translation>發射數字增益</translation>
+        <translation>gönderim ses seviyesi</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="8731"/>
         <source>Prefixes</source>
-        <translation>前綴</translation>
+        <translation>Ön ekler</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="8807"/>
         <location filename="../mainwindow.cpp" line="8808"/>
         <source>Logd </source>
-        <translation>記錄 </translation>
+        <translation>Logd </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="9060"/>
         <source>Network Error</source>
-        <translation>網路錯誤</translation>
+        <translation>Ağ hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="9061"/>
         <source>Error: %1
 UDP server %2:%3</source>
-        <translation>錯誤: %1
-UDP 伺服器 %2:%3</translation>
+        <translation>Hata: %1
+UDP sunucusu %2:%3</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="9212"/>
         <source>File Error</source>
-        <translation>檔案錯誤</translation>
+        <translation>Dosya hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="9428"/>
         <source>Tx watchdog expired</source>
-        <translation>發射監管計時器已過期</translation>
+        <translation>Etkinlik zamanlayıcısının süresi doldu</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="9442"/>
+        <source>WD %1m</source>
+        <translation>WD %1m</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2893"/>
+        <location filename="../mainwindow.cpp" line="3561"/>
+        <location filename="../mainwindow.cpp" line="7957"/>
+        <source>Hound TX frequency control warning</source>
+        <translation>Avcı TX frekans kontrol uyarısı</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="3679"/>
+        <source>Keyboard Shortcuts</source>
+        <translation>Klavye kısayolları</translation>
     </message>
 </context>
 <context>
@@ -5884,7 +5867,7 @@ UDP 伺服器 %2:%3</translation>
         <location filename="../Modes.cpp" line="56"/>
         <location filename="../Modes.cpp" line="83"/>
         <source>Mode</source>
-        <translation>模式</translation>
+        <translation>Mod</translation>
     </message>
 </context>
 <context>
@@ -5892,7 +5875,7 @@ UDP 伺服器 %2:%3</translation>
     <message>
         <location filename="../NetworkAccessManager.cpp" line="38"/>
         <source>Network SSL/TLS Errors</source>
-        <translation>網路 SSL/TLS 錯誤</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5900,7 +5883,7 @@ UDP 伺服器 %2:%3</translation>
     <message>
         <location filename="../PollingTransceiver.cpp" line="296"/>
         <source>Unexpected rig error</source>
-        <translation>無線電設備意外錯誤</translation>
+        <translation>Beklenmeyen cihaz hatası</translation>
     </message>
 </context>
 <context>
@@ -5908,7 +5891,7 @@ UDP 伺服器 %2:%3</translation>
     <message>
         <location filename="../Configuration.cpp" line="6061"/>
         <source>OK</source>
-        <translation>確定</translation>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
@@ -5916,179 +5899,94 @@ UDP 伺服器 %2:%3</translation>
     <message>
         <location filename="../Configuration.cpp" line="6063"/>
         <source>Directory:</source>
-        <translation>目錄:</translation>
+        <translation>Dizin:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6064"/>
         <source>File &amp;name:</source>
-        <translation>檔案名稱(&amp;n):</translation>
+        <translation>Dosya &amp;adı:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6065"/>
         <source>&amp;Open</source>
-        <translation>開啟(&amp;O)</translation>
+        <translation>&amp;Aç</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6066"/>
         <source>&amp;Choose</source>
-        <translation>選擇(&amp;C)</translation>
+        <translation>&amp;Seç</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6067"/>
         <source>&amp;Save</source>
-        <translation>儲存(&amp;S)</translation>
+        <translation>&amp;Kaydet</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6069"/>
         <source>All files (*)</source>
-        <translation>全部檔案 (*)</translation>
+        <translation>Tüm dosyalar (*)</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6070"/>
         <source>New Folder</source>
-        <translation>新資料夾</translation>
+        <translation>Yeni Klasör</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6071"/>
         <source>Delete</source>
-        <translation>刪除</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6068"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6072"/>
         <source>&amp;Delete</source>
-        <translation>刪除(&amp;D)</translation>
+        <translation>&amp;sil</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6073"/>
         <source>&amp;Rename</source>
-        <translation>重新命名(&amp;R)</translation>
+        <translation>&amp;Yeni isim</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6074"/>
         <source>Show &amp;hidden files</source>
-        <translation>顯示隱藏檔案(&amp;h)</translation>
+        <translation>Gizli &amp;dosyaları göster</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6075"/>
         <source>&amp;New Folder</source>
-        <translation>新資料夾(&amp;N)</translation>
+        <translation>&amp;Yeni Klasör</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6076"/>
         <source>Look in:</source>
-        <translation>檢視:</translation>
+        <translation>İçine bak:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6077"/>
         <source>Files of type:</source>
-        <translation>檔案類型:</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6084"/>
-        <source>Back</source>
-        <translation>返回</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6085"/>
-        <source>Go back</source>
-        <translation>回去</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6086"/>
-        <source>Alt+Left</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6087"/>
-        <source>Forward</source>
-        <translation>向前</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6088"/>
-        <source>Go forward</source>
-        <translation>前進</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6089"/>
-        <source>Alt+Right</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6090"/>
-        <source>Parent Directory</source>
-        <translation>父目錄</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6091"/>
-        <source>Go to the parent directory</source>
-        <translation>移至父目錄</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6092"/>
-        <source>Alt+Up</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6093"/>
-        <source>Create New Folder</source>
-        <translation>創建新資料夾</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6094"/>
-        <source>Create a New Folder</source>
-        <translation>創建新資料夾</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6095"/>
-        <source>List View</source>
-        <translation>清單檢視</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6096"/>
-        <source>Change to list view mode</source>
-        <translation>變更為清單檢視模式</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6097"/>
-        <source>Detail View</source>
-        <translation>詳細資訊檢視</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6098"/>
-        <source>Change to detail view mode</source>
-        <translation>變更為詳細資訊檢視模式</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6099"/>
-        <source>Sidebar</source>
-        <translation>側欄</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.cpp" line="6100"/>
-        <source>List of places and bookmarks</source>
-        <translation>地點與書籤清單</translation>
+        <translation>Dosya türü:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6078"/>
         <source>&apos;%1&apos; is write protected.
 Do you want to delete it anyway?</source>
-        <translation>&apos;%1&apos; 是寫入保護.
-是否仍要將其刪除?</translation>
+        <translation>&apos;%1&apos; yazma korumalı.
+Yine de silmek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6079"/>
         <source>Are you sure you want to delete &apos;%1&apos;?</source>
-        <translation>是否確定要刪除 &apos;%1&apos;?</translation>
+        <translation>&apos;%1&apos;i silmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6080"/>
         <source>Could not delete directory.</source>
-        <translation>無法刪除目錄.</translation>
+        <translation>Dizin silinemedi.</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6081"/>
@@ -6096,13 +5994,98 @@ Do you want to delete it anyway?</source>
 Directory not found.
 Please verify the correct directory name was given.</source>
         <translation>%1
-找不到目錄.
-請驗證已給出正確的目錄名稱.</translation>
+Dizin bulunamadı.
+Lütfen doğru dizin adının verildiğini doğrulayın.</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6083"/>
         <source>Recent Places</source>
-        <translation>近期的地方</translation>
+        <translation>Son gidilen yerler</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6084"/>
+        <source>Back</source>
+        <translation>Geri</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6085"/>
+        <source>Go back</source>
+        <translation>Geri git</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6086"/>
+        <source>Alt+Left</source>
+        <translation>Alt+Sol</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6087"/>
+        <source>Forward</source>
+        <translation>İleri</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6088"/>
+        <source>Go forward</source>
+        <translation>İleri git</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6089"/>
+        <source>Alt+Right</source>
+        <translation>Alt+Sağ</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6090"/>
+        <source>Parent Directory</source>
+        <translation>Üst Dizin</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6091"/>
+        <source>Go to the parent directory</source>
+        <translation>Üst dizine git</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6092"/>
+        <source>Alt+Up</source>
+        <translation>Alt+Yukarı</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6093"/>
+        <source>Create New Folder</source>
+        <translation>Yeni klasör Oluştur</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6094"/>
+        <source>Create a New Folder</source>
+        <translation>Yeni bir klasör Oluştur</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6095"/>
+        <source>List View</source>
+        <translation>Liste görünümü</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6096"/>
+        <source>Change to list view mode</source>
+        <translation>Liste görünümüne geç</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6097"/>
+        <source>Detail View</source>
+        <translation>Ayrıntılı Görünüm</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6098"/>
+        <source>Change to detail view mode</source>
+        <translation>Ayrıntılı görünüme geç</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6099"/>
+        <source>Sidebar</source>
+        <translation>Kenar çubuğu</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.cpp" line="6100"/>
+        <source>List of places and bookmarks</source>
+        <translation>Yerler ve yer imleri listesi</translation>
     </message>
 </context>
 <context>
@@ -6110,22 +6093,22 @@ Please verify the correct directory name was given.</source>
     <message>
         <location filename="../Configuration.cpp" line="6102"/>
         <source>Name</source>
-        <translation>姓名</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6103"/>
         <source>Size</source>
-        <translation>大小</translation>
+        <translation>Boyut</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6104"/>
         <source>Type</source>
-        <translation>類型</translation>
+        <translation>Tür</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="6105"/>
         <source>Date Modified</source>
-        <translation>變更日期</translation>
+        <translation>Değiştirilme tarihi</translation>
     </message>
 </context>
 <context>
@@ -6133,12 +6116,12 @@ Please verify the correct directory name was given.</source>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="91"/>
         <source>Show Details...</source>
-        <translation>顯示詳情...</translation>
+        <translation>Ayrıntıları Göster...</translation>
     </message>
     <message>
         <location filename="../JTDXMessageBox.cpp" line="92"/>
         <source>Hide Details...</source>
-        <translation>隱藏詳情...</translation>
+        <translation>Ayrıntıları Gizle...</translation>
     </message>
 </context>
 <context>
@@ -6146,57 +6129,57 @@ Please verify the correct directory name was given.</source>
     <message>
         <location filename="../main.cpp" line="186"/>
         <source>Invalid rig name - \ &amp; / not allowed</source>
-        <translation>無效的無線電設備名稱 - \ &amp; / 不允許</translation>
+        <translation>Geçersiz cihaz adı - \ &amp; / izin verilmez</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="210"/>
         <source>Another instance may be running, try to remove stale lock file?</source>
-        <translation>另一個JTDX可能正在運行, 是否嘗試刪除過時的鎖定檔案?</translation>
+        <translation>Başka bir örnek çalışıyor olabilir, geçmiş kilit dosyasını kaldırmayı deneyin?</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="356"/>
         <source>Unexpected error</source>
-        <translation>意外錯誤</translation>
+        <translation>Beklenmeyen hata</translation>
     </message>
     <message>
         <location filename="../widegraph.cpp" line="14"/>
         <source>User Defined</source>
-        <translation>用戶定義</translation>
+        <translation>Kullanıcı tanımlı</translation>
     </message>
     <message>
         <location filename="../Bands.cpp" line="51"/>
         <source>OOB</source>
-        <translation></translation>
+        <translation>OOB</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="55"/>
         <source>Too many colours in palette.</source>
-        <translation>調色板中顏色太多.</translation>
+        <translation>Palette çok fazla renk var.</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="78"/>
         <source>Error reading waterfall palette file &quot;%1:%2&quot; too many colors.</source>
-        <translation>讀取瀑布調色板檔案時錯誤 &quot;%1:%2&quot; 太多顏色.</translation>
+        <translation>Şelale paleti dosyası &quot;%1 okunurken hata oluştu:%2&quot; çok fazla renk var.</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="84"/>
         <source>Error reading waterfall palette file &quot;%1:%2&quot; invalid triplet.</source>
-        <translation>讀取瀑布調色板檔案時錯誤 &quot;%1:%2&quot; 無效的三元組.</translation>
+        <translation>Şelale paleti dosyası &quot;%1 okunurken hata oluştu:%2&quot; geçersiz üçlü.</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="96"/>
         <source>Error reading waterfall palette file &quot;%1:%2&quot; invalid color.</source>
-        <translation>讀取瀑布調色板檔案時錯誤 &quot;%1:%2&quot; 無效的顏色.</translation>
+        <translation>Şelale paleti dosyası &quot;%1 okunurken hata oluştu:%2&quot; geçersiz renk.</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="104"/>
         <source>Error opening waterfall palette file &quot;%1&quot;: %2.</source>
-        <translation>讀取瀑布調色板檔案時錯誤 &quot;%1&quot;: %2.</translation>
+        <translation>Şelale paleti dosyası &quot;%1 açılırken hata oluştu:%2&quot;.</translation>
     </message>
     <message>
         <location filename="../WFPalette.cpp" line="258"/>
         <source>Error writing waterfall palette file &quot;%1&quot;: %2.</source>
-        <translation>讀取瀑布調色板檔案時錯誤 &quot;%1&quot;: %2.</translation>
+        <translation>Şelale paleti dosyası &quot;%1 yazılırken hata oluştu:%2&quot;.</translation>
     </message>
 </context>
 <context>
@@ -6204,222 +6187,222 @@ Please verify the correct directory name was given.</source>
     <message>
         <location filename="../QSYMessageCreator.ui" line="32"/>
         <source>Message Creator</source>
-        <translation>創建訊息</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="87"/>
         <source>QSY</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="122"/>
         <source>Band</source>
-        <translation>波段</translation>
+        <translation type="unfinished">Band</translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="143"/>
         <source>Mode</source>
-        <translation>模式</translation>
+        <translation type="unfinished">Mod</translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="188"/>
         <source>160 M</source>
-        <translation>160 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="203"/>
         <source>80 M</source>
-        <translation>80 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="218"/>
         <source>60 M</source>
-        <translation>60 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="233"/>
         <source>40 M</source>
-        <translation>40 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="248"/>
         <source>30 M</source>
-        <translation>30 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="263"/>
         <source>20 M</source>
-        <translation>20 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="278"/>
         <source>17 M</source>
-        <translation>17 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="293"/>
         <source>15 M</source>
-        <translation>15 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="308"/>
         <source>12 M</source>
-        <translation>12 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="323"/>
         <source>10 M</source>
-        <translation>10 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="338"/>
         <source>6 M</source>
-        <translation>6 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="356"/>
         <source>4 M</source>
-        <translation>4 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="374"/>
         <source>2 M</source>
-        <translation>2 米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="389"/>
         <source>70 CM</source>
-        <translation>70厘米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="435"/>
         <source>FT4</source>
-        <translation></translation>
+        <translation type="unfinished">FT4</translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="450"/>
         <source>FT8</source>
-        <translation></translation>
+        <translation type="unfinished">FT8</translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="465"/>
         <source>JT9</source>
-        <translation></translation>
+        <translation type="unfinished">JT9</translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="480"/>
         <source>JT65</source>
-        <translation></translation>
+        <translation type="unfinished">JT65</translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="495"/>
         <source>T10</source>
-        <translation></translation>
+        <translation type="unfinished">T10</translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="521"/>
         <source>kHz</source>
-        <translation>仟赫</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="556"/>
         <source>SAVE</source>
-        <translation>儲存</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="590"/>
         <source>Send Message</source>
-        <translation>發送訊息</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="608"/>
         <source>Message</source>
-        <translation>訊息</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="683"/>
         <source>General</source>
-        <translation>一般</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="734"/>
         <source>Please call me by phone</source>
-        <translation>請打電話給我</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="741"/>
         <source>Please check Ping Jockey</source>
-        <translation>請檢查 Ping Jockey</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="748"/>
         <source>You are in the log</source>
-        <translation>您在紀錄中</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="758"/>
         <source>You are in the wrong time slot</source>
-        <translation>您在錯誤的時間時隙</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="765"/>
         <source>You are not in Contest Mode</source>
-        <translation>您不是在競賽模式中</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="772"/>
         <source>Your audio is distorted</source>
-        <translation>您的音頻失真了</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="779"/>
         <source>Your transmitter is overmodulated</source>
-        <translation>您的發射機被過度調制了</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="786"/>
         <source>Please check ON4KST</source>
-        <translation>請檢查 ON4KST</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="793"/>
         <source>Please transmit above 1000 Hz</source>
-        <translation>請在1000赫茲以上發送</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="800"/>
         <source>Check your email</source>
-        <translation>檢查您的電子郵件</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="807"/>
         <source>Please check HB9Q Logger</source>
-        <translation>請檢查 HB9Q Logger</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="814"/>
         <source>Please check your PC Clock</source>
-        <translation>請檢查您的電腦時鐘</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="821"/>
         <source>You are on top of a rare DX</source>
-        <translation>您在一個罕見的DX之上</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="828"/>
         <source>Please QSL via LoTW</source>
-        <translation>請 QSL 經過 LoTW</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="845"/>
         <source>Msg</source>
-        <translation>訊息</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../QSYMessageCreator.ui" line="912"/>
         <source>Send Msg</source>
-        <translation>發送訊息</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6432,7 +6415,7 @@ Please verify the correct directory name was given.</source>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="296"/>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="307"/>
         <source>File System Error</source>
-        <translation>檔案系統錯誤</translation>
+        <translation>Dosya Sistemi Hatası</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="40"/>
@@ -6440,16 +6423,16 @@ Please verify the correct directory name was given.</source>
 &quot;%1&quot;
 to: &quot;%2&quot;
 Error(%3): %4</source>
-        <translation>無法重命名檔案:
+        <translation>Dosya yeniden adlandırılamıyor:
 &quot;%1&quot;
-到: &quot;%2&quot;
-錯誤(%3): %4</translation>
+&gt;: &quot;%2&quot;
+Hata(%3): %4</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="111"/>
         <source>Cannot delete file:
 &quot;%1&quot;</source>
-        <translation>無法刪除檔案:
+        <translation>Dosya silinemiyor:
 &quot;%1&quot;</translation>
     </message>
     <message>
@@ -6457,39 +6440,39 @@ Error(%3): %4</source>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="204"/>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="223"/>
         <source>Network Error</source>
-        <translation>網路錯誤</translation>
+        <translation>Ağ hatası</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="193"/>
         <source>Too many redirects: %1</source>
-        <translation>太多重定向: %1</translation>
+        <translation>Çok fazla yönlendirme: %1</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="205"/>
         <source>Redirect not followed: %1</source>
-        <translation>未遵循重定向:%1</translation>
+        <translation>Yönlendirme izlenmedi: %1</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="234"/>
         <source>Cannot commit changes to:
 &quot;%1&quot;</source>
-        <translation>無法將更改提交給:
-&quot;%1&quot;</translation>
+        <translation>&quot;%1&quot; için değişiklik
+yapılamaz</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="284"/>
         <source>Cannot open file:
 &quot;%1&quot;
 Error(%2): %3</source>
-        <translation>無法開啟檔案:
+        <translation>Dosya açılamıyor:
 &quot;%1&quot;
-錯誤(%2): %3</translation>
+Hata(%2): %3</translation>
     </message>
     <message>
         <location filename="../SampleDownloader/RemoteFile.cpp" line="297"/>
         <source>Cannot make path:
 &quot;%1&quot;</source>
-        <translation>無法建立路徑:
+        <translation>Yol yapılamıyor:
 &quot;%1&quot;</translation>
     </message>
     <message>
@@ -6497,9 +6480,9 @@ Error(%2): %3</source>
         <source>Cannot write to file:
 &quot;%1&quot;
 Error(%2): %3</source>
-        <translation>無法寫入檔案:
+        <translation>Dosyaya yazılamıyor:
 &quot;%1&quot;
-錯誤(%2): %3</translation>
+Hata(%2): %3</translation>
     </message>
 </context>
 <context>
@@ -6507,47 +6490,47 @@ Error(%2): %3</source>
     <message>
         <location filename="../SampleDownloader.cpp" line="104"/>
         <source>Download Samples</source>
-        <translation>下載範例</translation>
+        <translation>Örnekleri İndir</translation>
     </message>
     <message>
         <location filename="../SampleDownloader.cpp" line="107"/>
         <source>&amp;Abort</source>
-        <translation>中止(&amp;A)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SampleDownloader.cpp" line="108"/>
         <source>&amp;Refresh</source>
-        <translation>刷新(&amp;R)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SampleDownloader.cpp" line="111"/>
         <source>&amp;Details</source>
-        <translation>細節詳情(&amp;D)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SampleDownloader.cpp" line="115"/>
         <source>Base URL for samples:</source>
-        <translation>範例網址:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SampleDownloader.cpp" line="116"/>
         <source>Only use HTTP:</source>
-        <translation>僅使用 HTTP:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SampleDownloader.cpp" line="117"/>
         <source>Check this if you get SSL/TLS errors</source>
-        <translation>如果收到 SSL/TLS 錯誤, 請選擇此選項</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SampleDownloader.cpp" line="135"/>
         <source>Input Error</source>
-        <translation>輸入錯誤</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SampleDownloader.cpp" line="135"/>
         <source>Invalid URL format</source>
-        <translation>無效的網址格式</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6556,62 +6539,62 @@ Error(%2): %3</source>
         <location filename="../showqsos.ui" line="38"/>
         <location filename="../showqsos.ui" line="193"/>
         <source>Call</source>
-        <translation>呼號</translation>
+        <translation type="unfinished">Çağrı</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="58"/>
         <location filename="../showqsos.ui" line="178"/>
         <source>Grid</source>
-        <translation>網格</translation>
+        <translation type="unfinished">Grid</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="75"/>
         <location filename="../showqsos.ui" line="163"/>
         <source>DXCC</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="211"/>
         <source> CQZ</source>
-        <translation> CQ分區</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="158"/>
         <location filename="../showqsos.ui" line="228"/>
         <source>ITUZ</source>
-        <translation>ITU分區</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="48"/>
         <source>K1ABC</source>
-        <translation></translation>
+        <translation type="unfinished">K1ABC</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="113"/>
         <location filename="../showqsos.ui" line="148"/>
         <source>Cont</source>
-        <translation>洲大陸</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="136"/>
         <source>Which worked count to show.</source>
-        <translation>那個曾通聯的計數顯示.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="143"/>
         <source>None</source>
-        <translation>不儲存</translation>
+        <translation type="unfinished">Hiçbiri</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="153"/>
         <source>CQZ</source>
-        <translation>CQ分區</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="94"/>
         <location filename="../showqsos.ui" line="168"/>
         <source>State</source>
-        <translation>美國州</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="173"/>
@@ -6621,127 +6604,127 @@ Error(%2): %3</source>
     <message>
         <location filename="../showqsos.ui" line="183"/>
         <source>BGrid</source>
-        <translation>B網格</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="188"/>
         <source>Pfx</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="201"/>
         <source>Show count list as ToolTip.</source>
-        <translation>將計數列錶顯示為工具提示.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="245"/>
         <source>Band</source>
-        <translation>波段</translation>
+        <translation type="unfinished">Band</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="255"/>
         <source> FT8</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="265"/>
         <source> FT4</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="275"/>
         <source>JT65</source>
-        <translation></translation>
+        <translation type="unfinished">JT65</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="285"/>
         <source> JT9</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="295"/>
         <source> T10</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="305"/>
         <source> Cnt</source>
-        <translation> 計數</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="315"/>
         <source>160m</source>
-        <translation>160 米</translation>
+        <translation type="unfinished">160m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="385"/>
         <source>80m</source>
-        <translation>80 米</translation>
+        <translation type="unfinished">80m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="455"/>
         <source>60m</source>
-        <translation>60 米</translation>
+        <translation type="unfinished">60m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="525"/>
         <source>40m</source>
-        <translation>40 米</translation>
+        <translation type="unfinished">40m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="595"/>
         <source>30m</source>
-        <translation>30 米</translation>
+        <translation type="unfinished">30m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="665"/>
         <source>20m</source>
-        <translation>20 米</translation>
+        <translation type="unfinished">20m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="735"/>
         <source>17m</source>
-        <translation>17 米</translation>
+        <translation type="unfinished">17m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="805"/>
         <source>15m</source>
-        <translation>15 米</translation>
+        <translation type="unfinished">15m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="875"/>
         <source>12m</source>
-        <translation>12 米</translation>
+        <translation type="unfinished">12m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="945"/>
         <source>10m</source>
-        <translation>10 米</translation>
+        <translation type="unfinished">10m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="1015"/>
         <source>6m</source>
-        <translation>6 米</translation>
+        <translation type="unfinished">6m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="1085"/>
         <source>4m</source>
-        <translation>4 米</translation>
+        <translation type="unfinished">4m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="1155"/>
         <source>2m</source>
-        <translation>2 米</translation>
+        <translation type="unfinished">2m</translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="1225"/>
         <source>70cm</source>
-        <translation>70厘米</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../showqsos.ui" line="1295"/>
         <source>Cnt</source>
-        <translation>總計</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6749,67 +6732,67 @@ Error(%2): %3</source>
     <message>
         <location filename="../soundin.cpp" line="21"/>
         <source>An error opening the audio input device has occurred.</source>
-        <translation>開啟音頻輸入設備時錯誤.</translation>
+        <translation>Ses giriş cihazını açarken bir hata oluştu.</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="25"/>
         <source>An error occurred during read from the audio input device.</source>
-        <translation>從音頻輸入設備讀取時錯誤.</translation>
+        <translation>Ses giriş cihazından okuma sırasında bir hata oluştu.</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="29"/>
         <source>Audio data not being fed to the audio input device fast enough.</source>
-        <translation>音頻數據沒有足夠提供饋送到音頻輸入設備.</translation>
+        <translation>Ses verileri, ses giriş cihazına yeterince hızlı ulaşamıyor.</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="33"/>
         <source>Non-recoverable error, audio input device not usable at this time.</source>
-        <translation>不可恢復的錯誤, 音頻輸入設備此時不可用.</translation>
+        <translation>Kurtarılamaz hata, ses giriş cihazı şu anda kullanılamıyor.</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="62"/>
         <source>Requested input audio format is not valid.</source>
-        <translation>請求的輸入音頻格式無效.</translation>
+        <translation>İstenen giriş ses formatı geçerli değil.</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="69"/>
         <source>Requested input audio format is not supported on device.</source>
-        <translation>設備不支援請求輸入的音頻格式.</translation>
+        <translation>İstenen giriş ses formatı cihazda desteklenmiyor.</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="90"/>
         <source>Failed to initialize audio sink device</source>
-        <translation>無法初始化音頻接收器設備</translation>
+        <translation>Ses toplama cihazı başlatılamadı</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="125"/>
         <source>Idle</source>
-        <translation>閒置</translation>
+        <translation>Boşta</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="129"/>
         <source>Receiving</source>
-        <translation>接收</translation>
+        <translation>Alma</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="133"/>
         <source>Suspended</source>
-        <translation>暫停</translation>
+        <translation>Askıya alındı</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="138"/>
         <source>Interrupted</source>
-        <translation>中斷</translation>
+        <translation>Kesintiye uğradı</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="145"/>
         <source>Error</source>
-        <translation>錯誤</translation>
+        <translation>Hata</translation>
     </message>
     <message>
         <location filename="../soundin.cpp" line="149"/>
         <source>Stopped</source>
-        <translation>停止</translation>
+        <translation>Durduruldu</translation>
     </message>
 </context>
 <context>
@@ -6817,62 +6800,62 @@ Error(%2): %3</source>
     <message>
         <location filename="../soundout.cpp" line="24"/>
         <source>An error opening the audio output device has occurred.</source>
-        <translation>開啟音頻輸出設備時錯誤.</translation>
+        <translation>Ses çıkış cihazını açarken bir hata oluştu.</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="25"/>
         <source>An error occurred during write to the audio output device.</source>
-        <translation>寫入音頻輸出設備期間錯誤.</translation>
+        <translation>Ses çıkış aygıtına yazma sırasında bir hata oluştu.</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="26"/>
         <source>Audio data not being fed to the audio output device fast enough.</source>
-        <translation>音頻數據未以足夠快的速度饋送到音頻輸出設備.</translation>
+        <translation>Ses verileri, ses çıkış aygıtına yeterince hızlı ulaşamıyor.</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="27"/>
         <source>Non-recoverable error, audio output device not usable at this time.</source>
-        <translation>不可恢復錯誤, 音頻輸出設備此時不可用.</translation>
+        <translation>Kurtarılamaz hata, ses giriş cihazı şu anda kullanılamıyor.</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="45"/>
         <source>Requested output audio format is not valid.</source>
-        <translation>請求的輸出音頻格式無效.</translation>
+        <translation>İstenen giriş ses formatı geçerli değil.</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="46"/>
         <source>Requested output audio format is not supported on device.</source>
-        <translation>設備不支援請求輸出的音頻格式.</translation>
+        <translation>İstenen giriş ses formatı cihazda desteklenmiyor.</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="109"/>
         <source>Idle</source>
-        <translation>閒置</translation>
+        <translation>Boşta</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="110"/>
         <source>Sending</source>
-        <translation>發送</translation>
+        <translation>Gönderme</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="111"/>
         <source>Suspended</source>
-        <translation>暫停</translation>
+        <translation>Askıya alındı</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="113"/>
         <source>Interrupted</source>
-        <translation>中斷</translation>
+        <translation>Kesintiye uğradı</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="115"/>
         <source>Error</source>
-        <translation>錯誤</translation>
+        <translation>Hata</translation>
     </message>
     <message>
         <location filename="../soundout.cpp" line="115"/>
         <source>Stopped</source>
-        <translation>停止</translation>
+        <translation>Durduruldu</translation>
     </message>
 </context>
 <context>
@@ -6880,32 +6863,32 @@ Error(%2): %3</source>
     <message>
         <location filename="../Configuration.cpp" line="268"/>
         <source>Add Station</source>
-        <translation>新增電臺</translation>
+        <translation>İstasyon Ekle</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="273"/>
         <source>&amp;Band:</source>
-        <translation>波段(&amp;B):</translation>
+        <translation>&amp;Band:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="274"/>
         <source>&amp;Offset (MHz):</source>
-        <translation>偏移 (MH&amp;z):</translation>
+        <translation>&amp;Offset (MHz):</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="275"/>
         <source>&amp;Antenna:</source>
-        <translation>天線(&amp;A):</translation>
+        <translation>&amp;Anten:</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="281"/>
         <source>&amp;OK</source>
-        <translation>確定(&amp;O)</translation>
+        <translation>&amp;Tamam</translation>
     </message>
     <message>
         <location filename="../Configuration.cpp" line="282"/>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation>&amp;İptal</translation>
     </message>
 </context>
 <context>
@@ -6913,32 +6896,32 @@ Error(%2): %3</source>
     <message>
         <location filename="../StationList.cpp" line="294"/>
         <source>Band name</source>
-        <translation>波段名稱</translation>
+        <translation>Band Adı</translation>
     </message>
     <message>
         <location filename="../StationList.cpp" line="320"/>
         <source>Frequency offset</source>
-        <translation>頻率偏移</translation>
+        <translation>Frekans ofset</translation>
     </message>
     <message>
         <location filename="../StationList.cpp" line="342"/>
         <source>Antenna description</source>
-        <translation>天線描述</translation>
+        <translation>Anten açıklaması</translation>
     </message>
     <message>
         <location filename="../StationList.cpp" line="364"/>
         <source>Band</source>
-        <translation>波段</translation>
+        <translation>Band</translation>
     </message>
     <message>
         <location filename="../StationList.cpp" line="365"/>
         <source>Offset</source>
-        <translation>偏移</translation>
+        <translation>Offset</translation>
     </message>
     <message>
         <location filename="../StationList.cpp" line="366"/>
         <source>Antenna Description</source>
-        <translation>天線描述</translation>
+        <translation>Anten açıklaması</translation>
     </message>
 </context>
 <context>
@@ -6946,194 +6929,194 @@ Error(%2): %3</source>
     <message>
         <location filename="../TCITransceiver.cpp" line="148"/>
         <source>ConnectionRefused</source>
-        <translation>連接被拒絕</translation>
+        <translation>Bağlantı Reddedildi</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="149"/>
         <source>RemoteHostClosed</source>
-        <translation>遠端主機已關閉</translation>
+        <translation>Uzak Ana Bilgisayar Kapalı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="150"/>
         <source>HostNotFound</source>
-        <translation>未找到主機</translation>
+        <translation>Ana Bilgisayar Bulunamadı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="151"/>
         <source>SocketAccess</source>
-        <translation>Socket訪問</translation>
+        <translation>Soket Erişimi</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="152"/>
         <source>SocketResource</source>
-        <translation>Socket資源</translation>
+        <translation>Soket Kaynağı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="153"/>
         <source>SocketTimeout</source>
-        <translation>Socket超時</translation>
+        <translation>Soket Zaman Aşımı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="154"/>
         <source>DatagramTooLarge</source>
-        <translation>數據圖太大</translation>
+        <translation>Datagram Çok Büyük</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="155"/>
         <source>Network</source>
-        <translation>網路</translation>
+        <translation>Ağ</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="156"/>
         <source>AddressInUse</source>
-        <translation>位址在使用</translation>
+        <translation>Kullanımdaki Adres</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="157"/>
         <source>SocketAddressNotAvailable</source>
-        <translation>Socket位址不可用</translation>
+        <translation>Soket Adresi Mevcut Değil</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="158"/>
         <source>UnsupportedSocketOperation</source>
-        <translation>不支援的Socket操作</translation>
+        <translation>Desteklenmeyen Soket İşlemi</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="159"/>
         <source>UnfinishedSocketOperation</source>
-        <translation>未完成的Socket操作</translation>
+        <translation>Bitmemiş Soket İşlemi</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="160"/>
         <source>ProxyAuthenticationRequired</source>
-        <translation>需要代理身份驗證</translation>
+        <translation>Proxy Kimlik Doğrulaması Gerekli</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="161"/>
         <source>SslHandshakeFailed</source>
-        <translation>SSL握手失敗</translation>
+        <translation>SSL El Sıkışma Başarısız</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="162"/>
         <source>ProxyConnectionRefused</source>
-        <translation>代理連接被拒絕</translation>
+        <translation>Proxy Bağlantısı Reddedildi</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="163"/>
         <source>ProxyConnectionClosed</source>
-        <translation>代理連接已關閉</translation>
+        <translation>Proxy Bağlantısı Kapatıldı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="164"/>
         <source>ProxyConnectionTimeout</source>
-        <translation>代理連接超時</translation>
+        <translation>Proxy Bağlantı Zaman Aşımı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="165"/>
         <source>ProxyNotFound</source>
-        <translation>代理未找到</translation>
+        <translation>Proxy Bulunamadı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="166"/>
         <source>ProxyProtocol</source>
-        <translation>代理協定</translation>
+        <translation>Proxy Protokolü</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="167"/>
         <source>Operation</source>
-        <translation>操作</translation>
+        <translation>Operasyon</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="168"/>
         <source>SslInternal</source>
-        <translation>SSL內部</translation>
+        <translation>Dahili SSL</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="169"/>
         <source>SslInvalidUserData</source>
-        <translation>SSL無效用戶數據</translation>
+        <translation>SSL Geçersiz Kullanıcı Verisi</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="170"/>
         <source>Temporary</source>
-        <translation>臨時</translation>
+        <translation>Geçici</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="171"/>
         <source>UnknownSocket</source>
-        <translation>未知Socket</translation>
+        <translation>Bilinmeyen Soket</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="312"/>
         <source>TCI websocket error: %1</source>
-        <translation>TCI websocket 錯誤: %1</translation>
+        <translation>TCI websocket hatası: %1</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="461"/>
         <source>TCI SDR could not be switched on</source>
-        <translation>TCI SDR 無法開啟</translation>
+        <translation>TCI SDR açılamadı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="465"/>
         <source>TCI SDR is not switched on</source>
-        <translation>TCI SDR 未打開</translation>
+        <translation>TCI SDR açık değil</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="479"/>
         <source>TCI RX2 could not be enabled</source>
-        <translation>TCI RX2  無法啟用</translation>
+        <translation>TCI RX2 etkinleştirilemedi</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="487"/>
         <source>TCI Audio could not be switched on</source>
-        <translation>TCI 音訊無法開啟</translation>
+        <translation>TCI Audio açılamadı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="549"/>
         <location filename="../TCITransceiver.cpp" line="2309"/>
         <source>TCI could not be opened</source>
-        <translation>TCI 無法開啟</translation>
+        <translation>TCI açılamadı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="2027"/>
         <source>TCI failed to set ptt</source>
-        <translation>TCI 未能設定 ptt</translation>
+        <translation>TCI ptt&apos;yi ayarlayamadı</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="2036"/>
         <source>TCI should use PTT via CAT</source>
-        <translation>TCI 應通過 CAT 使用 PTT</translation>
+        <translation>TCI, CAT üzerinden PTT kullanmalıdır</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="2173"/>
         <source>TCI failed set rxfreq</source>
-        <translation>TCI 設定接收頻率失敗</translation>
+        <translation>TCI ayarlı rx frekansı başarısız</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="2195"/>
         <location filename="../TCITransceiver.cpp" line="2290"/>
         <source>TCI failed set mode</source>
-        <translation>TCI 設定模式失敗</translation>
+        <translation>TCI başarısız ayar modu</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="1764"/>
         <source>TCI failed set split</source>
-        <translation>TCI 設定異頻失敗</translation>
+        <translation>TCI, küme bölünmesinde başarısız oldu</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="1698"/>
         <source>TCI failed set txfreq</source>
-        <translation>TCI 設定發射頻率失敗</translation>
+        <translation>TCI ayarlı tx frekansı başarısız</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="2456"/>
         <source>TCI sent an unrecognized frequency</source>
-        <translation>TCI 發送了未識別的頻率</translation>
+        <translation>TCI tanınmayan bir frekans gönderdi</translation>
     </message>
     <message>
         <location filename="../TCITransceiver.cpp" line="2559"/>
         <source>TCI modulator not Idle</source>
-        <translation>TCI 調製器不空閒</translation>
+        <translation>TCI modülatörü Boşta değil</translation>
     </message>
 </context>
 <context>
@@ -7141,7 +7124,7 @@ Error(%2): %3</source>
     <message>
         <location filename="../TransceiverBase.cpp" line="14"/>
         <source>Unexpected rig error</source>
-        <translation>無線電設備意外錯誤</translation>
+        <translation>Beklenmeyen cihaz hatası</translation>
     </message>
 </context>
 <context>
@@ -7149,178 +7132,178 @@ Error(%2): %3</source>
     <message>
         <location filename="../widegraph.ui" line="20"/>
         <source>Dialog</source>
-        <translation></translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="83"/>
         <source>Controls</source>
-        <translation>控件列</translation>
+        <translation>Kontrollar</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="142"/>
         <source>Bars</source>
-        <translation>標注條</translation>
+        <translation>Çubuklar</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="152"/>
         <source>Freq</source>
-        <translation>頻率</translation>
+        <translation>Frekans</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="197"/>
         <source>Compression factor for frequency scale</source>
-        <translation>頻率刻度的壓縮系數</translation>
+        <translation>Frekans ölçeği için sıkıştırma faktörü</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="203"/>
         <source>Bins/Pixel  </source>
-        <translation>點/像素  </translation>
+        <translation>Kutular/Piksel  </translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="234"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Decode JT9 only above this frequency&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;僅在此頻率以上解碼 JT9&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Yalnızca bu frekansın üzerindeki JT9 kodlarını çözün&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="237"/>
         <source>  JT9</source>
-        <translation></translation>
+        <translation>  JT9</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="240"/>
         <source>JT65  </source>
-        <translation></translation>
+        <translation>JT65  </translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="270"/>
         <location filename="../widegraph.ui" line="280"/>
         <source>Position of timestamp above each interval line</source>
-        <translation>每個間隔線上方的時間戳位置</translation>
+        <translation>Her aralık satırının üzerindeki zaman etiketinin konumu</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="273"/>
         <source>Timestamp</source>
-        <translation>時間戳</translation>
+        <translation>Zaman Etiketi</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="284"/>
         <source>Off</source>
-        <translation>取消</translation>
+        <translation>Kapalı</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="289"/>
         <source>Left</source>
-        <translation>左邊</translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="294"/>
         <source>Right</source>
-        <translation>右邊</translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="326"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Frequency at left edge of waterfall&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;波段在瀑布左邊緣顯示&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Şelalenin sol kenarındaki frekans&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="329"/>
         <source> Hz</source>
-        <translation> 赫兹</translation>
+        <translation> Hz</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="332"/>
         <source>Start </source>
-        <translation>開始 </translation>
+        <translation>Başlangıç </translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="357"/>
         <source>Number of FFTs averaged (controls waterfall scrolling rate)</source>
-        <translation>FFT 平均數(控制瀑布滾動速率)</translation>
+        <translation>Ortalama FFT sayısı (şelale kaydırma hızını kontrol eder)</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="360"/>
         <source>N Avg </source>
-        <translation>N 平均 </translation>
+        <translation>N Avg </translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="398"/>
         <source>Palette </source>
-        <translation>調色板 </translation>
+        <translation>Palet </translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="414"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter definition for a new color palette.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;輸入新調色板的定義.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Yeni bir renk paleti için tanım girin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="417"/>
         <source>Adjust...</source>
-        <translation>調整...</translation>
+        <translation>Ayarla...</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="438"/>
         <source>Select waterfall palette</source>
-        <translation>選擇瀑布調色板</translation>
+        <translation>Şelale paleti seçin</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="468"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale spectrum by median value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按中值劃分的比例.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Spektrumu medyan değere göre ölçeklendirin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="471"/>
         <source>Scale</source>
-        <translation>比例</translation>
+        <translation>Ölçek</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="481"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Flatten spectral baseline over the full displayed interval.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在完整顯示的間隔內平展頻譜基線.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Görüntülenen aralık boyunca spektral taban çizgisini düzleştirin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="484"/>
         <source>Flatten</source>
-        <translation>平坦化</translation>
+        <translation>Düzleştir</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="501"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select data for spectral display&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選擇用於頻譜顯示的數據&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Spektral görüntüleme için veri seçin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="508"/>
         <source>Current</source>
-        <translation>當前</translation>
+        <translation>Anlık</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="513"/>
         <source>Cumulative</source>
-        <translation>累積</translation>
+        <translation>Toplamsal</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="533"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set fractional size of spectrum in this window.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在此視窗中設定頻譜的大小.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bu pencerede spektrumun kısmi boyutunu ayarlayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="539"/>
         <source> %</source>
-        <translation></translation>
+        <translation> %</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="542"/>
         <source>Spec </source>
-        <translation>佔高 </translation>
+        <translation>Spek </translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="593"/>
         <source>Waterfall gain</source>
-        <translation>瀑布增益</translation>
+        <translation>Şelale kazancı</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="630"/>
         <source>Spectrum gain</source>
-        <translation>頻譜增益</translation>
+        <translation>Spektrum kazancı</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="653"/>
@@ -7328,22 +7311,22 @@ Error(%2): %3</source>
         <location filename="../widegraph.ui" line="755"/>
         <location filename="../widegraph.ui" line="762"/>
         <source>TextLabel</source>
-        <translation></translation>
+        <translation>Metin Etiketi</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="695"/>
         <source>Waterfall zero</source>
-        <translation>瀑布零度</translation>
+        <translation>Şelale sıfırı</translation>
     </message>
     <message>
         <location filename="../widegraph.ui" line="732"/>
         <source>Spectrum zero</source>
-        <translation>頻譜零度</translation>
+        <translation>Spektrum sıfırı</translation>
     </message>
     <message>
         <location filename="../widegraph.cpp" line="29"/>
         <source>Wide Graph</source>
-        <translation>頻譜圖</translation>
+        <translation>Geniş Grafik</translation>
     </message>
 </context>
 <context>
@@ -7351,254 +7334,254 @@ Error(%2): %3</source>
     <message>
         <location filename="../Configuration.ui" line="26"/>
         <source>Settings</source>
-        <translation>設定</translation>
+        <translation>Ayarlar</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="47"/>
         <source>Select tab to change configuration parameters.</source>
-        <translation>選擇選項標簽以更改配置參數.</translation>
+        <translation>Yapılandırma parametrelerini değiştirmek için sekmeyi seçin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="54"/>
         <source>Genera&amp;l</source>
-        <translation>一般(&amp;l)</translation>
+        <translation>Gene&amp;l</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="57"/>
         <source>General station details and settings.</source>
-        <translation>設定電臺詳細訊息.</translation>
+        <translation>Genel istasyon ayrıntıları ve ayarları.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="84"/>
         <source>Station Details</source>
-        <translation>電臺資料</translation>
+        <translation>İstasyon Ayrıntıları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="115"/>
         <source>My C&amp;all:</source>
-        <translation>我的呼號(&amp;a):</translation>
+        <translation>Ç&amp;ağrı İşaretim:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="125"/>
         <source>Station callsign.</source>
-        <translation>電臺呼號.</translation>
+        <translation>İstasyon çağrı işareti.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="145"/>
         <source>M&amp;y Grid:</source>
-        <translation>我的網格(&amp;y):</translation>
+        <translation>Gr&amp;id (Konum):</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="155"/>
         <source>Maidenhead locator (only the first four characters are required).</source>
-        <translation>網格定位 (只需要前四個位數值).</translation>
+        <translation>Konumlandırıcı (yalnızca ilk dört karakter gereklidir).</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="162"/>
         <source>IARU Region:</source>
-        <translation>IARU 分區:</translation>
+        <translation>IARU Bölgesi:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="172"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select your IARU region.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選擇您的 IARU 分區.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;IARU bölgenizi seçin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="182"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Type 2 compound callsigns are those with prefixes or suffixes not included in the allowed shortlist (See Help-&amp;gt;Add-on prefixes and suffixes).&lt;/p&gt;&lt;p&gt;This option determines which generated messages should contain your full type 2 compound call sign rather than your base callsign. It only applies if you have a type 2 compound callsign.&lt;/p&gt;&lt;p&gt;This option controls the way the messages that are used to answer CQ calls are generated. Generated messages 6 (CQ) and 5 (73) will always contain your full callsign. The JT65 and JT9 protocols allow for some standard messages with your full call at the expense of another piece of information such as the DX call or your locator.&lt;/p&gt;&lt;p&gt;Choosing message 1 omits the DX callsign which may be an issue when replying to CQ calls. Choosing message 3 also omits the DX callsign and many versions of this and other software will not extract the report. Choosing neither means that your full callsign only goes in your message 5 (73) so your QSO partner my log the wrong callsign.&lt;/p&gt;&lt;p&gt;None of these options are perfect, message 3 is best but be aware your QSO partner may not log the report you send them.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;第2類復合呼號是那些前綴或後綴不包括在允許的候選名單中 (請參閱說明-&amp; gt; 附加項前綴和後綴).&lt;p&gt;&lt;p&gt;此選項確定哪些生成的訊息應包含完整類型2復合呼號, 而不是基本呼號.它僅適用於類型為2的復合呼號.&lt;/p&gt;&lt;p&gt;此選項控制用於應答 CQ 呼號的訊息的生成方式.生成的訊息 6 (CQ) 和 5 (73) 將始終包含您的完整呼號.jt65 和 jt9 協議允許在您的完整呼叫中使用一些標准訊息, 而犧牲了另一條訊息, 如 DX 呼號或您的定位器.&lt;/p&gt;&lt;p&gt;選擇訊息1省略 DX 呼號, 這在答復 CQ 呼號時可能是一個問題.選擇訊息3也會省略 dx 呼號, 此程式和其他程式的許多版本都不會提取報告.選擇這兩個都意味著您的完整呼號只會出現在您的訊息 5 (73) 中, 所以您的 QSO 夥伴可能會在日誌中記錄錯誤的呼號.&lt;/p&gt;&lt;p&gt;這些選項都不是完美的, 訊息3是最好的, 但請注意, 您的通聯合作夥伴可能不會記錄您發送的報告.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. tip bileşik çağrı işaretleri, izin verilen kısa listede yer almayan ön eklere veya son eklere sahip olanlardır (Bkz. Yardım-&amp;gt;Eklenti önekleri ve son ekleri).&lt;/p&gt;&lt;p&gt; Bu seçenek, oluşturulan mesajların temel çağrı işaretiniz yerine 2. tip tam bileşik çağrı işaretinizi içermesi gerektiğini belirler. Yalnızca 2. tip bileşik çağrı işaretiniz varsa geçerlidir.&lt;/p&gt;&lt;p&gt;Bu seçenek, CQ çağrılarını yanıtlamak için kullanılan mesajların oluşturulma şeklini kontrol eder. Oluşturulan mesajlar 6 (CQ) ve 5 (73), her zaman tam çağrı işaretinizi içerecektir. JT65 ve JT9 protokolleri, DX araması veya konum belirleyiciniz gibi başka bir bilgi parçası pahasına, tam aramanızla birlikte bazı standart mesajlara izin verir.&lt;/p&gt;&lt;p&gt;Mesaj 1&apos;in seçilmesi, sorun olabilecek DX arama işaretini atlar. CQ aramalarına yanıt verirken. Ayrıca mesaj 3&apos;ün seçilmesi de DX çağrı işaretini atlar ve bu durumda bazı sürümler ve diğer yazılımlar rapor çıkarmaz. Hiçbirini seçmek, tam çağrı işaretinizin yalnızca 5 (73) mesajınıza gireceği anlamına gelir, bu nedenle QSO ortağınız loga yanlış çağrı işaretini kaydedebilir.&lt;/p&gt;&lt;p&gt;Bu seçeneklerin hiçbiri mükemmel değildir, mesaj 3 en iyisidir, ancak QSO ortağınız, farkında olmalısınız ki gönderdiğiniz raporu loga kaydetmeyebilir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="189"/>
         <source>Full call in Tx1</source>
-        <translation>完整呼號在 Tx1</translation>
+        <translation>Tx1 tam çağrı işareti</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="194"/>
         <source>Full call in Tx3</source>
-        <translation>完整呼號在 Tx3</translation>
+        <translation>Tx3 tam çağrı işareti</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="199"/>
         <source>Full call in Tx5 only</source>
-        <translation>完整呼號在 Tx5</translation>
+        <translation>Sadece Tx5 tam işaret</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="207"/>
         <source>Message generation for type 2 compound callsign holders:</source>
-        <translation>第2類復合呼號持有者的訊息生成:</translation>
+        <translation>2.Tip bileşik çağrı işareti sahipleri için mesaj oluşturma:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="229"/>
         <source>Logbook filtering</source>
-        <translation>日誌篩選</translation>
+        <translation>Log defteri filtreleme</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="301"/>
         <source>Filter logbook starting from date/time (YYYYMMDDHHMMSS)</source>
-        <translation>從日期/時間開始篩選通聯日誌 (YYYYMMDDHHMMSS)</translation>
+        <translation>Log defteri filtreleme başlangıç Tarih/saat (YYYYMMDDHHMMSS)</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="341"/>
         <source>Display</source>
-        <translation>顯示</translation>
+        <translation>Göster</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="459"/>
         <source>Set the font characteristics for the Band Activity and Rx Frequency areas.</source>
-        <translation>設定波段活動和接收訊息視窗的字型.</translation>
+        <translation>Bant Etkinliği ve Rx Frekansı alanları için yazı tipi özelliklerini ayarlayın.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="462"/>
         <source>Decoded Text Font...</source>
-        <translation>解碼字型...</translation>
+        <translation>Çözülmüş Kod Yazı Tipi...</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="370"/>
         <source>Set the font characteristics for the application.</source>
-        <translation>設定應用程序的字型.</translation>
+        <translation>Uygulama için yazı tipi özelliklerini ayarlayın.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="373"/>
         <source>Application Font...</source>
-        <translation>程式字型...</translation>
+        <translation>Uygulama Yazı Tipi...</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="476"/>
         <source>Show distance to DX station in miles rather than kilometers.</source>
-        <translation>以英里為單位顯示 DX 電臺的距離 而不是顯示公里.</translation>
+        <translation>DX istasyonuna olan mesafeyi kilometre yerine mil olarak gösterin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="479"/>
         <source>Display dista&amp;nce in miles</source>
-        <translation>顯示距離為英里(&amp;n)</translation>
+        <translation>Mesafeyi mil olarak &amp;göster</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="449"/>
         <source>Include a separator line between periods in the band activity window.</source>
-        <translation>在波段活動視窗中加入時間分隔行.</translation>
+        <translation>Bant etkinliği penceresindeki döngüler arasına bir ayırıcı çizgi ekleyin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="452"/>
         <source>&amp;Blank line between decoding periods</source>
-        <translation>每解碼周期插入間隔行(&amp;B)</translation>
+        <translation>Kod çözme döngüleri arasına &amp;boş satır</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="429"/>
         <source>Append DXCC names to decoded messages.</source>
-        <translation>將DXCC國家或地區名稱附加到解碼的訊息中.</translation>
+        <translation>Kodu çözülen mesajlara DXCC adları ekleyin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="432"/>
         <source>Show &amp;DXCC names</source>
-        <translation>顯示國家或地區名稱(&amp;D)</translation>
+        <translation>&amp;DXCC adlarını göster</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="439"/>
         <source>Append prefix instead of name.</source>
-        <translation>顯示前綴而不是顯示國家或地區名稱.</translation>
+        <translation>Ad yerine ön ek ekleyin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="442"/>
         <source>Show &amp;prefix not name</source>
-        <translation>顯示國家或地區前綴(&amp;p)</translation>
+        <translation>Adı değil &amp;ön eki göster</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="393"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When TX message is changed previous message will not be shown if it was transmitted for less than 2 seconds.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;當發射訊息發生更改時, 如果發射時間少於 2秒, 則不會顯示以前的舊訊息.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TX mesajı değiştirildiğinde, önceki mesaj 2 saniyeden daha kısa bir süre iletildiyse gösterilmeyecektir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="416"/>
         <source>Show outgoing transmitted messages in the Rx frequency window.</source>
-        <translation>在接收訊息視窗中顯示已發射的訊息.</translation>
+        <translation>Rx frekans penceresinde gönderilen mesajları göster.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="419"/>
         <source>&amp;Tx messages to Rx frequency window</source>
-        <translation>發射的訊息在接收訊息視窗顯示(&amp;T)</translation>
+        <translation>Rx frekans penceresinde &amp;Tx mesajları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="501"/>
         <source>Behavior</source>
-        <translation>慣常方式</translation>
+        <translation>Davranış</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="527"/>
         <source>Don&apos;t start decoding until the monitor button is clicked.</source>
-        <translation>程式開啟時, 關閉監聽按鈕.</translation>
+        <translation>Monitör düğmesine tıklanana kadar kod çözmeye başlamayın.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="530"/>
         <source>Mon&amp;itor off at startup</source>
-        <translation>開啟時關閉監聽(&amp;i)</translation>
+        <translation>Başlangıçta Mon&amp;itor kapalı</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="556"/>
         <source>Tx watchdog timer</source>
-        <translation>發射監管計時器</translation>
+        <translation>Tx güvenlik zamanı (WD)</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="566"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of minutes before unattended transmissions are aborted&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;無人值守傳輸時到達設定分鐘數中止發射&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cevapsız çağrıların iptal edilmesinden önceki dakika sayısı&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="569"/>
         <location filename="../Configuration.ui" line="616"/>
         <location filename="../Configuration.ui" line="2388"/>
         <source>Disabled</source>
-        <translation>停用</translation>
+        <translation>Devre dışı</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="572"/>
         <source> minutes</source>
-        <translation> 分鐘</translation>
+        <translation> dakika</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="586"/>
         <source>Decode at t = 52 s</source>
-        <translation>接收至52秒才開始解碼</translation>
+        <translation>t = 52 s&apos;de kodu çöz</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="606"/>
         <source>Tune timer</source>
-        <translation>調諧計時器</translation>
+        <translation>Tune süresi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="613"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of seconds before tune is aborted&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;到達設定秒數中止調諧&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ayarın iptal edilmesinden önceki saniye sayısı&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="619"/>
         <source> seconds</source>
-        <translation> 秒</translation>
+        <translation> saniye</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="642"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Some rigs are not able to process CAT commands while transmitting. This means that if you are operating in split mode you may have to uncheck this option.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;某些無線電設備在發射時無法處理CAT 命令.這意味著, 如果您在異頻模式下運行, 則可能必須取消選中此選項.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bazı cihazlar göndermede CAT komutlarını işleyemez. Split modda çalışıyorsanız bu seçeneğin işaretini kaldırmanız gerekebilir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="696"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Check this if you wish to automatically return to the last monitored frequency when monitor is enabled, leave it unchecked if you wish to have the current rig frequency maintained.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果您希望在啟用監聽時自動返回到最後一個監聽頻率.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Monitör etkinleştirildiğinde otomatik olarak en son izlenen frekansa dönmek istiyorsanız bunu işaretleyin, mevcut cihaz frekansının korunmasını istiyorsanız işaretlemeden bırakın.&lt;/p&gt;&lt; /vücut&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="708"/>
         <source>Send a CW ID after every 73 or free text message.</source>
-        <translation>73或自定義訊息發出後用CW模式發放您的呼號.</translation>
+        <translation>Her 73 veya serbest kısa mesajdan sonra bir CW kimliği gönderin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="711"/>
         <source>CW ID a&amp;fter 73</source>
-        <translation>&amp;73發出後用CW模式發放您呼號</translation>
+        <translation>73&apos;ten son&amp;ra CW Kimliği</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="737"/>
         <source>Periodic CW ID Inter&amp;val:</source>
-        <translation>發射C&amp;W訊息時間間隔:</translation>
+        <translation>Periy&amp;odik CW Kimlik Aralığı:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="753"/>
@@ -7606,177 +7589,177 @@ Error(%2): %3</source>
 This might be required under your countries licence regulations.
 It will not interfere with other users as it is always sent in the
 quiet period when decoding is done.</source>
-        <translation>每隔幾分鐘定期發送 CW ID.
-這可能是必需根據您所在的國家/地區的執照規定.
-它不會干擾其他用戶,因為它總是
-在解碼完成後的安靜期間發送.</translation>
+        <translation>Birkaç dakikada bir periyodik olarak bir CW kimliği gönderin.
+Bu, ülkenizin lisans düzenlemeleri kapsamında gerekli olabilir.
+Kod çözme aralarındaki sessizlikte gönderildiği için
+diğer kullanıcıları etkilemez.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="982"/>
         <source>&amp;Radio</source>
-        <translation>電臺(&amp;R)</translation>
+        <translation>&amp;Telsiz</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="985"/>
         <source>Radio interface configuration settings.</source>
-        <translation>設定無線電設備界面設定.</translation>
+        <translation>Telsiz arayüzü yapılandırma ayarları.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1008"/>
         <source>Rig:</source>
-        <translation>無線電設備:</translation>
+        <translation>Aygıt:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1028"/>
         <source>Poll Interval:</source>
-        <translation>輪詢間隔:</translation>
+        <translation>Algı aralığı:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1038"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Interval to poll rig for status. Longer intervals will mean that changes to the rig will take longer to be detected.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;為程式與無線電設備溝通的輪詢時間間隔.時間間隔較長,意味著對無線電設備的更改需要更長的時間才能檢測到.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aygıt durumu algılama aralığı. Daha uzun aralıklar, cihazdaki değişikliklerin algılanmasının daha uzun süreceği anlamına gelir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1044"/>
         <location filename="../Configuration.ui" line="2047"/>
         <source> s</source>
-        <translation> 秒</translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1041"/>
         <source>0.5 s</source>
-        <translation>0.5 秒</translation>
+        <translation>0.5 s</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="105"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bypass callsign syntax check.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;繞過呼號語法檢查.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="911"/>
         <source>Data File Downloads</source>
-        <translation>數據檔案下載</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="923"/>
         <source>CTY Version: </source>
-        <translation>CTY 版本: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="930"/>
         <source>State Version: </source>
-        <translation>美國州版本: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="937"/>
         <source>Grid Version: </source>
-        <translation>網格版本: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="944"/>
         <source>Download CTY.dat</source>
-        <translation>下載 CTY.dat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="951"/>
         <source>Download state_data.bin</source>
-        <translation>下載 state_data.bin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="958"/>
         <source>Download grid_data.bin</source>
-        <translation>下載 grid_data.bin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1080"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Request S meter data from transceiver: CAT shall be set up via Hamlib, Hamlib does support getting S meter data for some transceivers.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;從收發器請求電平錶數據: CAT 應通過 Hamlib 設定,Hamlib 確實支持為某些收發器獲取電平錶數據.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Telsizden S metre verisi ister: CAT, Hamlib aracılığıyla kurulmuş olmalıdır. Hamlib, bazı telsizler için S metre verilerinin alınmasını destekler.&lt;/p&gt;&lt;/body&gt;&lt;/html &gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1083"/>
         <source>S meter</source>
-        <translation>電平錶</translation>
+        <translation>S metre</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1112"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Request output power data from transceiver: CAT shall be set up via Hamlib, Hamlib does support getting output power data for some transceivers.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;從收發器請求輸出功率數據: CAT 應通過 Hamlib 設定,Hamlib 確實支持獲取某些收發器的輸出功率數據.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Telsiziden çıkış gücü verisi ister: CAT, Hamlib aracılığıyla kurulmuş olmalıdır.  Hamlib, bazı telsizler için çıkış gücü verilerinin alınmasını destekler.&lt;/p&gt;&lt;/body&gt;&lt;/html &gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1115"/>
         <source>Output power</source>
-        <translation>輸出功率</translation>
+        <translation>Çıkış gücü</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1139"/>
         <source>Rig power:</source>
-        <translation>無線電設備電源:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1174"/>
         <source>Off</source>
-        <translation>關閉</translation>
+        <translation type="unfinished">Kapalı</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1235"/>
         <source>Settings that control your CAT interface.</source>
-        <translation>控制CAT界面的設定.</translation>
+        <translation>CAT arayüzü ayarları.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1238"/>
         <source>CAT Control</source>
-        <translation>CAT控制</translation>
+        <translation>CAT Kontrol</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1249"/>
         <location filename="../Configuration.ui" line="1734"/>
         <source>Port:</source>
-        <translation>序列埠:</translation>
+        <translation>Port:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1265"/>
         <source>Serial port used for CAT control.</source>
-        <translation>用於CAT控制的序列埠.</translation>
+        <translation>CAT kontrolunda kullanılan seri port.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1289"/>
         <source>Serial Port Parameters</source>
-        <translation>序列埠參數</translation>
+        <translation>Seri Port Parametreleri</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1306"/>
         <source>Baud Rate:</source>
-        <translation>波特率:</translation>
+        <translation>Baud Hızı:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1322"/>
         <source>Serial port data rate which must match the setting of your radio.</source>
-        <translation>序列埠數據速率必須與您的無線電設定相匹配.</translation>
+        <translation>Telsizinizin ayarıyla eşleşmesi gereken seri port veri hızı.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1329"/>
         <source>1200</source>
-        <translation></translation>
+        <translation>1200</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1334"/>
         <source>2400</source>
-        <translation></translation>
+        <translation>2400</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1339"/>
         <source>4800</source>
-        <translation></translation>
+        <translation>4800</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1344"/>
         <source>9600</source>
-        <translation></translation>
+        <translation>9600</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1349"/>
         <source>19200</source>
-        <translation></translation>
+        <translation>19200</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1354"/>
@@ -7786,293 +7769,286 @@ quiet period when decoding is done.</source>
     <message>
         <location filename="../Configuration.ui" line="1359"/>
         <source>57600</source>
-        <translation></translation>
+        <translation>57600</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1364"/>
         <source>115200</source>
-        <translation></translation>
+        <translation>115200</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1374"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of data bits used to communicate with your radio&apos;s CAT interface (usually eight).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;用於與無線電設備 CAT 界面通信的數據位數 (通常為 8 ).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Telsizinizin CAT arayüzü ile iletişim kurmak için kullanılan veri biti sayısı (genellikle sekiz).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1377"/>
         <source>Data Bits</source>
-        <translation>數據位元</translation>
+        <translation>Data Bits</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1389"/>
         <location filename="../Configuration.ui" line="1446"/>
         <location filename="../Configuration.ui" line="1513"/>
         <source>Default</source>
-        <translation>預設值</translation>
+        <translation>Varsayılan</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1402"/>
         <source>Se&amp;ven</source>
-        <translation>Se&amp;ven 7</translation>
+        <translation>Ye&amp;di</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1415"/>
         <source>E&amp;ight</source>
-        <translation>E&amp;ight 8</translation>
+        <translation>Sek&amp;iz</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1431"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of stop bits used when communicating with your radio&apos;s CAT interface&lt;/p&gt;&lt;p&gt;(consult you radio&apos;s manual for details).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;與無線電設備 CAT 界面通信時使用的停止位數&lt;/p&gt;&lt;p&gt;(詳情請參閱無線電設備手冊).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Telsizinizin CAT arayüzü ile iletişim kurarken kullanılan stop bitlerinin sayısı&lt;/p&gt;&lt;p&gt;(ayrıntılar için telsizinizin kılavuzuna bakın).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1434"/>
         <source>Stop Bits</source>
-        <translation>停止位元</translation>
+        <translation>Stop Bits</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1459"/>
         <source>On&amp;e</source>
-        <translation>On&amp;e 1</translation>
+        <translation>&amp;Bir</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1469"/>
         <source>T&amp;wo</source>
-        <translation>T&amp;wo 2</translation>
+        <translation>&amp;İki</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1485"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Flow control protocol used between this computer and your radio&apos;s CAT interface (usually &amp;quot;None&amp;quot; but some require &amp;quot;Hardware&amp;quot;).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;電腦和無線電設備 CAT 界面 (通常是 &quot;None&quot;) 之間使用的流量控制協議 (通常是 &quot;無&quot;,但有些要求硬件).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bu bilgisayar ile telsizinizin CAT arayüzü arasında kullanılan akış kontrol protokolü (genellikle &amp;quot;Yok&amp;quot;tur, ancak bazıları &amp;quot;Donanım&amp;quot; gerektirir).&lt;/p&gt;&lt;/body&gt; &lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1488"/>
         <source>Handshake</source>
-        <translation>握手方式</translation>
+        <translation>Tokalaşma</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1500"/>
         <source>&amp;None</source>
-        <translation></translation>
+        <translation>&amp;Hiçbiri</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1526"/>
         <source>Software flow control (very rare on CAT interfaces).</source>
-        <translation>程式控制流 (在CAT界面上非常罕見).</translation>
+        <translation>Yazılım akış kontrolü (CAT arayüzlerinde çok nadirdir).</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1529"/>
         <source>XON/XOFF</source>
-        <translation></translation>
+        <translation>XON/XOFF</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1539"/>
         <source>Flow control using the RTS and CTS RS-232 control lines
 not often used but some radios have it as an option and 
 a few, particularly some Kenwood rigs, require it).</source>
-        <translation>使用 RTS 和 CTS RS-232 控制線控制
- 不經常使用但有些無線電設備有它作為一個選項並且
-  很少,特別是一些 健伍無線電設備,需要它).</translation>
+        <translation>RTS ve CTS RS-232 kontrol hatlarını kullanarak akış kontrolü sık kullanılmaz
+ancak bazı telsizlerde bir seçenek olarak bulunur ve birkaçı, özellikle bazı
+Kenwood cihazları bunu gerektirir.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1544"/>
         <source>&amp;Hardware</source>
-        <translation>硬體(&amp;H)</translation>
+        <translation>&amp;Donanım</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1557"/>
         <source>Special control of CAT port control lines.</source>
-        <translation>特殊控制的CAT控制線.</translation>
+        <translation>CAT port kontrol hatlarının özel ayarları.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1560"/>
         <source>Force Control Lines</source>
-        <translation>強制控制線</translation>
+        <translation>CAT Kontrolu Özel Ayarları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1577"/>
         <source>DTR:</source>
-        <translation></translation>
+        <translation>DTR:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1593"/>
         <location filename="../Configuration.ui" line="1626"/>
         <source>High</source>
-        <translation>高</translation>
+        <translation>Yüksek</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1598"/>
         <location filename="../Configuration.ui" line="1631"/>
         <source>Low</source>
-        <translation>低</translation>
+        <translation>Düşük</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1610"/>
         <source>RTS:</source>
-        <translation></translation>
+        <translation>RTS:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1663"/>
         <source>How this program activates the PTT on your radio</source>
-        <translation>此程序如何激活無線電設備上的 PTT</translation>
+        <translation>Telsizinizdeki PTT&apos;yi etkinleştirme biçimi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1666"/>
         <source>PTT Method</source>
-        <translation>PTT 方法</translation>
+        <translation>PTT Yöntemi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1672"/>
         <source>Some radios support PTT via CAT commands,
 use this option if your radio supports it and you have no
 other hardware interface for PTT.</source>
-        <translation>一些無線電設備通過CAT命令支持 PTT, 
-如果您的無線電設備支持此選項請使用此選項而且您沒有
-PTT的其它硬件界面.</translation>
+        <translation>Bazı telsizler CAT komutları aracılığıyla
+PTT&apos;yi destekler. Telsiziniz destekliyorsa
+ve PTT için başka bir donanım arabiriminiz
+yoksa bu seçeneği kullanın.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1677"/>
         <source>C&amp;AT</source>
-        <translation></translation>
+        <translation>C&amp;AT</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1687"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use the RS-232 DTR control line to toggle your radio&apos;s PTT, requires hardware to inteface the line.&lt;/p&gt;&lt;p&gt;Some commercial interface units also use this method.&lt;/p&gt;&lt;p&gt;The DTR control line of the CAT serial port may be used for this or a DTR control line on a different serial port may be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用RS-232 DTR 控制線切換無線電設備的PTT.一些商用界面單元也使用此方法.CAT序列埠的DTR控制線可用於此控制線,也可用於不同序列埠上的DTR控制線.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Telsizinizi PTT&apos;ye geçirmek için RS-232 DTR kontrol hattını kullanın. Arayüz için donanım gerekir.&lt;/p&gt;&lt;p&gt;Bazı ticari arayüz birimleri de bu yöntemi kullanır. &lt;/p&gt;&lt;p&gt;Bunun için CAT seri portunun DTR kontrol hattı kullanılabilir veya farklı bir seri port üzerindeki DTR kontrol hattı kullanılabilir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1690"/>
         <source>&amp;DTR</source>
-        <translation></translation>
+        <translation>&amp;DTR</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1703"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No PTT activation, instead the radio&apos;s automatic VOX is used to key the transmitter.&lt;/p&gt;&lt;p&gt;Use this if you have no radio interface hardware.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果您沒有無線電設備界面硬件,沒法PTT而是使用無線電設備的自動聲控來發射,請使用此選項.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;PTT aktivasyonu yoktur, bunun yerine gönderme için telsizin otomatik VOX&apos;u kullanılır.&lt;/p&gt;&lt;p&gt;Radyo arayüzü donanımınız yoksa bunu kullanın.&lt;/p&gt; &lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1706"/>
         <source>VO&amp;X</source>
-        <translation></translation>
+        <translation>VO&amp;X</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1716"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use the RS-232 RTS control line to toggle your radio&apos;s PTT, requires hardware to inteface the line.&lt;/p&gt;&lt;p&gt;Some commercial interface units also use this method.&lt;/p&gt;&lt;p&gt;The RTS control line of the CAT serial port may be used for this or a RTS control line on a different serial port may be used. Note that this option is not available on the CAT serial port when hardware flow control is used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用 RS-232 RTS 控制線切換無線電設備的 PTT, 需要硬件將線路整數.&lt;/p&gt;&lt;p&gt;一些商業界面單元也使用此方法.&lt;/p&gt;&lt;p&gt;CAT 序列埠的 RTS 控制線可用於此, 也可以使用其他序列埠上的 RTS 控制線.請注意, 使用硬件流控制時, 此選項在 CAT 序列埠上不可用.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Telsizinizi PTT&apos;ye geçirmek için RS-232 RTS kontrol hattını kullanın. Arayüz için donanım gerekir.&lt;/p&gt;&lt;p&gt;Bazı ticari arayüz birimleri de bu yöntemi kullanır. &lt;/p&gt;&lt;p&gt;Bunun için CAT seri portunun RTS kontrol hattı kullanılabilir veya farklı bir seri port üzerindeki RTS kontrol hattı kullanılabilir. Donanım akış denetimi kullanıldığında bu seçeneğin CAT seri bağlantı noktasında bulunmadığına dikkat edin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1719"/>
         <source>R&amp;TS</source>
-        <translation></translation>
+        <translation>R&amp;TS</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1750"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select the RS-232 serial port utilised for PTT control, this option is available when DTR or RTS is selected above as a transmit method.&lt;/p&gt;&lt;p&gt;This port can be the same one as the one used for CAT control.&lt;/p&gt;&lt;p&gt;For some interface types the special value CAT may be chosen, this is used for non-serial CAT interfaces that can control serial port control lines remotely (OmniRig for example).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選擇用於 ptt 控制的RS-232 序列埠,當選擇上述DTR或RTS作為發射方法時,此選項可用.此埠號可以與用於CAT控制的埠號相同.對於某些界面類型,可以選擇特殊值CAT,這用於可以遠程控制串口控制線的非串行CAT界面 (例如 omnirig).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.ui" line="1775"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Request enable PTT port sharing in Hamlib.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在 Hamlib 中啟用 PTT 埠共享.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.ui" line="1778"/>
-        <source>Share PTT port</source>
-        <translation>共享 PTT 埠</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;PTT kontrolü için kullanılan RS-232 seri bağlantı noktasını seçin. Bu seçenek yukarıda iletim yöntemi olarak DTR veya RTS seçildiğinde kullanılabilir.&lt;/p&gt;&lt;p&gt;Bu bağlantı noktası CAT kontrolü için kullanılanla aynı olabilir.&lt;/p&gt;&lt;p&gt;Bazı arayüz türleri için CAT özel değeri seçilebilir, bu, seri port kontrol hatlarını uzaktan kontrol edebilen seri olmayan CAT arayüzleri için kullanılır ( Örneğin OmniRig).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1797"/>
         <source>Some radios can select the audio input using a CAT command,
 this setting allows you to select which audio input will be used
 (if it is available then generally the Rear/Data option is best).</source>
-        <translation>一些無線電設備可以使用 CAT 命令選擇音頻輸入,
-此設定允許您選擇將使用的音頻輸入
-(如果可用,則通常 後方/數據 選項是最佳選擇).</translation>
+        <translation>Bazı telsizler, bir CAT komutu kullanarak ses
+girişini seçebilir. Bu ayar, hangi ses girişinin
+kullanılacağını seçmenizi sağlar.
+(mevcutsa, genellikle Arka/Veri seçeneği en iyisidir).</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1802"/>
         <source>Transmit Audio Source</source>
-        <translation>無線電設備音頻源</translation>
+        <translation>Gönderme Ses Kaynağı</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1808"/>
         <source>Rear&amp;/Data</source>
-        <translation>後方&amp;/數據口</translation>
+        <translation>Arka&amp;/Veri</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1818"/>
         <source>&amp;Front/Mic</source>
-        <translation>前方/咪高峰(&amp;F)</translation>
+        <translation>&amp;Ön/Mikrofon</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1841"/>
         <source>Modulation mode selected on radio.</source>
-        <translation>在無線電設備上選擇的調制模式.</translation>
+        <translation>Telsizde seçilen modülasyon modu.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1844"/>
         <source>Mode</source>
-        <translation>模式</translation>
+        <translation>Mod</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1850"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;USB is usually the correct modulation mode,&lt;/p&gt;&lt;p&gt;unless the radio has a special data or packet mode setting&lt;/p&gt;&lt;p&gt;for AFSK operation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;上邊帶通常是正確的調制模式,除非無線電設備具有用於AFSK操作的特殊數據或數據包模式設定.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Telsizin AFSK işlemi için özel bir veri veya paket modu ayarı yoksa, USB genellikle doğru modülasyon modudur.&lt;/p&gt;&lt;p&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1853"/>
         <source>US&amp;B</source>
-        <translation>上邊帶(&amp;B)</translation>
+        <translation>US&amp;B</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1866"/>
         <source>Don&apos;t allow the program to set the radio mode
 (not recommended but use if the wrong mode
 or bandwidth is selected).</source>
-        <translation>不允許程序設定無線電設備模式
-(不建議使用但如果選擇了錯誤的模式
-或帶寬).</translation>
+        <translation>Programın radyo modunu ayarlamasını
+engeller.
+(önerilmez, ancak yanlış mod veya bant
+genişliği seçilmişse kullanın).</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1871"/>
         <location filename="../Configuration.ui" line="1930"/>
         <source>None</source>
-        <translation></translation>
+        <translation>Hiçbiri</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1881"/>
         <source>If this is availabe then it is usually the correct mode for this program.</source>
-        <translation>如果這是可用的那麼它通常是這個程序的正確模式.</translation>
+        <translation>Bu mevcutsa, genellikle bu program için doğru moddur.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1884"/>
         <source>Data/P&amp;kt</source>
-        <translation>數據/封包(&amp;k)</translation>
+        <translation>Veri/P&amp;kt</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1904"/>
         <source>Split Operation</source>
-        <translation>異頻操作</translation>
+        <translation>Split Çalışma</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1910"/>
         <source>Fake It</source>
-        <translation>軟體虛擬</translation>
+        <translation>Taklit</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1920"/>
         <source>Rig</source>
-        <translation>無線電設備</translation>
+        <translation>Cihaz</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1963"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Attempt to connect to the radio with these settings.&lt;/p&gt;&lt;p&gt;The button will turn green if the connection is successful or red if there is a problem.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;嘗試使用這些設定連接到無線電設備.如果連接成功,該按鈕將變為綠色; 如果有問題,則為紅色.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bu ayarlarla telsize bağlanmayı deneyin.&lt;/p&gt;&lt;p&gt;Bağlantı başarılıysa düğme yeşile, bir sorun varsa kırmızıya döner.&lt;/p&gt;&lt;p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1966"/>
         <source>Test CAT</source>
-        <translation>測試 CAT</translation>
+        <translation>Test CAT</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1989"/>
@@ -8081,42 +8057,42 @@ Click again to deactivate. Normally no power should be
 output since there is no audio being generated at this time.
 Check that any Tx indication on your radio and/or your
 radio interface behave as expected.</source>
-        <translation>嘗試激活無線電設備.
-再次單擊以停用.通常沒有功率輸出
-因為此時沒有音頻生成.檢查無線電設備
-和/或您的無線電設備界面上
-的任何發射指示是否如預期的那樣.</translation>
+        <translation>Vericiyi etkinleştirmeyi deneyin.
+Devre dışı bırakmak için tekrar tıklayın.
+Testte ses üretilmediğinden normalde güç çıkışı olmaz.
+Telsizinizde ve/veya cihazınızda bir Tx göstergesi varsa
+radyo arayüzü beklendiği gibi davranır.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2007"/>
         <source>Test PTT</source>
-        <translation>測試 PTT</translation>
+        <translation>Test PTT</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2034"/>
         <location filename="../Configuration.ui" line="2044"/>
         <source>Minimum delay between assertion of PTT and start of Tx audio.</source>
-        <translation>在 PTT 和啟動發射音頻之間的最小延遲.</translation>
+        <translation>PTT&apos;nin tetiklenmesi ile Tx sesinin başlaması arasındaki minimum gecikme.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2037"/>
         <source>Tx delay:</source>
-        <translation>發射延遲:</translation>
+        <translation>Tx gecikmesi:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2172"/>
         <source>A&amp;udio</source>
-        <translation>音頻(&amp;u)</translation>
+        <translation>&amp;Ses</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2175"/>
         <source>Audio interface settings</source>
-        <translation>音頻界面設定</translation>
+        <translation>Ses arabirimi ayarları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2196"/>
         <source>Soundcard</source>
-        <translation>聲卡</translation>
+        <translation>Ses kartı</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2231"/>
@@ -8125,11 +8101,11 @@ If this is your default device for system sounds then
 ensure that all system sounds are disabled otherwise
 you will broadcast any systems sounds generated during
 transmitting periods.</source>
-        <translation>選擇要用於發射的音頻信號.
-如果這是您的預設值設備的系統聲音
-然後確保全部系統聲音被禁用
-否則您將任何系統生成的聲音
-向外發射輸出.</translation>
+        <translation>Gönderme için kullanılacak ses CODEC&apos;ini seçin.
+Eğer bu, sistem sesleri için varsayılan cihazınızsa, o zaman
+tüm sistem seslerinin devre dışı bırakıldığından emin olun,
+aksi takdirde gönderme döngüleri sırasında üretilen
+tüm sistem seslerini yayınlarsınız.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6110"/>
@@ -8144,41 +8120,41 @@ transmitting periods.</source>
     <message>
         <location filename="../Configuration.ui" line="2208"/>
         <source>Select the audio CODEC to use for receiving.</source>
-        <translation>選擇要用於接收的音頻信號.</translation>
+        <translation>Alma için kullanılacak ses CODEC&apos;ini seçin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2215"/>
         <source>&amp;Input:</source>
-        <translation>輸入(&amp;I):</translation>
+        <translation>&amp;Giriş:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2242"/>
         <source>Select the channel to use for receiving.</source>
-        <translation>選擇要用於接收的通道.</translation>
+        <translation>Alma için kullanılacak kanalı seçin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2246"/>
         <location filename="../Configuration.ui" line="2276"/>
         <source>Mono</source>
-        <translation>單聲道</translation>
+        <translation>Mono</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2251"/>
         <location filename="../Configuration.ui" line="2281"/>
         <source>Left</source>
-        <translation>左聲道</translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2256"/>
         <location filename="../Configuration.ui" line="2286"/>
         <source>Right</source>
-        <translation>右聲道</translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2261"/>
         <location filename="../Configuration.ui" line="2291"/>
         <source>Both</source>
-        <translation>雙聲道</translation>
+        <translation>İkisi birden</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2269"/>
@@ -8186,85 +8162,90 @@ transmitting periods.</source>
 Unless you have multiple radios connected on different
 channels; then you will usually want to select mono or
 both here.</source>
-        <translation>選擇用於發射的音頻通道.
-除非您在不同無線電設備連接多個到不同的
-通道; 那麼您通常會想要選擇單聲道或
-雙聲道.</translation>
+        <translation>İletim için kullanılan ses kanalını seçin.
+Farklı kanallara bağlı birden fazla telsiziniz yoksa,
+o zaman burada genellikle mono veya her ikisini birden
+seçmelisiniz.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2299"/>
         <source>Ou&amp;tput:</source>
-        <translation>輸出(&amp;t):</translation>
+        <translation>&amp;Çıkış:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2421"/>
         <source>Remember power settings by band and mode</source>
-        <translation>記錄各波段及模式的功率設定值</translation>
+        <translation>Bant ve moda göre güç ayarlarını hatırla</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2429"/>
         <source>Enable power memory during transmit</source>
-        <translation>啟用保存發射功率數值</translation>
+        <translation>Gönderme sırasında güç hafızasını etkinleştir</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2432"/>
         <source>Transmit</source>
-        <translation>發射</translation>
+        <translation>Gönderme</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2439"/>
         <source>Enable power memory during tuning</source>
-        <translation>啟用保存在調諧功率數值</translation>
+        <translation>Tune sırasında güç hafızasını etkinleştir</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2442"/>
         <source>Tune</source>
-        <translation>調諧</translation>
+        <translation>Tune</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2467"/>
         <source>Audio files save directory</source>
-        <translation>聲音檔案儲存目錄</translation>
+        <translation>Ses dosyaları kayıt dizini</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2473"/>
         <source>Loc&amp;ation:</source>
-        <translation>目錄位置(&amp;a):</translation>
+        <translation>Ko&amp;num:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2489"/>
         <source>Path to which .WAV files are saved.</source>
-        <translation>.WAV 檔案被儲存到哪條路徑.</translation>
+        <translation>.WAV dosyalarının kaydedildiği yol.</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.ui" line="2498"/>
+        <source>TextLabel</source>
+        <translation>Metin Etiketi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2505"/>
         <source>Click to select a different save directory for .WAV files.</source>
-        <translation>單擊選擇不同的儲存目錄 .WAV 檔案.</translation>
+        <translation>.WAV dosyaları için farklı bir kaydetme dizini seçmek için tıklayın.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2508"/>
         <source>S&amp;elect</source>
-        <translation>選擇(&amp;e)</translation>
+        <translation>S&amp;eç</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2539"/>
         <source>Sequencing</source>
-        <translation>程序</translation>
+        <translation>Seriler</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2562"/>
         <source>Message sequencing short scenarios</source>
-        <translation>訊息程序處理方案</translation>
+        <translation>Mesaj sıralama kısa senaryoları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2570"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;AutoSeq 1..3: call CQ when counter is reached. AutoSeq 6/7: search through decoded messages for any valid &apos;CQ&apos; or &apos;73&apos; message, call CQ if there no such messages found. Halt Tx if Single Shot QSO option is enabled in AutoSeq tab.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;自動程序 1..3: 呼叫CQ當到達計數器時. 自動程序 6/7: 通過解碼的訊息搜索任何有效的&apos;CQ&apos;或&apos;73&apos; 訊息,如果未找到此類訊息. 如果在 &quot;自動程序&quot; 選項標簽中啟用了 &quot;單次通聯&quot; 選項,則停止發射.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;OtoSeri 1..3: Sayaç tamamlandığında CQ çağrısı yapar. OtoSeri 6/7: Kodu çözülmüş mesajlar arasında herhangi bir geçerli &apos;CQ&apos; veya &apos;73&apos; mesajı için çağrı yapar, böyle bir mesaj bulunmazsa CQ çağrısı yapear. Tek QSO seçeneği etkinleştirilmişse Tx&apos;i durdurur.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2573"/>
         <source>Counters. Search through decoded messages, call CQ or Halt Tx if:</source>
-        <translation>如果經過多少次計算. 搜索已解碼的訊息,呼叫CQ或終止發射:</translation>
+        <translation>Sayaçlar. Çözülmüş mesajlarda tarama yapar, aşağıdaki durumlarda CQ çağrısı yapar veya Tx&apos;i durdurur:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2605"/>
@@ -8272,87 +8253,87 @@ both here.</source>
         <location filename="../Configuration.ui" line="2670"/>
         <location filename="../Configuration.ui" line="2706"/>
         <source>times</source>
-        <translation>次數</translation>
+        <translation>kez</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2618"/>
         <source>called CQ,  received a call and answered</source>
-        <translation>主呼叫CQ, 接收別臺多次重復回應</translation>
+        <translation>CQ çağrılıp yanıt alındıktan sonra yanıtlanması</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2680"/>
         <source>sent RR73(73) answering to incoming RRR(RR73)</source>
-        <translation>發送多次 RR73(73) 去回應對方 RRR(RR73)</translation>
+        <translation>Gelen RRR(RR73)&apos;e yanıt olarak RR73(73) gönderilmesi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2719"/>
         <source>answered to someone&apos;s CQ with no response</source>
-        <translation>多次回應別臺的CQ呼叫沒有反應</translation>
+        <translation>Yanıtsız bir CQ çağrısına yanıt verildiğinde</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2732"/>
         <source>sent report answering to incoming report</source>
-        <translation>發送訊息報告去回答呼叫您的電臺</translation>
+        <translation>Gelen rapora yanıt olarak rapor gönderilmesi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2766"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option is being used for non-overlapping spectra scenario. Tx will be halted if spectra have common frequencies with no respect to this setting.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;該選項用於非堆疊頻譜場景. 如果主叫臺回答第三方電臺, 發射將被停止&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bu seçenek, örtüşmeyen spektrum senaryosu için kullanılır. Spektrumların ortak frekansları varsa bu ayara bakılmaksızın Tx durdurulur.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2776"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;By default autoselection ignoring received/transmitted direction of CQ if there is a valid &apos;new DXCC&apos; message decoded, either incoming call or selection from decoded CQ/73 messages. This option eliminates &apos;new DXCC&apos; exception in autoselection for directional CQ processing.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選用定向CQ指定分區如AS NA AF…或首碼, 軟件將忽略非指定分區或首碼的其他電臺，包括新DXCC的CQ呼叫.渴望的呼號首碼，不受此定向限制.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Eğer geçerli bir &quot;yeni DXCC&quot; mesajı çözüldüyse, otomatik seçim, varsayılan olarak CQ yönlendirmesini yok sayar. Bu seçenek, yönlendirilmiş CQ işlemine devam edebilmek için &quot;yeni DXCC&quot; ayrıcalığını kaldırır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2779"/>
         <source>Strict directional CQ operation</source>
-        <translation>嚴格定向CQ操作</translation>
+        <translation>Mutlak yönlü CQ işlemi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2837"/>
         <source>Tx &amp;Macros</source>
-        <translation>自定義文字(&amp;M)</translation>
+        <translation>Tx &amp;Makrolar</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2840"/>
         <source>Canned free text messages setup</source>
-        <translation>設定自定義文字</translation>
+        <translation>Serbest mesaj ayarları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2861"/>
         <source>&amp;Add</source>
-        <translation>新增(&amp;A)</translation>
+        <translation>&amp;Ekle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2868"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Maximum 13 characters for free message&lt;br&gt;&lt;br&gt;Maximum 19 characters for directional CQ standard message.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;文字宏最多13個字符,定向CQ標准訊息最多19個字符.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Serbest mesaj için en çok 13 karakter&lt;br&gt;&lt;br&gt;Yönlendirilmiş standart CQ mesajı için en çok 19 karakter.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2878"/>
         <source>&amp;Delete</source>
-        <translation>刪除(&amp;D)</translation>
+        <translation>&amp;Sil</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2888"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Drag and drop items to rearrange order. Right click for item specific actions. Click, SHIFT+Click and, CRTL+Click to select items. @ symbol is being substituted with DX call, &amp; symbol with user&apos;s base callsign, # symbol with report to be transmitted, ^ symbol with correspondent&apos;s name retrieved from the log where name shall not exceed 7 chars.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;拖放項目以重新排列順序.右鍵單擊項目特定操作.點擊,shift + 點擊和,crtl + 點擊選擇項目.@ 符號被 DX 呼號所取代,符號用用戶的基本呼號、# 符號和要發射的報告.這些簡化符號用於將QSO為特殊的評語.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sırayı yeniden düzenlemek için öğeleri sürükleyip bırakın. Öğeye özel eylemler için sağ tıklayın. Öğeleri seçmek için, SHIFT+Tıklayın ve CRTL+Tıklayın. @ sembolü DX çağrısını, &amp; sembolü kullanıcının temel çağrı işaretini, # sembolü verilen raporu, ^ sembolü logdan alınan adı ifade eder. Adın 7 karakteri geçmemesi gerekir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2939"/>
         <source>Reportin&amp;g</source>
-        <translation>報告(&amp;g)</translation>
+        <translation>Rap&amp;orlama</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2942"/>
         <source>Reporting and logging settings</source>
-        <translation>設定日誌和報告</translation>
+        <translation>Raporlama ve loglama ayarları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2970"/>
         <source>Logging</source>
-        <translation>記錄日誌</translation>
+        <translation>Loglama</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3006"/>
@@ -8360,194 +8341,193 @@ both here.</source>
 saved by this program.
 Check this option to save the sent and received reports in the
 comments field.</source>
-        <translation>一些日誌程序不接受這種類型的報告
-由該程序儲存.
-選中此選項可將發送和接收的報告儲存在
-評語字段.</translation>
+        <translation>Bazı kayıt programları, bu program tarafından kaydedilen rapor türlerini kabul etmeyecektir.
+Gönderilen ve alınan raporları yorumlar alanına kaydetmek için bu seçeneği işaretleyin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3012"/>
         <source>d&amp;B reports to comments</source>
-        <translation>把d&amp;B信號報告寫入評語欄</translation>
+        <translation>d&amp;B raporlarını yorumlara kaydet</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3039"/>
         <source>Check this option to force the clearing of the DX Call
 and DX Grid fields when a 73 or free text message is sent.</source>
-        <translation>選中此選項當發送73或自定義文字訊息可強制清除DX呼叫
-和DX網格字段.</translation>
+        <translation>73 veya serbest mesajı gönderildiğinde
+DX Çağrıl ve DX Grid alanlarının tamamen
+temizlenmesi için bu seçeneği işaretleyin.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3043"/>
         <source>Clear &amp;DX call and grid after logging</source>
-        <translation>記錄完成後清除&amp;DX呼號及網格</translation>
+        <translation>Log kaydından sonra
+&amp;DX çağrısını ve Gridi temizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3019"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Check this option to force the clearing of the DX Call and DX Grid fields when exiting JTDX. This functionality is intended for UR5EQF logbook software users.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選中此選項可在退出JTDX時強制清除 DX呼號和DX網格字段.此功能適用於UR5EQF日誌程式用戶.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;JTDX&apos;ten çıkarken DX Çağrısı ve DX Grid alanlarının tamamen temizlenmesi için bu seçeneği işaretleyin. Bu işlev, UR5EQF log defteri kullanıcıları için tasarlanmıştır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3022"/>
         <source>Clear DX call and grid on exit</source>
-        <translation>關閉程式時清除DX呼號及網格</translation>
+        <translation>Çıkışta DX çağrısını ve Gridi temizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2996"/>
         <source>Some logging programs will not accept JT-65 or JT9 as a recognized mode.</source>
-        <translation>某些日誌紀錄程序將不接受 jt-65 或 jt9 作為可識別的模式.</translation>
+        <translation>Bazı kayıt programları, tanınan mod olarak JT-65 veya JT9&apos;u kabul etmeyecektir.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2327"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use audio data stream over TCI when available, default values: sample rate is 48000, data format is 4 byte float values.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果可用, 在 TCI 上使用音頻數據流, 默認值:採樣率為48000, 數據格式為4字節浮點值.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2343"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use in TCI audio data with 12000 sample rate when available, TCI network traffic can be decreased up to 4 times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在 TCI 使用12000採樣速率音頻數據時, TCI 網絡流量最多可降低4倍.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2359"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;int16: use in TCI two byte integer audio data format when available, int24: use in TCI three byte integer audio data format when available. TCI network traffic can be decreased accordingly versus four byte float audio format.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;int16:在 TCI 可用時使用兩字節整數音頻數據格式, int24:在 TCI 可用時使用三字節整數音頻數據格式. 相對於四字節浮點音頻格式, TCI 網絡流量可以相應地減少.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Use int24 Audio</source>
-        <translation type="obsolete">使用 int16 音頻 {24 ?}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2999"/>
         <source>Con&amp;vert mode to RTTY</source>
-        <translation>把日誌紀錄轉成&amp;RTTY模式</translation>
+        <translation>Modu RTTY&apos;ye çe&amp;vir</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3029"/>
         <source>The program will pop up a partially completed Log QSO dialog when you send a 73 or free text message.</source>
-        <translation>當您發送73或自定義文字時,程序將彈出一個部分完成的日誌QSO對話框.</translation>
+        <translation>73 veya serbest mesaj gönderdiğinizde, program kısmen tamamlanmış bir Log QSO iletişim kutusu açacaktır.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3032"/>
         <source>Promp&amp;t me to log QSO</source>
-        <translation>提示我記錄通聯日誌(&amp;t)</translation>
+        <translation>Log ka&amp;ydederken ikaz et</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3050"/>
         <source>Enable automatic logging of QSO</source>
-        <translation>啟用自動記錄通聯日誌</translation>
+        <translation>Otomatik log kaydını etkinleştir</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3090"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Connection to external logbook software.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;連接到外部日誌程式&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Harici log defterine bağlantı.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3093"/>
         <source>Send logged QSO ADIF data</source>
-        <translation>發送記錄通聯的ADIF數據</translation>
+        <translation>Loglanmış QSO ADIF verilerini gönder</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3127"/>
         <location filename="../Configuration.ui" line="3143"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TCP server name or address&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TCP 伺服器名稱或地址&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TCP sunucu adı veya adresi&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3130"/>
         <source>TCP server:</source>
-        <translation>TCP伺服器地址:</translation>
+        <translation>TCP sunucusu:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3150"/>
         <location filename="../Configuration.ui" line="3160"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TCP server port number&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TCP 伺服器埠號號碼&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TCP sunucusu port numarası&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3153"/>
         <source>TCP port:</source>
-        <translation>TCP埠號:</translation>
+        <translation>TCP port:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3175"/>
         <source>Enable sending to TCP server</source>
-        <translation>啟用發送到TCP伺服器</translation>
+        <translation>TCP sunucusuna gönder</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3200"/>
         <source>2nd UDP server</source>
-        <translation>輔助UDP伺服器地址</translation>
+        <translation>2. UDP sunucusu</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3214"/>
         <location filename="../Configuration.ui" line="3224"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;secondary UDP server port number&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;輔助 UDP 伺服器埠號號碼&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;İkincil UDP sunucu port numarası&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3217"/>
         <source>UDP port:</source>
-        <translation>輔助UDP伺服器埠號:</translation>
+        <translation>UDP port:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3233"/>
         <source>Enable sending to secondary UDP server</source>
-        <translation>啟用輔助UDP伺服器</translation>
+        <translation>İkincil UDP sunucusuna gönder</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3268"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Allows to configure data for recording into the ALL.TXT file. Recording of TX messages can not be switched off.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;允許設定全部數據紀錄到ALL.txt 檔案中. 無法關閉發射訊息的紀錄&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ALL.TXT dosyasına kayıt için verilerin yapılandırılmasına izin verir. TX mesajlarının kaydı kapatılamaz.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3271"/>
         <source>Recording to ALL.TXT</source>
-        <translation>記錄至ALL.TXT</translation>
+        <translation>ALL.TXT&apos;ye kayıt</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3293"/>
         <source>decoded messages</source>
-        <translation>已解碼訊息</translation>
+        <translation>Kodu çözülmüş mesajlar</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3300"/>
         <source>decoded and debug messages</source>
-        <translation>已解碼及除錯訊息</translation>
+        <translation>Çözülmüş ve hata ayıklama
+mesajları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3327"/>
         <source>Network Services</source>
-        <translation>網路服務</translation>
+        <translation>Ağ Servisleri</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3348"/>
         <source>The program can send logged QSO info to the http://www.eqsl.cc web site.</source>
-        <translation>程序可以將通聯日誌紀錄發送到 http://www.eqsl.cc 網站.</translation>
+        <translation>Program, kayıtlı QSO bilgilerini
+http://www.eqsl.cc web sitesine
+gönderebilir.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3351"/>
         <source>Enable &amp;eQSL sending</source>
-        <translation>啟用上傳&amp;eQSL網站</translation>
+        <translation>&amp;eQSL&apos;e gönder</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3371"/>
         <source>EQSL Username.</source>
-        <translation>EQSL用戶名稱.</translation>
+        <translation>EQSL Kullanıcı Adı.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3378"/>
         <source>U&amp;sername:</source>
-        <translation>用戶名稱(&amp;s):</translation>
+        <translation>K&amp;ullanıcı adı:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3388"/>
         <source>P&amp;assword:</source>
-        <translation>密碼(&amp;a):</translation>
+        <translation>P&amp;arola:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3398"/>
         <source>EQSL Password.</source>
-        <translation>EQSL密碼.</translation>
+        <translation>EQSL Şifresi.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3408"/>
@@ -8555,243 +8535,248 @@ and DX Grid fields when a 73 or free text message is sent.</source>
 decoded signals as spots to the http://pskreporter.info web site.
 This is used for reverse beacon analysis which is very useful
 for assessing propagation and system performance.</source>
-        <translation>該程序可以發送您的站的詳細訊息和全部
-解碼信號作為點的 http://pskreporter.info 的網站.
-這是用於反向信標分析,這是非常有用的
-用於評估傳播和系統性能.</translation>
+        <translation>Program istasyon detaylarınızı ve kodu çözülen tüm sinyalleri
+spotlar olarak http://pskreporter.info web sitesine gönderebilir.
+Bu, yayılımı ve sistem performansını değerlendirmek için
+çok yararlı olan ters işaret analizi için kullanılır.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3414"/>
         <source>Enable &amp;PSK Reporter Spotting</source>
-        <translation>啟用&amp;PSK Reporter Spotting</translation>
+        <translation>&amp;PSK Reporter Spotlama</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3421"/>
         <source>EQSL OTH Nickname.</source>
-        <translation>EQSL QTH 暱稱.</translation>
+        <translation>EQSL QTH Takma Adı.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3428"/>
         <source>Enable DXSummit Spotting </source>
-        <translation>啟用DXSummit Spotting </translation>
+        <translation>DXSummit Spotlama </translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3435"/>
         <source>QTH N&amp;ickname:</source>
-        <translation>&amp;QTH 暱稱:</translation>
+        <translation>QTH Tak&amp;ma Adı:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3448"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Primary UDP connection to external software.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;與外部程式的主要 UDP 連接.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Harici yazılıma birincil UDP bağlantısı.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3451"/>
         <source>Primary UDP Server</source>
-        <translation>主要UDP伺服器</translation>
+        <translation>Birincil UDP Sunucusu</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3481"/>
         <source>UDP Server:</source>
-        <translation>主要UDP伺服器地址:</translation>
+        <translation>UDP Sunucusu:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3497"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Optional hostname of network service to receive decodes.&lt;/p&gt;&lt;p&gt;Formats:&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;hostname&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv4 address&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv6 address&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv4 multicast group address&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv6 multicast group address&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Clearing this field will disable the broadcasting of UDP status updates.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;接收解碼的網路服務的可選主機名稱.&lt;/p&gt;&lt;p&gt;格式:&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;主機名稱&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv4 address&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv6 地址&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv4多點傳送組地址&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv6 多點傳送組地址&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;清除此字段將禁用UDP狀態更新的廣播.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çözülmüş kodları almak için ağ hizmetinin isteğe bağlı ana bilgisayar adı.&lt;/p&gt;&lt;p&gt;Biçimler:&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;hostname&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv4 address&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv6 address&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv4 multicast group address&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;IPv6 multicast group address&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Bu alanın temizlenmesi UDP durum güncellemelerinin yayınlanmasını devre dışı bırakır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3507"/>
         <source>UDP Server port number:</source>
-        <translation>主要UDP伺服器埠號:</translation>
+        <translation>UDP Sunucusu port no:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3537"/>
         <source>Accept UDP requests</source>
-        <translation>接受UDP請求</translation>
+        <translation>UDP isteklerini kabul et</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3544"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Indicate acceptance of an incoming UDP request. The effect of this option varies depending on the operating system and window manager, its intent is to notify the acceptance of an incoming UDP request even if this application is minimized or hidden.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;指示接受傳入的 UDP 請求.此選項的效果因操作系統和視窗管理器而異,其目的是通知接受傳入的 UDP 請求,即使此應用程序最小化或隱藏&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Gelen bir UDP isteğinin kabul edildiğini belirtir. Bu seçeneğin etkisi, işletim sistemine ve pencere yöneticisine göre değişir; amacı, bu uygulama simge durumuna küçültülmüş veya gizlenmiş olsa bile, gelen bir UDP isteğinin kabul edildiğini bildirmektir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3547"/>
         <source>Notify on accepted UDP request</source>
-        <translation>在接受UDP的請求時通知</translation>
+        <translation>Kabul edilen UDP isteğinde bildir</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3554"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Restore the window from minimized if an UDP request is accepted.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果接受 UDP 請求,則從最小化還原視窗.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bir UDP isteği kabul edilirse pencereyi simge durumundan geri büyütün.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3557"/>
         <source>Accepted UDP request restores window</source>
-        <translation>接受UDP請求還原視窗</translation>
+        <translation>Kabul edilen UDP isteğinde pencereyi geri büyüt</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3568"/>
         <source>Enable sending logged QSO ADIF data</source>
-        <translation>啟用發送通聯紀錄的ADIF數據</translation>
+        <translation>Loglanan QSO ADIF verilerini göndermeyi etkinleştir</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3578"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Messages marked by questionmark will not be passed to JTAlert and other UDP based software.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;標記了問號的訊息不會傳遞給 jtalert 和其他基於 UDP 的程式&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Soru işaretiyle işaretlenen mesajlar JTAlert&apos;e ve diğer UDP tabanlı yazılımlara iletilmez.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3581"/>
         <source>Prevent spotting messages with the unconfirmed callsigns via UDP</source>
-        <translation>防止通過一些未確認的呼號通過 UDP 發送出去</translation>
+        <translation>UDP aracılığıyla onaylanmamış çağrı işaretlerinin spotlanmasını önleyin</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3588"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Selected text filters will be applied to limit transmission of the UDP messages from JTDX, for instance messages from some continents can be blocked.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;將應用選定的文本篩選器來限制來自 JTDX 的 UDP 訊息的傳輸, 例如, 某些洲大陸的訊息可能會被阻止.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;UDP mesajlarının JTDX&apos;ten iletimini sınırlamak için seçilen metin filtreleri uygulanacaktır, örneğin bazı kıtalardan gelen mesajlar engellenebilir.&lt;/p&gt;&lt;/body&gt;&lt;/html &gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3591"/>
         <source>Apply text filters to transmission of the UDP messages</source>
-        <translation>啟用訊息過濾器來防止某些個人的訊息經 UDP 傳出</translation>
+        <translation>UDP mesajlarının iletimine metin filtreleri uygulayın</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3632"/>
         <source>Frequencies</source>
-        <translation>頻率</translation>
+        <translation>Frekanslar</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3635"/>
         <source>Default frequencies and band specific station details setup</source>
-        <translation>設定預設值頻率和帶寬點特定的電臺詳細訊息</translation>
+        <translation>Varsayılan frekanslar ve banda özel istasyon ayrıntıları ayarları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3656"/>
         <source>Working Frequencies</source>
-        <translation>工作頻率</translation>
+        <translation>Çalışma Frekansları</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3671"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Right click to maintain the working frequencies list. Reset option allows to bring frequency list back to the default values.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;右鍵按一下以維護工作頻率清單. 重置選項允許將頻率清單恢復到預設值.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çalışan frekanslar listesinde bakım için sağ tıklayın. Sıfırlama seçeneği, frekans listesini varsayılan değerlere geri getirmeyi sağlar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4026"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show DX Country Name/Prefix in message with My Call in message color.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在帶有我的呼號的訊息中, 以顏色顯示DX國家/地區名稱/前綴&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4351"/>
         <source>Hide hint char</source>
-        <translation>隱藏提示字元</translation>
+        <translation>İpucu karakterini gizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5998"/>
         <source>Reset</source>
-        <translation>重置頻率</translation>
+        <translation>Sıfırla</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3698"/>
         <source>See WSPR documentattion Appendix C for details of how to determine these factors for your radio.</source>
-        <translation>關於如何為您的無線電設備確定這些因素的詳細訊息,請參閱 WSPR 檔案附錄C.</translation>
+        <translation>Telsiziniz için bu faktörlerin nasıl belirleneceğine ilişkin ayrıntılara WSPR belgeleri Ek C&apos;den bakın.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3701"/>
         <source>Frequency Calibration</source>
-        <translation>頻率校准</translation>
+        <translation>Frekans Kalibrasyonu</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3710"/>
         <source>Intercept:</source>
-        <translation>攔截:</translation>
+        <translation>Yakalama:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3723"/>
         <location filename="../Configuration.ui" line="7778"/>
         <source> Hz</source>
-        <translation> 赫兹</translation>
+        <translation> Hz</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3742"/>
         <source>Slope:</source>
-        <translation>傾斜率:</translation>
+        <translation>Eğim:</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.ui" line="3755"/>
+        <source> ppm</source>
+        <translation> ppm</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3798"/>
         <source>Station Information</source>
-        <translation>電臺訊息</translation>
+        <translation>İstasyon Bilgileri</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3810"/>
         <source>Items may be edited.
 Right click for insert and delete options.</source>
-        <translation>項目可以編輯.
-右鍵單擊插入和刪除選項.</translation>
+        <translation>Öğeler düzenlenebilir.
+Ekleme ve silme seçenekleri için sağ tıklayın.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3858"/>
         <source>Notifications</source>
-        <translation>顯示通知</translation>
+        <translation>Bildirimler</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3884"/>
         <source>&apos;New one&apos; and &apos;worked B4&apos; status notifications</source>
-        <translation>&apos;新的&apos; 和 &apos;曾經通聯&apos; 狀態通知</translation>
+        <translation>&apos;Yeni&apos; ve &apos;önceden çalışılmış (B4)&apos; durum bildirimleri</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3996"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with CQ Zones which do not exist in the wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示具有新的CQ分區訊息當wsjtx_log.adi日誌檔案中不存在的CQ分區.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasında bulunmayan CQ Bölgelerine sahip mesajları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3999"/>
         <source>Check and highlight new CQZ</source>
-        <translation>突出顯示新CQ分區</translation>
+        <translation>Yeni CQZ kontrol et ve vurgula</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4066"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with CQ Zones which are new on the band according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在波段中具有新的CQ分區訊息當wsjtx_log.adi日誌檔案中不存在的CQ分區.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasındaki verilere göre bantta yeni CQ Bölgeleri olanları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4192"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with CQ Zones which are new in the mode according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在模式中具有新的CQ分區訊息當wsjtx_log.adi日誌檔案中不存在的CQ分區.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasındaki verilere göre modda yeni CQ Bölgeleri olanları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4076"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with ITU Zones which do not exist in the wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示具有新的ITU分區訊息當wsjtx_log.adi日誌檔案中不存在的ITU分區.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasında bulunmayan ITU Bölgeleri olan mesajları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4079"/>
         <source>Check and highlight new ITUZ</source>
-        <translation>突出顯示新ITU分區</translation>
+        <translation>Yeni ITUZ kontrol et ve vurgula</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4202"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with ITU Zones which are new on the band according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在波段中具有新的ITU分區訊息當wsjtx_log.adi日誌檔案中不存在的ITU分區.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasındaki verilere göre bantta yeni ITU Bölgeleri olanları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3956"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with ITU Zones which are new in the mode according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在模式中具有新的ITU分區訊息當wsjtx_log.adi日誌檔案中不存在的ITU分區.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasındaki verilere göre modda yeni ITU Bölgeleri olanları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4252"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with DXCC countries which do not exist in the wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示具有新的DXCC的訊息當wsjtx_log.adi日誌檔案中不存在的DXCC.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasında bulunmayan DXCC ülkeleriyle ilgili mesajları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4255"/>
         <source>Check and highlight new DXCC</source>
-        <translation>突出顯示新DXCC</translation>
+        <translation>Yeni DXCC kontrol et ve vurgula</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4139"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with DXCC countries which are new on the band according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在波段中具有新的DXCC訊息當wsjtx_log.adi日誌檔案中不存在的DXCC.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasındaki verilere göre bantta yeni DXCC ülkeleri olanları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3919"/>
@@ -8802,12 +8787,12 @@ Right click for insert and delete options.</source>
         <location filename="../Configuration.ui" line="4205"/>
         <location filename="../Configuration.ui" line="4275"/>
         <source>per band</source>
-        <translation>每波段</translation>
+        <translation>bant başına</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4222"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with DXCC countries which are new in the mode according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在模式中具有新的DXCC訊息當wsjtx_log.adi日誌檔案中不存在的DXCC.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasındaki verilere göre modda yeni DXCC ülkeleri olanları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3959"/>
@@ -8818,132 +8803,132 @@ Right click for insert and delete options.</source>
         <location filename="../Configuration.ui" line="4235"/>
         <location filename="../Configuration.ui" line="4285"/>
         <source>per mode</source>
-        <translation>每模式</translation>
+        <translation>mod başına</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="257"/>
         <source>Use current &amp;callsign</source>
-        <translation>使用當前呼號(&amp;c)</translation>
+        <translation>Geçerli &amp;çağrı işaretini kullan</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="277"/>
         <source>Use curr&amp;ent grid</source>
-        <translation>使用當前網格(&amp;e)</translation>
+        <translation>Mevcut G&amp;ridi(Konum) kullan</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="403"/>
         <source>Scroll message windows down not up.</source>
-        <translation>解碼訊息在波段活動視窗從上往下滾動.</translation>
+        <translation>Mesaj pencerelerini yukarı değil aşağı kaydırın.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="406"/>
         <source>&amp;Scroll message windows down</source>
-        <translation>解碼訊息向下滾動(&amp;S)</translation>
+        <translation>&amp;Mesaj pencerelerini aşağı kaydır</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="396"/>
         <source>&amp;Hide partially transmitted messages</source>
-        <translation>隱藏已發射的訊息(&amp;H)</translation>
+        <translation>&amp;Kısmen iletilen mesajları gizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="469"/>
         <source>Use dar&amp;k style</source>
-        <translation>使用深暗色樣式(&amp;k)</translation>
+        <translation>K&amp;oyu biçimi kullan</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="645"/>
         <source>Allo&amp;w Tx frequency changes while transmitting</source>
-        <translation>允許發射期間改變頻率(&amp;w)</translation>
+        <translation>Göndermede Tx frekans değişikliğine i&amp;zin ver</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="699"/>
         <source>Monitor returns to last used fre&amp;quency</source>
-        <translation>開始監聽時使用上一次的頻率(&amp;q)</translation>
+        <translation>Monitör, son kullanılan freka&amp;nsa geri döner</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1155"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Request switch on rig power when supported in Hamlib.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在Hamlib支援時請求打開無線電設備電源.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hamlib ile desteklendiğinde cihazın açılmasını sağlar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1158"/>
         <source>On</source>
-        <translation>打開電源</translation>
+        <translation>Aç</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1171"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Request switch off rig power when supported in Hamlib.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在Hamlib支援時請求關閉無線電設備電源.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hamlib ile desteklendiğinde cihazın kapatılmasını sağlar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Configuration.ui" line="1775"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Request enable PTT port sharing in Hamlib.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Configuration.ui" line="1778"/>
+        <source>Share PTT port</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2309"/>
         <source>refresh audio device list</source>
-        <translation>更新音訊設備清單</translation>
+        <translation>ses cihazı listesini yenile</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2312"/>
         <source>Refresh</source>
-        <translation>更新</translation>
+        <translation>Yenile</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2330"/>
         <source>Use TCI Audio</source>
-        <translation>使用 TCI 音訊</translation>
+        <translation>TCI Audio Kullan</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1204"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Try Auto AGC from JTDX when possible.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;盡可能嘗試 JTDX 的自動 AGC.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="1207"/>
         <source>Try Auto AGC</source>
-        <translation>嘗試自動 AGC</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2385"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set TCI TxAudio buffering time (ms).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;設置 TCI 發射音頻緩衝時間 (毫秒).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2369"/>
         <source>TCI TxAudio buffering:</source>
-        <translation>TCI 發射音頻緩衝:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2391"/>
         <source>ms.</source>
-        <translation>毫秒</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.ui" line="2498"/>
-        <source>TextLabel</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3057"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add distance to correspondent to comments in ADIF QSO record.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;將距離新增到日誌的通聯紀錄註釋中.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ADIF QSO kaydındaki yorumlara mesafeyi ekleyin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3060"/>
         <source>Distance to comments</source>
-        <translation>將距離資訊寫入註釋中</translation>
+        <translation>Yorumlara mesafeyi ekle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3517"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter the service port number of the UDP server that JTDX should send updates to. If this is zero no updates will be broadcast.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;輸入 JTDX 應向其發送更新的 UDP 伺服器的服務埠號號.如果為零,則不會廣播更新&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;JTDX&apos;in kayıt güncellemelerini göndermesi gereken UDP sunucusunun port numarasını girin. Bu sıfır ise, hiçbir güncelleme yayınlanmayacaktır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3534"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;With this enabled JTDX will accept certain requests back from a UDP server that receives decode messages.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;啟用此功能後,JTDX 將接受來自接收解碼訊息的 UDP 伺服器的某些請求&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../Configuration.ui" line="3755"/>
-        <source> ppm</source>
-        <translation></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bu etkinleştirildiğinde JTDX, çözülmüş mesajları alan bir UDP sunucusundan gelen belirli istekleri kabul edecektir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3976"/>
@@ -8954,7 +8939,7 @@ Right click for insert and delete options.</source>
         <location filename="../Configuration.ui" line="4242"/>
         <location filename="../Configuration.ui" line="4292"/>
         <source>Use also system sound for the notification.</source>
-        <translation>使用系統聲音進行通知.</translation>
+        <translation>Bildirim için sistem sesini de kullanın.</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3979"/>
@@ -8965,203 +8950,203 @@ Right click for insert and delete options.</source>
         <location filename="../Configuration.ui" line="4245"/>
         <location filename="../Configuration.ui" line="4295"/>
         <source>Beep as well</source>
-        <translation>發出嗶聲</translation>
+        <translation>ayrıca bip sesi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4086"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with grid squares which do not exist in the wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示具有新的網格訊息當wsjtx_log.adi日誌檔案中不存在的網格.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasında bulunmayan (grid) konumlu mesajları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4089"/>
         <source>Check and highlight new grids</source>
-        <translation>突出顯示新網格</translation>
+        <translation>Yeni (grid) konumları kontrol et ve vurgula</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3916"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with grid squares which are new on the band according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在波段中具有新的網格訊息當wsjtx_log.adi日誌檔案中不存在的網格.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasındaki verilere göre bantta yeni (grid) konumlu iletileri vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3966"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with grid squares which are new in the mode according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在模式中具有新的網格訊息當wsjtx_log.adi日誌檔案中不存在的網格.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi log dosyasındaki verilere göre modda yeni (grid) konumlu iletileri vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4109"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with prefixes which do not exist in the wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示具有新的前綴訊息當wsjtx_log.adi日誌檔案中不存在的前綴.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi günlük dosyasında bulunmayan ön eklere sahip iletileri vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4112"/>
         <source>Check and highlight new prefixes</source>
-        <translation>突出顯示新前綴</translation>
+        <translation>Yeni ön ekleri kontrol et ve vurgula</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3926"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with prefixes which are new on the band according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在波段中具有新的前綴訊息當wsjtx_log.adi日誌檔案中不存在的前綴.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi günlük dosyasındaki verilere göre bantta yeni olan ön eklere sahip mesajları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4232"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with prefixes which are new in the mode according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在模式中具有新的前綴訊息當wsjtx_log.adi日誌檔案中不存在的前綴.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi günlük dosyasındaki verilere göre modda yeni olan ön eklere sahip iletileri vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4182"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with callsigns which do not exist in the wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示具有新的通聯電臺訊息當wsjtx_log.adi日誌檔案中不存在的呼號.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi günlük dosyasında bulunmayan çağrı işaretli mesajları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4185"/>
         <source>Check and highlight new calls</source>
-        <translation>突出顯示新呼號</translation>
+        <translation>Yeni aramaları kontrol edin ve vurgulayın</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3986"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with callsigns which are new on the band according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在波段中具有新的呼號訊息當wsjtx_log.adi日誌檔案中不存在的呼號.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjt x log.adi günlük dosyasındaki verilere göre bantta yeni çağrı işareti olan mesajları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4149"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with callsigns which are new in the mode according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示在模式中具有新的前綴訊息當wsjtx_log.adi日誌檔案中不存在的前綴.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;wsjtx_log.adi günlük dosyasındaki verilere göre modda yeni olan çağrı işaretli mesajları vurgulayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4159"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use color notification for messages with the worked DXCC, Grid, Call.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用顏色顯示曾經通聯的 DXCC, 網格, 呼號的訊息.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çalışılan DXCC, Grid, Call ile mesajlar için renkli bildirimi kullanın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4162"/>
         <source>Highlight worked ones</source>
-        <translation>突出顯示曾經通聯</translation>
+        <translation>Çalışılanları vurgulayın</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4096"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Messages with worked DXCC, Grid, Call will be striked.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;曾經通聯的DXCC網格, 呼叫的訊息將帶有刪除線.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çalışılan DXCC, Grid, Call içeren mesajlar vurgulanacak.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4099"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Messages with worked Call will be striked&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;曾經通聯的呼號與訊息將將帶有刪除線&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çalışılmış Çağrı içeren mesajlar vurgulanacak&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4102"/>
         <source>strike it</source>
-        <translation>刪除線</translation>
+        <translation>vurgula</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3936"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Messages with worked DXCC, Grid, Call will be underlined.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;曾經通聯的DXCC網格, 呼叫的訊息將帶有下劃線.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çalışmış DXCC, Grid, Call içeren mesajların altı çizilecektir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3939"/>
         <source>underline it</source>
-        <translation>下劃線</translation>
+        <translation>altını çiz</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4212"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Messages with worked DXCC, Grid, Call where there is no MyCall will be skipped in the decoded text window&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;解碼視窗中沒有我呼號的訊息, 並隱藏已曾經通聯的DXCC, 網格的訊息&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kendi Çağrı İşaretimin olmadığı çalışılan DXCC, Grid, Call içeren mesajlar, kodu çözülen metin penceresinde atlanacak&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4215"/>
         <source>don&apos;t show it</source>
-        <translation>隱藏不顯示</translation>
+        <translation>gösterme</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4036"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Invert text&lt;-&gt;background color for received messages&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;將文本 &lt;-&gt; 接收到的訊息背景色反轉&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Metni ters çevir Alınan iletiler için arka plan rengi&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4039"/>
         <source>Inverse text/background color</source>
-        <translation>反轉 文本/背景 顏色</translation>
+        <translation>Ters metin/arka plan rengi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4056"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;By default &apos;CQ&apos; and &apos;MyCall&apos; messages being only checked, this setting allows to check also other received standard messages for new DXCC, Grid, Call. &apos;Other standard message&apos; color being used for the notification&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;預設值情況下祗檢查 &apos;CQ&apos; 和;我的呼號&apos; 訊息, 此設定還允許檢查其他接收到的新 DXCC, 網格, 呼號的標准訊息. 通知中使用的 &apos;其他標准訊息&apos; 顏色&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Varsayılan olarak &apos;CQ&apos; ve &apos;MyCall&apos; mesajları kontrol edilir, bu ayar yeni DXCC, Grid, Call için alınan diğer standart mesajların da kontrol edilmesini sağlar. Bildirim için kullanılan &apos;diğer standart mesaj&apos; rengi&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4059"/>
         <source>Highlight other standard messages</source>
-        <translation>突出顯示其他標准訊息</translation>
+        <translation>Diğer standart mesajları vurgulayın</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3946"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use system sound for notification as soon as the first message is decoded in the RX interval.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在接收間隔內解碼第一條訊息後, 立即使用系統聲音進行通知.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;İlk mesajın kodu RX aralığında çözülür çözülmez bildirim için sistem sesini kullanın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="3949"/>
         <source>Beep on 1st decoded message</source>
-        <translation>第一解碼訊息發出嗶聲</translation>
+        <translation>1. kodu çözülmüş mesajda bip sesi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4016"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use system sound for notification if there is MyCall in the received message.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果收到的訊息中有我的呼號,使用系統聲音進行通知.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Alınan mesajda MyCall varsa, bildirim için sistem sesini kullanın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4019"/>
         <source>Beep on my call</source>
-        <translation>有我呼號發出嗶聲</translation>
+        <translation>Kendi Çağrı İşaretime bip sesi</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4328"/>
         <source>Markers</source>
-        <translation>末端標記</translation>
+        <translation>İşaretçiler</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4335"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use blue marker to notify if there is my callsign in the decoded message related to the ongoing QSO (QSO party&apos;s callsign is in the DX Call window), other incoming calls with my callsign will be followed with the red marker.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用藍色標記通知已解碼的訊息中是否有與正在進行通聯的相關呼號 (通聯的呼號在DX視窗中),帶有我的呼號的其他傳入呼叫將跟隨紅色標記.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Devam eden QSO ile ilgili kodu çözülmüş mesajda benim çağrı işaretim olup olmadığını bildirmek için mavi işaretleyiciyi kullanın (QSO tarafının çağrı işareti DX Çağrı penceresindedir), benim çağrı işaretim ile gelen diğer aramalar kırmızı işaretle izlenecektir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4338"/>
         <source>blue / my call at QSO</source>
-        <translation>藍色/正與我通聯</translation>
+        <translation>mavi / QSO&apos;daki çağrım</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4387"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use red marker to notify if there is my callsign in the decoded message.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用紅色標記通知已解碼的訊息中有我的呼號.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kodu çözülen mesajda benim çağrı işaretim olup olmadığını bildirmek için kırmızı işaretçiyi kullanın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4390"/>
         <source>red / my call in message</source>
-        <translation>紅色/訊息中有我呼號</translation>
+        <translation>kırmızı / mesajdaki çağrım</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4400"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use marker at end of message instead of background color to other standard message notification.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;全部其他訊息末端標記.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Diğer standart mesaj bildiriminde arka plan rengi yerine mesajın sonunda işaretçi kullanın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4403"/>
         <source>Other standard messages</source>
-        <translation>其他標准訊息</translation>
+        <translation>Diğer standart mesajlar</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4449"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;On top of the preview pane there are types of message that being checked for some criterion, text color being selected for each  type of message.&lt;br&gt;&lt;br&gt;On left side there are criteria allocated in the hierarchy order, and background color being selected for messages for each criterion.&lt;br&gt;&lt;br&gt;&apos;Worked one&apos; notification functionality is based on the residual principle, triggered if all activated &apos;New one&apos; criteria or criterion are not met.&lt;br&gt;&lt;br&gt;&apos;Inverse color&apos; may be used if user would like to highlight CQ and &apos;MyCall&apos; messages by some specific backgroung color.&lt;br&gt;&lt;br&gt;For beginning one criterion can be chose and for new band/mode notifications may be used similar color with the different saturation level, later number of required criteria can be increased.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在預覽窗格的頂部有正在檢查某些條件的訊息類型,為每種類型的訊息選擇文本顏色.&lt;br&gt;&lt;br&gt;左側按層次結搆順序分配了條件,並為每個條件的訊息選擇了背景色.&lt;br&gt;&lt;br&gt;&quot;曾經通聯&quot; 通知功能基於剩余原則,如果不符合全部激活的 &quot;新&quot; 標准或條件,則觸發.&lt;br&gt;&lt;br&gt;如果用戶希望通過某些特定的背景顏色突出顯示CQ和 &quot;我的呼號&quot; 訊息,則可以使用 &quot;反向顏色&quot;.&lt;br&gt;&lt;br&gt;對於開始,可以選擇一個標准,對於新的波段/模式通知,可以使用不同飽和度水平的類似顏色,以後可以新增所需的標准的數量.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Önizleme bölmesinin üstünde, bazı kriterler için kontrol edilen mesaj türleri vardır, her mesaj türü için metin rengi seçilir.&lt;br&gt;&lt;br&gt;Sol tarafta hiyerarşi sırasına göre atanan kriterler ve her bir kriter için mesajlar için seçilen arka plan rengi bulunmaktadır.&lt;br&gt;&lt;br&gt;&apos;Çalışan&apos; bildirim işlevi, etkinleştirilen tüm &apos;Yeni&apos; kriterleri veya kriterleri karşılanmadığında tetiklenen artık ilkesine dayanır.&lt;br&gt;&lt;br&gt;Kullanıcı, CQ ve &apos;MyCall&apos; mesajlarını belirli bir arka plan rengiyle vurgulamak isterse, &apos;ters renk&apos; kullanılabilir.&lt;br&gt;&lt;br&gt;Başlangıç için bir kriter seçilebilir ve yeni bant/mod bildirimleri için farklı doygunluk seviyesinde benzer renk kullanılabilir, daha sonra gerekli kriter sayısı arttırılabilir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4452"/>
         <location filename="../Configuration.ui" line="7843"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Configuration tips&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;配置提示&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Yapılandırma ipuçları&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4640"/>
         <source>Transmitted message</source>
-        <translation>正在發射的訊息</translation>
+        <translation>Gönderilen mesaj</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4522"/>
@@ -9214,273 +9199,273 @@ Right click for insert and delete options.</source>
         <location filename="../Configuration.ui" line="5683"/>
         <location filename="../Configuration.ui" line="5702"/>
         <source>K1ABC</source>
-        <translation></translation>
+        <translation>K1ABC</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5104"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Treat RR73/73 messages in the same way as CQ messages for auto selection.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;以與 CQ 訊息相同的方式處理 RR73/73 訊息, 以便自動選擇.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;RR73/73 iletilerini otomatik seçim için CQ iletileriyle aynı şekilde ele alın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5110"/>
         <source>RR73/73           </source>
-        <translation></translation>
+        <translation>RR73/73           </translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5034"/>
         <source>CQ/73 in message</source>
-        <translation>CQ/73 在訊息內</translation>
+        <translation>Mesajda CQ/73</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5371"/>
         <source>My Call in message</source>
-        <translation>我呼號在訊息內</translation>
+        <translation>Mesajda Çağrı İşaretim</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5139"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set text color for non (&apos;CQ&apos; and &apos;MyCall&apos;) standard messages&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;為非 (&apos;CQ&apos; 和 &apos;我呼號&apos;) 標准訊息設定文本顏色&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Standart olmayan (&apos;CQ&apos; ve &apos;MyCall&apos;) mesajlar için metin rengini ayarlayın&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5142"/>
         <source>Other standard message</source>
-        <translation>其他標准訊息</translation>
+        <translation>Diğer standart mesaj</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5384"/>
         <source>New CQZ</source>
-        <translation>新CQ分區</translation>
+        <translation>Yeni CQZ</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4557"/>
         <source>New CQZ on Band/Mode</source>
-        <translation>新CQ分區 波段/模式</translation>
+        <translation>Bant/Modda Yeni CQZ</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4653"/>
         <source>New ITUZ</source>
-        <translation>新ITU分區</translation>
+        <translation>Yeni ITUZ</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4799"/>
         <source>New ITUZ on Band/Mode</source>
-        <translation>新ITU分區 波段/模式</translation>
+        <translation>Bant/Modda Yeni ITUZ</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5397"/>
         <source>New DXCC</source>
-        <translation>新DXCC</translation>
+        <translation>Yeni DXCC</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4666"/>
         <source>New DXCC on Band/Mode</source>
-        <translation>新DXCC 波段/模式</translation>
+        <translation>Bant/Modda Yeni DXCC</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4570"/>
         <source>New Grid</source>
-        <translation>新網格</translation>
+        <translation>Yeni Grid</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5244"/>
         <source>New Grid on Band/Mode</source>
-        <translation>新網格 波段/模式</translation>
+        <translation>Bant/Modda Yeni Grid</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4888"/>
         <source>New Prefix</source>
-        <translation>新前綴</translation>
+        <translation>Yeni Ön Ek</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5483"/>
         <source>New Prefix on Band/Mode</source>
-        <translation>新前綴 波段/模式</translation>
+        <translation>Bant/Modda Yeni Ön Ek</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4506"/>
         <source>New Call</source>
-        <translation>新呼號</translation>
+        <translation>Yeni Çağrı İşareti</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5432"/>
         <source>New Call on Band/Mode</source>
-        <translation>新呼號 波段/模式</translation>
+        <translation>Bantta/Modda Yeni Çağrı İşareti</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5123"/>
         <source>Being used for CQ and MyCall messages only</source>
-        <translation>僅用於CQ和我呼號訊息</translation>
+        <translation>Yalnızca CQ ve MyCall mesajları için kullanılıyor</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="108"/>
         <source>S&amp;WL</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="486"/>
         <source>Append US State.</source>
-        <translation>顯示美國州.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="489"/>
         <source>Show US State</source>
-        <translation>顯示美國州</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="665"/>
         <source>Disable Tx if station not decoded </source>
-        <translation>如果通聯的電臺未能解碼, 則停止發射 </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="672"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of periods in row called station not decoded before Tx goes off&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;發射停止前呼叫電臺行列中的未解碼次數&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="675"/>
         <source> times</source>
-        <translation> 次</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="781"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Controls for Logbook of the World user lookup.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;查找 LoTW 用戶的控件.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="784"/>
         <source>Logbook of the World User Validation</source>
-        <translation>LoTW 驗證用戶</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="796"/>
         <source>Users CSV file URL:</source>
-        <translation>用戶 CSV 檔案網址:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="808"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;URL of the ARRL LotW user&apos;s last upload dates and times data file which is used to highlight decodes from stations that are known to upload their log file to LotW.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ARRL LoTW 用戶上次上傳日期和時間數據檔案的網址, 用於突出顯示已知將其日誌檔案上傳到 LoTW 網站的解碼.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="811"/>
         <source>URL</source>
-        <translation>網址</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="814"/>
         <source>https://lotw.arrl.org/lotw-user-activity.csv</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="821"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Push this button to fetch the latest LotW user&apos;s upload date and time data file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按此按鈕可獲取最新 LoTW 用戶的上傳日期和時間數據檔案.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="824"/>
         <source>Fetch Now</source>
-        <translation>立即獲取</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="833"/>
         <source>Age of last upload less than:</source>
-        <translation>上次上傳的時間早於以下時間:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="845"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adjust this spin box to set the age threshold of LotW user&apos;s last upload date that is accepted as a current LotW user.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;調整此數位顯示框以設置 LoTW 用戶被接受為當前 LoTW 用戶的上次上載日期的距今閾值.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="848"/>
         <source>Days since last upload</source>
-        <translation>自上次上載以來的天數</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="851"/>
         <source> days</source>
-        <translation> 天</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2093"/>
         <location filename="../Configuration.ui" line="2129"/>
         <source>Update Hamlib</source>
-        <translation>更新 Hamlib</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2099"/>
         <source>From:</source>
-        <translation>來自:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2109"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select hamlib download source.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選擇 hamlib 下載源.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2116"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Revert the last Hamlib update.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;還原上次 Hamlib 更新.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2119"/>
         <source>Revert Update</source>
-        <translation>恢復更新</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2126"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Download the latest shared hamlib.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;下載最新的共享 hamlib.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2138"/>
         <source>In use:</source>
-        <translation>使用中:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2145"/>
         <source>Backed up:</source>
-        <translation>已備份:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2346"/>
         <source>Use SR 12000</source>
-        <translation>使用12000採樣率</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2362"/>
         <source>Use int16 Audio</source>
-        <translation>使用 int16 音頻</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="2769"/>
         <source>Halt/Resume TX if operator I called answered to other operator</source>
-        <translation>如果我呼叫的操作員已回應其他操作員, 則 停止/恢復 發送</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4029"/>
         <source>Show DX</source>
-        <translation>顯示 DX</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4262"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with new USA states which do not exist in the wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;突出顯示 wsjtx_log.adi 日誌檔案中不存在的具有新的美國州訊息.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4265"/>
         <source>Check and highlight new state</source>
-        <translation>突出顯示美國新州</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4272"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with USA states which are new on the band according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;根據 wsjtx_log.adi 日誌檔案中的數據, 突出顯示波段上新的美國州訊息.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4282"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Highlight messages with USA states which are new in the mode according to the data from wsjtx_log.adi log file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;根據 wsjtx_log.adi 日誌檔案中的數據, 突出顯示模式中新的美國州訊息.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="4345"/>
@@ -9488,92 +9473,89 @@ Right click for insert and delete options.</source>
 * means AP (Hint) decode&lt;br&gt;
 • means active LOTW user&lt;br&gt;
 ° means AP decode from LOTW user&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在標記字段中隱藏提示字符.&lt;br&gt;
-* 錶示 AP (提示 )解碼&lt;br&gt;
-• 錶示活躍的 LOTW 用戶&lt;br&gt;
-° 意味著來自 LOTW 用戶的 AP 解碼&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;İşaretçi alanında ipucu karakterini gizle.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5126"/>
         <source>Worked one</source>
-        <translation>曾經通聯</translation>
+        <translation>Çalışılmış</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5155"/>
         <source>New State</source>
-        <translation>美國新州份</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5591"/>
         <source>New State on Band/Mode</source>
-        <translation>美國新州份 波段/模式</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5745"/>
         <source>Filters</source>
-        <translation>過濾</translation>
+        <translation>Filtreler</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5771"/>
         <source>Hide messages from continents</source>
-        <translation>隱藏來自洲大陸的訊息</translation>
+        <translation>Kıtalardan mesajları gizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5783"/>
         <source>Africa</source>
-        <translation>非洲</translation>
+        <translation>Afrika</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5790"/>
         <source>Antarctica</source>
-        <translation>南極洲</translation>
+        <translation>Antarktika</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5797"/>
         <source>Asia</source>
-        <translation>亞洲</translation>
+        <translation>Asya</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5804"/>
         <source>Europe</source>
-        <translation>歐洲</translation>
+        <translation>Avrupa</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5811"/>
         <source>Oceania</source>
-        <translation>大洋洲</translation>
+        <translation>Okyanusya</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5818"/>
         <source>North America</source>
-        <translation>北美洲</translation>
+        <translation>Kuzey Amerika</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5825"/>
         <source>South America</source>
-        <translation>南美洲</translation>
+        <translation>Güney Amerika</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5835"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&apos;Show DXCC name/prefix&apos; shall be activated in General tab of the settings or any &apos;New one&apos; notification to get this functionality working.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&apos;顯示DXCC名稱/前綴&apos; 應在設定的常規選項卡或任何 &apos;新的&apos; 使該功能正常工作的通知.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&apos;DXCC adını/ön ekini göster&apos;, bu işlevin çalışması için ayarların Genel sekmesinde veya herhangi bir &apos;Yeni&apos; bildiriminde etkinleştirilmelidir.&lt;/p&gt;&lt;/body&gt; &lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5838"/>
         <source>Hide messages from countries</source>
-        <translation>隱藏來自某些國家的訊息</translation>
+        <translation>Ülkelerden mesajları gizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5858"/>
         <location filename="../Configuration.ui" line="5923"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable option&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;啟用選項&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Seçeneği etkinleştir&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5861"/>
         <location filename="../Configuration.ui" line="5926"/>
         <source>Hide</source>
-        <translation>隱藏</translation>
+        <translation>Gizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5868"/>
@@ -9594,8 +9576,8 @@ UA2,UA9,UK,UN,UR,V2,V3,V4,V5,V6,V7,V8,VE,VK,VK0H,VK0M,VK9C,VK9L,VK9M,VK9N,VK9W,V
 VP2E,VP2M,VP2V,VP5,VP6,VP6/D,VP8,VP8/G,VP8/H,VP8/O,VP8/S,VP9,VQ9,VR,VU,VU4,VU7,XE,&lt;br&gt;
 XF4,XT,XU,XW,XX9,XZ,YA,YB,YI,YJ,YK,YL,YN,YO,YS,YU,YV,YV0,Z2,Z3,Z6,Z8,ZA,ZB,ZC4,ZD7,&lt;br&gt;
 ZD8,ZD9,ZF,ZK3,ZL,ZL7,ZL8,ZL9,ZP,ZS,ZS8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;基於cty.dat檔案的以逗號分隔的國家前綴清單.&lt;br&gt;
-間隙是不允許的. 可接受的值有: ?,1A,1S,3A,3B6,3B8,3B9,3C,3C0,3D2,3D2/C,&lt;br&gt;
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;cty.dat dosyasına dayalı ülke öneklerinin virgülle ayrılmış listesi.&lt;br&gt;
+Gaps are not allowed. Accepatble values are: ?,1A,1S,3A,3B6,3B8,3B9,3C,3C0,3D2,3D2/C,&lt;br&gt;
 3D2/R,3DA,3V,3W,3X,3Y/B,3Y/P,4J,4L,4O,4S,4U1I,4U1U,*4U1V,4W,4X,5A,5B,5H,5N,5R,5T,&lt;br&gt;
 5U,5V,5W,5X,5Z,6W,6Y,7O,7P,7Q,7X,8P,8Q,8R,9A,9G,9H,9J,9K,9L,9M2,9M6,9N,9Q,9U,9V,9X,&lt;br&gt;
 9Y,A2,A3,A4,A5,A6,A7,A9,AP,BS7,BV,BV9P,BY,C2,C3,C5,C6,C9,CE,CE0X,CE0Y,CE0Z,CE9,CM,&lt;br&gt;
@@ -9615,18 +9597,18 @@ ZD8,ZD9,ZF,ZK3,ZL,ZL7,ZL8,ZL9,ZP,ZS,ZS8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</tra
     <message>
         <location filename="../Configuration.ui" line="5891"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Clear country list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;清除國家/地區清單&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ülke listesini temizle&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5894"/>
         <location filename="../Configuration.ui" line="5949"/>
         <source>Clear</source>
-        <translation>清除</translation>
+        <translation>Temizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5906"/>
         <source>Hide messages from callsigns</source>
-        <translation>隱藏某些呼號的訊息</translation>
+        <translation>Çağrı işaretlerinden mesajları gizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5933"/>
@@ -9634,117 +9616,117 @@ ZD8,ZD9,ZF,ZK3,ZL,ZL7,ZL8,ZL9,ZP,ZS,ZS8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</tra
 gaps are not allowed, base callsign shall be
 used for compound callsigns, for instance:
 AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;逗號分隔的呼號清單,
-間隙是不允許的,基本呼號應為
-用於復合呼號,例如:
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çağrı işaretlerinin virgülle ayrılmış listesi,
+boşluklara izin verilmez, temel çağrı işareti
+bileşik çağrı işaretleri için kullanılır, örneğin:
 AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5946"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Clear callsign list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;清除呼號清單&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çağrı işareti listesini temizle&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5961"/>
         <source>Show content related messages in RX frequency window </source>
-        <translation>接收訊息視窗 </translation>
+        <translation>RX frekans penceresinde içerikle ilgili mesajları göster </translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5978"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pass content related free messages to the RX frequency messages window.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;將內容相關的自定義文字訊息傳遞到接收訊息視窗&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;İçerikle ilgili serbest mesajları RX frekans mesajları penceresine geçirin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5981"/>
         <source>Enable</source>
-        <translation>啟用</translation>
+        <translation>Etkinleştir</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5988"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Comma separated list of content names.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;內容名稱的逗號分隔清單.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;İçerik adlarının virgülle ayrılmış listesi.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="5995"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset content name list to default value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;將內容清單重置為預設值值.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;İçerik adı listesini varsayılan değere sıfırlayın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6012"/>
         <location filename="../Configuration.ui" line="6035"/>
         <location filename="../Configuration.ui" line="6058"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Filter will be applied out of the RX frequency.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;濾波器將在接收頻率之外應用.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Filtre, RX frekansının dışında uygulanacaktır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6015"/>
         <source>Show CQ messages only</source>
-        <translation>僅顯示CQ訊息</translation>
+        <translation>Yalnızca CQ mesajlarını göster</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6038"/>
         <source>Show CQ/RRR/RR73/73 messages only</source>
-        <translation>僅顯示CQ/RRR/RR73/73訊息</translation>
+        <translation>Yalnızca CQ/RRR/RR73/73 mesajlarını göster</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6061"/>
         <source>Show CQ/RR73/73 messages only</source>
-        <translation>僅顯示CQ/RR73/73訊息</translation>
+        <translation>Yalnızca CQ/RR73/73 mesajlarını göster</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6083"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide decoded free messages located out of the RX frequency.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;隱藏位於接收頻率外解碼的自定義文字訊息.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;RX frekansının dışında bulunan kodu çözülmüş serbest mesajları gizleyin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6086"/>
         <source>Hide decoded free messages</source>
-        <translation>隱藏已解碼的自定義文字訊息</translation>
+        <translation>Kodu çözülmüş serbest mesajları gizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6093"/>
         <source>Hide messages with not associated hash for 2nd callsign</source>
-        <translation>隱藏特殊呼號第二個訊息</translation>
+        <translation>2. çağrı işareti için ilişkilendirilmemiş karma içeren mesajları gizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6100"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide message exchange between operators of own continent. This option allows user to ease monitoring of communication across intercontinental distances.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;隱藏自己所屬洲大陸的操作員之間訊息. 此選項允許用戶輕鬆監控跨洲際距離的通信.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kendi kıtanızdaki operatörler arasındaki mesaj alışverişini gizleyin. Bu seçenek, kullanıcının kıtalararası mesafeler arasındaki iletişimi izlemeyi kolaylaştırmasına olanak tanır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6103"/>
         <source>Hide messages with own continent callsign</source>
-        <translation>隱藏自己洲大陸呼號的訊息</translation>
+        <translation>Kendi kıta çağrı işaretiyle mesajları gizle</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6136"/>
         <source>Scheduler</source>
-        <translation>計劃程序</translation>
+        <translation>Zamanlayıcı</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6159"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatic band switching as per predefined schedule&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;根據預定義的計劃自動波段切換&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Önceden tanımlanmış programa göre otomatik bant değiştirme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6162"/>
         <source>Band scheduler configuration</source>
-        <translation>波段程序設定</translation>
+        <translation>Bant zamanlayıcı yapılandırması</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6172"/>
         <source>hh</source>
-        <translation>時</translation>
+        <translation>ss</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6182"/>
         <source>mm</source>
-        <translation>分</translation>
+        <translation>dd</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6192"/>
         <source>Band</source>
-        <translation>波段</translation>
+        <translation>Band</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6202"/>
@@ -9754,12 +9736,12 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7233"/>
         <location filename="../Configuration.ui" line="7490"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scheduler will set JT65+JT9 mode if JT65 frequency is selected.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果選擇了 JT65 頻率, 計劃程序將設定 JT65+JT9 模式.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;JT65 frekansı seçilirse, Zamanlayıcı JT65+JT9 modunu ayarlar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6205"/>
         <source>JT65+JT9</source>
-        <translation></translation>
+        <translation>JT65+JT9</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6221"/>
@@ -9773,7 +9755,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7249"/>
         <location filename="../Configuration.ui" line="7387"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選擇時間&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Zaman seçin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6230"/>
@@ -9787,7 +9769,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7258"/>
         <location filename="../Configuration.ui" line="7396"/>
         <source>00</source>
-        <translation></translation>
+        <translation>00</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6235"/>
@@ -9796,7 +9778,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7006"/>
         <location filename="../Configuration.ui" line="7263"/>
         <source>01</source>
-        <translation></translation>
+        <translation>01</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6240"/>
@@ -9805,7 +9787,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7011"/>
         <location filename="../Configuration.ui" line="7268"/>
         <source>02</source>
-        <translation></translation>
+        <translation>02</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6245"/>
@@ -9814,7 +9796,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7016"/>
         <location filename="../Configuration.ui" line="7273"/>
         <source>03</source>
-        <translation></translation>
+        <translation>03</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6250"/>
@@ -9823,7 +9805,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7021"/>
         <location filename="../Configuration.ui" line="7278"/>
         <source>04</source>
-        <translation></translation>
+        <translation>04</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6255"/>
@@ -9837,7 +9819,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7283"/>
         <location filename="../Configuration.ui" line="7401"/>
         <source>05</source>
-        <translation></translation>
+        <translation>05</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6260"/>
@@ -9846,7 +9828,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7031"/>
         <location filename="../Configuration.ui" line="7288"/>
         <source>06</source>
-        <translation></translation>
+        <translation>06</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6265"/>
@@ -9855,7 +9837,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7036"/>
         <location filename="../Configuration.ui" line="7293"/>
         <source>07</source>
-        <translation></translation>
+        <translation>07</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6270"/>
@@ -9864,7 +9846,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7041"/>
         <location filename="../Configuration.ui" line="7298"/>
         <source>08</source>
-        <translation></translation>
+        <translation>08</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6275"/>
@@ -9873,7 +9855,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7046"/>
         <location filename="../Configuration.ui" line="7303"/>
         <source>09</source>
-        <translation></translation>
+        <translation>09</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6280"/>
@@ -9887,7 +9869,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7308"/>
         <location filename="../Configuration.ui" line="7406"/>
         <source>10</source>
-        <translation></translation>
+        <translation>10</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6285"/>
@@ -9896,7 +9878,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7056"/>
         <location filename="../Configuration.ui" line="7313"/>
         <source>11</source>
-        <translation></translation>
+        <translation>11</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6290"/>
@@ -9905,7 +9887,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7061"/>
         <location filename="../Configuration.ui" line="7318"/>
         <source>12</source>
-        <translation></translation>
+        <translation>12</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6295"/>
@@ -9914,7 +9896,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7066"/>
         <location filename="../Configuration.ui" line="7323"/>
         <source>13</source>
-        <translation></translation>
+        <translation>13</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6300"/>
@@ -9923,7 +9905,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7071"/>
         <location filename="../Configuration.ui" line="7328"/>
         <source>14</source>
-        <translation></translation>
+        <translation>14</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6305"/>
@@ -9937,7 +9919,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7333"/>
         <location filename="../Configuration.ui" line="7411"/>
         <source>15</source>
-        <translation></translation>
+        <translation>15</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6310"/>
@@ -9946,7 +9928,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7081"/>
         <location filename="../Configuration.ui" line="7338"/>
         <source>16</source>
-        <translation></translation>
+        <translation>16</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6315"/>
@@ -9955,7 +9937,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7086"/>
         <location filename="../Configuration.ui" line="7343"/>
         <source>17</source>
-        <translation></translation>
+        <translation>17</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6320"/>
@@ -9964,7 +9946,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7091"/>
         <location filename="../Configuration.ui" line="7348"/>
         <source>18</source>
-        <translation></translation>
+        <translation>18</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6325"/>
@@ -9973,7 +9955,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7096"/>
         <location filename="../Configuration.ui" line="7353"/>
         <source>19</source>
-        <translation></translation>
+        <translation>19</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6330"/>
@@ -9987,7 +9969,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7358"/>
         <location filename="../Configuration.ui" line="7416"/>
         <source>20</source>
-        <translation></translation>
+        <translation>20</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6335"/>
@@ -9996,7 +9978,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7106"/>
         <location filename="../Configuration.ui" line="7363"/>
         <source>21</source>
-        <translation></translation>
+        <translation>21</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6340"/>
@@ -10005,7 +9987,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7111"/>
         <location filename="../Configuration.ui" line="7368"/>
         <source>22</source>
-        <translation></translation>
+        <translation>22</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6345"/>
@@ -10014,7 +9996,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7116"/>
         <location filename="../Configuration.ui" line="7373"/>
         <source>23</source>
-        <translation></translation>
+        <translation>23</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6393"/>
@@ -10023,7 +10005,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7164"/>
         <location filename="../Configuration.ui" line="7421"/>
         <source>25</source>
-        <translation></translation>
+        <translation>25</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6398"/>
@@ -10032,7 +10014,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7169"/>
         <location filename="../Configuration.ui" line="7426"/>
         <source>30</source>
-        <translation></translation>
+        <translation>30</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6403"/>
@@ -10041,7 +10023,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7174"/>
         <location filename="../Configuration.ui" line="7431"/>
         <source>35</source>
-        <translation></translation>
+        <translation>35</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6408"/>
@@ -10050,7 +10032,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7179"/>
         <location filename="../Configuration.ui" line="7436"/>
         <source>40</source>
-        <translation></translation>
+        <translation>40</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6413"/>
@@ -10059,7 +10041,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7184"/>
         <location filename="../Configuration.ui" line="7441"/>
         <source>45</source>
-        <translation></translation>
+        <translation>45</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6418"/>
@@ -10068,7 +10050,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7189"/>
         <location filename="../Configuration.ui" line="7446"/>
         <source>50</source>
-        <translation></translation>
+        <translation>50</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6423"/>
@@ -10077,7 +10059,7 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7194"/>
         <location filename="../Configuration.ui" line="7451"/>
         <source>55</source>
-        <translation></translation>
+        <translation>55</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="6443"/>
@@ -10086,142 +10068,140 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         <location filename="../Configuration.ui" line="7214"/>
         <location filename="../Configuration.ui" line="7471"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select band&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選擇波段&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bant seçin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7520"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activating band scheduler&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;激活波段計劃程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bant planlayıcıyı etkinleştirme&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7523"/>
         <source>Use band scheduler</source>
-        <translation>使用波段計劃程序</translation>
+        <translation>Bant zamanlayıcıyı kullan</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7546"/>
         <source>Advanced</source>
-        <translation>高級設定</translation>
+        <translation>Gelişmiş</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7571"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;User-selectable parameters for JT65 decoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;用於 JT65 解碼的用戶可選參數.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;JT65 kod çözme için kullanıcı tarafından seçilebilir parametreler.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7574"/>
         <source>JT65 decoding parameters</source>
-        <translation>JT65解碼參數</translation>
+        <translation>JT65 kod çözme parametreleri</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7602"/>
         <location filename="../Configuration.ui" line="7615"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Defines number of decoding attempts for the wideband decoding passes&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;定義寬頻帶解碼過程的解碼嘗試次數&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Geniş bant kod çözme geçişleri için kod çözme girişimlerinin sayısını tanımlar&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7605"/>
         <location filename="../Configuration.ui" line="7957"/>
         <source>Number of decoding attempts:</source>
-        <translation>解碼嘗試次數:</translation>
+        <translation>Kod çözme denemesi sayısı:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7641"/>
         <location filename="../Configuration.ui" line="7654"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of decoding passes for the wideband decoding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;寬頻帶解碼的解碼通過次數&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Geniş bant kod çözme için geçiş sayısı&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7644"/>
         <source>Number of decoding  passes: </source>
-        <translation>解碼通過次數: </translation>
+        <translation>Kod çözme geçişlerinin sayısı: </translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7674"/>
         <location filename="../Configuration.ui" line="7687"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Defines number of decoding attempts for RX frequency decoding passes&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;定義 接收頻率解碼次數解碼嘗試次數&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;RX frekans kod çözme geçişleri için kod çözme girişimlerinin sayısını tanımlar&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7677"/>
         <location filename="../Configuration.ui" line="7993"/>
         <source>RX frequency decoding attempts:</source>
-        <translation>接收頻率解碼嘗試次數:</translation>
+        <translation>RX frekans kod çözme girişimleri:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7713"/>
         <location filename="../Configuration.ui" line="7726"/>
         <location filename="../Configuration.ui" line="7884"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This DT window being used only for RX frequency CALL3 data based Hint decoders focused on CQ and &apos;mycall hiscall hisgrid&apos; messages. Higher values may increase number of the false decodes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;此 DT 視窗僅用於基於接收頻率 CALL3 數據的提示解碼, 專注於 CQ 和&quot;我的呼叫他呼號他網格&quot;訊息.值越高, 假解碼數就越多.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bu DT penceresi yalnızca RX frekansı CALL3 veri tabanlı CQ ve &apos;mycall hiscall hisgrid&apos; mesajlarına odaklanan Hint kod çözücüleri için kullanılır. Daha yüksek değerler yanlış kod çözme sayısını artırabilir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7716"/>
         <source>Hinted decoding DT range:</source>
-        <translation>提示解碼時差範圍:</translation>
+        <translation>İpuçlu kod çözme DT aralığı:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7747"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Activate two additional frequency mask JT65 decoding passes for overcrowded band conditions. This decoding passes being activated automatically if there are few signals on the band. Use this setting only for fast CPU.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;針對過度擁擠的頻段條件, 激活兩個額外的頻率屏蔽JT65解碼通道. 如果頻帶上的信號很少, 則自動激活該解碼過程. 僅將此設定用於快速CPU.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aşırı kalabalık bant koşulları için iki ek frekans maskesi JT65 kod çözme geçişini etkinleştirin. Bantta birkaç sinyal varsa, bu kod çözme geçişleri otomatik olarak etkinleştirilir. Bu ayarı yalnızca hızlı CPU için kullanın.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7753"/>
         <source>Use frequency mask decoding</source>
-        <translation>使用頻率掩碼解碼</translation>
+        <translation>Frekans maskesi kod çözmeyi kullan</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7765"/>
         <location filename="../Configuration.ui" line="7775"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Defines ceiling for decoding of the JT65a signals, default value is 3000 Hz.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;定義用於解碼 JT65a 信號的上限, 預設值值為 3000赫兹.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;JT65a sinyallerinin kodunun çözülmesi için tavanı tanımlar, varsayılan değer 3000 Hz&apos;dir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7768"/>
         <source>Top decoding frequency: </source>
-        <translation>最佳解碼頻率: </translation>
+        <translation>Üst kod çözme frekansı: </translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7801"/>
         <location filename="../Configuration.ui" line="7814"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Signal distortion in RX or TX path can produce harmonics of the JT65A signal (JT65B, JT65C etc.) Decoding harmonics of JT65A signal can improve overall decoding efficiency via subtraction of the decoded signals. Decoding depth is proportional to the required CPU resources, set it to 1 for slow CPU. Greater value of depth will allow to decode more harmonics. JT65B and JT65C decoding is being supported.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;接收或發射路徑中的信號失真會產生 JT65A 信號(JT65B、JT65C 等)的諧波通過解碼信號的減法, 解碼JT65A信號諧波可以提高整體解碼效率.解碼深度與所需的 CPU 資源成正比, 將其設定為 1 以表示 CPU 速度較慢.更高的深度值將允許解碼更多的諧波.支援 JT65B 和 JT65C 解碼.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;RX veya TX yolundaki sinyal bozulması, JT65A sinyalinin (JT65B, JT65C vb.) harmoniklerini üretebilir. JT65A sinyalinin kod çözme harmonikleri, kodu çözülen sinyallerin çıkarılması yoluyla genel kod çözme verimliliğini artırabilir . Kod çözme derinliği gerekli CPU kaynaklarıyla orantılıdır, yavaş CPU için 1&apos;e ayarlayın. Daha büyük derinlik değeri, daha fazla harmoniğin kodunun çözülmesine izin verecektir. JT65B ve JT65C kod çözme destekleniyor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7804"/>
         <source>Harmonics decoding depth:</source>
-        <translation>諧波解碼深度:</translation>
+        <translation>Harmonik kod çözme derinliği:</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7840"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Settings depend on the CPU power, try to use maximum number of decoding passes for overcrowded HF bands.&lt;br&gt;&lt;br&gt;Number of decoding passes may be decreased for low populated HF/VHF bands while an increase of the number of decoding attempts might bring better decoding efficiency for the weak signals there.&lt;br&gt;&lt;br&gt;Number of decoding attempts affecting decoding efficiency of the low SNR signals: wideband or RX frequency one.&lt;br&gt;&lt;br&gt;Number of decoding passes affecting maximum number of the signals that can be decoded on the same frequency or located close to each other with largely overlapped spectra, it is possible to decode up to 4 signals on the same frequency and up to 7 signals on the RX frequency if number of decoding passes is set to 4.&lt;br&gt;&lt;br&gt;Increase number of decoding attempts to the value allowing to get decoding finished until end of the RX minute interval.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;設定取決於 CPU 功率, 嘗試對過度擁擠的HF頻段使用最大解碼通道數.&lt;br&gt;&lt;br&gt;對於低稠密的HF/VHF頻帶, 解碼遍數可以減少, 而解碼嘗試次數的新增可以為那里的弱信號帶來更好的解碼效率.&lt;br&gt;&lt;br&gt;影響低信噪比信號解碼效率的解碼嘗試次數:寬頻帶或接收頻率.&lt;br&gt;&lt;br&gt;解碼遍數影響可以在相同頻率上解碼的信號的最大數量, 或者在頻譜重疊很大的情況下彼此接近, 如果解碼遍數設定為4, 則可以在相同頻率上解碼多達4個信號, 在接收頻率上解碼多達7個信號.&lt;br&gt;&lt;br&gt;將解碼嘗試次數新增到允許解碼完成的值, 直到接收分鐘間隔結束.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ayarlar CPU gücüne bağlıdır, aşırı kalabalık HF bantları için maksimum sayıda kod çözme geçişi kullanmaya çalışın.&lt;br&gt;&lt;br&gt;Düşük nüfuslu HF/VHF bantları için kod çözme geçişlerinin sayısı azaltılabilirken, kod çözme denemelerinin sayısındaki bir artış, oradaki zayıf sinyaller için daha iyi kod çözme verimliliği getirebilir.&lt;br&gt;&lt;br&gt;Düşük SNR sinyallerinin kod çözme verimliliğini etkileyen kod çözme girişimlerinin sayısı: geniş bant veya bir RX frekansı.&lt;br&gt;&lt;br&gt;Aynı frekansta veya büyük ölçüde örtüşen spektrumlarla birbirine yakın konumda bulunan ve kodu çözülebilen sinyallerin maksimum sayısını etkileyen kod çözme geçişlerinin sayısı; eğer kod çözme geçiş sayısı 4 olarak ayarlanmışsa, aynı frekansta 4 sinyale ve RX frekansında 7 sinyale kadar kodu çözmek mümkündür.&lt;br&gt;&lt;br&gt;Kod çözme denemelerinin sayısını RX dakika aralığının sonuna kadar kod çözmenin bitmesine izin veren değere yükseltin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7928"/>
         <source>T10 decoding parameters</source>
-        <translation>T10解碼參數</translation>
+        <translation>T10 kod çözme parametreleri</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7954"/>
         <location filename="../Configuration.ui" line="7964"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Defines number of decoding attempts for the wideband T10 decoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;定義寬頻帶 T10 解碼嘗試次數.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Geniş bant T10 kod çözme için kod çözme denemelerinin sayısını tanımlar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="7990"/>
         <location filename="../Configuration.ui" line="8003"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Defines number of T10 decoding attempts for RX frequency&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;定義接收頻率的 T10 解碼嘗試次數&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;RX frekansı için T10 kod çözme girişimlerinin sayısını tanımlar&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Configuration.ui" line="8094"/>
         <source>Discard or apply configuration changes including
 resetting the radio interface and applying any
 soundcard changes</source>
-        <translation>放棄或應用設定更改, 包括
-重置無線電設備界面並應用任何
-聲卡更改</translation>
+        <translation>Radyo arayüzünün sıfırlanması ve ses kartı değişikliklerinin uygulanması dahil olmak üzere yapılandırma değişikliklerini atın veya uygulayın</translation>
     </message>
 </context>
 <context>
@@ -10229,37 +10209,37 @@ soundcard changes</source>
     <message>
         <location filename="../main.cpp" line="77"/>
         <source>Fatal error</source>
-        <translation>嚴重錯誤</translation>
+        <translation>Önemli hata</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Unexpected fatal error</source>
-        <translation>意外的嚴重錯誤</translation>
+        <translation>Beklenmeyen önemli hata</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="144"/>
         <source>&lt;style&gt; can be Fusion (default) or Windows</source>
-        <translation>使用風格 &lt;style&gt; 可能是 Fusion (預設值) 或 Windows</translation>
+        <translation>&lt;style&gt; Fusion (varsayılan) veya Windows olabilir</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="145"/>
         <source>style</source>
-        <translation>風格</translation>
+        <translation>Biçem</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="149"/>
         <source>Where &lt;rig-name&gt; is for multi-instance support.</source>
-        <translation>使用 &lt;rig-name&gt; 用於多實例支援無線電設備.</translation>
+        <translation>&lt;rig-name&gt; çoklu durum desteği içindir.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="150"/>
         <source>rig-name</source>
-        <translation>無線電設備名稱</translation>
+        <translation>cihaz adı</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="154"/>
         <source>Writable files in test location.  Use with caution, for testing only.</source>
-        <translation>測試位置中的可寫檔案. 小心使用, 僅用於測試.</translation>
+        <translation>Test konumundaki yazılabilir dosyalar. Yalnızca test için dikkatli kullanın.</translation>
     </message>
 </context>
 <context>
@@ -10267,12 +10247,12 @@ soundcard changes</source>
     <message>
         <location filename="../wf_palette_design_dialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation></translation>
+        <translation>Renk Paleti</translation>
     </message>
     <message>
         <location filename="../wf_palette_design_dialog.ui" line="23"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Double click a color to edit it.&lt;/p&gt;&lt;p&gt;Right click to insert or delete colors.&lt;/p&gt;&lt;p&gt;Colors at the top represent weak signals&lt;/p&gt;&lt;p&gt;and colors at the bottom represent strong&lt;/p&gt;&lt;p&gt;signals. You can have up to 256 colors.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;雙擊一種顏色進行編輯.&lt;/p&gt;&lt;p&gt;右鍵單擊可插入或刪除顏色.&lt;/p&gt;&lt;p&gt;頂部的顏色代表微弱的信號&lt;/p&gt;&lt;p&gt;底部的顏色代表強烈&lt;/p&gt;&lt;p&gt;信號. 您最多可以有256種顏色.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Düzenlemek için bir rengi çift tıklayın.&lt;/p&gt;&lt;p&gt;Renk eklemek veya silmek için sağ tıklayın.&lt;/p&gt;&lt;p&gt;Üstteki renkler zayıf sinyalleri temsil eder. &lt;/p&gt;&lt;p&gt;Alttaki renkler güçlü sinyalleri temsil eder.&lt;/p&gt;&lt;p&gt;256 renge kadar kullanabilirsiniz.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 </TS>
