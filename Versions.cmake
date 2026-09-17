@@ -1,6 +1,6 @@
 # Version number components
 set (WSJTX_VERSION_MAJOR 4)
-set (WSJTX_VERSION_MINOR 1)
+set (WSJTX_VERSION_MINOR 2)
 set (WSJTX_VERSION_32A 0)
 set (WSJTX_VERSION_SUB 0)
 set (WSJTX_RC 0)		 # release candidate number, comment out or zero for development versions
