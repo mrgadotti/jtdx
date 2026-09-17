@@ -92,6 +92,19 @@ include (CMakeDependentOption)
 
 # Allow the developer to select if Dynamic or Static libraries are built
 OPTION (BUILD_SHARED_LIBS "Build Shared Libraries" OFF)
+
+# OmniRig is an ActiveX/COM server, so generating its interface needs the
+# component registered on the build machine.  That is impossible when
+# cross-compiling from Linux, where this must be turned off; Hamlib, TCI,
+# HRD and DXLab Commander remain available.
+OPTION (JTDX_WITH_OMNIRIG "Build OmniRig rig support (needs OmniRig registered on the build host)" ON)
+if (CMAKE_CROSSCOMPILING)
+  set (JTDX_WITH_OMNIRIG OFF)
+endif ()
+if (WIN32 AND NOT JTDX_WITH_OMNIRIG)
+  add_definitions (-DJTDX_NO_OMNIRIG)
+endif ()
+
 # Set the LIB_TYPE variable to STATIC
 SET (LIB_TYPE STATIC)
 if (BUILD_SHARED_LIBS)
@@ -272,10 +285,12 @@ if (WIN32)
     killbyname.cpp
     )
 
-  set (wsjt_qt_CXXSRCS
-    ${wsjt_qt_CXXSRCS}
-    OmniRigTransceiver.cpp
-    )
+  if (JTDX_WITH_OMNIRIG)
+    set (wsjt_qt_CXXSRCS
+      ${wsjt_qt_CXXSRCS}
+      OmniRigTransceiver.cpp
+      )
+  endif (JTDX_WITH_OMNIRIG)
 endif (WIN32)
 
 set (wsjt_FSRCS
@@ -678,7 +693,7 @@ endif (WSJT_QDEBUG_IN_RELEASE)
 set_property (SOURCE ${all_C_and_CXXSRCS} APPEND_STRING PROPERTY COMPILE_FLAGS " -include wsjtx_config.h")
 set_property (SOURCE ${all_C_and_CXXSRCS} APPEND PROPERTY OBJECT_DEPENDS wsjtx_config.h)
 
-if (WIN32)
+if (WIN32 AND JTDX_WITH_OMNIRIG)
   # generate the OmniRig COM interface source
   find_program (DUMPCPP dumpcpp)
   if (DUMPCPP-NOTFOUND)
@@ -695,7 +710,7 @@ if (WIN32)
   endif (NOT AXSERVER)
   string (REPLACE "\"" "" AXSERVER ${AXSERVER})
   file (TO_CMAKE_PATH ${AXSERVER} AXSERVERSRCS)
-endif (WIN32)
+endif (WIN32 AND JTDX_WITH_OMNIRIG)
 
 
 #
@@ -772,7 +787,11 @@ find_package (Qt5 COMPONENTS Widgets SerialPort Multimedia LinguistTools WebSock
 
 if (WIN32)
   add_definitions (-DQT_NEEDS_QTMAIN)
-  find_package (Qt5AxContainer REQUIRED)
+  # ActiveQt is only shipped with the native Windows Qt builds, and is needed
+  # solely for OmniRig
+  if (JTDX_WITH_OMNIRIG)
+    find_package (Qt5AxContainer REQUIRED)
+  endif (JTDX_WITH_OMNIRIG)
 endif (WIN32)
 
 #
@@ -1056,10 +1075,10 @@ qt5_add_resources (wsjtx_RESOURCES_RCC
 )
 
 # AX COM servers
-if (WIN32)
+if (WIN32 AND JTDX_WITH_OMNIRIG)
   include (QtAxMacros)
   wrap_ax_server (GENAXSRCS ${AXSERVERSRCS})
-endif (WIN32)
+endif (WIN32 AND JTDX_WITH_OMNIRIG)
 
 
 #
@@ -1103,9 +1122,9 @@ add_library (wsjt_qt STATIC ${wsjt_qt_CXXSRCS} ${wsjt_qt_GENUISRCS} ${GENAXSRCS}
 target_compile_definitions (wsjt_qt PUBLIC UDP_STATIC_DEFINE)
 target_link_libraries (wsjt_qt Hamlib::Hamlib Qt5::Widgets Qt5::Network Qt5::WebSockets ZLIB::ZLIB)
 #target_include_directories (wsjt_qt BEFORE PRIVATE ${hamlib_INCLUDE_DIRS})
-if (WIN32)
+if (WIN32 AND JTDX_WITH_OMNIRIG)
   target_link_libraries (wsjt_qt Qt5::AxContainer Qt5::AxBase)
-endif (WIN32)
+endif (WIN32 AND JTDX_WITH_OMNIRIG)
 
 add_library (wsjt_qtmm STATIC ${wsjt_qtmm_CXXSRCS} ${wsjt_qtmm_GENUISRCS})
 target_link_libraries (wsjt_qtmm Qt5::Multimedia)

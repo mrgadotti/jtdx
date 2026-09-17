@@ -47,6 +47,15 @@ Always verify a package before shipping it:
 objdump -d <extracted>/usr/local/bin/jtdxjt9 | grep -cE 'vfmadd|vmulps|vaddps|ymm'   # must be 0
 ```
 
+## Windows
+
+Cross-compiled from Linux — see `cross/win64/README.md`. Fedora is the base
+because it is the only mainstream distro packaging mingw64 Qt5 *and* gfortran.
+Hamlib and FFTW are built from source in the image; `mingw64-libgomp` is a
+separate package that is easy to miss. OmniRig cannot be cross-compiled (it needs
+the COM type library from the Windows registry), so `JTDX_WITH_OMNIRIG` defaults
+off whenever `CMAKE_CROSSCOMPILING` is set.
+
 ## Data directories — easy to get wrong
 
 `Configuration::data_dir()` is the **installed** share directory
