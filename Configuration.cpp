@@ -6503,7 +6503,7 @@ void Configuration::impl::set_application_font (QFont const& font)
         int lopp = sheet.indexOf("* { font-family:");
         if (lopp > 0) ss = sheet.mid(0,lopp);
         else {
-          QFile sf {":/qdarkstyle/style.qss"};
+          QFile sf {":/qdarkstyle/dark/darkstyle.qss"};
           if (sf.open (QFile::ReadOnly | QFile::Text))
             ss = sf.readAll () + ss;
           else {
@@ -6517,7 +6517,7 @@ void Configuration::impl::set_application_font (QFont const& font)
         ss = "";
     }
     else if (useDarkStyle_) {
-      QFile sf {":/qdarkstyle/style.qss"};
+      QFile sf {":/qdarkstyle/dark/darkstyle.qss"};
       if (sf.open (QFile::ReadOnly | QFile::Text))
         ss = sf.readAll () + ss;
       else {

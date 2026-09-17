@@ -1112,7 +1112,7 @@ qt5_wrap_ui (wsjtx_GENUISRCS ${wsjtx_UISRCS})
 # Resource generation
 qt5_add_resources (wsjtx_RESOURCES_RCC 
   ${CMAKE_BINARY_DIR}/jtdx.qrc
-  contrib/QDarkStyleSheet/qdarkstyle/style.qrc
+  contrib/QDarkStyleSheet/qdarkstyle/dark/darkstyle.qrc
 )
 
 # AX COM servers
@@ -1316,7 +1316,7 @@ add_resources (message_aggregator_RESOURCES /qss ${message_aggregator_STYLESHEET
 configure_file (message_aggregator.qrc.in message_aggregator.qrc @ONLY)
 qt5_add_resources (message_aggregator_RESOURCES_RCC 
   ${CMAKE_BINARY_DIR}/message_aggregator.qrc
-  contrib/QDarkStyleSheet/qdarkstyle/style.qrc
+  contrib/QDarkStyleSheet/qdarkstyle/dark/darkstyle.qrc
 )
 add_executable (message_aggregator
   ${message_aggregator_CXXSRCS}
