@@ -107,6 +107,14 @@ typedef struct dec_data {
     bool lskiptx1;
     bool lforcesync;
     bool learlystart;
+    /* Ported from CE3TSK's jtdx_contest: the decode request counter. jtdxjt9 used to be
+       triggered purely by the .lock file going from present to absent, and jt9a's wait after a
+       decode treats "absent" as "keep sleeping" - so a removal that landed before the decoder
+       reached that wait was lost and both sides waited for each other (the GUI for
+       <DecodeFinished>, the decoder for the lock to reappear). decode() increments this before
+       publishing the block; the decoder serves any value it has not served yet. A value cannot
+       be missed the way an edge can. .lock still gates the ordinary path. */
+    int ndecreq;
     } params;
 } dec_data_t;
 

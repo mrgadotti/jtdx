@@ -17,6 +17,13 @@ module ft8_mod1
           nft8cycles,nft8swlcycles,ncandallthr(24),maskincallthr(25),nincallthr(24),idtonecqdxcns(58),              &
           apsymmyns1(29),apsymmyns2(58),apsymmynsrr73(77),apsymmyns73(77),nmycnsaptypes(0:5,27),apsymdxstd(58),     &
           apsymdxnsr73(77),apsymdxns732(77),apsymmynsrrr(77),idtonedxcns73(58),idtonefox73(58),idtonespec(58),nintcount
+! item 76: the pass-1 wide-band sync surface, computed once by sync8_share before the slice
+! loop and read by every slice. Plain module variables, not threadprivate: one writer before
+! the parallel region, readers only inside it. lsync8share is true only while that holds.
+  real, allocatable :: red_sh(:)
+  integer, allocatable :: jpeak_sh(:)
+  logical(1), allocatable :: redcq_sh(:)
+  logical :: lsync8share=.false.
   integer*1 gen(91,174)
   logical one(0:511,0:8),lqsomsgdcd,first_osd
   logical(1) lapmyc,lagcc,lagccbail,lhound,lenabledxcsearch,lwidedxcsearch,lmultinst,lskiptx1,ltxing

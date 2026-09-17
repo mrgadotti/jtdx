@@ -13,7 +13,7 @@ subroutine multimode_decoder(params)
                        evencopy,nlasttx,lqsomsgdcd,mycalllen1,msgroot,msgrootlen,lapmyc,lagcc,sumxdtt,avexdt,             &
                        nfawide,nfbwide,mycall,hiscall,lhound,mybcall,hisbcall,lenabledxcsearch,lwidedxcsearch,hisgrid4,   &
                        lmultinst,dd8,nft8cycles,nft8swlcycles,lskiptx1,ncandallthr,nincallthr,incall,msgincall,xdtincall, &
-                       maskincallthr,ltxing
+                       maskincallthr,ltxing,lsync8share
   use ft4_mod1, only : llagcc,nFT4decd,nfafilt,nfbfilt,lfilter,lhidetest,lhidetelemetry,dd4
   use packjt77, only : lcommonft8b,ihash22,calls12,calls22
 
@@ -228,6 +228,14 @@ else
 ! with a single worksharing loop; the slice boundaries and the (nthr) index
 ! handed to each decode are identical to the previous version.
      nfdelta=nint(abs(nfb-nfa)/real(numthreads))
+! Ported from CE3TSK's jtdx_contest (item 76): pass 1's wide-band sync surface is the same for
+! every slice - nfawide/nfbwide are the whole band - so it is computed once here, before any
+! thread starts, instead of numthreads times inside sync8. Pass 1 is the only pass that can be
+! shared without a barrier: it runs before any subtractft8 has modified dd8. jzb/jzt must match
+! what ft8_decode computes, which is where the DT search window is set.
+     jzb8=-62 + avexdt*25.; jzt8=62 + avexdt*25.
+     if(params%nswl) then; jzb8=-86 + avexdt*25.; jzt8=86 + avexdt*25.; endif
+     call sync8_share(jzb8,jzt8)
    !$omp parallel do num_threads(numthreads) schedule(static,1) default(shared) private(nfalo,nfahi)
      do ithr=1,numthreads
         if(ithr.eq.1) then
@@ -248,6 +256,7 @@ else
              params%lft8subpass,params%lhideft8dupes,params%lhidehash)
      enddo
    !$omp end parallel do
+     lsync8share=.false.   ! item 76: the shared surface is stale once this decode is over
 endif
 
     do i=1,numthreads

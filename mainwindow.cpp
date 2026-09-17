@@ -3540,6 +3540,14 @@ void MainWindow::decode()                                       //decode()
   //newdat=1  ==> this is new data, must do the big FFT
   //nagain=1  ==> decode only at fQSO +/- Tol
 
+  /* Ported from CE3TSK's jtdx_contest: the decode request counter, incremented before the
+     block is published so the decoder serves this request by NUMBER rather than by the .lock
+     edge. The removal below is the edge that used to be missed whenever it landed while
+     jtdxjt9 was still inside multimode_decoder - see commons.h and the wait in lib/jt9a.f90.
+     It sits after the newdat offset is taken below only in reading order: ndecreq is the last
+     field of params, so it is inside the copied range either way. */
+  ++dec_data.params.ndecreq;
+
   char *to = (char*)mem_jtdxjt9->data();
   char *from = (char*) dec_data.ss;
   int size=sizeof(struct dec_data);
