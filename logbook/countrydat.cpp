@@ -24,6 +24,21 @@
 #include <QFile>
 #include <QTextStream>
 
+namespace
+{
+  /* Ported from CE3TSK's jtdx_contest (2026-09-15): every date here is built from its own
+     numbers instead of QDate::fromString (text, format). That parser works through
+     QDateTimeParser, which sets up a local midnight - and on the day a time zone starts
+     summer time there is no midnight, so Qt 5.15.3 (what Ubuntu 22.04 ships, and with it the
+     AppImage) returns an invalid date for it. cty.dat's =VER20260906 was rejected on every
+     machine set to Chile, where clocks went forward that Sunday. A date has no time zone in
+     it, and neither does this. */
+  QDate date_from (QString const& text, int year_at, int month_at, int day_at)
+  {
+    return QDate {text.mid (year_at, 4).toInt (), text.mid (month_at, 2).toInt (), text.mid (day_at, 2).toInt ()};
+  }
+}
+
 
 void CountryDat::init(const QString filename,const QString filename2)
 {
@@ -562,7 +577,7 @@ void CountryDat::load()
             QStringList items = line1.split(',');
             if (items.size() > 1)
             {
-                last = QDate::fromString(items[1],"yyyy-MM-dd");
+                last = date_from (items[1], 0, 5, 8);   /* CE3TSK: see date_from */
                 if (last > first) _data2.insert(items[0],items[1]);
             }
           }

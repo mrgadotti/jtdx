@@ -28,11 +28,14 @@
 #include <QButtonGroup>
 #include <QUdpSocket>
 #include <QtMath>
+#include <QWheelEvent>          // CE3TSK: dial wheel tuning
+#include <QElapsedTimer>        // CE3TSK: dial wheel tuning
 #if QT_VERSION >= QT_VERSION_CHECK (5, 15, 0)
 #include <QRandomGenerator>
 #endif
 
 #include "revision_utils.hpp"
+#include "uilimits.h"           // CE3TSK: the .ui size limits against the current font
 #include "qt_helpers.hpp"
 #include "soundout.h"
 #include "soundin.h"
@@ -911,6 +914,9 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   StopTuneTimer.setSingleShot(true); connect(&StopTuneTimer, SIGNAL(timeout()), this, SLOT(stop_tuning()));
   RxQSYTimer.setSingleShot(true); connect(&RxQSYTimer, SIGNAL(timeout()), this, SLOT(RxQSY()));
   minuteTimer.setSingleShot(true); connect (&minuteTimer, &QTimer::timeout, this, &MainWindow::on_the_minute);
+  m_dialWheelTimer.setSingleShot (true);   // CE3TSK: dial wheel tuning, see dialFrequencyWheel ()
+  m_dialWheelTimer.setInterval (200);
+  connect (&m_dialWheelTimer, &QTimer::timeout, this, &MainWindow::applyDialWheel);
 
   connect(m_wideGraph.data (), SIGNAL(setFreq3(int,int)), this, SLOT(setFreq4(int,int)));
   connect(m_wideGraph.data (), SIGNAL(setRxFreq3(int)), this, SLOT(setRxFreq4(int)));
@@ -1203,6 +1209,7 @@ void MainWindow::writeSettings()
 {
   m_settings->beginGroup("MainWindow");
   m_settings->setValue("geometry",saveGeometry ());
+  m_settings->setValue("geometryMinHint",minimumSizeHint ());   // CE3TSK: see restoreMainGeometry ()
   m_settings->setValue("state",saveState ());
   m_settings->setValue("vertSplitter",ui->splitter->saveState());
   m_settings->setValue("MRUdir",m_path);
@@ -1294,13 +1301,36 @@ void MainWindow::writeSettings()
   m_settings->endGroup();
 }
 
+/* Ported from CE3TSK's jtdx_contest: restore the saved main window geometry. A saved size can
+   be below what the layout needs for one of two reasons. The operator narrowed the window on
+   purpose - Qt lets it be dragged down to the .ui's minimum, although the controls start to clip
+   before that - and that is the operator's choice, so it reopens exactly as saved. Or it was
+   saved under a smaller font, and then Qt would crush the children further than the operator
+   ever saw: only this grows the window, by as much as the layout's minimum has risen since the
+   save and never past that minimum, so a large window is left alone. Clamping to sizeHint (),
+   and then to minimumSizeHint (), both threw a deliberately narrowed width away. */
+void MainWindow::restoreMainGeometry ()
+{
+  restoreGeometry (m_geometry);
+  if (!m_geometryMinHint.isValid ()) return;   // saved before the minimum was recorded: as saved
+  auto const needed = minimumSizeHint ();
+  auto const growth = (needed - m_geometryMinHint).expandedTo (QSize {0, 0});
+  resize (size ().expandedTo ((size () + growth).boundedTo (needed)));
+}
+
 //---------------------------------------------------------- readSettings()
 void MainWindow::readSettings()
 {
   m_settings->beginGroup("MainWindow");
   
   m_geometry = m_settings->value ("geometry",saveGeometry()).toByteArray();
-  restoreGeometry(m_geometry);
+  m_geometryMinHint = m_settings->value ("geometryMinHint").toSize ();   // CE3TSK
+  restoreMainGeometry ();   // CE3TSK
+  /* CE3TSK: the .ui's hard size limits are reconciled with the font in use - see uilimits.h for
+     what is raised and why a button is measured by its label rather than by its sizeHint.
+     Configuration::set_application_font does the same for a font changed at run time; this
+     covers start-up, when the font is applied before this window exists. */
+  JTDX::fit_size_limits (this);
   restoreState (m_settings->value ("state",saveState ()).toByteArray ());
   ui->splitter->restoreState(m_settings->value("vertSplitter").toByteArray());
   m_path = m_settings->value("MRUdir",m_config.save_directory ().absolutePath ()).toString ();
@@ -2448,6 +2478,7 @@ void MainWindow::displayDialFrequency ()
   Frequency dial_frequency {m_rigState.ptt () && m_rigState.split () ?
       m_rigState.tx_frequency () : m_rigState.frequency ()};
   if(m_monitoroff && m_config.rig_name()=="None") dial_frequency=m_freqNominal;
+  if (dialWheelHolding ()) dial_frequency = m_dialWheelTarget;   // CE3TSK: the wheel's target, not the rig's older report
   // lookup band
   auto const& band_name = m_config.bands ()->find (dial_frequency);
 //  printf("last band %s curband %s band %s freq %lld\n",m_lastBand.toStdString().c_str(),ui->bandComboBox->currentText().toStdString().c_str(),band_name.toStdString().c_str(),dial_frequency);
@@ -2606,6 +2637,77 @@ void MainWindow::statusChanged()
   }
 }
 
+/* Ported from CE3TSK's jtdx_contest: tuning with the mouse wheel over the dial frequency. Only
+   the three kHz digits after the decimal point respond - in "7.074 000" the 0, the 7 and the 4 -
+   so a notch moves the dial by 100, 10 or 1 kHz, carrying into the next digit the way a sum does
+   (7.079 + 1 kHz = 7.080, 7.000 - 1 kHz = 6.999). The MHz digits would change the band and the Hz
+   digits are finer than any use, so both are left alone, and so is a step that would take the
+   dial out of the band it is in. Notches in a burst show on the display at once and reach the rig
+   as one QSY 200 ms after the last, through band_changed () like the band selector; until the rig
+   reports the new frequency the display holds the target. Nothing happens while transmitting or
+   tuning. */
+bool MainWindow::dialFrequencyWheel (QWheelEvent * event)
+{
+  if (m_transmitting || m_tune) return false;
+  auto const * const label = ui->labDialFreq;
+  auto const text = label->text ();   // "7.074 000": the kHz digits are 7, 6 and 5 from the end in any locale
+  if (text.size () < 8) return false;
+  QFontMetrics const metrics {label->font ()};
+  int const margin {label->margin ()};
+  auto const area = label->contentsRect ().adjusted (margin, margin, -margin, -margin);
+  int const left {area.left () + (area.width () - metrics.horizontalAdvance (text)) / 2};   // the .ui centres the text
+  int const x {event->position ().toPoint ().x ()};
+  int digit {-1};
+  for (int i = 0; i < 3; ++i)
+    {
+      int const at {text.size () - 7 + i};
+      int const from {left + metrics.horizontalAdvance (text.left (at))};
+      if (text.at (at).isDigit () && x >= from && x < from + metrics.horizontalAdvance (text.at (at))) digit = i;
+    }
+  if (digit < 0) return false;
+  m_dialWheelDelta += event->angleDelta ().y ();
+  int const notches {m_dialWheelDelta / 120};
+  if (!notches) return true;   // part of a notch, from a touchpad
+  m_dialWheelDelta -= notches * 120;
+  Frequency const from {dialWheelHolding () ? m_dialWheelTarget : m_freqNominal};
+  qint64 const to {static_cast<qint64> (from) + notches * (digit == 0 ? 100000 : digit == 1 ? 10000 : 1000)};
+  if (to <= 0 || m_config.bands ()->find (static_cast<Frequency> (to)) != m_config.bands ()->find (from)) return true;   // stays in its band
+  m_dialWheelTarget = static_cast<Frequency> (to);
+  m_dialWheelClock.start ();
+  m_dialWheelTimer.start ();
+  displayDialFrequency ();
+  return true;
+}
+
+void MainWindow::applyDialWheel ()
+{
+  auto const target = m_dialWheelTarget;
+  if (m_transmitting || m_tune || target == m_freqNominal) return;
+  m_bandEdited = true;
+  band_changed (target); if(m_config.write_decoded_debug()) writeToALLTXT("Band changed from dial wheel, frequency: " + QString::number(target));
+  m_dialWheelClock.start ();   // hold the target on the display while the rig catches up
+  displayDialFrequency ();
+}
+
+bool MainWindow::dialWheelHolding () const
+{
+  return m_dialWheelClock.isValid () && m_dialWheelClock.elapsed () < 1500 && !m_transmitting;
+}
+
+/* Ported from CE3TSK's jtdx_contest: a double click on the DX Call button, or on the callsign box
+   beside it, opens the call's qrz.com page - https://www.qrz.com/db/CE3TSK. A compound call keeps
+   its slash exactly as it is: qrz.com answers /db/VP2E/CE3TSK but returns 404 for the
+   percent-encoded %2F, and the box's validator allows only letters, digits and '/', so nothing
+   here needs encoding. An empty box does nothing. The button's other actions are untouched: a
+   double click delivers a single clicked (), which spots to dxsummit as before when that is
+   enabled, and m_spotDXsummit stops a second spot. */
+void MainWindow::lookupDxCallOnQrz ()
+{
+  auto const call = ui->dxCallEntry->text ().trimmed ().toUpper ();
+  if (call.isEmpty ()) return;
+  QDesktopServices::openUrl (QUrl {"https://www.qrz.com/db/" + call});
+}
+
 bool MainWindow::eventFilter(QObject *object, QEvent *event)  //eventFilter()
 {
   switch (event->type())
@@ -2631,6 +2733,20 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)  //eventFilter()
 
     case QEvent::ToolTip:
       if(!m_showTooltips) return true;
+      break;
+
+    case QEvent::Wheel:
+      // CE3TSK: the wheel over a kHz digit of the dial frequency tunes it
+      if (object == ui->labDialFreq && dialFrequencyWheel (static_cast<QWheelEvent *> (event))) return true;
+      break;
+
+    case QEvent::MouseButtonDblClick:
+      // CE3TSK: the DX Call button or the callsign box looks the call up on qrz.com
+      if (object == ui->pbSpotDXCall || object == ui->dxCallEntry)
+        {
+          lookupDxCallOnQrz ();
+          if (object == ui->pbSpotDXCall) return true;   // the box keeps its own word selection
+        }
       break;
 
     default: break;
@@ -4650,7 +4766,9 @@ void MainWindow::guiUpdate()
     m_sec0=nsec;
     if(!m_monitoring and !m_diskData) ui->signal_meter_widget->setValue(0);
     displayDialFrequency ();
-    if (m_geometry_restored > 0) { m_geometry_restored -=1; if (m_geometry_restored == 0) restoreGeometry (m_geometry);}
+    /* CE3TSK: the delayed re-restore goes through restoreMainGeometry () so it cannot undo the
+       growth applied at start-up */
+    if (m_geometry_restored > 0) { m_geometry_restored -=1; if (m_geometry_restored == 0) restoreMainGeometry ();}
 //workaround to recover decoding in case if .lock deletion event is not received by proc_jtdxjt9, Decode button hung up issue
 /*    quint64 timeout=76000; 
     if(m_mode=="FT4") timeout=10000;
@@ -6555,6 +6673,7 @@ void MainWindow::on_bandComboBox_activated (int index)
 
 void MainWindow::band_changed (Frequency f)
 {
+  m_dialWheelTimer.stop (); m_dialWheelClock.invalidate ();   // CE3TSK: any QSY ends a wheel burst, applyDialWheel () restarts the hold
   if (m_bandEdited) {
     if (!m_mode.startsWith ("WSPR")) { // band hopping preserves auto Tx
       if (f + m_wideGraph->nStartFreq () > m_freqNominal + ui->TxFreqSpinBox->value ()

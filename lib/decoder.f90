@@ -59,6 +59,8 @@ subroutine multimode_decoder(params)
   save
 
   logical newdat65,newdat9,nagainjt9,nagainjt9s,nagainjt10,swlchanged,lowrms,fileExists
+  character(len=32) :: modemsg   ! CE3TSK: the unknown-mode diagnostic below - 20 characters of
+                                 ! text plus room for the widest 32 bit integer (-2147483648, 11)
 
 !character(10) dat, tim1, tim2, zon
 !real(8) :: timer1,timer2 ! milliseconds
@@ -337,6 +339,23 @@ endif
     endif
     call fillhash(1,.true.)
     go to 800
+  endif
+
+! Ported from CE3TSK's jtdx_contest (2026-09-17): everything from here down decodes JT9 (9),
+! T10 (10), JT65 (65) or the dual mode (65+9). Any other value arriving here is a mode the GUI
+! knows and this decoder does not - the two halves are out of step - and saying nothing is worse
+! than useless: rms_augap would then average dd() over a range an FT4 or FT8 period never fills,
+! and report 'input signal low rms' on every period. That reads as an audio fault and sends the
+! operator to look at their soundcard. Name it instead.
+  if(params%nmode.ne.9 .and. params%nmode.ne.10 .and. params%nmode.ne.65 .and.                &
+     params%nmode.ne.(65+9)) then
+! the value is whatever arrived, so it is formatted at full integer width: an internal write
+! that overruns modemsg is a runtime abort, and aborting is no way to report a mismatch
+     write(modemsg,'(a,i0)') 'decoder has no mode ',params%nmode
+     write(*,129) nutc,modemsg,'d'
+129  format(i6.6,2x,a32,9x,a1)
+     call flush(6)
+     go to 800
   endif
 
   lowrms=.false.

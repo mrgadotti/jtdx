@@ -185,6 +185,7 @@
 #include "ZipExtract.hpp"
 
 #include "pimpl_impl.hpp"
+#include "uilimits.h"   // CE3TSK: the .ui size limits against the current font
 
 #include "ui_Configuration.h"
 #include "moc_Configuration.cpp"
@@ -6526,8 +6527,16 @@ void Configuration::impl::set_application_font (QFont const& font)
       }
     }
   qApp->setStyleSheet (ss + "* {" + font_as_stylesheet (font) + '}');
+  /* Ported from CE3TSK's jtdx_contest: the .ui files pin ~30 widgets with hard pixel
+     maximumSize caps chosen for the font they were drawn at, so a larger application font
+     cannot grow past them and the text is clipped ("Rx 305 Hz" lost the Hz, "GenMsgs" the s).
+     uilimits.h raises each limit to what the current font needs - and, for a button, no
+     further than its label needs, which is what keeps the layout the width it has today.
+     MainWindow::readSettings does the same at start-up, when the font is applied before that
+     window exists. */
   for (auto& widget : qApp->topLevelWidgets ())
     {
+      JTDX::fit_size_limits (widget);
       widget->updateGeometry ();
     }
 }
