@@ -123,7 +123,9 @@ void CPlotter::paintEvent(QPaintEvent *)                                // paint
 void scale_by_median(float swide[], int* iz)
 {
   if(swide[0] > 1E29) return;
-  std::vector<float> buf (swide, swide + *iz); std::sort(buf.begin(), buf.end());
+  static thread_local std::vector<float> buf;
+  buf.assign(swide, swide + *iz);
+  std::nth_element(buf.begin(), buf.begin() + *iz/2, buf.end());
   auto smedian=buf[*iz/2]+0.01; if(smedian <= 0.0) return;
   for (int i=0; i<*iz; ++i) swide[i] /= smedian;
 }
@@ -141,7 +143,7 @@ void CPlotter::draw(float swide[], bool bScroll)                            //dr
 //move current data down one line (must do this before attaching a QPainter object)
   if(bScroll) m_WaterfallPixmap.scroll(0,1,0,0,m_w,m_h1);
   QPainter painter1(&m_WaterfallPixmap);
-  m_2DPixmap = m_OverlayPixmap.copy(0,0,m_w,m_h2);
+  m_2DPixmap = m_2DOverlayPixmap;
   QPainter painter2D(&m_2DPixmap);
   if(!painter2D.isActive()) return;
   QFont Font("Arial");
@@ -211,13 +213,14 @@ void CPlotter::draw(float swide[], bool bScroll)                            //dr
     if(m_line == 16) {
       painter1.setPen(Qt::white);
       QString t;
+      QDateTime now = m_jtdxtime->currentDateTimeUtc2();
       if(m_TRperiod < 60.0) {
-        qint64 ms = m_jtdxtime->currentMSecsSinceEpoch2() % 86400000;
+        qint64 ms = now.toMSecsSinceEpoch() % 86400000;
         int n = fmod(0.001*ms,m_TRperiod);
-        QDateTime t1=m_jtdxtime->currentDateTimeUtc2().addSecs(-n);
+        QDateTime t1=now.addSecs(-n);
         t=t1.toString("hh:mm:ss") + "    " + m_rxBand;
       } else {
-        t=m_jtdxtime->currentDateTimeUtc2().toString("hh:mm") + "    " + m_rxBand;
+        t=now.toString("hh:mm") + "    " + m_rxBand;
       }
       QRect rect{5, -2, m_w-10, metrics.height()};
       QRect boundingRect;
@@ -285,6 +288,7 @@ void CPlotter::DrawOverlay()                                 //DrawOverlay()
       painter.drawLine(0, y, w, y);
     }
   }
+  m_2DOverlayPixmap = m_OverlayPixmap.copy(0,0,m_w,m_h2);
 
   QRect rect0;
   QPainter painter0(&m_ScalePixmap);

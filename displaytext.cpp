@@ -92,6 +92,8 @@ void DisplayText::setConfiguration(Configuration const * config)
   hideContinents_ = config->hideContinents();
   countries_ = config->countries();
   callsigns_ = config->callsigns();
+  countriesList_ = countries_.split(',');
+  callsignsList_ = callsigns_.split(',');
   myCall_ = config->my_callsign();   
 }
 
@@ -219,12 +221,12 @@ void DisplayText::appendText(QString const& text, QString const& bg, QString con
     document ()->setMaximumBlockCount (document ()->maximumBlockCount ());
 }
 
-int DisplayText::displayDecodedText(DecodedText* decodedText, QString myCall, QString hisCall, QString hisGrid,
-                            bool once_notified, LogBook logBook, QsoHistory& qsoHistory,
-                            QsoHistory& qsoHistory2, double dialFreq, const QString app_mode,
+int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myCall, QString const& hisCall, QString const& hisGrid,
+                            bool once_notified, LogBook& logBook, QsoHistory& qsoHistory,
+                            QsoHistory& qsoHistory2, double dialFreq, QString const& app_mode,
                             bool bypassRxfFilters,bool bypassAllFilters, int rx_frq,
-                            QStringList wantedCallList, QStringList wantedPrefixList, QStringList wantedGridList, 
-                            QStringList wantedCountryList, bool windowPopup, QWidget* window)
+                            QStringList const& wantedCallList, QStringList const& wantedPrefixList, QStringList const& wantedGridList, 
+                            QStringList const& wantedCountryList, bool windowPopup, QWidget* window)
 {
     QString bgColor = Radio::convert_dark("#ffffff",useDarkStyle_);
     QString txtColor = Radio::convert_dark("#000000",useDarkStyle_);
@@ -856,19 +858,16 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString myCall, QS
             if (hideContinents_.contains(items[0]) && std_type != 2 && !jt65bc) {
                 show_line = false;
             } else if (enableCountryFilter_ && std_type != 2 && !jt65bc) {
-                QStringList countries = countries_.split(',');
-                if (countries.contains(items[1].toUpper()))
+                if (countriesList_.contains(items[1].toUpper()))
                     show_line = false;
             }
             if (show_line && enableCallsignFilter_ && std_type != 2 && !jt65bc) {
-                QStringList callsigns = callsigns_.split(',');
-                if (callsigns.contains(Radio::base_callsign (checkCall)))
+                if (callsignsList_.contains(Radio::base_callsign (checkCall)))
                     show_line = false;
             }
         }
         else if (!bwantedCall && enableCallsignFilter_ && std_type != 2 && !jt65bc) {
-            QStringList callsigns = callsigns_.split(',');
-            if (callsigns.contains(Radio::base_callsign (checkCall)))
+            if (callsignsList_.contains(Radio::base_callsign (checkCall)))
                 show_line = false;
         }
         if (enableMyConinentFilter_ && std_type != 2 && !jt65bc) {

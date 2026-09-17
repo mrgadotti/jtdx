@@ -20,9 +20,13 @@ real llr(N),rx(N),absrx(N)
 logical first,reset
 data first/.true./
 
-integer, DIMENSION(:,:), ALLOCATABLE :: indexes
-integer, DIMENSION(:), ALLOCATABLE :: fp
-integer, DIMENSION(:), ALLOCATABLE :: np
+! Reused across calls (and per-thread) to avoid a ~2 MB allocate/free on
+! every OSD invocation; osd174 runs from concurrent OpenMP sections so the
+! buffers must not be shared between threads.
+integer, DIMENSION(:,:), ALLOCATABLE, SAVE :: indexes
+integer, DIMENSION(:), ALLOCATABLE, SAVE :: fp
+integer, DIMENSION(:), ALLOCATABLE, SAVE :: np
+!$omp threadprivate(indexes,fp,np)
 
 interface
   subroutine boxit(indexes,fp,np,reset,e2,ntau,npindex,i1,i2)
@@ -214,12 +218,14 @@ do iorder=1,nord
 enddo
 
 if(npre2.eq.1) then
-   allocate(indexes(4000,2), STAT = nAllocateStatus1)
-   if (nAllocateStatus1 .ne. 0) STOP "Not enough memory"
-   allocate(fp(0:525000), STAT = nAllocateStatus1)
-   if (nAllocateStatus1 .ne. 0) STOP "Not enough memory"
-   allocate(np(4000), STAT = nAllocateStatus1)
-   if (nAllocateStatus1 .ne. 0) STOP "Not enough memory"
+   if(.not. allocated(indexes)) then
+     allocate(indexes(4000,2), STAT = nAllocateStatus1)
+     if (nAllocateStatus1 .ne. 0) STOP "Not enough memory"
+     allocate(fp(0:525000), STAT = nAllocateStatus1)
+     if (nAllocateStatus1 .ne. 0) STOP "Not enough memory"
+     allocate(np(4000), STAT = nAllocateStatus1)
+     if (nAllocateStatus1 .ne. 0) STOP "Not enough memory"
+   endif
    reset=.true.
    ntotal=0
    do i1=K,1,-1
@@ -268,12 +274,6 @@ if(npre2.eq.1) then
       enddo
       call nextpat(misub,K,nord,iflag)
    enddo
-   deallocate (indexes, STAT = nDeAllocateStatus1)
-   if (nDeAllocateStatus1.ne.0) print *, 'failed to release memory'
-   deallocate (fp, STAT = nDeAllocateStatus1)
-   if (nDeAllocateStatus1.ne.0) print *, 'failed to release memory'
-   deallocate (np, STAT = nDeAllocateStatus1)
-   if (nDeAllocateStatus1.ne.0) print *, 'failed to release memory'
 endif
 
 998 continue

@@ -1,6 +1,47 @@
 JTDX Changelog
 ==============
 
+v4.0.0
+------
+
+Performance
+  - GUI: removed per-decode deep copies of the logbook and the wanted
+    call/prefix/grid/country lists, turned the decoded-message helper
+    into a lightweight value type with statically compiled regular
+    expressions, cached the country/callsign filter lists, and removed
+    redundant string/regex work from the decode loop.
+  - Waterfall and 2D plotter: replaced the per-frame median sort with an
+    O(n) selection reusing a thread-local scratch buffer, cached the 2D
+    overlay background instead of copying it on every draw, and reduced
+    clock lookups inside the draw path.
+  - Signal meter now repaints only when its value or peak actually
+    changes; the "txboth" test-file probe is throttled to once per
+    second.
+  - Fortran decoder: per-thread most-recently-used FFTW plan cache
+    (fewer plan lookups in the FT8 inner loop), reused OSD working
+    buffers instead of allocating ~2 MB on every call, and replaced
+    array sections with explicit loops in the FT8 sync metric to avoid
+    temporary array creation.
+
+Improvements (ported from WSJT-X)
+  - Adopted decoder performance and robustness work from upstream
+    WSJT-X: per-thread private scratch buffers so the concurrent FT8
+    decode sections no longer race, plus the associated OSD and FFT
+    optimisations.
+  - Simplified the multi-threaded FT8 band split: the hand-unrolled
+    chain of OpenMP sections is now a single worksharing loop with
+    identical slice boundaries and thread indexing.
+
+Build and packaging
+  - New JTDX_NATIVE_OPT option (default ON) to build with
+    -march=native / -mtune=native; disable it when producing binaries
+    for other machines.
+  - Debian packaging: let dpkg-shlibdeps generate the runtime library
+    dependencies (correct t64 names on Ubuntu 24.04 and derivatives)
+    instead of the stale hard-coded list, keeping only
+    libqt5multimedia5-plugins and the hamlib requirement.
+
+
 v2.3.1
 ------
 

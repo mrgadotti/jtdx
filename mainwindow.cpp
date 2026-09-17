@@ -128,6 +128,7 @@ namespace
   QRegularExpression dxCall_alphabet {"[A-Za-z0-9/]*"};
   QRegularExpression dxGrid_alphabet {"[A-Ra-r]{2,2}[0-9]{2,2}[A-Xa-x]{2,2}[0-9]{2,2}[A-Xa-x]{2,2}"};
   QRegularExpression words_re {R"(^(?:(?<word1>(?:CQ|DE|QRZ)(?:\s?DX|\s(?:[A-Z]{2}|\d{3}))|[A-Z0-9/]+)\s)(?:(?<word2>[A-Z0-9/]+)(?:\s(?<word3>[-+A-Z0-9]+)(?:\s(?<word4>(?:OOO|(?!RR73)[A-R]{2}[0-9]{2})))?)?)?)"};
+  QRegularExpression crlf_re {"\r|\n"};
   constexpr int default_rx_audio_buffer_frames {-1}; // lets Qt decide
   constexpr int default_tx_audio_buffer_frames {-1}; // lets Qt decide
 
@@ -1807,8 +1808,6 @@ void MainWindow::dataSink(qint64 frames)
   if(m_mode=="WSPR-2") wspr_downsample_(dec_data.d2,&k);
   if(ihsym <=0) return;
 //  printf("%s(%0.1f) dataSink %s %d %d\n",m_jtdxtime->currentDateTimeUtc2().toString("hh:mm:ss.zzz").toStdString().c_str(),m_jtdxtime->GetOffset(),last.toString("hh:mm:ss.zzz").toStdString().c_str(),ihsym,k);
-  QString t;
-  t = QString::asprintf(" Rx noise: %5.1f ",px);
   ui->signal_meter_widget->setValue(px); // Update thermometer
   if(m_monitoring || m_diskData) {
     m_wideGraph->dataSink2(s,df3,ihsym,m_diskData);
@@ -3824,7 +3823,7 @@ void MainWindow::readFromStdout()                             //readFromStdout
           m_notified=true;
        }
 	   
-      DecodedText decodedtext {QString::fromUtf8 (t.constData ()).remove (QRegularExpression {"\r|\n"}),this};
+      DecodedText decodedtext {QString::fromUtf8 (t.constData ()).remove (crlf_re)};
 //      DecodedText decodedtext {"161545  -4  0.1 1939 & CQ RT9K/4    ",this};
 	  QString tcut = t.replace("\n","");
 	  if (!m_mode.startsWith("FT")) {
@@ -4155,8 +4154,13 @@ void MainWindow::guiUpdate()
 
   if(m_transmitting or m_enableTx or m_tune) {
 // Check for "txboth" (testing purposes only)
-    QFile f(m_appDir + "/txboth");
-    if(f.exists() and fmod(tsec,m_TRperiod)<49.96) m_bTxTime=true; //<(1.0 + 85.0*m_nsps/12000.0)
+    static qint64 lastTxbothCheck = 0;
+    static bool txbothExists = false;
+    if (ms - lastTxbothCheck >= 1000 || ms < lastTxbothCheck) {
+      txbothExists = QFile(m_appDir + "/txboth").exists();
+      lastTxbothCheck = ms;
+    }
+    if(txbothExists and fmod(tsec,m_TRperiod)<49.96) m_bTxTime=true; //<(1.0 + 85.0*m_nsps/12000.0)
 
 // Don't transmit another mode in the WSPR sub-band
     Frequency onAirFreq = m_freqNominal + ui->TxFreqSpinBox->value();
@@ -4967,7 +4971,7 @@ void MainWindow::processMessage(QString const& messages, int position, bool alt,
   
   QString t2a;
   t2a = t2;
-  DecodedText decodedtext {t2a,this};
+  DecodedText decodedtext {t2a};
 
   bool addWanted = (alt && ctrl);
   if(!addWanted) {
@@ -5090,7 +5094,7 @@ void MainWindow::processMessage(QString const& messages, int position, bool alt,
 
   int i9=m_QSOText.indexOf(decodedtext.string());
   if (i9<0 and !decodedtext.isTX() and m_decodedText2) {
-    DecodedText decodedtext {t2disp,this};
+    DecodedText decodedtext {t2disp};
 	if (!t2.contains (m_baseCall) || !m_showMyCallMsgRxWindow) {
 		ui->decodedTextBrowser2->displayDecodedText(&decodedtext
                                                   ,m_baseCall
@@ -5777,7 +5781,7 @@ void MainWindow::on_tx5_currentTextChanged (QString const& text) //tx5 edited
   if(isAllowedAuto73) m_Tx5setAutoSeqOff=false;
   if(!text.contains(QRegularExpression {R"([@#&^])"}) && !text.isEmpty()) {
     QString t="161545  -4  0.1 1939 & " + text;
-    DecodedText decodedtext {t,this};
+    DecodedText decodedtext {t};
 //      DecodedText decodedtext {"161545  -4  0.1 1939 & CQ RT9K/4    "};
     bool stdfreemsg = decodedtext.isStandardMessage();
     if(stdfreemsg) {
@@ -6809,7 +6813,7 @@ void MainWindow::on_freeTextMsg_currentTextChanged (QString const& text)
   if(isAllowedAuto73) m_FTsetAutoSeqOff=false;
   if(!text.contains(QRegularExpression {R"([@#&^])"}) && !text.isEmpty()) {
     QString t="161545  -4  0.1 1939 & " + text;
-    DecodedText decodedtext {t,this};
+    DecodedText decodedtext {t};
 //      DecodedText decodedtext {"161545  -4  0.1 1939 & CQ RT9K/4    ",this};
     bool stdfreemsg = decodedtext.isStandardMessage();
     if(stdfreemsg) {
@@ -7567,7 +7571,7 @@ void MainWindow::replyToUDP (QTime time, qint32 snr, float delta_time, quint32 d
           // find the linefeed at the end of the line
           position = ui->decodedTextBrowser->toPlainText().indexOf("\n",position);
           auto start = messages.left (position).lastIndexOf (QChar::LineFeed) + 1;
-          DecodedText message {messages.mid (start, position - start),this};
+          DecodedText message {messages.mid (start, position - start)};
           m_decodedText2 = true;
 // keyboard modifiers and low confidence(Hint) '*' symbol are not supported yet in UDP 'reply' procedure
 //          Qt::KeyboardModifiers kbmod {modifiers << 24};

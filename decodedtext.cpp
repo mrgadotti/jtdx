@@ -1,7 +1,8 @@
 #include "decodedtext.h"
 #include <QStringList>
 #include <QDebug>
-#include "moc_decodedtext.cpp"
+#include <QCoreApplication>
+#include <QHash>
 #include "qt_helpers.hpp"
 //#include <QRegularExpression>
 
@@ -10,11 +11,31 @@ extern "C" {  bool stdmsg_(char const * msg, fortran_charlen_t); }
 namespace
 {
   QRegularExpression words_re {R"(^(?:(?<word1>(?:CQ|DE|QRZ)(?:\s?DX|\s(?:[A-Z]{1,2}|\d{3}))|...|[A-Z0-9/]+)\s)(?:(?<word2>[A-Z0-9/]+)(?:\s(?<word3>[-+A-Z0-9]+)(?:\s(?<word4>(?:OOO|(?!RR73)[A-R]{2}[0-9]{2})))?)?)?)"};
+
+  QHash<QString, QString> const& debugTranslations()
+  {
+    static QHash<QString, QString> const map = []{
+      QHash<QString, QString> m;
+      m.insert("partial loss of data", QCoreApplication::translate("DecodedText","partial loss of data"));
+      m.insert("ALLCALL7.TXT is too short or broken?", QCoreApplication::translate("DecodedText","ALLCALL7.TXT is too short or broken?"));
+      m.insert("nQSOProgress", QCoreApplication::translate("DecodedText","nQSOProgress"));
+      m.insert("input signal low rms", QCoreApplication::translate("DecodedText","input signal low rms"));
+      m.insert("audio gap detected", QCoreApplication::translate("DecodedText","audio gap detected"));
+      m.insert("nfqso is out of bandwidth", QCoreApplication::translate("DecodedText","nfqso is out of bandwidth"));
+      return m;
+    }();
+    return map;
+  }
 }
 
-DecodedText::DecodedText (QString const& the_string, QObject *parent)
-  : QObject {parent}
-  ,string_ {the_string.left (the_string.indexOf (QChar::Nbsp))} // discard appended info
+QRegularExpression const DecodedText::_cqLongerRe {" CQ ([A-Z]{2,2}|[0-9]{3,3}) "};
+QRegularExpression const DecodedText::_gridRe {"^(?![Rr]{2}73)[A-Ra-r]{2,2}[0-9]{2,2}$"};
+QRegularExpression const DecodedText::_repRe {"[<>]"};
+QRegularExpression const DecodedText::_cqStartRe {"^(CQ|QRZ)\\s"};
+QRegularExpression const DecodedText::_callRe {"[2-9]{0,1}[A-Z]{1,2}[0-9]{1,4}[A-Z]{0,6}"};
+
+DecodedText::DecodedText (QString const& the_string)
+  : string_ {the_string.left (the_string.indexOf (QChar::Nbsp))} // discard appended info
 //  : string_ {"185415   4  0.2  950 ~  CQ 5B/SQ9UM"}
   , padding_ {string_.indexOf (" ") > 4 ? 2 : 0} // allow for
                                                     // seconds
@@ -23,21 +44,13 @@ DecodedText::DecodedText (QString const& the_string, QObject *parent)
 {
   if (!message_.isEmpty ())
     {
-      debug_translation_.clear();
-      debug_translation_.insert("partial loss of data",tr("partial loss of data"));
-      debug_translation_.insert("ALLCALL7.TXT is too short or broken?",tr("ALLCALL7.TXT is too short or broken?"));
-      debug_translation_.insert("nQSOProgress",tr("nQSOProgress"));
-      debug_translation_.insert("input signal low rms",tr("input signal low rms"));
-      debug_translation_.insert("audio gap detected",tr("audio gap detected"));
-      debug_translation_.insert("nfqso is out of bandwidth",tr("nfqso is out of bandwidth"));
-            
-      message_ = message_.left (24).remove (QRegularExpression {"[<>]"});
+      message_ = message_.left (24).remove (_repRe);
       int i1 = message_.indexOf ('\r');
       if (i1 > 0)
         {
           message_ = message_.left (i1 - 1);
         }
-      if (message_.contains (QRegularExpression {"^(CQ|QRZ)\\s"}))
+      if (message_.contains (_cqStartRe))
         {
           // TODO this magic position 16 is guaranteed to be after the
           // last space in a decoded CQ or QRZ message but before any
@@ -60,7 +73,7 @@ DecodedText::DecodedText (QString const& the_string, QObject *parent)
 QString DecodedText::string()
 {
   if (isDebug()) {
-    return string_.left(1 + column_snr + padding_) + debug_translation_.value(string_.mid(1 + column_snr + padding_,46 - column_snr).trimmed(),string_.mid(1 + column_snr + padding_,46 -column_snr).trimmed());
+    return string_.left(1 + column_snr + padding_) + debugTranslations().value(string_.mid(1 + column_snr + padding_,46 - column_snr).trimmed(),string_.mid(1 + column_snr + padding_,46 -column_snr).trimmed());
   } 
   else
     return string_; 

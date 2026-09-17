@@ -776,6 +776,24 @@ if (WSJT_GENERATE_DOCS)
 endif (WSJT_GENERATE_DOCS)
 
 #
+# Native CPU tuning for the DSP/decoder hot paths (FFT, correlations,
+# dot products).  -ffp-contract=off keeps strict IEEE evaluation order so
+# the FT8/FT4/JT65 decoders produce identical results to the baseline
+# build while still benefiting from SIMD.  Disable JTDX_NATIVE_OPT when
+# producing binaries for other machines.
+#
+OPTION (JTDX_NATIVE_OPT "Optimize for the build machine CPU (-march=native)" ON)
+set (JTDX_NATIVE_FLAGS "")
+if (JTDX_NATIVE_OPT AND NOT APPLE)
+  include (CheckCCompilerFlag)
+  check_c_compiler_flag ("-march=native" HAVE_MARCH_NATIVE)
+  if (HAVE_MARCH_NATIVE)
+    set (JTDX_NATIVE_FLAGS "-march=native -mtune=native -ffp-contract=off")
+    message (STATUS "Native CPU optimization enabled: ${JTDX_NATIVE_FLAGS}")
+  endif ()
+endif ()
+
+#
 # C & C++ setup
 #
 set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
@@ -790,9 +808,9 @@ if (NOT APPLE)
       set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
     endif ()
   endif ()
-  set (CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -fdata-sections -ffunction-sections")
+  set (CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -fdata-sections -ffunction-sections ${JTDX_NATIVE_FLAGS}")
   set (CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_C_FLAGS_MINSIZEREL} -fdata-sections -ffunction-sections")
-  set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fdata-sections -ffunction-sections")
+  set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fdata-sections -ffunction-sections ${JTDX_NATIVE_FLAGS}")
   set (CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} -fdata-sections -ffunction-sections")
 endif (NOT APPLE)
 
@@ -826,7 +844,7 @@ if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
     set (CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -isysroot ${CMAKE_OSX_SYSROOT}")
   endif (CMAKE_OSX_SYSROOT)
 
-  set (CMAKE_Fortran_FLAGS_RELEASE "${CMAKE_Fortran_FLAGS_RELEASE} -fbounds-check -funroll-all-loops -fno-f2c ${General_FFLAGS}")
+  set (CMAKE_Fortran_FLAGS_RELEASE "${CMAKE_Fortran_FLAGS_RELEASE} -funroll-all-loops -fno-f2c ${JTDX_NATIVE_FLAGS} ${General_FFLAGS}")
   set (CMAKE_Fortran_FLAGS_DEBUG   "${CMAKE_Fortran_FLAGS_DEBUG} -fbounds-check -fno-f2c ${General_FFLAGS}")
 elseif (Fortran_COMPILER_NAME MATCHES "ifort.*")
   # ifort (untested)
@@ -1583,7 +1601,7 @@ endif ()
 
 set (CPACK_DEBIAN_PACKAGE_DESCRIPTION "${PROJECT_DESCRIPTION}")
 set (CPACK_DEBIAN_PACKAGE_HOMEPAGE "${PROJECT_HOMEPAGE}")
-set (CPACK_DEBIAN_PACKAGE_DEPENDS "libgfortran5 (>=8.3) | libgfortran4 (>=7.3) | libgfortran3 (>=6.3), libfftw3-single3 (>=3.3), libgomp1 (>=6), libqt5serialport5 (>=5.7), libqt5multimedia5-plugins (>=5.7), libqt5widgets5 (>=5.7), libqt5network5 (>=5.7), libqt5printsupport5 (>=5.7), libqt5websockets5 (>=5.7), libusb-1.0-0 (>=1.0.21), hamlib (>=4.5~git.20211220)")
+set (CPACK_DEBIAN_PACKAGE_DEPENDS "libqt5multimedia5-plugins, hamlib (>=4.5~git.20211220)")
 set (CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
 set (CPACK_RPM_PACKAGE_ARCHITECTURE ${CMAKE_SYSTEM_PROCESSOR})

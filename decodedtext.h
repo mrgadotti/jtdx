@@ -9,14 +9,12 @@
 #ifndef DECODEDTEXT_H
 #define DECODEDTEXT_H
 
-#include <QObject>
 #include <QString>
 #include <QRegularExpression>
-#include <QHash>
 
 
 /*
-012345678901234567890123456789012345678901234
+012345678901234567890123456789012345678901
 ^    ^    ^   ^    ^ ^                     ^
 2343 -11  0.8 1259 # YV6BFE F6GUU R-08
 2343 -19  0.3  718 # VE6WQ SQ2NIJ -14
@@ -30,11 +28,10 @@
 0605  Tx      1259 # CQ VK3ACF QF22
 */
 
-class DecodedText : public QObject
+class DecodedText
 {
-Q_OBJECT;
 public:
-    explicit DecodedText (QString const& message, QObject *parent = nullptr);
+    explicit DecodedText (QString const& message);
 
     QString string();
     QString message() { return message_; };
@@ -86,16 +83,16 @@ private:
                     column_mode    = 19,
                     column_qsoText = 21};
     QString string_;
-    QRegularExpression _cqLongerRe = QRegularExpression(" CQ ([A-Z]{2,2}|[0-9]{3,3}) ");
-    QRegularExpression _gridRe = QRegularExpression("^(?![Rr]{2}73)[A-Ra-r]{2,2}[0-9]{2,2}$");
-    QRegularExpression _repRe = QRegularExpression("[<>]");
+    static QRegularExpression const _cqLongerRe;
+    static QRegularExpression const _gridRe;
+    static QRegularExpression const _repRe;
+    static QRegularExpression const _cqStartRe;
 //    QRegularExpression _callRe = QRegularExpression("(([A-Z]{1,2})|([A-Z][0-9]))[0-9][A-Z]{1,3}");
 //    QRegularExpression _callRe = QRegularExpression("([BFGIKMNRTW]|[A-Z0-9]{2})[0-9][A-Z0-9]{0,3}[A-Z]");
-    QRegularExpression _callRe = QRegularExpression("[2-9]{0,1}[A-Z]{1,2}[0-9]{1,4}[A-Z]{0,6}");
+    static QRegularExpression const _callRe;
     int padding_;
     QString message_;
     bool is_standard_;
-    QHash<QString, QString> debug_translation_;
 };
 
 

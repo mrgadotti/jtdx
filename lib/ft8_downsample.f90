@@ -6,7 +6,11 @@ subroutine ft8_downsample(newdat1,f0,nqso,c0,c2,c3,lhighsens,lsubtracted,npos,fr
   
   logical newdat1
   complex, intent(out) :: c0(-800:4000),c2(-800:4000),c3(-800:4000)
-  complex cx(0:96000),cxx(0:96000),c1(0:3199) ! 0:NFFT1/2
+  complex cx(0:96000),c1(0:3199) ! 0:NFFT1/2
+  complex, save :: cxx(0:96000)
+! Per-thread copy: the FT8 decoder runs this routine from concurrent OpenMP
+! sections, so a plain SAVE (shared static) here would race between threads.
+!$omp threadprivate(cxx)
   real x(NFFT1)
   real, intent(in) :: f0
   integer, intent(in) :: nqso
@@ -14,7 +18,6 @@ subroutine ft8_downsample(newdat1,f0,nqso,c0,c2,c3,lhighsens,lsubtracted,npos,fr
   logical(1), intent(in) :: lhighsens
   logical(1) lsubtracted,ldofft
   equivalence (x,cx)
-  save cxx
 
   ldofft=.false.
   if(lsubtracted) then

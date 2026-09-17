@@ -3,7 +3,7 @@ subroutine sync8(nfa,nfb,syncmin,nfqso,candidate,ncand,jzb,jzt,swl,ipass,lqsothr
   use ft8_mod1, only : dd8,windowx,facx,icos7,lagcc,lagccbail,nfawide,nfbwide
   include 'ft8_params.f90'
   complex cx(0:NH1)
-  real s(NH1,NHSYM),x(NFFT1),sync2d(NH1,jzb:jzt),red(NH1),candidate0(5,450),candidate(4,460),tall(30),freq,rcandthin,dtcenter
+  real s(NH1,NHSYM),x(NFFT1),sync2d(NH1,jzb:jzt),red(NH1),candidate0(5,450),candidate(4,460),tall(30),freq,rcandthin,dtcenter,ssum
   integer jpeak(NH1),indx(NH1),ii(1)
   integer, intent(in) :: nfa,nfb,nfqso,jzb,jzt,ipass,ncandthin,ndtcenter
   logical(1) syncq(NH1,jzb:jzt),redcq(NH1),lcq,lcq2,lpass1,lpass2
@@ -79,17 +79,29 @@ subroutine sync8(nfa,nfb,syncmin,nfqso,candidate,ncand,jzb,jzt,swl,ipass,lqsothr
           k=j+jstrt+nssy*n
           if(k.gt.0) then
             ta=s(i+nfos*icos7(n),k)
-            if(ta.gt.1e-9) then; tall(n+1)=ta*6.0/(sum(s(i:i+nfos6:nfos,k))-ta); else; tall(n+1)=0.; endif
+            if(ta.gt.1e-9) then
+              ssum=0.
+              do m=0,6; ssum=ssum+s(i+nfos*m,k); enddo
+              tall(n+1)=ta*6.0/(ssum-ta)
+            else; tall(n+1)=0.; endif
           endif
           k36=k+nssy36
           if(k36.gt.0 .and. k36.le.NHSYM) then
             tb=s(i+nfos*icos7(n),k36)
-            if(tb.gt.1e-9) then; tall(n+17)=tb*6.0/(sum(s(i:i+nfos6:nfos,k36))-tb); else; tall(n+17)=0.; endif
+            if(tb.gt.1e-9) then
+              ssum=0.
+              do m=0,6; ssum=ssum+s(i+nfos*m,k36); enddo
+              tall(n+17)=tb*6.0/(ssum-tb)
+            else; tall(n+17)=0.; endif
           endif
           k72=k+nssy72
           if(k72.le.NHSYM) then
             tc=s(i+nfos*icos7(n),k72)
-            if(tc.gt.1e-9) then; tall(n+24)=tc*6.0/(sum(s(i:i+nfos6:nfos,k72))-tc); else; tall(n+24)=0.; endif
+            if(tc.gt.1e-9) then
+              ssum=0.
+              do m=0,6; ssum=ssum+s(i+nfos*m,k72); enddo
+              tall(n+24)=tc*6.0/(ssum-tc)
+            else; tall(n+24)=0.; endif
           endif
         enddo
         lcq=.false.
@@ -97,10 +109,12 @@ subroutine sync8(nfa,nfb,syncmin,nfqso,candidate,ncand,jzb,jzt,swl,ipass,lqsothr
           do n=7,15
             k=j+jstrt+nssy*n
             if(k.gt.0) then
+              ssum=0.
+              do m=0,6; ssum=ssum+s(i+nfos*m,k); enddo
               if(n.lt.15) then
-                tall(n+1)=s(i,k)*6.0/(sum(s(i:i+nfos6:nfos,k))-s(i,k))
+                tall(n+1)=s(i,k)*6.0/(ssum-s(i,k))
               else
-                tall(n+1)=s(i+2,k)*6.0/(sum(s(i:i+nfos6:nfos,k))-s(i+2,k))
+                tall(n+1)=s(i+2,k)*6.0/(ssum-s(i+2,k))
               endif
             endif
           enddo
@@ -121,22 +135,36 @@ subroutine sync8(nfa,nfb,syncmin,nfqso,candidate,ncand,jzb,jzt,swl,ipass,lqsothr
         ta=0.; tb=0.; tc=0.; tcq=0.; t0a=0.; t0b=0.; t0c=0.; t0cq=0.
         do n=0,6
           k=j+jstrt+nssy*n
-          if(k.gt.0) then; ta=ta + s(i+nfos*icos7(n),k); t0a=t0a + sum(s(i:i+nfos6,k)) - s(i+nfos*icos7(n)+1,k); endif
+          if(k.gt.0) then
+            ta=ta + s(i+nfos*icos7(n),k)
+            ssum=0.
+            do m=0,nfos6; ssum=ssum+s(i+m,k); enddo
+            t0a=t0a + ssum - s(i+nfos*icos7(n)+1,k)
+          endif
           k36=k+nssy36
           if(k36.gt.0 .and. k36.le.NHSYM) then
-            tb=tb + s(i+nfos*icos7(n),k36); t0b=t0b + sum(s(i:i+nfos6,k36)) - s(i+nfos*icos7(n)+1,k36)
+            tb=tb + s(i+nfos*icos7(n),k36)
+            ssum=0.
+            do m=0,nfos6; ssum=ssum+s(i+m,k36); enddo
+            t0b=t0b + ssum - s(i+nfos*icos7(n)+1,k36)
           endif
           k72=k+nssy72
           if(k72.le.NHSYM) then
             tc=tc + s(i+nfos*icos7(n),k72)
-            t0c=t0c + sum(s(i:i+nfos6,k72)) - s(i+nfos*icos7(n)+1,k72)
+            ssum=0.
+            do m=0,nfos6; ssum=ssum+s(i+m,k72); enddo
+            t0c=t0c + ssum - s(i+nfos*icos7(n)+1,k72)
           endif
         enddo
         do n=7,15
           k=j+jstrt+nssy*n
           if(k.ge.1) then
-            if(n.lt.15) then; tcq=tcq + s(i,k); t0cq=t0cq + sum(s(i:i+nfos6,k)) - s(i,k+1)
-            else; tcq=tcq + s(i+2,k); t0cq=t0cq + sum(s(i:i+nfos6,k)) - s(i,k+3)
+            ssum=0.
+            do m=0,nfos6; ssum=ssum+s(i+m,k); enddo
+            if(n.lt.15) then
+              tcq=tcq + s(i,k); t0cq=t0cq + ssum - s(i,k+1)
+            else
+              tcq=tcq + s(i+2,k); t0cq=t0cq + ssum - s(i,k+3)
             endif
           endif
         enddo
