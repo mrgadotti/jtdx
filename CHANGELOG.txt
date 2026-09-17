@@ -1,6 +1,44 @@
 JTDX Changelog
 ==============
 
+v4.0.1
+------
+
+Bug fixes
+  - Band Activity / Rx Frequency windows no longer lose decodes once the
+    10000-line buffer fills.  The old trim walked to the wrong block, so
+    from that point on the newest decode was dropped and only every
+    second line was kept.  All lines are now retained in a contiguous
+    window.
+  - four2a: the FFTW plan table could be scanned by one thread while
+    another was publishing a new entry, so a partially initialised slot
+    could be picked up and the wrong plan executed.  The table is now
+    re-scanned under the lock and a slot is published only after it is
+    fully written.
+  - jt9: the FFTW wisdom path was truncated at 80 characters, so wisdom
+    was never loaded when the data directory path was long and every
+    start re-planned from scratch.
+
+Performance
+  - osd174_91 (the ordered-statistics decoder used by FT8 and FT4) no
+    longer allocates and frees ~2 MB of working buffers on every call;
+    the buffers are kept per thread, matching what osd174 already did.
+  - osd174_91 / osd174: the pattern table reset cleared all 525001
+    entries when only the first 2**ntau are ever addressed, touching
+    2 MB to use 64 KB.  Verified bit-identical against the previous
+    implementation over all ndeep settings.
+  - Decoded-text handling: the CQ callsign regular expression is now
+    compiled once instead of on every CQ decode, the digit test in
+    deCallAndGrid no longer builds a QRegExp per call, and the free-text
+    validation regex is no longer recompiled on every keystroke.
+
+Notes
+  - The decoder produces identical output to 4.0.0.  The OSD and LDPC
+    changes were checked against the previous implementations on
+    randomised inputs (20000 LDPC trials, 2000 OSD calls covering every
+    ndeep) with zero differences.
+
+
 v4.0.0
 ------
 

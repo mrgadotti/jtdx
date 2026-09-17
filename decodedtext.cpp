@@ -82,7 +82,7 @@ QString DecodedText::string()
 QString DecodedText::CQersCall(QString& grid,QString& tyyp)
 {
 //  QRegularExpression callsign_re {R"(^(CQ|DE|QRZ)(\s?DX|\s([A-Z]{2}|\d{3}))?\s(?<callsign>(([2-9]{0,1}[A-Z]{1,2}[0-9]{0,1}[/]{1}){0,1})[2-9]{0,1}[A-Z]{1,2}[0-9]{1,4}[A-Z]{1,6}([A-Z0-9/]{1,4}){0,1})(?:\s(?<grid>[A-R]{2}[0-9]{2})?)?)"};
-  QRegularExpression callsign_re {R"(^(CQ|DE|QRZ)(\s?(?<tyyp>([A-Z]{1,4}|\d{3}))?)?\s(?<callsign>(([2-9]{0,1}[A-Z]{1,2}[0-9]{0,2}[/]{1}){0,1})[2-9]{0,1}[A-Z]{1,2}[0-9]{1,4}[A-Z]{0,6}([A-Z0-9/]{1,7}){0,1})(\s?(?<grid>[A-R]{2}[0-9]{2})?)?)"};
+  static QRegularExpression const callsign_re {R"(^(CQ|DE|QRZ)(\s?(?<tyyp>([A-Z]{1,4}|\d{3}))?)?\s(?<callsign>(([2-9]{0,1}[A-Z]{1,2}[0-9]{0,2}[/]{1}){0,1})[2-9]{0,1}[A-Z]{1,2}[0-9]{1,4}[A-Z]{0,6}([A-Z0-9/]{1,7}){0,1})(\s?(?<grid>[A-R]{2}[0-9]{2})?)?)"};
   auto const& match = callsign_re.match (message_);
   grid = match.captured ("grid");
   tyyp = match.captured ("tyyp");
@@ -244,11 +244,14 @@ void DecodedText::deCallAndGrid(/*out*/QString& call, QString& grid)
   call = match.captured ("word2");
   grid = match.captured ("word3");
   if ("R" == grid) grid = match.captured ("word4");
-  if(match.captured("word1")=="CQ" and call.length()>=3 and call.length()<=4
-     and !call.contains(QRegExp("[0-9]"))) {
-    //Second word has length 3 or 4 and contains no digits
-    call = match.captured ("word3");
-    grid = match.captured ("word4");
+  if(match.captured("word1")=="CQ" and call.length()>=3 and call.length()<=4) {
+    bool hasDigit {false};
+    for (auto const& c : call) { if (c.isDigit()) { hasDigit = true; break; } }
+    if (!hasDigit) {
+      //Second word has length 3 or 4 and contains no digits
+      call = match.captured ("word3");
+      grid = match.captured ("word4");
+    }
   }
   if (!_callRe.match(call).hasMatch() || _gridRe.match(call).hasMatch() || call.contains("TU73") > 0 || call.contains("73GL") > 0) {
     call = "";

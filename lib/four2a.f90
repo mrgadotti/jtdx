@@ -59,21 +59,30 @@ subroutine four2a(a,nfft,ndim,isign,iform)
            exit
         end if
      enddo
-
-     if(i.ge.NPMAX) stop 'Too many FFTW plans requested.'
   end if
 
   if (.not. found_plan) then
   !$omp critical(four2a_setup)
-     nplan=nplan+1
-     i=nplan
+! Re-scan under the lock: another thread may have added this plan while we
+! were searching without it.
+     do i=1,nplan
+        if(nfft.eq.nn(i) .and. isign.eq.ns(i) .and.                  &
+             iform.eq.nf(i) .and. nloc.eq.nl(i)) then
+           found_plan = .true.
+           exit
+        end if
+     enddo
+
+     if (.not. found_plan) then
+     i=nplan+1
+     if(i.ge.NPMAX) stop 'Too many FFTW plans requested.'
 
      nn(i)=nfft
      ns(i)=isign
      nf(i)=iform
      nl(i)=nloc
 
-! Planning: FFTW_ESTIMATE, FFTW_ESTIMATE_PATIENT, FFTW_MEASURE, 
+! Planning: FFTW_ESTIMATE, FFTW_ESTIMATE_PATIENT, FFTW_MEASURE,
 !            FFTW_PATIENT,  FFTW_EXHAUSTIVE
      nflags=FFTW_ESTIMATE
      if(npatience.eq.1) nflags=FFTW_ESTIMATE_PATIENT
@@ -105,6 +114,13 @@ subroutine four2a(a,nfft,ndim,isign,iform)
         jz=nfft
         if(iform.le.0) jz=nfft/2+1
         a(1:jz)=aa(1:jz)
+     endif
+
+! Publish the slot only once it is fully initialised, so a thread scanning
+! 1..nplan without the lock can never observe a half-written entry.
+     !$omp flush
+     nplan=i
+     !$omp flush
      endif
   !$omp end critical(four2a_setup)
   end if

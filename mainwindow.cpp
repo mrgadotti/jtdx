@@ -129,6 +129,7 @@ namespace
   QRegularExpression dxGrid_alphabet {"[A-Ra-r]{2,2}[0-9]{2,2}[A-Xa-x]{2,2}[0-9]{2,2}[A-Xa-x]{2,2}"};
   QRegularExpression words_re {R"(^(?:(?<word1>(?:CQ|DE|QRZ)(?:\s?DX|\s(?:[A-Z]{2}|\d{3}))|[A-Z0-9/]+)\s)(?:(?<word2>[A-Z0-9/]+)(?:\s(?<word3>[-+A-Z0-9]+)(?:\s(?<word4>(?:OOO|(?!RR73)[A-R]{2}[0-9]{2})))?)?)?)"};
   QRegularExpression crlf_re {"\r|\n"};
+  QRegularExpression freetext_specials_re {R"([@#&^])"};
   constexpr int default_rx_audio_buffer_frames {-1}; // lets Qt decide
   constexpr int default_tx_audio_buffer_frames {-1}; // lets Qt decide
 
@@ -5779,7 +5780,7 @@ void MainWindow::on_tx5_currentTextChanged (QString const& text) //tx5 edited
   bool isAllowedAuto73=isAutoSeq73(text);
   if(!m_Tx5setAutoSeqOff && !isAllowedAuto73) m_Tx5setAutoSeqOff=true;
   if(isAllowedAuto73) m_Tx5setAutoSeqOff=false;
-  if(!text.contains(QRegularExpression {R"([@#&^])"}) && !text.isEmpty()) {
+  if(!text.contains(freetext_specials_re) && !text.isEmpty()) {
     QString t="161545  -4  0.1 1939 & " + text;
     DecodedText decodedtext {t};
 //      DecodedText decodedtext {"161545  -4  0.1 1939 & CQ RT9K/4    "};
@@ -6811,7 +6812,7 @@ void MainWindow::on_freeTextMsg_currentTextChanged (QString const& text)
   bool isAllowedAuto73=isAutoSeq73(text);
   if(!m_FTsetAutoSeqOff && !isAutoSeq73(text)) m_FTsetAutoSeqOff=true;
   if(isAllowedAuto73) m_FTsetAutoSeqOff=false;
-  if(!text.contains(QRegularExpression {R"([@#&^])"}) && !text.isEmpty()) {
+  if(!text.contains(freetext_specials_re) && !text.isEmpty()) {
     QString t="161545  -4  0.1 1939 & " + text;
     DecodedText decodedtext {t};
 //      DecodedText decodedtext {"161545  -4  0.1 1939 & CQ RT9K/4    ",this};

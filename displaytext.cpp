@@ -6,6 +6,7 @@
 #include <QTextCharFormat>
 #include <QFont>
 #include <QTextCursor>
+#include <QTextBlock>
 
 #include "Configuration.hpp"
 #include "qt_helpers.hpp"
@@ -148,7 +149,9 @@ void DisplayText::appendText(QString const& text, QString const& bg, QString con
     auto cursor = textCursor ();
     if (scroll_) {
         if (document ()->blockCount() == 10000) {
-            cursor.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, 9998);
+            // Direct block lookup: moving down 9998 blocks costs a layout
+            // query per step, and this runs once per decoded line per window.
+            cursor.setPosition (document ()->findBlockByNumber (document ()->blockCount () - 2).position ());
             cursor.select(QTextCursor::LineUnderCursor);
             cursor.removeSelectedText();
             cursor.deleteChar();
@@ -218,7 +221,6 @@ void DisplayText::appendText(QString const& text, QString const& bg, QString con
     else cursor.movePosition (QTextCursor::StartOfLine);
     setTextCursor (cursor);
     ensureCursorVisible ();
-    document ()->setMaximumBlockCount (document ()->maximumBlockCount ());
 }
 
 int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myCall, QString const& hisCall, QString const& hisGrid,

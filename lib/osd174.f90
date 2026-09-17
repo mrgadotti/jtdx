@@ -332,10 +332,10 @@ subroutine boxit(indexes,fp,np,reset,e2,ntau,npindex,i1,i2)
   logical reset
 
   if(reset) then
-    patterns=-1
-    fp=-1
+! ipat below is built from ntau bits, so only fp(0:2**ntau-1) is ever
+! addressed.  Clearing all 525001 elements would touch 2 MB to use 64 KB.
+    fp(0:2**ntau-1)=-1
     np=-1
-    sc=-1
     indexes=-1
     reset=.false.
   endif
