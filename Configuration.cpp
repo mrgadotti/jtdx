@@ -885,6 +885,7 @@ private:
   bool hide_TX_messages_;
   bool decode_at_52s_;
   bool beepOnMyCall_;
+  SpecialOperatingActivity special_op_id_;   /* CE3TSK */
   bool audioAlerts_;
   QString audioAlertsDir_;
   bool beepOnNewCQZ_;
@@ -1114,6 +1115,8 @@ bool Configuration::TX_messages () const {return m_->TX_messages_;}
 bool Configuration::hide_TX_messages () const {return m_->hide_TX_messages_;}
 bool Configuration::decode_at_52s () const {return m_->decode_at_52s_;}
 bool Configuration::beepOnMyCall () const {return m_->beepOnMyCall_;}
+auto Configuration::special_op_id () const -> SpecialOperatingActivity {return m_->special_op_id_;}
+bool Configuration::wwDigi () const {return m_->special_op_id_ == SpecialOperatingActivity::WW_DIGI;}
 bool Configuration::audioAlerts () const {return m_->audioAlerts_;}
 QString Configuration::audioAlertsDir () const {return m_->audioAlertsDir_;}
 bool Configuration::beepOnNewCQZ () const {return m_->beepOnNewCQZ_;}
@@ -2152,6 +2155,7 @@ Radio::convert_dark("#fafbfe",useDarkStyle_),Radio::convert_dark("#dcdef1",useDa
   ui_->hide_TX_messages_check_box->setChecked (hide_TX_messages_);
   ui_->decode_at_52s_check_box->setChecked(decode_at_52s_);
   ui_->beep_on_my_call_check_box->setChecked(beepOnMyCall_);
+  ui_->special_op_combo_box->setCurrentIndex (static_cast<int> (special_op_id_) ? 1 : 0);   /* CE3TSK */
   ui_->audio_alerts_check_box->setChecked(audioAlerts_);
   ui_->audio_alerts_dir_line_edit->setText(audioAlertsDir_);
   ui_->beep_on_newCQZ_check_box->setChecked(beepOnNewCQZ_ && newCQZ_);
@@ -2629,6 +2633,13 @@ void Configuration::impl::read_settings ()
   hide_TX_messages_ = settings_->value ("HideTxMessages", true).toBool ();
   decode_at_52s_ = settings_->value("Decode52",false).toBool ();
   beepOnMyCall_ = settings_->value("BeepOnMyCall", false).toBool();
+  /* CE3TSK: stored by the WSJT-X number so the value survives a future addition; anything
+     this build does not offer comes back as NONE rather than a mode it cannot operate. */
+  {
+    auto const stored = settings_->value ("SpecialOpActivity", 0).toInt ();
+    special_op_id_ = (stored == static_cast<int> (SpecialOperatingActivity::WW_DIGI))
+      ? SpecialOperatingActivity::WW_DIGI : SpecialOperatingActivity::NONE;
+  }
   audioAlerts_ = settings_->value("AudioAlerts", false).toBool();
   // default to the sounds shipped with the package, so ticking the box is enough
   audioAlertsDir_ = settings_->value("AudioAlertsDir", data_dir_.absoluteFilePath ("sounds")).toString();
@@ -2914,6 +2925,7 @@ void Configuration::impl::write_settings ()
   settings_->setValue ("SplitMode", QVariant::fromValue (rig_params_.split_mode));
   settings_->setValue ("Decode52", decode_at_52s_);
   settings_->setValue ("BeepOnMyCall", beepOnMyCall_);
+  settings_->setValue ("SpecialOpActivity", static_cast<int> (special_op_id_));   /* CE3TSK */
   settings_->setValue ("AudioAlerts", audioAlerts_);
   settings_->setValue ("AudioAlertsDir", audioAlertsDir_);
   settings_->setValue ("BeepOnNewCQZ", beepOnNewCQZ_);
@@ -3744,6 +3756,8 @@ void Configuration::impl::accept ()
   save_directory_.setPath (ui_->save_path_display_label->text ());
   decode_at_52s_ = ui_->decode_at_52s_check_box->isChecked ();
   beepOnMyCall_ = ui_->beep_on_my_call_check_box->isChecked();
+  special_op_id_ = ui_->special_op_combo_box->currentIndex () == 1   /* CE3TSK */
+    ? SpecialOperatingActivity::WW_DIGI : SpecialOperatingActivity::NONE;
   audioAlerts_ = ui_->audio_alerts_check_box->isChecked();
   audioAlertsDir_ = ui_->audio_alerts_dir_line_edit->text();
   beepOnNewCQZ_ = ui_->beep_on_newCQZ_check_box->isChecked();

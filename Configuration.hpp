@@ -68,6 +68,12 @@ public:
 
   enum DataMode {data_mode_none, data_mode_USB, data_mode_data};
   enum Type2MsgGen {type_2_msg_1_full, type_2_msg_3_full, type_2_msg_5_only};
+  /* Ported from CE3TSK's jtdx_contest: the special operating activity. The numbering follows
+     WSJT-X's so a future addition keeps its value; only NONE and WW_DIGI are offered, because
+     WW Digi is the one whose exchange - the 4 character grid - needs no new 77-bit message
+     type. The others would. */
+  enum class SpecialOperatingActivity {NONE = 0, NA_VHF = 1, EU_VHF = 2, FIELD_DAY = 3,
+                                       RTTY = 4, WW_DIGI = 5, ARRL_DIGI = 6};
 
   explicit Configuration (QSettings * settings, QWidget * parent = nullptr);
   ~Configuration ();
@@ -220,6 +226,8 @@ public:
   bool split_mode () const;
   bool decode_at_52s () const;
   bool beepOnMyCall () const;
+  SpecialOperatingActivity special_op_id () const;   /* CE3TSK */
+  bool wwDigi () const;   /* CE3TSK: convenience, special_op_id () == WW_DIGI */
   bool audioAlerts () const;
   QString audioAlertsDir () const;
   bool beepOnNewCQZ () const;

@@ -36,6 +36,8 @@
 
 #include "revision_utils.hpp"
 #include "uilimits.h"           // CE3TSK: the .ui size limits against the current font
+#include "contestreply.h"      // CE3TSK: which Tx answers a message addressed to me
+#include "contestignore.h"     // CE3TSK: WW Digi - stations to leave alone
 #include "qt_helpers.hpp"
 #include "soundout.h"
 #include "soundin.h"
@@ -332,6 +334,7 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   m_rigOk {false},
   m_bandChanged {false},
   m_useDarkStyle {false},
+  m_wwDigi {false},   /* CE3TSK: WW Digi contest mode */
   m_lostaudio {false},
   m_lasthint {false},
   m_monitoroff {false},
@@ -955,6 +958,7 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   ui->labDist->setStyleSheet("border: 0px;");
 
   m_useDarkStyle = m_config.useDarkStyle();
+  refreshSpecialOp ();   /* CE3TSK: before anything below reads m_wwDigi */
   readSettings();		         //Restore user's setup params
 
   QString t;
@@ -2052,6 +2056,14 @@ void MainWindow::on_actionSettings_triggered()               //Setup Dialog
       if(m_config.write_decoded_debug()) writeToALLTXT("Configuration settings change accepted");
       ui->decodedTextBrowser->setConfiguration (&m_config);
       ui->decodedTextBrowser2->setConfiguration (&m_config);
+      /* CE3TSK: the contest setting decides what Tx2/Tx3 carry, so the standard messages are
+         rebuilt whenever it changes, and the ignore list is dropped - it only means anything
+         inside a contest. */
+      {
+        bool const was = m_wwDigi;
+        refreshSpecialOp ();
+        if (was != m_wwDigi) { m_contestIgnore.clear (); ui->genStdMsgsPushButton->click (); }
+      }
       if (m_config.useDarkStyle() != m_useDarkStyle) {
         m_useDarkStyle = m_config.useDarkStyle();
         styleChanged();
@@ -2701,6 +2713,21 @@ bool MainWindow::dialWheelHolding () const
    here needs encoding. An empty box does nothing. The button's other actions are untouched: a
    double click delivers a single clicked (), which spots to dxsummit as before when that is
    enabled, and m_spotDXsummit stops a second spot. */
+/* CE3TSK: follow the contest setting. Kept as one place so the flag, the QSO histories and
+   anything else that needs to know cannot drift apart. */
+void MainWindow::refreshSpecialOp ()
+{
+  m_wwDigi = m_config.wwDigi ();
+}
+
+/* CE3TSK: the contest is on but my own grid is not a usable 4 character square - in WW Digi the
+   grid is the exchange, so there is nothing legitimate to transmit. genStdMsgs clears the
+   messages instead of putting a malformed one on the air. */
+bool MainWindow::wwDigiNoGrid () const
+{
+  return m_wwDigi && !const_cast<MainWindow *> (this)->gridOK (m_config.my_grid ().left (4));
+}
+
 void MainWindow::lookupDxCallOnQrz ()
 {
   auto const call = ui->dxCallEntry->text ().trimmed ().toUpper ();
@@ -3586,6 +3613,26 @@ void MainWindow::process_Auto()
   int rx = ui->RxFreqSpinBox->value ();
   int tx = ui->TxFreqSpinBox->value ();
   QStringList StrStatus = {"NONE","RFIN","RCQ","SCQ","RCALL","SCALL","RREPORT","SREPORT","RRREPORT","SRREPORT","RRR","SRR","RRR73","SRR73","R73","S73","FIN"};
+  /* Ported from CE3TSK's jtdx_contest: WW Digi - a station who answers our exchange with a
+     signal report ("CE3TSK DL6FKR -10") is running ordinary FT8/FT4, not the contest. That QSO
+     cannot complete: neither side ever sends what the other waits for, and answering him again
+     next period only repeats the deadlock. So he is dropped and skipped for five minutes; a
+     double click on him clears that again, because the operator overrules it. His exchange is a
+     grid, so anything that parses as a number is the giveaway. */
+  if (m_wwDigi && !hisCall.isEmpty () && !rpt.isEmpty ()) {
+    bool numeric = false;
+    rpt.toInt (&numeric);
+    if (numeric) {
+      m_contestIgnore.add (Radio::base_callsign (hisCall), m_jtdxtime->currentMSecsSinceEpoch2 ());
+      clearDX (" cleared, WW Digi: he sent a report, he is not in the contest");
+      return;
+    }
+  }
+  if (m_wwDigi && !hisCall.isEmpty ()
+      && m_contestIgnore.has (Radio::base_callsign (hisCall), m_jtdxtime->currentMSecsSinceEpoch2 ())) {
+    clearDX (" cleared, WW Digi: still ignored");
+    return;
+  }
   if (!hisCall.isEmpty ()) {
     if (m_houndMode) count = -1; //marker for changing status to FIN when status is RRR73
     m_status = m_qsoHistory.autoseq(hisCall,grid,rpt,rx,tx,time,count,prio,mode);
@@ -5111,6 +5158,13 @@ void MainWindow::processMessage(QString const& messages, int position, bool alt,
   t2a = t2;
   DecodedText decodedtext {t2a};
 
+  /* CE3TSK: a double click is the operator overruling the WW Digi ignore list - whoever he just
+     picked is worked, whatever we concluded about him five minutes ago. */
+  if (m_wwDigi) {
+    auto const picked = Radio::base_callsign (decodedtext.call ());
+    if (!picked.isEmpty ()) m_contestIgnore.remove (picked);
+  }
+
   bool addWanted = (alt && ctrl);
   if(!addWanted) {
 //    int nmod=decodedtext.timeInSeconds () % (2*int(m_TRperiod));
@@ -5347,12 +5401,21 @@ void MainWindow::processMessage(QString const& messages, int position, bool alt,
         }
       }
       else {
-        m_ntx=2;
-		m_QSOProgress = REPORT;
-        m_nlasttx=2;
-        ui->txrb2->setChecked(true);
+        /* Ported from CE3TSK's jtdx_contest: this branch is reached when his message ends in a
+           grid, or carries nothing after my call. Outside the contest that is Tx2 as it always
+           was. In WW Digi his grid IS his exchange, so the answer is Tx3 - "HISCALL MYCALL R
+           MYGRID", what the auto-sequencer sends there; a bare Tx2 would repeat his exchange
+           back without the R, i.e. behave as if I had called him. reply_tx_to_me can only
+           return 2 or 3 here, and returns 2 whenever the contest is off. */
+        bool const hasLast = t4.size () > 7;
+        int const tx = reply_tx_to_me (m_wwDigi, hasLast, hasLast ? t4.at (7) : QString {},
+                                       hasLast && gridOK (t4.at (7)));
+        m_ntx=tx;
+		m_QSOProgress = 3 == tx ? ROGER_REPORT : REPORT;
+        m_nlasttx=tx;
+        if(3 == tx) ui->txrb3->setChecked(true); else ui->txrb2->setChecked(true);
         if(ui->tabWidget->currentIndex()==1) {
-          ui->genMsg->setText(ui->tx2->text());
+          ui->genMsg->setText(3 == tx ? ui->tx3->text() : ui->tx2->text());
           m_ntx=7;
           ui->rbGenMsg->setChecked(true);
         }
@@ -5509,6 +5572,13 @@ void MainWindow::genStdMsgs(QString rpt)                       //genStdMsgs()
 //  auto is_compound = my_callsign != m_baseCall;
 //  auto is_type_one = is_compound && shortList (my_callsign);
   auto const& my_grid = m_config.my_grid ().left (4);
+  /* CE3TSK: no exchange, no contest. In WW Digi the grid IS the exchange, so an invalid or
+     missing one would put a malformed message on the air every period. */
+  if(wwDigiNoGrid ()) {
+    ui->tx1->setText(""); ui->tx2->setText(""); ui->tx3->setText("");
+    ui->tx4->setText(""); ui->tx5->setCurrentText(""); ui->genMsg->setText("");
+    return;
+  }
   auto const& hisBase = Radio::base_callsign (hisCall);
   m_bMyCallStd=stdCall(my_callsign);
   m_bHisCallStd=stdCall(hisCall);
@@ -5532,6 +5602,11 @@ void MainWindow::genStdMsgs(QString rpt)                       //genStdMsgs()
     myrpt = QString::asprintf("%+2.2d",n);
     QString t2,t3;
     QString sent=myrpt;
+    /* Ported from CE3TSK's jtdx_contest: in the WW Digi contest the exchange is the 4 character
+       grid, sent where the signal report normally goes - so Tx2 becomes "HISCALL MYCALL MYGRID"
+       and Tx3 "HISCALL MYCALL R MYGRID". wwDigiNoGrid() has already refused to generate anything
+       if my own grid is not a valid 4 character square, so my_grid is safe to send here. */
+    if(m_wwDigi) sent=my_grid;
     QString rs,rst;
     int nn=(n+36)/6;
     if(nn<2) nn=2;

@@ -30,6 +30,7 @@
 #include "AudioDevice.hpp"
 #include "commons.h"
 #include "Radio.hpp"
+#include "contestignore.h"   // CE3TSK: WW Digi ignore list
 #include "Modes.hpp"
 #include "Configuration.hpp"
 #include "WSPRBandHopping.hpp"
@@ -595,6 +596,8 @@ private:
   bool m_rigOk;
   bool m_bandChanged;
   bool m_useDarkStyle;
+  bool m_wwDigi;                                   // CE3TSK: WW Digi contest mode
+  ContestIgnore m_contestIgnore;                   // CE3TSK: stations that cannot complete a contest QSO
   bool m_lostaudio;
   bool m_lasthint;
   bool m_monitoroff;
@@ -744,6 +747,8 @@ private:
   void applyDialWheel ();                          // CE3TSK
   bool dialWheelHolding () const;                  // CE3TSK
   void lookupDxCallOnQrz ();                       // CE3TSK
+  void refreshSpecialOp ();                        // CE3TSK: follow the contest setting
+  bool wwDigiNoGrid () const;                      // CE3TSK: contest on but my grid unusable
   void setDecodedTextFont (QFont const&);
   void setStopHSym();
   void setClockStyle(bool reset);
