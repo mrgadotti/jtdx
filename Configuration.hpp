@@ -93,6 +93,7 @@ public:
   bool restart_tci () const;
   QString my_callsign () const;
   QString my_grid () const;
+  void set_dynamic_grid (QString const&);
   QString timeFrom () const;
   QString content () const;
   QString countries () const;
@@ -379,6 +380,10 @@ public:
   // for the decoded text.
   //
   Q_SIGNAL void decoded_text_font_changed (QFont);
+
+  // emitted after cty.dat or the LoTW user list has been downloaded, so the
+  // logbook can be rebuilt from the new data
+  Q_SIGNAL void data_files_updated () const;
 
   //
   // This signal is emitted when the UDP server changes

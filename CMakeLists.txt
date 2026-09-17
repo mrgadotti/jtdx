@@ -172,6 +172,8 @@ set (wsjt_qt_CXXSRCS
   qt_helpers.cpp
   MetaDataRegistry.cpp
   NetworkServerLookup.cpp
+  NetworkAccessManager.cpp
+  FileDownload.cpp
   revision_utils.cpp
   WFPalette.cpp
   Radio.cpp

@@ -1,6 +1,29 @@
 JTDX Changelog
 ==============
 
+v4.0.2
+------
+
+New features (ported from WSJT-X)
+  - Settings > Sync has a new "Data files" section that downloads the
+    shared data files instead of relying on whatever shipped with the
+    package: cty.dat (country-files.com), the Logbook of the World user
+    activity list (ARRL), and CALL3.TXT in both the terrestrial and EME
+    variants.  The previous CALL3.TXT is kept as CALL3_backup.TXT.
+    After cty.dat or the LoTW list is updated the logbook is rebuilt
+    automatically, so new entities and LoTW membership take effect
+    without a restart.
+  - UDP "Location" message (type 11) is now implemented; it was
+    previously a reserved slot.  A locator sent by an external
+    application overrides the configured grid for the running session
+    and is not written to the settings.
+
+Internals
+  - New NetworkAccessManager (SSL error handling shared across network
+    users) and FileDownload (redirect-following download to a file),
+    both ported from WSJT-X.
+
+
 v4.0.1
 ------
 

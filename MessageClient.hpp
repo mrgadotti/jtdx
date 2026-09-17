@@ -86,6 +86,9 @@ public:
   // all decodes
   Q_SIGNAL void replay ();
 
+  // a Location message (11) carrying a Maidenhead locator to adopt as our own
+  Q_SIGNAL void location (QString const& grid);
+
   // this signal is emitted if the server has requested immediate (or
   // Enable Tx if enableTx_only is true) transmission to halt
   Q_SIGNAL void halt_tx (bool enableTx_only);

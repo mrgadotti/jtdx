@@ -532,6 +532,9 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   // Network message handlers
   connect (m_messageClient, &MessageClient::reply, this, &MainWindow::replyToUDP);
   connect (m_messageClient, &MessageClient::replay, this, &MainWindow::replayDecodes);
+  connect (m_messageClient, &MessageClient::location, this, [this] (QString const& grid) {
+      if (grid.size () >= 4) m_config.set_dynamic_grid (grid);
+    });
   connect (m_messageClient, &MessageClient::halt_tx, [this] (bool enableTx_only) {
       if (m_config.accept_udp_requests ()) {
         if (enableTx_only) { if (ui->enableTxButton->isChecked ()) ui->enableTxButton->click(); }
@@ -851,6 +854,9 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   connect (ui->bandComboBox->lineEdit (), &QLineEdit::textEdited, [this] (QString const&) {m_bandEdited = true; if(m_config.write_decoded_debug()) writeToALLTXT("bandComboBox line edited to " + ui->bandComboBox->lineEdit()->text());});
 
   // hook up configuration signals
+  connect (&m_config, &Configuration::data_files_updated, this, [this] () {
+      m_logInitNeeded = true;   // picked up by killFile(), which rebuilds the logbook
+    });
   connect (&m_config, &Configuration::transceiver_update, this, &MainWindow::handle_transceiver_update);
   connect (&m_config, &Configuration::transceiver_TCIframesWritten, this, &MainWindow::dataSink);
   connect (&m_config, &Configuration::transceiver_TCImodActive, this, &MainWindow::tci_mod_active);

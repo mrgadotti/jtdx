@@ -7336,6 +7336,83 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="data_files_group_box">
+         <property name="title">
+          <string>Data files</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_data_files">
+          <item row="0" column="0">
+           <widget class="QLabel" name="cty_file_label">
+            <property name="text">
+             <string>Country data (cty.dat)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="cty_download_push_button">
+            <property name="toolTip">
+             <string>Download the latest cty.dat country file from country-files.com.</string>
+            </property>
+            <property name="text">
+             <string>Download</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lotw_file_label">
+            <property name="text">
+             <string>LoTW users (lotw-user-activity.csv)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="lotw_download_push_button">
+            <property name="toolTip">
+             <string>Download the latest Logbook of the World user activity list from ARRL.</string>
+            </property>
+            <property name="text">
+             <string>Download</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="call3_file_label">
+            <property name="text">
+             <string>CALL3.TXT</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="call3_download_push_button">
+            <property name="toolTip">
+             <string>Download the latest CALL3.TXT for terrestrial use. The current file is kept as CALL3_backup.TXT.</string>
+            </property>
+            <property name="text">
+             <string>Download</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QPushButton" name="call3_eme_download_push_button">
+            <property name="toolTip">
+             <string>Download the EME version of CALL3.TXT, suitable for JT65 Deep Search.</string>
+            </property>
+            <property name="text">
+             <string>EME version</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="3">
+           <widget class="QLabel" name="download_status_label">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="ntp_vertical_spacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

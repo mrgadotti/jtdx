@@ -180,6 +180,8 @@
 #include "NetworkServerLookup.hpp"
 #include "JTDXMessageBox.hpp"
 #include "Ntp.h"
+#include "NetworkAccessManager.hpp"
+#include "FileDownload.hpp"
 
 #include "pimpl_impl.hpp"
 
@@ -552,6 +554,18 @@ private:
   void start_ntp_sync (QString const& host);
   void restart_ntp_timer ();
 
+  Q_SLOT void on_cty_download_push_button_clicked ();
+  Q_SLOT void on_lotw_download_push_button_clicked ();
+  Q_SLOT void on_call3_download_push_button_clicked ();
+  Q_SLOT void on_call3_eme_download_push_button_clicked ();
+  Q_SLOT void handle_download_complete (QString filename);
+  Q_SLOT void handle_download_progress (QString const& message);
+  Q_SLOT void handle_download_error (QString const& reason);
+
+  void start_download (QString const& kind, QString const& url, QString const& destination);
+  void set_downloads_enabled (bool);
+  void backup_CALL3 ();
+
   // typenames used as arguments must match registered type names :(
   Q_SIGNAL void start_transceiver (unsigned seqeunce_number,JTDXDateTime * jtdxtime) const;
   Q_SIGNAL void set_transceiver (Transceiver::TransceiverState const&,
@@ -574,6 +588,10 @@ private:
   QTimer * ntp_sync_timer_;
   QString ntp_server_;
   int ntp_sync_interval_min_;   // 0 = manual only, else 5/30/60
+
+  NetworkAccessManager * download_manager_;
+  FileDownload * file_download_;
+  QString download_kind_;       // which data file the running download is for
 
   QDir doc_dir_;
   QDir data_dir_;
@@ -637,6 +655,7 @@ private:
   // configuration fields that we publish
   QString my_callsign_;
   QString my_grid_;
+  QString dynamic_grid_;        // set over UDP (Location message), not persisted
   QString timeFrom_;
   QString content_;
   QString countries_;
@@ -925,7 +944,10 @@ bool Configuration::restart_audio_output () const {return m_->restart_sound_outp
 bool Configuration::restart_tci () const {return m_->restart_tci_device_;}
 auto Configuration::type_2_msg_gen () const -> Type2MsgGen {return m_->type_2_msg_gen_;}
 QString Configuration::my_callsign () const {return m_->my_callsign_;}
-QString Configuration::my_grid () const {return m_->my_grid_;}
+// A locator supplied at run time over UDP wins over the configured one, and is
+// deliberately not persisted.
+QString Configuration::my_grid () const {return m_->dynamic_grid_.isEmpty () ? m_->my_grid_ : m_->dynamic_grid_;}
+void Configuration::set_dynamic_grid (QString const& grid) {m_->dynamic_grid_ = grid.trimmed ();}
 QString Configuration::timeFrom () const {return m_->timeFrom_;}
 QString Configuration::content () const {return m_->content_;}
 QString Configuration::countries () const {return m_->countries_;}
@@ -1359,6 +1381,8 @@ Configuration::impl::impl (Configuration * self, QSettings * settings, QWidget *
   , ntp_client_ {new Ntp {this}}
   , ntp_sync_timer_ {new QTimer {this}}
   , ntp_sync_interval_min_ {30}
+  , download_manager_ {new NetworkAccessManager {this}}
+  , file_download_ {new FileDownload {}}
   , doc_dir_ {doc_path ()}
   , data_dir_ {data_path ()}
   , restart_sound_input_device_ {false}
@@ -1392,6 +1416,12 @@ Configuration::impl::impl (Configuration * self, QSettings * settings, QWidget *
     connect (ntp_client_, &Ntp::offsetComputed, this, &Configuration::impl::handle_ntp_offset);
     connect (ntp_client_, &Ntp::error, this, &Configuration::impl::handle_ntp_error);
     connect (ntp_sync_timer_, &QTimer::timeout, this, &Configuration::impl::ntp_timer_fired);
+
+    file_download_->setParent (this);
+    connect (file_download_, &FileDownload::complete, this, &Configuration::impl::handle_download_complete);
+    connect (file_download_, &FileDownload::progress, this, &Configuration::impl::handle_download_progress);
+    connect (file_download_, &FileDownload::error, this, &Configuration::impl::handle_download_error);
+    connect (file_download_, &FileDownload::download_error, this, &Configuration::impl::handle_download_error);
     // Create a temporary directory in a suitable location
     QString temp_location {QStandardPaths::writableLocation (QStandardPaths::TempLocation)};
     if (!temp_location.isEmpty ())
@@ -2945,6 +2975,93 @@ void Configuration::impl::handle_ntp_error (QString const& message)
 {
   ui_->ntp_sync_now_push_button->setEnabled (true);
   ui_->ntp_status_label->setText (message);
+}
+
+namespace
+{
+  // Upstream sources for the shared data files.  cty.dat comes from AD1C's Big
+  // CTY, CALL3.TXT from the WSJT-X improved project, LoTW user activity from ARRL.
+  char const * const cty_url = "http://www.country-files.com/bigcty/cty.dat";
+  char const * const lotw_url = "https://lotw.arrl.org/lotw-user-activity.csv";
+  char const * const call3_url = "https://wsjt-x-improved.sourceforge.io/CALL3.TXT";
+  char const * const call3_eme_url = "https://wsjt-x-improved.sourceforge.io/CALL3_EME.TXT";
+}
+
+void Configuration::impl::set_downloads_enabled (bool enabled)
+{
+  ui_->cty_download_push_button->setEnabled (enabled);
+  ui_->lotw_download_push_button->setEnabled (enabled);
+  ui_->call3_download_push_button->setEnabled (enabled);
+  ui_->call3_eme_download_push_button->setEnabled (enabled);
+}
+
+void Configuration::impl::start_download (QString const& kind, QString const& url, QString const& destination)
+{
+  download_kind_ = kind;
+  set_downloads_enabled (false);
+  ui_->download_status_label->setText (tr ("Downloading %1 ...").arg (kind));
+  file_download_->configure (download_manager_, url, destination
+                             , QString {"JTDX %1 Downloader"}.arg (kind));
+  file_download_->start_download ();
+}
+
+// Keep one generation of history, the way WSJT-X does, so a bad download can be undone.
+void Configuration::impl::backup_CALL3 ()
+{
+  auto const& current = data_dir_.absoluteFilePath ("CALL3.TXT");
+  auto const& backup = data_dir_.absoluteFilePath ("CALL3_backup.TXT");
+  if (QFile::exists (current))
+    {
+      QFile::remove (backup);
+      QFile::rename (current, backup);
+    }
+}
+
+void Configuration::impl::on_cty_download_push_button_clicked ()
+{
+  start_download ("cty.dat", cty_url, data_dir_.absoluteFilePath ("cty.dat"));
+}
+
+void Configuration::impl::on_lotw_download_push_button_clicked ()
+{
+  start_download ("lotw-user-activity.csv", lotw_url
+                  , data_dir_.absoluteFilePath ("lotw-user-activity.csv"));
+}
+
+void Configuration::impl::on_call3_download_push_button_clicked ()
+{
+  backup_CALL3 ();
+  start_download ("CALL3.TXT", call3_url, data_dir_.absoluteFilePath ("CALL3.TXT"));
+}
+
+void Configuration::impl::on_call3_eme_download_push_button_clicked ()
+{
+  backup_CALL3 ();
+  start_download ("CALL3.TXT (EME)", call3_eme_url, data_dir_.absoluteFilePath ("CALL3.TXT"));
+}
+
+void Configuration::impl::handle_download_progress (QString const& message)
+{
+  ui_->download_status_label->setText (QString {"%1: %2"}.arg (download_kind_).arg (message));
+}
+
+void Configuration::impl::handle_download_error (QString const& reason)
+{
+  set_downloads_enabled (true);
+  ui_->download_status_label->setText (tr ("%1 failed: %2").arg (download_kind_).arg (reason));
+}
+
+void Configuration::impl::handle_download_complete (QString filename)
+{
+  set_downloads_enabled (true);
+  QFileInfo const info {filename};
+  ui_->download_status_label->setText (tr ("%1 updated (%2 bytes)")
+                                       .arg (download_kind_).arg (info.size ()));
+  // cty.dat and the LoTW list feed the logbook, so ask for a reload
+  if (download_kind_.startsWith ("cty") || download_kind_.startsWith ("lotw"))
+    {
+      Q_EMIT self_->data_files_updated ();
+    }
 }
 
 void Configuration::impl::set_rig_invariants ()

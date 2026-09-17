@@ -382,7 +382,7 @@ namespace NetworkMessage
       HaltTx,
       FreeText,
       WSPRDecode,
-      reserved11, //WSJT-X Location
+      Location,   //WSJT-X compatible, In, utf8 grid locator
       LoggedADIF,
       reserved13, //WSJT-X HighlightCallsign
       reserved14, //any future WSJT-X messages
