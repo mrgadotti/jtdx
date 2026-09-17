@@ -1020,7 +1020,7 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
       , "-e", QDir::toNativeSeparators (m_appDir)
       , "-a", QDir::toNativeSeparators (m_dataDir.absolutePath ())
       , "-t", QDir::toNativeSeparators (m_config.temp_dir ().absolutePath ())
-      , "-r", QDir::toNativeSeparators (m_config.data_dir ().absolutePath ())
+      , "-r", QDir::toNativeSeparators (m_dataDir.absolutePath ())   // ALLCALL7.TXT lives here
       };
   QProcessEnvironment new_env {m_env};
   new_env.insert  ("OMP_STACKSIZE", "10M");
@@ -1148,9 +1148,14 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   mode_label->setText(m_mode);
   m_lastloggedtime=m_jtdxtime->currentDateTimeUtc2().addSecs(-7*int(m_TRperiod));
   QFile f0 {m_dataDir.absoluteFilePath ("CALL3.TXT")};
-  if(!f0.exists()) { 
+  if(!f0.exists()) {
   QFile f1 {m_config.data_dir ().absoluteFilePath ("CALL3.TXT")};
   f1.copy(m_dataDir.absoluteFilePath ("CALL3.TXT"));
+  }
+  // the decoder is pointed at the writable copy so a downloaded update is picked
+  // up; seed it from the installed one the first time
+  if(!QFile::exists (m_dataDir.absoluteFilePath ("ALLCALL7.TXT"))) {
+    QFile {m_config.data_dir ().absoluteFilePath ("ALLCALL7.TXT")}.copy (m_dataDir.absoluteFilePath ("ALLCALL7.TXT"));
   }
   m_lastDisplayFreq=m_lastMonitoredFrequency;
   m_bMyCallStd=stdCall(m_config.my_callsign ());

@@ -7,6 +7,9 @@
 #include <QFont>
 #include <QTextCursor>
 #include <QTextBlock>
+#include <QSound>
+#include <QDir>
+#include <QFile>
 
 #include "Configuration.hpp"
 #include "qt_helpers.hpp"
@@ -61,6 +64,8 @@ void DisplayText::setConfiguration(Configuration const * config)
   beepOnNewPx_ = config->beepOnNewPx();
   beepOnNewCall_ = config->beepOnNewCall();
   beepOnMyCall_ = config->beepOnMyCall();
+  audioAlerts_ = config->audioAlerts();
+  audioAlertsDir_ = config->audioAlertsDir();
   RR73Marker_ = config->RR73Marker();
   otherMessagesMarker_ = config->otherMessagesMarker();
   enableCountryFilter_ = config->enableCountryFilter();
@@ -96,6 +101,22 @@ void DisplayText::setConfiguration(Configuration const * config)
   countriesList_ = countries_.split(',');
   callsignsList_ = callsigns_.split(',');
   myCall_ = config->my_callsign();   
+}
+
+// Distinct per-category sounds when a directory is configured and holds a
+// matching file, otherwise the previous behaviour: the system bell.
+void DisplayText::playAlert (QString const& category) const
+{
+  if (audioAlerts_ && !category.isEmpty () && !audioAlertsDir_.isEmpty ())
+    {
+      auto const& file = QDir {audioAlertsDir_}.absoluteFilePath (category + ".wav");
+      if (QFile::exists (file))
+        {
+          QSound::play (file);
+          return;
+        }
+    }
+  QApplication::beep ();
 }
 
 void DisplayText::setMyContinent(QString const& mycontinet)
@@ -239,6 +260,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
     bool strikethrough = false;
     bool underlined = false;
     bool beep = false;
+    QString alertCategory;      // which notification fired, selects the sound file
     bool actwind = false;
     bool show_line = true;
     bool jt65bc = false;
@@ -344,6 +366,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                 actwind = true;
                 if (beepOnMyCall_) {
                     beep = true;
+                    alertCategory = "MyCall";
                 }
                 decodedText->deCallAndGrid(checkCall, grid);
                 if (!grid.isEmpty () || (!checkCall.isEmpty () && parts.length() == 2)) {
@@ -571,6 +594,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewCQZ_) {
                             beep = true;
+                            alertCategory = "CQZone";
                         }
                     }
                     else if (otherMessagesMarker_) {
@@ -590,6 +614,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewCQZ_) {
                             beep = true;
+                            alertCategory = "CQZone";
                         }
                     }
                     else if (otherMessagesMarker_) {
@@ -609,6 +634,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewITUZ_) {
                             beep = true;
+                            alertCategory = "ITUZone";
                         }
                     }
                     else if (otherMessagesMarker_) {
@@ -628,6 +654,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewITUZ_) {
                             beep = true;
+                            alertCategory = "ITUZone";
                         }
                     }
                     else if (otherMessagesMarker_) {
@@ -647,6 +674,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewDXCC_) {
                             beep = true;
+                            alertCategory = "DXCC";
                         }
                     }
                     else if (otherMessagesMarker_) {
@@ -666,6 +694,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewDXCC_) {
                             beep = true;
+                            alertCategory = "DXCC";
                         }
                     }
                     else if (otherMessagesMarker_) {
@@ -685,6 +714,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewGrid_) {
                             beep = true;
+                            alertCategory = "Grid";
                         }
                     }
                     else  if (otherMessagesMarker_) {
@@ -704,6 +734,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewGrid_) {
                             beep = true;
+                            alertCategory = "Grid";
                         }
                     }
                     else if (otherMessagesMarker_) {
@@ -723,6 +754,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewPx_) {
                             beep = true;
+                            alertCategory = "Prefix";
                         }
                     }
                     else  if (otherMessagesMarker_) {
@@ -742,6 +774,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewPx_) {
                             beep = true;
+                            alertCategory = "Prefix";
                         }
                     }
                     else  if (otherMessagesMarker_) {
@@ -761,6 +794,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewCall_) {
                             beep = true;
+                            alertCategory = "NewCall";
                         }
                     }
                     else  if (otherMessagesMarker_) {
@@ -780,6 +814,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
                         actwind = true;
                         if (beepOnNewCall_) {
                             beep = true;
+                            alertCategory = "NewCall";
                         }
                     }
                     else  if (otherMessagesMarker_) {
@@ -824,6 +859,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
         if (bwantedCall && priority < 5) {
             priority = 4;
             beep = true;
+            alertCategory = "Wanted";
         } else if ((bwantedPrefix || bwantedGrid) && priority < 5) {
             priority = 3;
 //            beep = true;
@@ -833,12 +869,15 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
         } else if (bwantedCall && priority < 20) {
             priority = 19;
             beep = true;
+            alertCategory = "Wanted";
         } else if ((bwantedPrefix || bwantedGrid) && priority < 20) {
             priority = 18;
             beep = true;
+            alertCategory = "Wanted";
         } else if (bwantedCountry && priority < 20) {
             priority = 17;
             beep = true;
+            alertCategory = "Wanted";
         }
          
             
@@ -915,7 +954,7 @@ int DisplayText::displayDecodedText(DecodedText* decodedText, QString const& myC
 			}
 		}
         if (beep && !once_notified) {
-            QApplication::beep();
+            playAlert (alertCategory);
 			notified = true;
         }
     }

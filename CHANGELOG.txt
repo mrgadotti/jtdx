@@ -4,7 +4,7 @@ JTDX Changelog
 v4.0.2
 ------
 
-New features (ported from WSJT-X)
+New features
   - Settings > Sync has a new "Data files" section that downloads the
     shared data files instead of relying on whatever shipped with the
     package: cty.dat (country-files.com), the Logbook of the World user
@@ -12,16 +12,37 @@ New features (ported from WSJT-X)
     variants.  The previous CALL3.TXT is kept as CALL3_backup.TXT.
     After cty.dat or the LoTW list is updated the logbook is rebuilt
     automatically, so new entities and LoTW membership take effect
-    without a restart.
+    without a restart.  The first three are ported from WSJT-X.
+  - The same section can also update ALLCALL7.TXT, the callsign database
+    the decoder uses to reject false FT8/FT4 decodes.  It is published
+    as a dated archive rather than under a fixed name, so JTDX reads the
+    project file feed, picks the newest ALLCALL7_<date>_rc<n>.zip and
+    unpacks it.  The copy bundled with this release dates from 2022 and
+    holds about 72000 callsigns; the current one holds nearly 100000.
+    A decoder restart is needed for a new file to take effect.
+  - Notification sounds: the per-event notifications on the
+    Notifications tab could only ring the system bell, which on many
+    Linux desktops is silent.  They can now play a distinct .wav from a
+    chosen folder for each event - MyCall, DXCC, Grid, CQZone, ITUZone,
+    Prefix, NewCall and Wanted.  Any file that is absent falls back to
+    the system bell, so an empty folder behaves exactly as before.
   - UDP "Location" message (type 11) is now implemented; it was
     previously a reserved slot.  A locator sent by an external
     application overrides the configured grid for the running session
     and is not written to the settings.
 
+Bug fixes
+  - The decoder was pointed at the installed, read-only data directory
+    for ALLCALL7.TXT, so an updated file could never be picked up. It
+    now reads the writable per-user copy, seeded from the installed one
+    on first run.
+
 Internals
   - New NetworkAccessManager (SSL error handling shared across network
     users) and FileDownload (redirect-following download to a file),
-    both ported from WSJT-X.
+    both ported from WSJT-X, plus a small read-only ZIP reader built on
+    zlib for the callsign database archive.  zlib is now a build
+    dependency.
 
 
 v4.0.1

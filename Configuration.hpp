@@ -220,6 +220,8 @@ public:
   bool split_mode () const;
   bool decode_at_52s () const;
   bool beepOnMyCall () const;
+  bool audioAlerts () const;
+  QString audioAlertsDir () const;
   bool beepOnNewCQZ () const;
   bool beepOnNewITUZ () const;
   bool beepOnNewDXCC () const;

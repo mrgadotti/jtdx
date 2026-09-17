@@ -78,6 +78,10 @@ private:
     bool beepOnNewPx_;
     bool beepOnNewCall_;
     bool beepOnMyCall_;
+    bool audioAlerts_;
+    QString audioAlertsDir_;
+    // plays <audioAlertsDir_>/<category>.wav, falling back to the system bell
+    void playAlert (QString const& category) const;
     bool RR73Marker_;
     bool otherMessagesMarker_;
     bool enableCountryFilter_;

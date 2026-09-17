@@ -182,6 +182,7 @@
 #include "Ntp.h"
 #include "NetworkAccessManager.hpp"
 #include "FileDownload.hpp"
+#include "ZipExtract.hpp"
 
 #include "pimpl_impl.hpp"
 
@@ -554,7 +555,9 @@ private:
   void start_ntp_sync (QString const& host);
   void restart_ntp_timer ();
 
+  Q_SLOT void on_audio_alerts_browse_push_button_clicked ();
   Q_SLOT void on_cty_download_push_button_clicked ();
+  Q_SLOT void on_allcall7_download_push_button_clicked ();
   Q_SLOT void on_lotw_download_push_button_clicked ();
   Q_SLOT void on_call3_download_push_button_clicked ();
   Q_SLOT void on_call3_eme_download_push_button_clicked ();
@@ -563,6 +566,9 @@ private:
   Q_SLOT void handle_download_error (QString const& reason);
 
   void start_download (QString const& kind, QString const& url, QString const& destination);
+  QDir writable_data_dir () const;
+  void allcall7_index_ready (QString const& index_file);
+  void allcall7_archive_ready (QString const& zip_file);
   void set_downloads_enabled (bool);
   void backup_CALL3 ();
 
@@ -878,6 +884,8 @@ private:
   bool hide_TX_messages_;
   bool decode_at_52s_;
   bool beepOnMyCall_;
+  bool audioAlerts_;
+  QString audioAlertsDir_;
   bool beepOnNewCQZ_;
   bool beepOnNewITUZ_;
   bool beepOnNewDXCC_;
@@ -1105,6 +1113,8 @@ bool Configuration::TX_messages () const {return m_->TX_messages_;}
 bool Configuration::hide_TX_messages () const {return m_->hide_TX_messages_;}
 bool Configuration::decode_at_52s () const {return m_->decode_at_52s_;}
 bool Configuration::beepOnMyCall () const {return m_->beepOnMyCall_;}
+bool Configuration::audioAlerts () const {return m_->audioAlerts_;}
+QString Configuration::audioAlertsDir () const {return m_->audioAlertsDir_;}
 bool Configuration::beepOnNewCQZ () const {return m_->beepOnNewCQZ_;}
 bool Configuration::beepOnNewITUZ () const {return m_->beepOnNewITUZ_;}
 bool Configuration::beepOnNewDXCC () const {return m_->beepOnNewDXCC_;}
@@ -2141,6 +2151,8 @@ Radio::convert_dark("#fafbfe",useDarkStyle_),Radio::convert_dark("#dcdef1",useDa
   ui_->hide_TX_messages_check_box->setChecked (hide_TX_messages_);
   ui_->decode_at_52s_check_box->setChecked(decode_at_52s_);
   ui_->beep_on_my_call_check_box->setChecked(beepOnMyCall_);
+  ui_->audio_alerts_check_box->setChecked(audioAlerts_);
+  ui_->audio_alerts_dir_line_edit->setText(audioAlertsDir_);
   ui_->beep_on_newCQZ_check_box->setChecked(beepOnNewCQZ_ && newCQZ_);
   ui_->beep_on_newITUZ_check_box->setChecked(beepOnNewITUZ_ && newITUZ_);
   ui_->beep_on_newDXCC_check_box->setChecked(beepOnNewDXCC_ && newDXCC_);
@@ -2616,6 +2628,8 @@ void Configuration::impl::read_settings ()
   hide_TX_messages_ = settings_->value ("HideTxMessages", true).toBool ();
   decode_at_52s_ = settings_->value("Decode52",false).toBool ();
   beepOnMyCall_ = settings_->value("BeepOnMyCall", false).toBool();
+  audioAlerts_ = settings_->value("AudioAlerts", false).toBool();
+  audioAlertsDir_ = settings_->value("AudioAlertsDir", "").toString();
   beepOnNewCQZ_ = settings_->value("BeepOnNewCQZ", false).toBool();
   beepOnNewITUZ_ = settings_->value("BeepOnNewITUZ", false).toBool();
   beepOnNewDXCC_ = settings_->value("BeepOnNewDXCC", false).toBool();
@@ -2898,6 +2912,8 @@ void Configuration::impl::write_settings ()
   settings_->setValue ("SplitMode", QVariant::fromValue (rig_params_.split_mode));
   settings_->setValue ("Decode52", decode_at_52s_);
   settings_->setValue ("BeepOnMyCall", beepOnMyCall_);
+  settings_->setValue ("AudioAlerts", audioAlerts_);
+  settings_->setValue ("AudioAlertsDir", audioAlertsDir_);
   settings_->setValue ("BeepOnNewCQZ", beepOnNewCQZ_);
   settings_->setValue ("BeepOnNewITUZ", beepOnNewITUZ_);
   settings_->setValue ("BeepOnNewDXCC", beepOnNewDXCC_);
@@ -2985,6 +3001,11 @@ namespace
   char const * const lotw_url = "https://lotw.arrl.org/lotw-user-activity.csv";
   char const * const call3_url = "https://wsjt-x-improved.sourceforge.io/CALL3.TXT";
   char const * const call3_eme_url = "https://wsjt-x-improved.sourceforge.io/CALL3_EME.TXT";
+  // ALLCALL7 is published as a dated zip, so the current name has to be
+  // discovered from the project feed before anything can be fetched.
+  char const * const allcall7_feed_url = "https://sourceforge.net/projects/jtdx/rss?path=/";
+  char const * const allcall7_index_kind = "ALLCALL7 index";
+  char const * const allcall7_archive_kind = "ALLCALL7.TXT";
 }
 
 void Configuration::impl::set_downloads_enabled (bool enabled)
@@ -2993,6 +3014,17 @@ void Configuration::impl::set_downloads_enabled (bool enabled)
   ui_->lotw_download_push_button->setEnabled (enabled);
   ui_->call3_download_push_button->setEnabled (enabled);
   ui_->call3_eme_download_push_button->setEnabled (enabled);
+  ui_->allcall7_download_push_button->setEnabled (enabled);
+}
+
+// The installed data directory is read-only for a normal user; LogBook::init and
+// MainWindow both treat a copy in the writable data location as a user override,
+// so downloads have to land there.
+QDir Configuration::impl::writable_data_dir () const
+{
+  QDir d {QStandardPaths::writableLocation (QStandardPaths::DataLocation)};
+  d.mkpath (d.absolutePath ());
+  return d;
 }
 
 void Configuration::impl::start_download (QString const& kind, QString const& url, QString const& destination)
@@ -3008,8 +3040,8 @@ void Configuration::impl::start_download (QString const& kind, QString const& ur
 // Keep one generation of history, the way WSJT-X does, so a bad download can be undone.
 void Configuration::impl::backup_CALL3 ()
 {
-  auto const& current = data_dir_.absoluteFilePath ("CALL3.TXT");
-  auto const& backup = data_dir_.absoluteFilePath ("CALL3_backup.TXT");
+  auto const& current = writable_data_dir ().absoluteFilePath ("CALL3.TXT");
+  auto const& backup = writable_data_dir ().absoluteFilePath ("CALL3_backup.TXT");
   if (QFile::exists (current))
     {
       QFile::remove (backup);
@@ -3017,27 +3049,87 @@ void Configuration::impl::backup_CALL3 ()
     }
 }
 
+void Configuration::impl::on_audio_alerts_browse_push_button_clicked ()
+{
+  auto const& dir = QFileDialog::getExistingDirectory (this, tr ("Notification sound files")
+                                                       , ui_->audio_alerts_dir_line_edit->text ());
+  if (!dir.isEmpty ())
+    {
+      ui_->audio_alerts_dir_line_edit->setText (dir);
+    }
+}
+
 void Configuration::impl::on_cty_download_push_button_clicked ()
 {
-  start_download ("cty.dat", cty_url, data_dir_.absoluteFilePath ("cty.dat"));
+  start_download ("cty.dat", cty_url, writable_data_dir ().absoluteFilePath ("cty.dat"));
 }
 
 void Configuration::impl::on_lotw_download_push_button_clicked ()
 {
   start_download ("lotw-user-activity.csv", lotw_url
-                  , data_dir_.absoluteFilePath ("lotw-user-activity.csv"));
+                  , writable_data_dir ().absoluteFilePath ("lotw-user-activity.csv"));
 }
 
 void Configuration::impl::on_call3_download_push_button_clicked ()
 {
   backup_CALL3 ();
-  start_download ("CALL3.TXT", call3_url, data_dir_.absoluteFilePath ("CALL3.TXT"));
+  start_download ("CALL3.TXT", call3_url, writable_data_dir ().absoluteFilePath ("CALL3.TXT"));
 }
 
 void Configuration::impl::on_call3_eme_download_push_button_clicked ()
 {
   backup_CALL3 ();
-  start_download ("CALL3.TXT (EME)", call3_eme_url, data_dir_.absoluteFilePath ("CALL3.TXT"));
+  start_download ("CALL3.TXT (EME)", call3_eme_url, writable_data_dir ().absoluteFilePath ("CALL3.TXT"));
+}
+
+void Configuration::impl::on_allcall7_download_push_button_clicked ()
+{
+  start_download (allcall7_index_kind, allcall7_feed_url
+                  , QDir::temp ().absoluteFilePath ("jtdx_allcall7_index.xml"));
+}
+
+// Stage one: pick the newest ALLCALL7_<date>_rc<n>.zip out of the project feed.
+void Configuration::impl::allcall7_index_ready (QString const& index_file)
+{
+  QFile f {index_file};
+  if (!f.open (QIODevice::ReadOnly))
+    {
+      handle_download_error (tr ("cannot read the downloaded file list"));
+      return;
+    }
+  auto const feed = QString::fromUtf8 (f.readAll ());
+  f.close ();
+  QFile::remove (index_file);
+
+  // entries are newest first, so the first match wins
+  QRegularExpression const re {R"((https://sourceforge\.net/projects/jtdx/files/ALLCALL7_[^<\s]*?\.zip/download))"};
+  auto const match = re.match (feed);
+  if (!match.hasMatch ())
+    {
+      handle_download_error (tr ("no ALLCALL7 archive found in the project feed"));
+      return;
+    }
+  start_download (allcall7_archive_kind, match.captured (1)
+                  , QDir::temp ().absoluteFilePath ("jtdx_allcall7.zip"));
+}
+
+// Stage two: pull ALLCALL7.TXT out of the archive into the writable data directory.
+void Configuration::impl::allcall7_archive_ready (QString const& zip_file)
+{
+  auto const& target = writable_data_dir ().absoluteFilePath ("ALLCALL7.TXT");
+  QString why;
+  if (extract_from_zip (zip_file, "ALLCALL7.TXT", target, &why))
+    {
+      QFileInfo const info {target};
+      ui_->download_status_label->setText (tr ("ALLCALL7.TXT updated (%1 bytes), restart to use it")
+                                           .arg (info.size ()));
+    }
+  else
+    {
+      ui_->download_status_label->setText (tr ("ALLCALL7.TXT failed: %1").arg (why));
+    }
+  QFile::remove (zip_file);
+  set_downloads_enabled (true);
 }
 
 void Configuration::impl::handle_download_progress (QString const& message)
@@ -3053,6 +3145,16 @@ void Configuration::impl::handle_download_error (QString const& reason)
 
 void Configuration::impl::handle_download_complete (QString filename)
 {
+  if (download_kind_ == allcall7_index_kind)
+    {
+      allcall7_index_ready (filename);
+      return;
+    }
+  if (download_kind_ == allcall7_archive_kind)
+    {
+      allcall7_archive_ready (filename);
+      return;
+    }
   set_downloads_enabled (true);
   QFileInfo const info {filename};
   ui_->download_status_label->setText (tr ("%1 updated (%2 bytes)")
@@ -3640,6 +3742,8 @@ void Configuration::impl::accept ()
   save_directory_.setPath (ui_->save_path_display_label->text ());
   decode_at_52s_ = ui_->decode_at_52s_check_box->isChecked ();
   beepOnMyCall_ = ui_->beep_on_my_call_check_box->isChecked();
+  audioAlerts_ = ui_->audio_alerts_check_box->isChecked();
+  audioAlertsDir_ = ui_->audio_alerts_dir_line_edit->text();
   beepOnNewCQZ_ = ui_->beep_on_newCQZ_check_box->isChecked();
   beepOnNewITUZ_ = ui_->beep_on_newITUZ_check_box->isChecked();
   beepOnNewDXCC_ = ui_->beep_on_newDXCC_check_box->isChecked();

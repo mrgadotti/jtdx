@@ -174,6 +174,7 @@ set (wsjt_qt_CXXSRCS
   NetworkServerLookup.cpp
   NetworkAccessManager.cpp
   FileDownload.cpp
+  ZipExtract.cpp
   revision_utils.cpp
   WFPalette.cpp
   Radio.cpp
@@ -756,6 +757,11 @@ check_symbol_exists (rig_set_cache_timeout_ms "hamlib/rig.h" HAVE_HAMLIB_CACHING
 
 find_package (Usb REQUIRED)
 
+#
+# zlib, used to unpack the callsign database archive
+#
+find_package (ZLIB REQUIRED)
+
 
 #
 # Qt5 setup
@@ -1095,7 +1101,7 @@ endif (${OPENMP_FOUND} OR APPLE)
 add_library (wsjt_qt STATIC ${wsjt_qt_CXXSRCS} ${wsjt_qt_GENUISRCS} ${GENAXSRCS})
 # set wsjtx_udp exports to static variants
 target_compile_definitions (wsjt_qt PUBLIC UDP_STATIC_DEFINE)
-target_link_libraries (wsjt_qt Hamlib::Hamlib Qt5::Widgets Qt5::Network Qt5::WebSockets)
+target_link_libraries (wsjt_qt Hamlib::Hamlib Qt5::Widgets Qt5::Network Qt5::WebSockets ZLIB::ZLIB)
 #target_include_directories (wsjt_qt BEFORE PRIVATE ${hamlib_INCLUDE_DIRS})
 if (WIN32)
   target_link_libraries (wsjt_qt Qt5::AxContainer Qt5::AxBase)
