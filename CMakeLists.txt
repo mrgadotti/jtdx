@@ -1572,6 +1572,10 @@ if (NOT is_debug_build)
     #list (APPEND fixup_library_dirs ${hamlib_lib_dir})
     #list (APPEND fixup_library_dirs ${hamlib_LIBRARY_DIRS})
 
+    # fixup_bundle resolves prerequisites with the host objdump, which cannot
+    # follow Windows system DLLs; a cross-build assembles its own DLL closure
+    # (see cross/win64/build.sh) so skip it there
+    if (NOT CMAKE_CROSSCOMPILING)
     install (CODE "
         get_filename_component (the_path \"\$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/${WSJT_PLUGIN_DESTINATION}\" REALPATH)
         file (GLOB_RECURSE QTPLUGINS \"\${the_path}/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
@@ -1584,6 +1588,7 @@ if (NOT is_debug_build)
         fixup_bundle (\"\${the_exe}\" \"\${QTPLUGINS}\" \"${fixup_library_dirs}\")"
       #COMPONENT runtime
       )
+    endif (NOT CMAKE_CROSSCOMPILING)
   endif (APPLE OR WIN32)
 
 endif (NOT is_debug_build)
