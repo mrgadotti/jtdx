@@ -1351,6 +1351,12 @@ install (FILES
   #COMPONENT runtime
   )
 
+# notification sounds, named after the events in displaytext.cpp
+install (DIRECTORY sounds
+  DESTINATION ${CMAKE_INSTALL_DATADIR}/${CMAKE_PROJECT_NAME}
+  FILES_MATCHING PATTERN "*.wav" PATTERN "README"
+  )
+
 #
 # Mac installer files
 #

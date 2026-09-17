@@ -2629,7 +2629,8 @@ void Configuration::impl::read_settings ()
   decode_at_52s_ = settings_->value("Decode52",false).toBool ();
   beepOnMyCall_ = settings_->value("BeepOnMyCall", false).toBool();
   audioAlerts_ = settings_->value("AudioAlerts", false).toBool();
-  audioAlertsDir_ = settings_->value("AudioAlertsDir", "").toString();
+  // default to the sounds shipped with the package, so ticking the box is enough
+  audioAlertsDir_ = settings_->value("AudioAlertsDir", data_dir_.absoluteFilePath ("sounds")).toString();
   beepOnNewCQZ_ = settings_->value("BeepOnNewCQZ", false).toBool();
   beepOnNewITUZ_ = settings_->value("BeepOnNewITUZ", false).toBool();
   beepOnNewDXCC_ = settings_->value("BeepOnNewDXCC", false).toBool();
