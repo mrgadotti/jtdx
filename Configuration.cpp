@@ -179,8 +179,13 @@
 #include "StationList.hpp"
 #include "NetworkServerLookup.hpp"
 #include "JTDXMessageBox.hpp"
+#include "Ntp.h"
+#include "NetworkAccessManager.hpp"
+#include "FileDownload.hpp"
+#include "ZipExtract.hpp"
 
 #include "pimpl_impl.hpp"
+#include "uilimits.h"   // CE3TSK: the .ui size limits against the current font
 
 #include "ui_Configuration.h"
 #include "moc_Configuration.cpp"
@@ -543,6 +548,31 @@ private:
   Q_SLOT void on_bandComboBox_4_currentTextChanged (QString const&);
   Q_SLOT void on_bandComboBox_5_currentTextChanged (QString const&);
 
+  Q_SLOT void on_ntp_sync_now_push_button_clicked ();
+  Q_SLOT void handle_ntp_offset (double offsetSeconds, double roundTripSeconds);
+  Q_SLOT void handle_ntp_error (QString const& message);
+  Q_SLOT void ntp_timer_fired ();
+
+  void start_ntp_sync (QString const& host);
+  void restart_ntp_timer ();
+
+  Q_SLOT void on_audio_alerts_browse_push_button_clicked ();
+  Q_SLOT void on_cty_download_push_button_clicked ();
+  Q_SLOT void on_allcall7_download_push_button_clicked ();
+  Q_SLOT void on_lotw_download_push_button_clicked ();
+  Q_SLOT void on_call3_download_push_button_clicked ();
+  Q_SLOT void on_call3_eme_download_push_button_clicked ();
+  Q_SLOT void handle_download_complete (QString filename);
+  Q_SLOT void handle_download_progress (QString const& message);
+  Q_SLOT void handle_download_error (QString const& reason);
+
+  void start_download (QString const& kind, QString const& url, QString const& destination);
+  QDir writable_data_dir () const;
+  void allcall7_index_ready (QString const& index_file);
+  void allcall7_archive_ready (QString const& zip_file);
+  void set_downloads_enabled (bool);
+  void backup_CALL3 ();
+
   // typenames used as arguments must match registered type names :(
   Q_SIGNAL void start_transceiver (unsigned seqeunce_number,JTDXDateTime * jtdxtime) const;
   Q_SIGNAL void set_transceiver (Transceiver::TransceiverState const&,
@@ -560,7 +590,16 @@ private:
   QSettings * settings_;
 
   JTDXDateTime * jtdxtime_;
-  
+
+  Ntp * ntp_client_;
+  QTimer * ntp_sync_timer_;
+  QString ntp_server_;
+  int ntp_sync_interval_min_;   // 0 = manual only, else 5/30/60
+
+  NetworkAccessManager * download_manager_;
+  FileDownload * file_download_;
+  QString download_kind_;       // which data file the running download is for
+
   QDir doc_dir_;
   QDir data_dir_;
   QDir temp_dir_;
@@ -623,6 +662,7 @@ private:
   // configuration fields that we publish
   QString my_callsign_;
   QString my_grid_;
+  QString dynamic_grid_;        // set over UDP (Location message), not persisted
   QString timeFrom_;
   QString content_;
   QString countries_;
@@ -845,6 +885,9 @@ private:
   bool hide_TX_messages_;
   bool decode_at_52s_;
   bool beepOnMyCall_;
+  SpecialOperatingActivity special_op_id_;   /* CE3TSK */
+  bool audioAlerts_;
+  QString audioAlertsDir_;
   bool beepOnNewCQZ_;
   bool beepOnNewITUZ_;
   bool beepOnNewDXCC_;
@@ -911,7 +954,10 @@ bool Configuration::restart_audio_output () const {return m_->restart_sound_outp
 bool Configuration::restart_tci () const {return m_->restart_tci_device_;}
 auto Configuration::type_2_msg_gen () const -> Type2MsgGen {return m_->type_2_msg_gen_;}
 QString Configuration::my_callsign () const {return m_->my_callsign_;}
-QString Configuration::my_grid () const {return m_->my_grid_;}
+// A locator supplied at run time over UDP wins over the configured one, and is
+// deliberately not persisted.
+QString Configuration::my_grid () const {return m_->dynamic_grid_.isEmpty () ? m_->my_grid_ : m_->dynamic_grid_;}
+void Configuration::set_dynamic_grid (QString const& grid) {m_->dynamic_grid_ = grid.trimmed ();}
 QString Configuration::timeFrom () const {return m_->timeFrom_;}
 QString Configuration::content () const {return m_->content_;}
 QString Configuration::countries () const {return m_->countries_;}
@@ -1069,6 +1115,10 @@ bool Configuration::TX_messages () const {return m_->TX_messages_;}
 bool Configuration::hide_TX_messages () const {return m_->hide_TX_messages_;}
 bool Configuration::decode_at_52s () const {return m_->decode_at_52s_;}
 bool Configuration::beepOnMyCall () const {return m_->beepOnMyCall_;}
+auto Configuration::special_op_id () const -> SpecialOperatingActivity {return m_->special_op_id_;}
+bool Configuration::wwDigi () const {return m_->special_op_id_ == SpecialOperatingActivity::WW_DIGI;}
+bool Configuration::audioAlerts () const {return m_->audioAlerts_;}
+QString Configuration::audioAlertsDir () const {return m_->audioAlertsDir_;}
 bool Configuration::beepOnNewCQZ () const {return m_->beepOnNewCQZ_;}
 bool Configuration::beepOnNewITUZ () const {return m_->beepOnNewITUZ_;}
 bool Configuration::beepOnNewDXCC () const {return m_->beepOnNewDXCC_;}
@@ -1342,6 +1392,11 @@ Configuration::impl::impl (Configuration * self, QSettings * settings, QWidget *
   , self_ {self}
   , ui_ {new Ui::configuration_dialog}
   , settings_ {settings}
+  , ntp_client_ {new Ntp {this}}
+  , ntp_sync_timer_ {new QTimer {this}}
+  , ntp_sync_interval_min_ {30}
+  , download_manager_ {new NetworkAccessManager {this}}
+  , file_download_ {new FileDownload {}}
   , doc_dir_ {doc_path ()}
   , data_dir_ {data_path ()}
   , restart_sound_input_device_ {false}
@@ -1371,6 +1426,16 @@ Configuration::impl::impl (Configuration * self, QSettings * settings, QWidget *
   {
     ui_->configuration_dialog_button_box->button(QDialogButtonBox::Ok)->setText(tr("&OK"));
     ui_->configuration_dialog_button_box->button(QDialogButtonBox::Cancel)->setText(tr("&Cancel"));
+
+    connect (ntp_client_, &Ntp::offsetComputed, this, &Configuration::impl::handle_ntp_offset);
+    connect (ntp_client_, &Ntp::error, this, &Configuration::impl::handle_ntp_error);
+    connect (ntp_sync_timer_, &QTimer::timeout, this, &Configuration::impl::ntp_timer_fired);
+
+    file_download_->setParent (this);
+    connect (file_download_, &FileDownload::complete, this, &Configuration::impl::handle_download_complete);
+    connect (file_download_, &FileDownload::progress, this, &Configuration::impl::handle_download_progress);
+    connect (file_download_, &FileDownload::error, this, &Configuration::impl::handle_download_error);
+    connect (file_download_, &FileDownload::download_error, this, &Configuration::impl::handle_download_error);
     // Create a temporary directory in a suitable location
     QString temp_location {QStandardPaths::writableLocation (QStandardPaths::TempLocation)};
     if (!temp_location.isEmpty ())
@@ -2031,6 +2096,15 @@ Radio::convert_dark("#fafbfe",useDarkStyle_),Radio::convert_dark("#dcdef1",useDa
   ui_->autolog_check_box->setChecked (autolog_);
   ui_->insert_blank_check_box->setChecked (insert_blank_);
   ui_->useDarkStyle_check_box->setChecked (useDarkStyle_);
+  ui_->ntp_server_line_edit->setText (ntp_server_);
+  {
+    int idx = 0;
+    if (ntp_sync_interval_min_ == 5) idx = 1;
+    else if (ntp_sync_interval_min_ == 30) idx = 2;
+    else if (ntp_sync_interval_min_ == 60) idx = 3;
+    ui_->ntp_sync_interval_combo_box->setCurrentIndex (idx);
+  }
+  restart_ntp_timer ();
   ui_->countryName_check_box->setChecked (countryName_);
   ui_->countryPrefix_check_box->setChecked (countryName_ && countryPrefix_);
   ui_->callNotif_check_box->setChecked (callNotif_);
@@ -2081,6 +2155,9 @@ Radio::convert_dark("#fafbfe",useDarkStyle_),Radio::convert_dark("#dcdef1",useDa
   ui_->hide_TX_messages_check_box->setChecked (hide_TX_messages_);
   ui_->decode_at_52s_check_box->setChecked(decode_at_52s_);
   ui_->beep_on_my_call_check_box->setChecked(beepOnMyCall_);
+  ui_->special_op_combo_box->setCurrentIndex (static_cast<int> (special_op_id_) ? 1 : 0);   /* CE3TSK */
+  ui_->audio_alerts_check_box->setChecked(audioAlerts_);
+  ui_->audio_alerts_dir_line_edit->setText(audioAlertsDir_);
   ui_->beep_on_newCQZ_check_box->setChecked(beepOnNewCQZ_ && newCQZ_);
   ui_->beep_on_newITUZ_check_box->setChecked(beepOnNewITUZ_ && newITUZ_);
   ui_->beep_on_newDXCC_check_box->setChecked(beepOnNewDXCC_ && newDXCC_);
@@ -2556,6 +2633,16 @@ void Configuration::impl::read_settings ()
   hide_TX_messages_ = settings_->value ("HideTxMessages", true).toBool ();
   decode_at_52s_ = settings_->value("Decode52",false).toBool ();
   beepOnMyCall_ = settings_->value("BeepOnMyCall", false).toBool();
+  /* CE3TSK: stored by the WSJT-X number so the value survives a future addition; anything
+     this build does not offer comes back as NONE rather than a mode it cannot operate. */
+  {
+    auto const stored = settings_->value ("SpecialOpActivity", 0).toInt ();
+    special_op_id_ = (stored == static_cast<int> (SpecialOperatingActivity::WW_DIGI))
+      ? SpecialOperatingActivity::WW_DIGI : SpecialOperatingActivity::NONE;
+  }
+  audioAlerts_ = settings_->value("AudioAlerts", false).toBool();
+  // default to the sounds shipped with the package, so ticking the box is enough
+  audioAlertsDir_ = settings_->value("AudioAlertsDir", data_dir_.absoluteFilePath ("sounds")).toString();
   beepOnNewCQZ_ = settings_->value("BeepOnNewCQZ", false).toBool();
   beepOnNewITUZ_ = settings_->value("BeepOnNewITUZ", false).toBool();
   beepOnNewDXCC_ = settings_->value("BeepOnNewDXCC", false).toBool();
@@ -2597,6 +2684,15 @@ void Configuration::impl::read_settings ()
   if(settings_->value ("pwrBandTuneMemory").toString()=="false" || settings_->value ("pwrBandTuneMemory").toString()=="true")
     pwrBandTuneMemory_ = settings_->value("pwrBandTuneMemory").toBool ();
   else pwrBandTuneMemory_ = false;
+
+  ntp_server_ = settings_->value ("NTPServer", "pool.ntp.org").toString ();
+  if (ntp_server_.trimmed ().isEmpty ()) ntp_server_ = "pool.ntp.org";
+  ntp_sync_interval_min_ = settings_->value ("NTPSyncIntervalMinutes", 30).toInt ();
+  if (ntp_sync_interval_min_ != 0 && ntp_sync_interval_min_ != 5
+      && ntp_sync_interval_min_ != 30 && ntp_sync_interval_min_ != 60)
+    {
+      ntp_sync_interval_min_ = 30;
+    }
 }
 
 void Configuration::add_callsign_hideFilter (QString basecall)
@@ -2829,6 +2925,9 @@ void Configuration::impl::write_settings ()
   settings_->setValue ("SplitMode", QVariant::fromValue (rig_params_.split_mode));
   settings_->setValue ("Decode52", decode_at_52s_);
   settings_->setValue ("BeepOnMyCall", beepOnMyCall_);
+  settings_->setValue ("SpecialOpActivity", static_cast<int> (special_op_id_));   /* CE3TSK */
+  settings_->setValue ("AudioAlerts", audioAlerts_);
+  settings_->setValue ("AudioAlertsDir", audioAlertsDir_);
   settings_->setValue ("BeepOnNewCQZ", beepOnNewCQZ_);
   settings_->setValue ("BeepOnNewITUZ", beepOnNewITUZ_);
   settings_->setValue ("BeepOnNewDXCC", beepOnNewDXCC_);
@@ -2854,7 +2953,231 @@ void Configuration::impl::write_settings ()
   settings_->setValue ("CalibrationSlopePPM", frequency_calibration_slope_ppm_);
   settings_->setValue ("pwrBandTxMemory", pwrBandTxMemory_);
   settings_->setValue ("pwrBandTuneMemory", pwrBandTuneMemory_);
-  settings_->setValue ("Region", QVariant::fromValue (region_));  
+  settings_->setValue ("Region", QVariant::fromValue (region_));
+  settings_->setValue ("NTPServer", ntp_server_);
+  settings_->setValue ("NTPSyncIntervalMinutes", ntp_sync_interval_min_);
+}
+
+void Configuration::impl::start_ntp_sync (QString const& host)
+{
+  if (host.isEmpty () || ntp_client_->isBusy ())
+    {
+      return;
+    }
+  ui_->ntp_status_label->setText (tr ("Synchronizing with %1 ...").arg (host));
+  ui_->ntp_sync_now_push_button->setEnabled (false);
+  ntp_client_->query (host);
+}
+
+void Configuration::impl::restart_ntp_timer ()
+{
+  ntp_sync_timer_->stop ();
+  if (ntp_sync_interval_min_ > 0)
+    {
+      ntp_sync_timer_->start (ntp_sync_interval_min_ * 60 * 1000);
+    }
+}
+
+void Configuration::impl::on_ntp_sync_now_push_button_clicked ()
+{
+  start_ntp_sync (ui_->ntp_server_line_edit->text ().trimmed ());
+}
+
+void Configuration::impl::ntp_timer_fired ()
+{
+  start_ntp_sync (ntp_server_);
+}
+
+void Configuration::impl::handle_ntp_offset (double offsetSeconds, double roundTripSeconds)
+{
+  ui_->ntp_sync_now_push_button->setEnabled (true);
+  if (jtdxtime_)
+    {
+      jtdxtime_->SetOffset (float (offsetSeconds));
+    }
+  ui_->ntp_status_label->setText (tr ("Synced at %1 UTC: clock offset %2 s, round trip %3 s")
+                                   .arg (QDateTime::currentDateTimeUtc ().toString ("hh:mm:ss"))
+                                   .arg (offsetSeconds, 0, 'f', 3)
+                                   .arg (roundTripSeconds, 0, 'f', 3));
+}
+
+void Configuration::impl::handle_ntp_error (QString const& message)
+{
+  ui_->ntp_sync_now_push_button->setEnabled (true);
+  ui_->ntp_status_label->setText (message);
+}
+
+namespace
+{
+  // Upstream sources for the shared data files.  cty.dat comes from AD1C's Big
+  // CTY, CALL3.TXT from the WSJT-X improved project, LoTW user activity from ARRL.
+  char const * const cty_url = "http://www.country-files.com/bigcty/cty.dat";
+  char const * const lotw_url = "https://lotw.arrl.org/lotw-user-activity.csv";
+  char const * const call3_url = "https://wsjt-x-improved.sourceforge.io/CALL3.TXT";
+  char const * const call3_eme_url = "https://wsjt-x-improved.sourceforge.io/CALL3_EME.TXT";
+  // ALLCALL7 is published as a dated zip, so the current name has to be
+  // discovered from the project feed before anything can be fetched.
+  char const * const allcall7_feed_url = "https://sourceforge.net/projects/jtdx/rss?path=/";
+  char const * const allcall7_index_kind = "ALLCALL7 index";
+  char const * const allcall7_archive_kind = "ALLCALL7.TXT";
+}
+
+void Configuration::impl::set_downloads_enabled (bool enabled)
+{
+  ui_->cty_download_push_button->setEnabled (enabled);
+  ui_->lotw_download_push_button->setEnabled (enabled);
+  ui_->call3_download_push_button->setEnabled (enabled);
+  ui_->call3_eme_download_push_button->setEnabled (enabled);
+  ui_->allcall7_download_push_button->setEnabled (enabled);
+}
+
+// The installed data directory is read-only for a normal user; LogBook::init and
+// MainWindow both treat a copy in the writable data location as a user override,
+// so downloads have to land there.
+QDir Configuration::impl::writable_data_dir () const
+{
+  QDir d {QStandardPaths::writableLocation (QStandardPaths::DataLocation)};
+  d.mkpath (d.absolutePath ());
+  return d;
+}
+
+void Configuration::impl::start_download (QString const& kind, QString const& url, QString const& destination)
+{
+  download_kind_ = kind;
+  set_downloads_enabled (false);
+  ui_->download_status_label->setText (tr ("Downloading %1 ...").arg (kind));
+  file_download_->configure (download_manager_, url, destination
+                             , QString {"JTDX %1 Downloader"}.arg (kind));
+  file_download_->start_download ();
+}
+
+// Keep one generation of history, the way WSJT-X does, so a bad download can be undone.
+void Configuration::impl::backup_CALL3 ()
+{
+  auto const& current = writable_data_dir ().absoluteFilePath ("CALL3.TXT");
+  auto const& backup = writable_data_dir ().absoluteFilePath ("CALL3_backup.TXT");
+  if (QFile::exists (current))
+    {
+      QFile::remove (backup);
+      QFile::rename (current, backup);
+    }
+}
+
+void Configuration::impl::on_audio_alerts_browse_push_button_clicked ()
+{
+  auto const& dir = QFileDialog::getExistingDirectory (this, tr ("Notification sound files")
+                                                       , ui_->audio_alerts_dir_line_edit->text ());
+  if (!dir.isEmpty ())
+    {
+      ui_->audio_alerts_dir_line_edit->setText (dir);
+    }
+}
+
+void Configuration::impl::on_cty_download_push_button_clicked ()
+{
+  start_download ("cty.dat", cty_url, writable_data_dir ().absoluteFilePath ("cty.dat"));
+}
+
+void Configuration::impl::on_lotw_download_push_button_clicked ()
+{
+  start_download ("lotw-user-activity.csv", lotw_url
+                  , writable_data_dir ().absoluteFilePath ("lotw-user-activity.csv"));
+}
+
+void Configuration::impl::on_call3_download_push_button_clicked ()
+{
+  backup_CALL3 ();
+  start_download ("CALL3.TXT", call3_url, writable_data_dir ().absoluteFilePath ("CALL3.TXT"));
+}
+
+void Configuration::impl::on_call3_eme_download_push_button_clicked ()
+{
+  backup_CALL3 ();
+  start_download ("CALL3.TXT (EME)", call3_eme_url, writable_data_dir ().absoluteFilePath ("CALL3.TXT"));
+}
+
+void Configuration::impl::on_allcall7_download_push_button_clicked ()
+{
+  start_download (allcall7_index_kind, allcall7_feed_url
+                  , QDir::temp ().absoluteFilePath ("jtdx_allcall7_index.xml"));
+}
+
+// Stage one: pick the newest ALLCALL7_<date>_rc<n>.zip out of the project feed.
+void Configuration::impl::allcall7_index_ready (QString const& index_file)
+{
+  QFile f {index_file};
+  if (!f.open (QIODevice::ReadOnly))
+    {
+      handle_download_error (tr ("cannot read the downloaded file list"));
+      return;
+    }
+  auto const feed = QString::fromUtf8 (f.readAll ());
+  f.close ();
+  QFile::remove (index_file);
+
+  // entries are newest first, so the first match wins
+  QRegularExpression const re {R"((https://sourceforge\.net/projects/jtdx/files/ALLCALL7_[^<\s]*?\.zip/download))"};
+  auto const match = re.match (feed);
+  if (!match.hasMatch ())
+    {
+      handle_download_error (tr ("no ALLCALL7 archive found in the project feed"));
+      return;
+    }
+  start_download (allcall7_archive_kind, match.captured (1)
+                  , QDir::temp ().absoluteFilePath ("jtdx_allcall7.zip"));
+}
+
+// Stage two: pull ALLCALL7.TXT out of the archive into the writable data directory.
+void Configuration::impl::allcall7_archive_ready (QString const& zip_file)
+{
+  auto const& target = writable_data_dir ().absoluteFilePath ("ALLCALL7.TXT");
+  QString why;
+  if (extract_from_zip (zip_file, "ALLCALL7.TXT", target, &why))
+    {
+      QFileInfo const info {target};
+      ui_->download_status_label->setText (tr ("ALLCALL7.TXT updated (%1 bytes), restart to use it")
+                                           .arg (info.size ()));
+    }
+  else
+    {
+      ui_->download_status_label->setText (tr ("ALLCALL7.TXT failed: %1").arg (why));
+    }
+  QFile::remove (zip_file);
+  set_downloads_enabled (true);
+}
+
+void Configuration::impl::handle_download_progress (QString const& message)
+{
+  ui_->download_status_label->setText (QString {"%1: %2"}.arg (download_kind_).arg (message));
+}
+
+void Configuration::impl::handle_download_error (QString const& reason)
+{
+  set_downloads_enabled (true);
+  ui_->download_status_label->setText (tr ("%1 failed: %2").arg (download_kind_).arg (reason));
+}
+
+void Configuration::impl::handle_download_complete (QString filename)
+{
+  if (download_kind_ == allcall7_index_kind)
+    {
+      allcall7_index_ready (filename);
+      return;
+    }
+  if (download_kind_ == allcall7_archive_kind)
+    {
+      allcall7_archive_ready (filename);
+      return;
+    }
+  set_downloads_enabled (true);
+  QFileInfo const info {filename};
+  ui_->download_status_label->setText (tr ("%1 updated (%2 bytes)")
+                                       .arg (download_kind_).arg (info.size ()));
+  // cty.dat and the LoTW list feed the logbook, so ask for a reload
+  if (download_kind_.startsWith ("cty") || download_kind_.startsWith ("lotw"))
+    {
+      Q_EMIT self_->data_files_updated ();
+    }
 }
 
 void Configuration::impl::set_rig_invariants ()
@@ -3288,6 +3611,18 @@ void Configuration::impl::accept ()
 
   my_callsign_ = ui_->callsign_line_edit->text ();
   my_grid_ = ui_->grid_line_edit->text ();
+  {
+    ntp_server_ = ui_->ntp_server_line_edit->text ().trimmed ();
+    if (ntp_server_.isEmpty ()) ntp_server_ = "pool.ntp.org";
+    static int const ntp_intervals[] = {0, 5, 30, 60};
+    int const idx = qBound (0, ui_->ntp_sync_interval_combo_box->currentIndex (), 3);
+    int const new_interval = ntp_intervals[idx];
+    if (new_interval != ntp_sync_interval_min_)
+      {
+        ntp_sync_interval_min_ = new_interval;
+        restart_ntp_timer ();
+      }
+  }
   timeFrom_ = ui_->logTime_line_edit->text ();
   content_ = ui_->content_line_edit->text ();
   countries_ = ui_->countries_line_edit->text ();
@@ -3421,6 +3756,10 @@ void Configuration::impl::accept ()
   save_directory_.setPath (ui_->save_path_display_label->text ());
   decode_at_52s_ = ui_->decode_at_52s_check_box->isChecked ();
   beepOnMyCall_ = ui_->beep_on_my_call_check_box->isChecked();
+  special_op_id_ = ui_->special_op_combo_box->currentIndex () == 1   /* CE3TSK */
+    ? SpecialOperatingActivity::WW_DIGI : SpecialOperatingActivity::NONE;
+  audioAlerts_ = ui_->audio_alerts_check_box->isChecked();
+  audioAlertsDir_ = ui_->audio_alerts_dir_line_edit->text();
   beepOnNewCQZ_ = ui_->beep_on_newCQZ_check_box->isChecked();
   beepOnNewITUZ_ = ui_->beep_on_newITUZ_check_box->isChecked();
   beepOnNewDXCC_ = ui_->beep_on_newDXCC_check_box->isChecked();
@@ -6178,7 +6517,7 @@ void Configuration::impl::set_application_font (QFont const& font)
         int lopp = sheet.indexOf("* { font-family:");
         if (lopp > 0) ss = sheet.mid(0,lopp);
         else {
-          QFile sf {":/qdarkstyle/style.qss"};
+          QFile sf {":/qdarkstyle/dark/darkstyle.qss"};
           if (sf.open (QFile::ReadOnly | QFile::Text))
             ss = sf.readAll () + ss;
           else {
@@ -6192,7 +6531,7 @@ void Configuration::impl::set_application_font (QFont const& font)
         ss = "";
     }
     else if (useDarkStyle_) {
-      QFile sf {":/qdarkstyle/style.qss"};
+      QFile sf {":/qdarkstyle/dark/darkstyle.qss"};
       if (sf.open (QFile::ReadOnly | QFile::Text))
         ss = sf.readAll () + ss;
       else {
@@ -6202,8 +6541,16 @@ void Configuration::impl::set_application_font (QFont const& font)
       }
     }
   qApp->setStyleSheet (ss + "* {" + font_as_stylesheet (font) + '}');
+  /* Ported from CE3TSK's jtdx_contest: the .ui files pin ~30 widgets with hard pixel
+     maximumSize caps chosen for the font they were drawn at, so a larger application font
+     cannot grow past them and the text is clipped ("Rx 305 Hz" lost the Hz, "GenMsgs" the s).
+     uilimits.h raises each limit to what the current font needs - and, for a button, no
+     further than its label needs, which is what keeps the layout the width it has today.
+     MainWindow::readSettings does the same at start-up, when the font is applied before that
+     window exists. */
   for (auto& widget : qApp->topLevelWidgets ())
     {
+      JTDX::fit_size_limits (widget);
       widget->updateGeometry ();
     }
 }

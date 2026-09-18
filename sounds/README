@@ -1,0 +1,25 @@
+Notification sounds
+===================
+
+Enable these under Settings > Notifications, with "Sound files instead of
+beep" and this folder selected. Each file is played when the matching
+notification fires; the events are the checkboxes on that same tab.
+
+    MyCall.wav      your callsign appeared in a decode
+    DXCC.wav        new DXCC entity
+    Grid.wav        new grid square
+    CQZone.wav      new CQ zone
+    ITUZone.wav     new ITU zone
+    NewCall.wav     new callsign
+    Wanted.wav      a call, prefix, grid or country from your wanted lists
+    Prefix.wav      new prefix
+
+Any file that is missing falls back to the system bell, so you can delete
+the ones you do not want and keep the rest. Files are plain WAV; the ones
+shipped here are 16-bit mono at 48 kHz.
+
+Prefix.wav is not shipped, so new-prefix notifications ring the bell until
+you add one. NewCall.wav is WSJT-X's DXcall.wav under a new name, so the
+wording may not match the event exactly - replace it if it bothers you.
+
+The other files come from the WSJT-X project (GPL, same licence as JTDX).

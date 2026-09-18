@@ -674,6 +674,52 @@ quiet period when decoding is done.</string>
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="special_op_group_box">
+         <property name="title">
+          <string>Special operating activity</string>
+         </property>
+         <layout class="QHBoxLayout" name="special_op_layout">
+          <item>
+           <widget class="QLabel" name="special_op_label">
+            <property name="text">
+             <string>Contest:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="special_op_combo_box">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WW Digi: the contest exchange is your 4 character grid square, sent where the signal report normally goes. Tx1 is not used and a station that answers with a report is left alone for five minutes, because that QSO cannot complete.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>None</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>WW Digi Contest</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <spacer name="special_op_spacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -3650,6 +3696,40 @@ Right click for insert and delete options.</string>
                  <string>Beep on my call</string>
                 </property>
                </widget>
+              </item>
+              <item row="10" column="0" colspan="4">
+               <layout class="QHBoxLayout" name="audio_alerts_layout">
+                <item>
+                 <widget class="QCheckBox" name="audio_alerts_check_box">
+                  <property name="toolTip">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Play a distinct sound file for each notification above instead of the system bell. The folder must contain MyCall.wav, DXCC.wav, Grid.wav, CQZone.wav, ITUZone.wav, Prefix.wav, NewCall.wav and Wanted.wav. Any file that is missing falls back to the system bell.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="text">
+                   <string>Sound files instead of beep, folder:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="audio_alerts_dir_line_edit">
+                  <property name="toolTip">
+                   <string>Folder holding the notification .wav files.</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="audio_alerts_browse_push_button">
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>...</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -7228,6 +7308,219 @@ AA1AAA,BB1BB,CC1CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </spacer>
          </item>
         </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="sync_tab">
+      <attribute name="title">
+       <string>S&amp;ync</string>
+      </attribute>
+      <attribute name="toolTip">
+       <string>Computer clock synchronization settings.</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_ntp">
+       <item>
+        <widget class="QGroupBox" name="ntp_group_box">
+         <property name="title">
+          <string>NTP time synchronization</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_ntp">
+          <item row="0" column="0">
+           <widget class="QLabel" name="ntp_server_label">
+            <property name="text">
+             <string>NTP &amp;server:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ntp_server_line_edit</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="2">
+           <widget class="QLineEdit" name="ntp_server_line_edit">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Host name or IP address (IPv4 or IPv6) of the NTP server used to check the computer clock. A global pool such as pool.ntp.org is a good default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="ntp_sync_interval_label">
+            <property name="text">
+             <string>Auto sync &amp;interval:</string>
+            </property>
+            <property name="buddy">
+             <cstring>ntp_sync_interval_combo_box</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="ntp_sync_interval_combo_box">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;How often to automatically query the NTP server and correct the JTDX clock offset. Select Manual to only sync when the button below is clicked.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Manual</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Every 5 minutes</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Every 30 minutes</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Every hour</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <spacer name="ntp_horizontal_spacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0" colspan="3">
+           <widget class="QPushButton" name="ntp_sync_now_push_button">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Query the NTP server now and immediately correct the JTDX clock offset.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="text">
+             <string>Sync NTP server now</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="3">
+           <widget class="QLabel" name="ntp_status_label">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="data_files_group_box">
+         <property name="title">
+          <string>Data files</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_data_files">
+          <item row="0" column="0">
+           <widget class="QLabel" name="cty_file_label">
+            <property name="text">
+             <string>Country data (cty.dat)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="cty_download_push_button">
+            <property name="toolTip">
+             <string>Download the latest cty.dat country file from country-files.com.</string>
+            </property>
+            <property name="text">
+             <string>Download</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lotw_file_label">
+            <property name="text">
+             <string>LoTW users (lotw-user-activity.csv)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="lotw_download_push_button">
+            <property name="toolTip">
+             <string>Download the latest Logbook of the World user activity list from ARRL.</string>
+            </property>
+            <property name="text">
+             <string>Download</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="call3_file_label">
+            <property name="text">
+             <string>CALL3.TXT</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="call3_download_push_button">
+            <property name="toolTip">
+             <string>Download the latest CALL3.TXT for terrestrial use. The current file is kept as CALL3_backup.TXT.</string>
+            </property>
+            <property name="text">
+             <string>Download</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QPushButton" name="call3_eme_download_push_button">
+            <property name="toolTip">
+             <string>Download the EME version of CALL3.TXT, suitable for JT65 Deep Search.</string>
+            </property>
+            <property name="text">
+             <string>EME version</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="allcall7_file_label">
+            <property name="text">
+             <string>Callsign database (ALLCALL7.TXT)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="allcall7_download_push_button">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Fetch the newest ALLCALL7.TXT published on the JTDX SourceForge page. The decoder uses it to reject false FT8/FT4 decodes. Takes effect after the decoder is restarted.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="text">
+             <string>Download</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="3">
+           <widget class="QLabel" name="download_status_label">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="ntp_vertical_spacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>

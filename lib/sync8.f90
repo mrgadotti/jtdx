@@ -1,175 +1,35 @@
 subroutine sync8(nfa,nfb,syncmin,nfqso,candidate,ncand,jzb,jzt,swl,ipass,lqsothread,ncandthin,filter,ndtcenter)
 
-  use ft8_mod1, only : dd8,windowx,facx,icos7,lagcc,lagccbail,nfawide,nfbwide
+  use ft8_mod1, only : red_sh,jpeak_sh,redcq_sh,lsync8share   ! item 76: the shared pass-1 surface
   include 'ft8_params.f90'
-  complex cx(0:NH1)
-  real s(NH1,NHSYM),x(NFFT1),sync2d(NH1,jzb:jzt),red(NH1),candidate0(5,450),candidate(4,460),tall(30),freq,rcandthin,dtcenter
-  integer jpeak(NH1),indx(NH1),ii(1)
+  real red(NH1),candidate0(5,450),candidate(4,460),freq,rcandthin,dtcenter
+  integer jpeak(NH1),indx(NH1)
   integer, intent(in) :: nfa,nfb,nfqso,jzb,jzt,ipass,ncandthin,ndtcenter
-  logical(1) syncq(NH1,jzb:jzt),redcq(NH1),lcq,lcq2,lpass1,lpass2
+  logical(1) redcq(NH1),lpass1,lpass2
   logical(1), intent(in) :: swl,lqsothread,filter
-  equivalence (x,cx)
 
-! Compute symbol spectra, stepping by NSTEP steps.  
-  tstep=0.04 ! NSTEP/12000.0                         
+  tstep=0.04 ! NSTEP/12000.0
   df=3.125 ! 12000.0/NFFT1 , Hz
-  syncq=.false.; redcq=.false.; candidate(4,:)=0.
+  candidate(4,:)=0.
   rcandthin=ncandthin/100.; if(filter) rcandthin=min(rcandthin*3.0,1.0)
   dtcenter=ndtcenter/100.
 
-  if(ipass.eq.1 .or. ipass.eq.4 .or. ipass.eq.7) then
-    do j=1,NHSYM
-      ia=(j-1)*NSTEP + 1
-      ib=ia+NSPS-1
-      x(1:759)=0.
-      if(j.ne.1) then; x(760:960)=dd8(ia-201:ia-1)*windowx(200:0:-1); else; x(760:960)=0.; endif
-      x(961:2880)=facx*dd8(ia:ib); x(961)=x(961)*1.9; x(2880)=x(2880)*1.9
-      if(j.ne.NHSYM) then; x(2881:3081)=dd8(ib+1:ib+201)*windowx; else; x(2881:3081)=0.; endif
-      x(3082:)=0.
-      call four2a(cx,NFFT1,1,-1,0)              !r2c FFT
-      do i=1,NH1
-        s(i,j)=SQRT(real(cx(i))**2 + aimag(cx(i))**2)
-      enddo
-    enddo
-  endif
-  if(ipass.eq.2 .or. ipass.eq.5 .or. ipass.eq.8) then
-    do j=1,NHSYM
-      ia=(j-1)*NSTEP + 1
-      ib=ia+NSPS-1
-      x(1:759)=0.
-      if(j.ne.1) then; x(760:960)=dd8(ia-201:ia-1)*windowx(200:0:-1); else; x(760:960)=0.; endif
-      x(961:2880)=facx*dd8(ia:ib); x(961)=x(961)*1.9; x(2880)=x(2880)*1.9
-      if(j.ne.NHSYM) then; x(2881:3081)=dd8(ib+1:ib+201)*windowx; else; x(2881:3081)=0.; endif
-      x(3082:)=0.
-      call four2a(cx,NFFT1,1,-1,0)              !r2c FFT
-      do i=1,NH1
-        s(i,j)=real(cx(i))**2 + aimag(cx(i))**2
-      enddo
-    enddo
-  endif
-  if(ipass.eq.3 .or. ipass.eq.6 .or. ipass.eq.9) then
-    do j=1,NHSYM
-      ia=(j-1)*NSTEP + 1
-      ib=ia+NSPS-1
-      x(1:759)=0.
-      if(j.ne.1) then; x(760:960)=dd8(ia-201:ia-1)*windowx(200:0:-1); else; x(760:960)=0.; endif
-      x(961:2880)=facx*dd8(ia:ib); x(961)=x(961)*1.9; x(2880)=x(2880)*1.9
-      if(j.ne.NHSYM) then; x(2881:3081)=dd8(ib+1:ib+201)*windowx; else; x(2881:3081)=0.; endif
-      x(3082:)=0.
-      call four2a(cx,NFFT1,1,-1,0)              !r2c FFT
-      do i=1,NH1
-        s(i,j)=abs(real(cx(i))) + abs(aimag(cx(i)))
-      enddo
-    enddo
-  endif
-
-  ia=max(1,nint(nfa/df)); ib=max(1,nint(nfb/df)); iaw=max(1,nint(nfawide/df)); ibw=max(1,nint(nfbwide/df))
-  nssy=4 ! NSPS/NSTEP   ! # steps per symbol
-  nssy36=144 ! nssy*36
-  nssy72=288 ! nssy*72
-  nfos=2 ! NFFT1/NSPS   ! # frequency bin oversampling factor
-  jstrt=12.5 ! 0.5/tstep
-
-  if(lagcc .and. .not.lagccbail) then
-    nfos6=12 ! nfos*6
-    do j=jzb,jzt
-      do i=iaw,ibw
-        ta=0.; tb=0.; tc=0.
-        do n=0,6
-          k=j+jstrt+nssy*n
-          if(k.gt.0) then
-            ta=s(i+nfos*icos7(n),k)
-            if(ta.gt.1e-9) then; tall(n+1)=ta*6.0/(sum(s(i:i+nfos6:nfos,k))-ta); else; tall(n+1)=0.; endif
-          endif
-          k36=k+nssy36
-          if(k36.gt.0 .and. k36.le.NHSYM) then
-            tb=s(i+nfos*icos7(n),k36)
-            if(tb.gt.1e-9) then; tall(n+17)=tb*6.0/(sum(s(i:i+nfos6:nfos,k36))-tb); else; tall(n+17)=0.; endif
-          endif
-          k72=k+nssy72
-          if(k72.le.NHSYM) then
-            tc=s(i+nfos*icos7(n),k72)
-            if(tc.gt.1e-9) then; tall(n+24)=tc*6.0/(sum(s(i:i+nfos6:nfos,k72))-tc); else; tall(n+24)=0.; endif
-          endif
-        enddo
-        lcq=.false.
-        if(ipass.gt.1) then
-          do n=7,15
-            k=j+jstrt+nssy*n
-            if(k.gt.0) then
-              if(n.lt.15) then
-                tall(n+1)=s(i,k)*6.0/(sum(s(i:i+nfos6:nfos,k))-s(i,k))
-              else
-                tall(n+1)=s(i+2,k)*6.0/(sum(s(i:i+nfos6:nfos,k))-s(i+2,k))
-              endif
-            endif
-          enddo
-          sya=sum(tall(1:7)); sycq=sum(tall(8:16)); sybc=sum(tall(17:30))
-          sy1=(sya+sycq+sybc)/30.; sy2=(sya+sybc)/21.; sync_abc=max(sy1,sy2)
-          sy1=(sycq+sybc)/23.; sy2=(sybc)/14.; sync_bc=max(sy1,sy2); if(sy1.gt.sy2) lcq=.true.
-        else
-          sybc=sum(tall(17:30)); sync_abc=sum(tall(1:7))+sybc; sync_bc=sybc/14.; sync_abc=sync_abc/21.
-        endif
-        sync2d(i,j)=max(sync_abc,sync_bc); if(lcq) syncq(i,j)=.true.
-      enddo
-    enddo
+! Ported from CE3TSK's jtdx_contest (item 76): the wide-band part of this routine - the symbol
+! spectra and the sync surface over nfawide..nfbwide - depends on the pass and on dd8, never on
+! the slice, so every thread used to recompute the same 372 FFTs and the same full-band metric.
+! For pass 1 the driver computes it once before the slice loop (sync8_share) and every slice
+! reads it here. Pass 1 is the safe one to share: it runs before any subtractft8 has touched
+! dd8, so the shared surface is what an undisturbed thread would have computed - today's
+! per-thread copies race against other threads' subtractions and differ run to run. Later
+! passes still compute their own.
+  redcq=.false.
+  if(lsync8share .and. ipass.eq.1) then
+    red=red_sh; jpeak=jpeak_sh; redcq=redcq_sh
   else
-!    nfos6=15 ! 16i spec bw -1
-    nfos6=16
-    do j=jzb,jzt
-      do i=iaw,ibw
-        ta=0.; tb=0.; tc=0.; tcq=0.; t0a=0.; t0b=0.; t0c=0.; t0cq=0.
-        do n=0,6
-          k=j+jstrt+nssy*n
-          if(k.gt.0) then; ta=ta + s(i+nfos*icos7(n),k); t0a=t0a + sum(s(i:i+nfos6,k)) - s(i+nfos*icos7(n)+1,k); endif
-          k36=k+nssy36
-          if(k36.gt.0 .and. k36.le.NHSYM) then
-            tb=tb + s(i+nfos*icos7(n),k36); t0b=t0b + sum(s(i:i+nfos6,k36)) - s(i+nfos*icos7(n)+1,k36)
-          endif
-          k72=k+nssy72
-          if(k72.le.NHSYM) then
-            tc=tc + s(i+nfos*icos7(n),k72)
-            t0c=t0c + sum(s(i:i+nfos6,k72)) - s(i+nfos*icos7(n)+1,k72)
-          endif
-        enddo
-        do n=7,15
-          k=j+jstrt+nssy*n
-          if(k.ge.1) then
-            if(n.lt.15) then; tcq=tcq + s(i,k); t0cq=t0cq + sum(s(i:i+nfos6,k)) - s(i,k+1)
-            else; tcq=tcq + s(i+2,k); t0cq=t0cq + sum(s(i:i+nfos6,k)) - s(i,k+3)
-            endif
-          endif
-        enddo
-        t1=ta+tb+tc; t01=t0a+t0b+t0c; t2=t1+tcq; t02=t01+t0cq
-        t01=(t01-t1*2)/42.0; if(t01.lt.1e-8) t01=1.0; t02=(t02-t2*2)/60.0; if(t02.lt.1e-8) t02=1.0 ! safe division
-        sync01=t1/(7.0*t01); sync02=(t1/7.0 + tcq/9.0)/t02; syncf=max(sync01,sync02)
-        lcq=.false.; if(sync02.gt.sync01) lcq=.true.
-        t1=tb+tc; t01=t0b+t0c; t2=t1+tcq; t02=t01+t0cq
-        t01=(t01-t1*2)/28.0; if(t01.lt.1e-8) t01=1.0; t02=(t02-t2*2)/46.0; if(t02.lt.1e-8) t02=1.0 ! safe division
-        sync01=t1/(7.0*t01); sync02=(t1/7.0 + tcq/9.0)/t02; syncs=max(sync01,sync02)
-        lcq2=.false.; if(sync02.gt.sync01) lcq2=.true.
-        sync2d(i,j)=max(syncf,syncs)
-        if(syncf.gt.syncs) then; if(lcq) syncq(i,j)=.true.; else; if(lcq2) syncq(i,j)=.true.; endif
-      enddo
-    enddo
+    call sync8_wide(jzb,jzt,ipass,red,jpeak,redcq)
   endif
 
-  red=0.
-  do i=iaw,ibw
-    ii=maxloc(sync2d(i,jzb:jzt)) - 1 + jzb
-    j0=ii(1)
-    jpeak(i)=j0
-    red(i)=sync2d(i,j0); if(syncq(i,j0)) redcq(i)=.true.
-!     write(52,3052) i*df,red(i),db(red(i))
-!3052 format(3f12.3)
-  enddo
-
-  iz=ibw-iaw+1
-  call indexx(red(iaw:ibw),iz,indx)
-  ibase=indx(max(1,nint(0.40*iz))) - 1 + iaw ! max is workaround to prevent indx getting out of bounds
-  base=red(ibase)
-  if(base.lt.1e-8) base=1.0 ! safe division
-  red=red/base
+  ia=max(1,nint(nfa/df)); ib=max(1,nint(nfb/df))
 
   candidate0=0.; k=0; iz=ib-ia+1; lpass1=.false.; lpass2=.false.
   if(rcandthin.lt.0.99) then
@@ -287,3 +147,221 @@ subroutine sync8(nfa,nfb,syncmin,nfqso,candidate,ncand,jzb,jzt,swl,ipass,lqsothr
 
   return
 end subroutine sync8
+
+! item 76: the pass's wide-band sync surface - everything that does not depend on the slice.
+! Split out of sync8 unchanged; red, jpeak and redcq are what it used to leave in its own locals.
+subroutine sync8_wide(jzb,jzt,ipass,red,jpeak,redcq)
+
+  use ft8_mod1, only : dd8,windowx,facx,icos7,lagcc,lagccbail,nfawide,nfbwide
+  include 'ft8_params.f90'
+  complex cx(0:NH1)
+  real s(NH1,NHSYM),x(NFFT1),sync2d(NH1,jzb:jzt),tall(30),ssum
+  real, intent(out) :: red(NH1)
+  integer, intent(out) :: jpeak(NH1)
+  logical(1), intent(out) :: redcq(NH1)
+  integer, intent(in) :: jzb,jzt,ipass
+  integer indx(NH1),ii(1)
+  logical(1) syncq(NH1,jzb:jzt),lcq,lcq2
+  equivalence (x,cx)
+
+! Compute symbol spectra, stepping by NSTEP steps.
+  tstep=0.04 ! NSTEP/12000.0
+  df=3.125 ! 12000.0/NFFT1 , Hz
+  syncq=.false.; redcq=.false.
+  if(ipass.eq.1 .or. ipass.eq.4 .or. ipass.eq.7) then
+    do j=1,NHSYM
+      ia=(j-1)*NSTEP + 1
+      ib=ia+NSPS-1
+      x(1:759)=0.
+      if(j.ne.1) then; x(760:960)=dd8(ia-201:ia-1)*windowx(200:0:-1); else; x(760:960)=0.; endif
+      x(961:2880)=facx*dd8(ia:ib); x(961)=x(961)*1.9; x(2880)=x(2880)*1.9
+      if(j.ne.NHSYM) then; x(2881:3081)=dd8(ib+1:ib+201)*windowx; else; x(2881:3081)=0.; endif
+      x(3082:)=0.
+      call four2a(cx,NFFT1,1,-1,0)              !r2c FFT
+      do i=1,NH1
+        s(i,j)=SQRT(real(cx(i))**2 + aimag(cx(i))**2)
+      enddo
+    enddo
+  endif
+  if(ipass.eq.2 .or. ipass.eq.5 .or. ipass.eq.8) then
+    do j=1,NHSYM
+      ia=(j-1)*NSTEP + 1
+      ib=ia+NSPS-1
+      x(1:759)=0.
+      if(j.ne.1) then; x(760:960)=dd8(ia-201:ia-1)*windowx(200:0:-1); else; x(760:960)=0.; endif
+      x(961:2880)=facx*dd8(ia:ib); x(961)=x(961)*1.9; x(2880)=x(2880)*1.9
+      if(j.ne.NHSYM) then; x(2881:3081)=dd8(ib+1:ib+201)*windowx; else; x(2881:3081)=0.; endif
+      x(3082:)=0.
+      call four2a(cx,NFFT1,1,-1,0)              !r2c FFT
+      do i=1,NH1
+        s(i,j)=real(cx(i))**2 + aimag(cx(i))**2
+      enddo
+    enddo
+  endif
+  if(ipass.eq.3 .or. ipass.eq.6 .or. ipass.eq.9) then
+    do j=1,NHSYM
+      ia=(j-1)*NSTEP + 1
+      ib=ia+NSPS-1
+      x(1:759)=0.
+      if(j.ne.1) then; x(760:960)=dd8(ia-201:ia-1)*windowx(200:0:-1); else; x(760:960)=0.; endif
+      x(961:2880)=facx*dd8(ia:ib); x(961)=x(961)*1.9; x(2880)=x(2880)*1.9
+      if(j.ne.NHSYM) then; x(2881:3081)=dd8(ib+1:ib+201)*windowx; else; x(2881:3081)=0.; endif
+      x(3082:)=0.
+      call four2a(cx,NFFT1,1,-1,0)              !r2c FFT
+      do i=1,NH1
+        s(i,j)=abs(real(cx(i))) + abs(aimag(cx(i)))
+      enddo
+    enddo
+  endif
+
+  ia=max(1,nint(nfa/df)); ib=max(1,nint(nfb/df)); iaw=max(1,nint(nfawide/df)); ibw=max(1,nint(nfbwide/df))
+  nssy=4 ! NSPS/NSTEP   ! # steps per symbol
+  nssy36=144 ! nssy*36
+  nssy72=288 ! nssy*72
+  nfos=2 ! NFFT1/NSPS   ! # frequency bin oversampling factor
+  jstrt=12.5 ! 0.5/tstep
+
+  if(lagcc .and. .not.lagccbail) then
+    nfos6=12 ! nfos*6
+    do j=jzb,jzt
+      do i=iaw,ibw
+        ta=0.; tb=0.; tc=0.
+        do n=0,6
+          k=j+jstrt+nssy*n
+          if(k.gt.0) then
+            ta=s(i+nfos*icos7(n),k)
+            if(ta.gt.1e-9) then
+              ssum=0.
+              do m=0,6; ssum=ssum+s(i+nfos*m,k); enddo
+              tall(n+1)=ta*6.0/(ssum-ta)
+            else; tall(n+1)=0.; endif
+          endif
+          k36=k+nssy36
+          if(k36.gt.0 .and. k36.le.NHSYM) then
+            tb=s(i+nfos*icos7(n),k36)
+            if(tb.gt.1e-9) then
+              ssum=0.
+              do m=0,6; ssum=ssum+s(i+nfos*m,k36); enddo
+              tall(n+17)=tb*6.0/(ssum-tb)
+            else; tall(n+17)=0.; endif
+          endif
+          k72=k+nssy72
+          if(k72.le.NHSYM) then
+            tc=s(i+nfos*icos7(n),k72)
+            if(tc.gt.1e-9) then
+              ssum=0.
+              do m=0,6; ssum=ssum+s(i+nfos*m,k72); enddo
+              tall(n+24)=tc*6.0/(ssum-tc)
+            else; tall(n+24)=0.; endif
+          endif
+        enddo
+        lcq=.false.
+        if(ipass.gt.1) then
+          do n=7,15
+            k=j+jstrt+nssy*n
+            if(k.gt.0) then
+              ssum=0.
+              do m=0,6; ssum=ssum+s(i+nfos*m,k); enddo
+              if(n.lt.15) then
+                tall(n+1)=s(i,k)*6.0/(ssum-s(i,k))
+              else
+                tall(n+1)=s(i+2,k)*6.0/(ssum-s(i+2,k))
+              endif
+            endif
+          enddo
+          sya=sum(tall(1:7)); sycq=sum(tall(8:16)); sybc=sum(tall(17:30))
+          sy1=(sya+sycq+sybc)/30.; sy2=(sya+sybc)/21.; sync_abc=max(sy1,sy2)
+          sy1=(sycq+sybc)/23.; sy2=(sybc)/14.; sync_bc=max(sy1,sy2); if(sy1.gt.sy2) lcq=.true.
+        else
+          sybc=sum(tall(17:30)); sync_abc=sum(tall(1:7))+sybc; sync_bc=sybc/14.; sync_abc=sync_abc/21.
+        endif
+        sync2d(i,j)=max(sync_abc,sync_bc); if(lcq) syncq(i,j)=.true.
+      enddo
+    enddo
+  else
+!    nfos6=15 ! 16i spec bw -1
+    nfos6=16
+    do j=jzb,jzt
+      do i=iaw,ibw
+        ta=0.; tb=0.; tc=0.; tcq=0.; t0a=0.; t0b=0.; t0c=0.; t0cq=0.
+        do n=0,6
+          k=j+jstrt+nssy*n
+          if(k.gt.0) then
+            ta=ta + s(i+nfos*icos7(n),k)
+            ssum=0.
+            do m=0,nfos6; ssum=ssum+s(i+m,k); enddo
+            t0a=t0a + ssum - s(i+nfos*icos7(n)+1,k)
+          endif
+          k36=k+nssy36
+          if(k36.gt.0 .and. k36.le.NHSYM) then
+            tb=tb + s(i+nfos*icos7(n),k36)
+            ssum=0.
+            do m=0,nfos6; ssum=ssum+s(i+m,k36); enddo
+            t0b=t0b + ssum - s(i+nfos*icos7(n)+1,k36)
+          endif
+          k72=k+nssy72
+          if(k72.le.NHSYM) then
+            tc=tc + s(i+nfos*icos7(n),k72)
+            ssum=0.
+            do m=0,nfos6; ssum=ssum+s(i+m,k72); enddo
+            t0c=t0c + ssum - s(i+nfos*icos7(n)+1,k72)
+          endif
+        enddo
+        do n=7,15
+          k=j+jstrt+nssy*n
+          if(k.ge.1) then
+            ssum=0.
+            do m=0,nfos6; ssum=ssum+s(i+m,k); enddo
+            if(n.lt.15) then
+              tcq=tcq + s(i,k); t0cq=t0cq + ssum - s(i,k+1)
+            else
+              tcq=tcq + s(i+2,k); t0cq=t0cq + ssum - s(i,k+3)
+            endif
+          endif
+        enddo
+        t1=ta+tb+tc; t01=t0a+t0b+t0c; t2=t1+tcq; t02=t01+t0cq
+        t01=(t01-t1*2)/42.0; if(t01.lt.1e-8) t01=1.0; t02=(t02-t2*2)/60.0; if(t02.lt.1e-8) t02=1.0 ! safe division
+        sync01=t1/(7.0*t01); sync02=(t1/7.0 + tcq/9.0)/t02; syncf=max(sync01,sync02)
+        lcq=.false.; if(sync02.gt.sync01) lcq=.true.
+        t1=tb+tc; t01=t0b+t0c; t2=t1+tcq; t02=t01+t0cq
+        t01=(t01-t1*2)/28.0; if(t01.lt.1e-8) t01=1.0; t02=(t02-t2*2)/46.0; if(t02.lt.1e-8) t02=1.0 ! safe division
+        sync01=t1/(7.0*t01); sync02=(t1/7.0 + tcq/9.0)/t02; syncs=max(sync01,sync02)
+        lcq2=.false.; if(sync02.gt.sync01) lcq2=.true.
+        sync2d(i,j)=max(syncf,syncs)
+        if(syncf.gt.syncs) then; if(lcq) syncq(i,j)=.true.; else; if(lcq2) syncq(i,j)=.true.; endif
+      enddo
+    enddo
+  endif
+
+  red=0.
+  do i=iaw,ibw
+    ii=maxloc(sync2d(i,jzb:jzt)) - 1 + jzb
+    j0=ii(1)
+    jpeak(i)=j0
+    red(i)=sync2d(i,j0); if(syncq(i,j0)) redcq(i)=.true.
+!     write(52,3052) i*df,red(i),db(red(i))
+!3052 format(3f12.3)
+  enddo
+
+  iz=ibw-iaw+1
+  call indexx(red(iaw:ibw),iz,indx)
+  ibase=indx(max(1,nint(0.40*iz))) - 1 + iaw ! max is workaround to prevent indx getting out of bounds
+  base=red(ibase)
+  if(base.lt.1e-8) base=1.0 ! safe division
+  red=red/base
+
+  return
+end subroutine sync8_wide
+
+! item 76: the driver's one-off - the pass-1 surface of the whole band, computed once before the
+! slice loop starts and then read by every slice. lsync8share is cleared by the driver afterwards.
+subroutine sync8_share(jzb,jzt)
+
+  use ft8_mod1, only : red_sh,jpeak_sh,redcq_sh,lsync8share
+  include 'ft8_params.f90'
+  integer, intent(in) :: jzb,jzt
+  if(.not.allocated(red_sh)) allocate(red_sh(NH1),jpeak_sh(NH1),redcq_sh(NH1))
+  call sync8_wide(jzb,jzt,1,red_sh,jpeak_sh,redcq_sh)
+  lsync8share=.true.
+  return
+end subroutine sync8_share

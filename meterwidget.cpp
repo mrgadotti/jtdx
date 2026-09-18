@@ -22,7 +22,6 @@ MeterWidget::MeterWidget(QWidget * parent)
 
 void MeterWidget::setValue(int value)
 {
-    m_signal = value;
     signalQueue.enqueue(value);
     signalQueue.dequeue();
 
@@ -32,8 +31,12 @@ void MeterWidget::setValue(int value)
         if (signalQueue.at(i) > tmp)
             tmp = signalQueue.at(i);
     }
-    m_sigPeak = tmp;
 
+    if (m_signal == value && m_sigPeak == tmp)
+        return;
+
+    m_signal = value;
+    m_sigPeak = tmp;
     update();
 }
 

@@ -92,6 +92,19 @@ include (CMakeDependentOption)
 
 # Allow the developer to select if Dynamic or Static libraries are built
 OPTION (BUILD_SHARED_LIBS "Build Shared Libraries" OFF)
+
+# OmniRig is an ActiveX/COM server, so generating its interface needs the
+# component registered on the build machine.  That is impossible when
+# cross-compiling from Linux, where this must be turned off; Hamlib, TCI,
+# HRD and DXLab Commander remain available.
+OPTION (JTDX_WITH_OMNIRIG "Build OmniRig rig support (needs OmniRig registered on the build host)" ON)
+if (CMAKE_CROSSCOMPILING)
+  set (JTDX_WITH_OMNIRIG OFF)
+endif ()
+if (WIN32 AND NOT JTDX_WITH_OMNIRIG)
+  add_definitions (-DJTDX_NO_OMNIRIG)
+endif ()
+
 # Set the LIB_TYPE variable to STATIC
 SET (LIB_TYPE STATIC)
 if (BUILD_SHARED_LIBS)
@@ -172,6 +185,9 @@ set (wsjt_qt_CXXSRCS
   qt_helpers.cpp
   MetaDataRegistry.cpp
   NetworkServerLookup.cpp
+  NetworkAccessManager.cpp
+  FileDownload.cpp
+  ZipExtract.cpp
   revision_utils.cpp
   WFPalette.cpp
   Radio.cpp
@@ -248,6 +264,7 @@ set (wsjtx_CXXSRCS
   WSPRBandHopping.cpp
   JTDXMessageBox.cpp
   JTDXDateTime.cpp
+  Ntp.cpp
   )
 
 set (wsjt_CXXSRCS
@@ -268,10 +285,12 @@ if (WIN32)
     killbyname.cpp
     )
 
-  set (wsjt_qt_CXXSRCS
-    ${wsjt_qt_CXXSRCS}
-    OmniRigTransceiver.cpp
-    )
+  if (JTDX_WITH_OMNIRIG)
+    set (wsjt_qt_CXXSRCS
+      ${wsjt_qt_CXXSRCS}
+      OmniRigTransceiver.cpp
+      )
+  endif (JTDX_WITH_OMNIRIG)
 endif (WIN32)
 
 set (wsjt_FSRCS
@@ -674,7 +693,7 @@ endif (WSJT_QDEBUG_IN_RELEASE)
 set_property (SOURCE ${all_C_and_CXXSRCS} APPEND_STRING PROPERTY COMPILE_FLAGS " -include wsjtx_config.h")
 set_property (SOURCE ${all_C_and_CXXSRCS} APPEND PROPERTY OBJECT_DEPENDS wsjtx_config.h)
 
-if (WIN32)
+if (WIN32 AND JTDX_WITH_OMNIRIG)
   # generate the OmniRig COM interface source
   find_program (DUMPCPP dumpcpp)
   if (DUMPCPP-NOTFOUND)
@@ -691,7 +710,7 @@ if (WIN32)
   endif (NOT AXSERVER)
   string (REPLACE "\"" "" AXSERVER ${AXSERVER})
   file (TO_CMAKE_PATH ${AXSERVER} AXSERVERSRCS)
-endif (WIN32)
+endif (WIN32 AND JTDX_WITH_OMNIRIG)
 
 
 #
@@ -748,10 +767,56 @@ find_program (RIGCTL_EXE rigctl)
 find_program (RIGCTLD_EXE rigctld)
 find_program (RIGCTLCOM_EXE rigctlcom)
 
+# Ported from CE3TSK's jtdx_contest: these three are hamlib's own utilities - hamlib's
+# "make install" puts them in /usr/local/bin alongside libhamlib; JTDX only finds them and
+# re-installs them as *-jtdx. They are optional to the BUILD but not to the product: JTDX
+# needs rigctld for the "Hamlib NET rigctl" rig type.
+#
+# find_program leaves <VAR>-NOTFOUND when it misses, and the unguarded install (PROGRAMS)
+# rules below then tried to install that literal string, failing much later with
+#   file INSTALL cannot find ".../RIGCTL_EXE-NOTFOUND"
+# which says nothing about the real cause. Warn here, at configure time, instead.
+foreach (rigctl_var_ RIGCTL_EXE RIGCTLD_EXE RIGCTLCOM_EXE)
+  if (NOT ${rigctl_var_})
+    message (WARNING
+      "${rigctl_var_} not found. The matching hamlib utility will be MISSING from the install, "
+      "so the \"Hamlib NET rigctl\" rig type will not work. Install hamlib's command line "
+      "utilities (they come with libhamlib), then re-run cmake with -U${rigctl_var_} - "
+      "find_program caches its result, so a plain re-run will not search again.")
+  endif ()
+endforeach ()
+
+# Ported from CE3TSK's jtdx_contest: both probes were inherited from WSJT-X and had been
+# answering "no" on every machine, whatever hamlib was installed, because neither was given
+# what it needs:
+#
+#   check_symbol_exists   COMPILES *and LINKS* a test program -> needs the header on the
+#                         include path and libhamlib on the link line, or it fails with
+#                         "undefined reference to rig_set_cache_timeout_ms".
+#   check_type_size       takes its headers from CMAKE_EXTRA_INCLUDE_FILES, NOT from
+#                         CMAKE_REQUIRED_INCLUDES -> without it the enumerator is never
+#                         visible and the answer is "no" even on a hamlib that has it.
+#
+# Link ${Hamlib_LIBRARIES}, not ${Hamlib_LIBRARY}: FindHamlib.cmake adds the platform extras
+# to the plural one (m;dl here, Usb;ws2_32 for the MinGW win64 cross build). The singular is
+# the bare libhamlib path and links only because hamlib happens to be shared here.
+# Results are cached: re-run cmake with -UHAVE_HAMLIB_CACHING -UHAMLIB_OLD_CACHING to probe
+# again.
+set (CMAKE_REQUIRED_INCLUDES ${Hamlib_INCLUDE_DIR})
+set (CMAKE_REQUIRED_LIBRARIES ${Hamlib_LIBRARIES})
+set (CMAKE_EXTRA_INCLUDE_FILES "hamlib/rig.h")
 check_type_size (CACHE_ALL HAMLIB_OLD_CACHING)
 check_symbol_exists (rig_set_cache_timeout_ms "hamlib/rig.h" HAVE_HAMLIB_CACHING)
+unset (CMAKE_EXTRA_INCLUDE_FILES)
+unset (CMAKE_REQUIRED_INCLUDES)
+unset (CMAKE_REQUIRED_LIBRARIES)
 
 find_package (Usb REQUIRED)
+
+#
+# zlib, used to unpack the callsign database archive
+#
+find_package (ZLIB REQUIRED)
 
 
 #
@@ -763,7 +828,11 @@ find_package (Qt5 COMPONENTS Widgets SerialPort Multimedia LinguistTools WebSock
 
 if (WIN32)
   add_definitions (-DQT_NEEDS_QTMAIN)
-  find_package (Qt5AxContainer REQUIRED)
+  # ActiveQt is only shipped with the native Windows Qt builds, and is needed
+  # solely for OmniRig
+  if (JTDX_WITH_OMNIRIG)
+    find_package (Qt5AxContainer REQUIRED)
+  endif (JTDX_WITH_OMNIRIG)
 endif (WIN32)
 
 #
@@ -773,6 +842,24 @@ add_subdirectory (samples)
 if (WSJT_GENERATE_DOCS)
   add_subdirectory (doc)
 endif (WSJT_GENERATE_DOCS)
+
+#
+# Native CPU tuning for the DSP/decoder hot paths (FFT, correlations,
+# dot products).  -ffp-contract=off keeps strict IEEE evaluation order so
+# the FT8/FT4/JT65 decoders produce identical results to the baseline
+# build while still benefiting from SIMD.  Disable JTDX_NATIVE_OPT when
+# producing binaries for other machines.
+#
+OPTION (JTDX_NATIVE_OPT "Optimize for the build machine CPU (-march=native)" ON)
+set (JTDX_NATIVE_FLAGS "")
+if (JTDX_NATIVE_OPT AND NOT APPLE)
+  include (CheckCCompilerFlag)
+  check_c_compiler_flag ("-march=native" HAVE_MARCH_NATIVE)
+  if (HAVE_MARCH_NATIVE)
+    set (JTDX_NATIVE_FLAGS "-march=native -mtune=native -ffp-contract=off")
+    message (STATUS "Native CPU optimization enabled: ${JTDX_NATIVE_FLAGS}")
+  endif ()
+endif ()
 
 #
 # C & C++ setup
@@ -789,9 +876,9 @@ if (NOT APPLE)
       set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
     endif ()
   endif ()
-  set (CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -fdata-sections -ffunction-sections")
+  set (CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -fdata-sections -ffunction-sections ${JTDX_NATIVE_FLAGS}")
   set (CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_C_FLAGS_MINSIZEREL} -fdata-sections -ffunction-sections")
-  set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fdata-sections -ffunction-sections")
+  set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fdata-sections -ffunction-sections ${JTDX_NATIVE_FLAGS}")
   set (CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} -fdata-sections -ffunction-sections")
 endif (NOT APPLE)
 
@@ -825,7 +912,7 @@ if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
     set (CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -isysroot ${CMAKE_OSX_SYSROOT}")
   endif (CMAKE_OSX_SYSROOT)
 
-  set (CMAKE_Fortran_FLAGS_RELEASE "${CMAKE_Fortran_FLAGS_RELEASE} -fbounds-check -funroll-all-loops -fno-f2c ${General_FFLAGS}")
+  set (CMAKE_Fortran_FLAGS_RELEASE "${CMAKE_Fortran_FLAGS_RELEASE} -funroll-all-loops -fno-f2c ${JTDX_NATIVE_FLAGS} ${General_FFLAGS}")
   set (CMAKE_Fortran_FLAGS_DEBUG   "${CMAKE_Fortran_FLAGS_DEBUG} -fbounds-check -fno-f2c ${General_FFLAGS}")
 elseif (Fortran_COMPILER_NAME MATCHES "ifort.*")
   # ifort (untested)
@@ -971,6 +1058,8 @@ set (LANGUAGES
   ca_ES
   da_DK
   sv_SE
+  tr_TR
+  uk_UA
   )
 foreach (lang_ ${LANGUAGES})
   file (TO_NATIVE_PATH translations/jtdx_${lang_}.ts ts_)
@@ -1023,14 +1112,14 @@ qt5_wrap_ui (wsjtx_GENUISRCS ${wsjtx_UISRCS})
 # Resource generation
 qt5_add_resources (wsjtx_RESOURCES_RCC 
   ${CMAKE_BINARY_DIR}/jtdx.qrc
-  contrib/QDarkStyleSheet/qdarkstyle/style.qrc
+  contrib/QDarkStyleSheet/qdarkstyle/dark/darkstyle.qrc
 )
 
 # AX COM servers
-if (WIN32)
+if (WIN32 AND JTDX_WITH_OMNIRIG)
   include (QtAxMacros)
   wrap_ax_server (GENAXSRCS ${AXSERVERSRCS})
-endif (WIN32)
+endif (WIN32 AND JTDX_WITH_OMNIRIG)
 
 
 #
@@ -1072,11 +1161,11 @@ endif (${OPENMP_FOUND} OR APPLE)
 add_library (wsjt_qt STATIC ${wsjt_qt_CXXSRCS} ${wsjt_qt_GENUISRCS} ${GENAXSRCS})
 # set wsjtx_udp exports to static variants
 target_compile_definitions (wsjt_qt PUBLIC UDP_STATIC_DEFINE)
-target_link_libraries (wsjt_qt Hamlib::Hamlib Qt5::Widgets Qt5::Network Qt5::WebSockets)
+target_link_libraries (wsjt_qt Hamlib::Hamlib Qt5::Widgets Qt5::Network Qt5::WebSockets ZLIB::ZLIB)
 #target_include_directories (wsjt_qt BEFORE PRIVATE ${hamlib_INCLUDE_DIRS})
-if (WIN32)
+if (WIN32 AND JTDX_WITH_OMNIRIG)
   target_link_libraries (wsjt_qt Qt5::AxContainer Qt5::AxBase)
-endif (WIN32)
+endif (WIN32 AND JTDX_WITH_OMNIRIG)
 
 add_library (wsjt_qtmm STATIC ${wsjt_qtmm_CXXSRCS} ${wsjt_qtmm_GENUISRCS})
 target_link_libraries (wsjt_qtmm Qt5::Multimedia)
@@ -1227,7 +1316,7 @@ add_resources (message_aggregator_RESOURCES /qss ${message_aggregator_STYLESHEET
 configure_file (message_aggregator.qrc.in message_aggregator.qrc @ONLY)
 qt5_add_resources (message_aggregator_RESOURCES_RCC 
   ${CMAKE_BINARY_DIR}/message_aggregator.qrc
-  contrib/QDarkStyleSheet/qdarkstyle/style.qrc
+  contrib/QDarkStyleSheet/qdarkstyle/dark/darkstyle.qrc
 )
 add_executable (message_aggregator
   ${message_aggregator_CXXSRCS}
@@ -1279,26 +1368,32 @@ install (TARGETS jtdxjt9 wsprd_jtdx udp_daemon_jtdx
   BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT runtime
   )
 
-install (PROGRAMS
-  ${RIGCTL_EXE}
-  DESTINATION ${CMAKE_INSTALL_BINDIR}
-  #COMPONENT runtime
-  RENAME rigctl-jtdx${CMAKE_EXECUTABLE_SUFFIX}
-  )
+if (RIGCTL_EXE)     # CE3TSK: skip rather than install a "-NOTFOUND" literal
+  install (PROGRAMS
+    ${RIGCTL_EXE}
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+    #COMPONENT runtime
+    RENAME rigctl-jtdx${CMAKE_EXECUTABLE_SUFFIX}
+    )
+endif ()
 
-install (PROGRAMS
-  ${RIGCTLD_EXE}
-  DESTINATION ${CMAKE_INSTALL_BINDIR}
-  #COMPONENT runtime
-  RENAME rigctld-jtdx${CMAKE_EXECUTABLE_SUFFIX}
-  )
+if (RIGCTLD_EXE)     # CE3TSK: skip rather than install a "-NOTFOUND" literal
+  install (PROGRAMS
+    ${RIGCTLD_EXE}
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+    #COMPONENT runtime
+    RENAME rigctld-jtdx${CMAKE_EXECUTABLE_SUFFIX}
+    )
+endif ()
 
-install (PROGRAMS
-  ${RIGCTLCOM_EXE}
-  DESTINATION ${CMAKE_INSTALL_BINDIR}
-  #COMPONENT runtime
-  RENAME rigctlcom-jtdx${CMAKE_EXECUTABLE_SUFFIX}
-  )
+if (RIGCTLCOM_EXE)     # CE3TSK: skip rather than install a "-NOTFOUND" literal
+  install (PROGRAMS
+    ${RIGCTLCOM_EXE}
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+    #COMPONENT runtime
+    RENAME rigctlcom-jtdx${CMAKE_EXECUTABLE_SUFFIX}
+    )
+endif ()
 
 install (FILES
   README
@@ -1320,6 +1415,12 @@ install (FILES
   contrib/CallDB/CALL3.TXT
   DESTINATION ${CMAKE_INSTALL_DATADIR}/${CMAKE_PROJECT_NAME}
   #COMPONENT runtime
+  )
+
+# notification sounds, named after the events in displaytext.cpp
+install (DIRECTORY sounds
+  DESTINATION ${CMAKE_INSTALL_DATADIR}/${CMAKE_PROJECT_NAME}
+  FILES_MATCHING PATTERN "*.wav" PATTERN "README"
   )
 
 #
@@ -1518,6 +1619,10 @@ if (NOT is_debug_build)
     #list (APPEND fixup_library_dirs ${hamlib_lib_dir})
     #list (APPEND fixup_library_dirs ${hamlib_LIBRARY_DIRS})
 
+    # fixup_bundle resolves prerequisites with the host objdump, which cannot
+    # follow Windows system DLLs; a cross-build assembles its own DLL closure
+    # (see cross/win64/build.sh) so skip it there
+    if (NOT CMAKE_CROSSCOMPILING)
     install (CODE "
         get_filename_component (the_path \"\$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/${WSJT_PLUGIN_DESTINATION}\" REALPATH)
         file (GLOB_RECURSE QTPLUGINS \"\${the_path}/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
@@ -1530,6 +1635,7 @@ if (NOT is_debug_build)
         fixup_bundle (\"\${the_exe}\" \"\${QTPLUGINS}\" \"${fixup_library_dirs}\")"
       #COMPONENT runtime
       )
+    endif (NOT CMAKE_CROSSCOMPILING)
   endif (APPLE OR WIN32)
 
 endif (NOT is_debug_build)
@@ -1580,7 +1686,7 @@ endif ()
 
 set (CPACK_DEBIAN_PACKAGE_DESCRIPTION "${PROJECT_DESCRIPTION}")
 set (CPACK_DEBIAN_PACKAGE_HOMEPAGE "${PROJECT_HOMEPAGE}")
-set (CPACK_DEBIAN_PACKAGE_DEPENDS "libgfortran5 (>=8.3) | libgfortran4 (>=7.3) | libgfortran3 (>=6.3), libfftw3-single3 (>=3.3), libgomp1 (>=6), libqt5serialport5 (>=5.7), libqt5multimedia5-plugins (>=5.7), libqt5widgets5 (>=5.7), libqt5network5 (>=5.7), libqt5printsupport5 (>=5.7), libqt5websockets5 (>=5.7), libusb-1.0-0 (>=1.0.21), hamlib (>=4.5~git.20211220)")
+set (CPACK_DEBIAN_PACKAGE_DEPENDS "libqt5multimedia5-plugins, hamlib (>=4.5~git.20211220)")
 set (CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
 set (CPACK_RPM_PACKAGE_ARCHITECTURE ${CMAKE_SYSTEM_PROCESSOR})

@@ -189,7 +189,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
+            <width>174</width>
             <height>16777215</height>
            </size>
           </property>
@@ -220,13 +220,13 @@
          <widget class="QSpinBox" name="fSplitSpinBox">
           <property name="minimumSize">
            <size>
-            <width>100</width>
+            <width>150</width>
             <height>0</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
+            <width>174</width>
             <height>16777215</height>
            </size>
           </property>
@@ -395,7 +395,7 @@
           <item>
            <widget class="QLabel" name="labPalette">
             <property name="text">
-             <string>  Palette </string>
+             <string>Palette </string>
             </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -406,7 +406,7 @@
            <widget class="QPushButton" name="adjust_palette_push_button">
             <property name="maximumSize">
              <size>
-              <width>65</width>
+              <width>70</width>
               <height>16777215</height>
              </size>
             </property>
@@ -525,7 +525,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>75</width>
+            <width>90</width>
             <height>16777215</height>
            </size>
           </property>

@@ -184,6 +184,17 @@ void MessageClient::impl::parse_message (QByteArray const& msg)
                 }
               break;
 
+            case NetworkMessage::Location:
+              {
+                QByteArray location;
+                in >> location;
+                if (check_status (in) != Fail)
+                  {
+                    Q_EMIT self_->location (QString::fromUtf8 (location));
+                  }
+              }
+              break;
+
             case NetworkMessage::HaltTx:
               {
                 bool enableTx_only {false};

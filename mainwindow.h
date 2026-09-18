@@ -9,6 +9,8 @@
 #endif
 #include <QThread>
 #include <QTimer>
+#include <QElapsedTimer>   // CE3TSK: dial wheel tuning
+#include <QWheelEvent>     // CE3TSK: dial wheel tuning
 #include <QList>
 #include <QStringList>
 #include <QAudioDeviceInfo>
@@ -28,6 +30,7 @@
 #include "AudioDevice.hpp"
 #include "commons.h"
 #include "Radio.hpp"
+#include "contestignore.h"   // CE3TSK: WW Digi ignore list
 #include "Modes.hpp"
 #include "Configuration.hpp"
 #include "WSPRBandHopping.hpp"
@@ -593,6 +596,8 @@ private:
   bool m_rigOk;
   bool m_bandChanged;
   bool m_useDarkStyle;
+  bool m_wwDigi;                                   // CE3TSK: WW Digi contest mode
+  ContestIgnore m_contestIgnore;                   // CE3TSK: stations that cannot complete a contest QSO
   bool m_lostaudio;
   bool m_lasthint;
   bool m_monitoroff;
@@ -728,10 +733,22 @@ private:
   QHash<QString, QVariant> m_pwrBandTxMemory; // Remembers power level by band
   QHash<QString, QVariant> m_pwrBandTuneMemory; // Remembers power level by band for tuning
   QByteArray m_geometry;
+  QSize m_geometryMinHint;                         // CE3TSK: minimumSizeHint () when m_geometry was saved, see restoreMainGeometry ()
+  QTimer m_dialWheelTimer;                         // CE3TSK: dial wheel tuning, one QSY per burst of notches
+  QElapsedTimer m_dialWheelClock;                  // since the last notch or wheel QSY, see dialWheelHolding ()
+  Radio::Frequency m_dialWheelTarget {0};          // where the wheel has taken the dial
+  int m_dialWheelDelta {0};                        // wheel angle short of a whole notch (touchpads)
   qint32 m_ft8Freq[15] = {1810,1840,1908,3573,5357,7074,10136,14074,18100,21074,24915,28074,40680,50313,70154};
 
   //---------------------------------------------------- private functions
   void readSettings();
+  void restoreMainGeometry ();                     // CE3TSK
+  bool dialFrequencyWheel (QWheelEvent * event);   // CE3TSK
+  void applyDialWheel ();                          // CE3TSK
+  bool dialWheelHolding () const;                  // CE3TSK
+  void lookupDxCallOnQrz ();                       // CE3TSK
+  void refreshSpecialOp ();                        // CE3TSK: follow the contest setting
+  bool wwDigiNoGrid () const;                      // CE3TSK: contest on but my grid unusable
   void setDecodedTextFont (QFont const&);
   void setStopHSym();
   void setClockStyle(bool reset);

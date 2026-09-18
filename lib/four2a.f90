@@ -26,38 +26,63 @@ subroutine four2a(a,nfft,ndim,isign,iform)
   integer nn(NPMAX),ns(NPMAX),nf(NPMAX)  !Params of stored plans 
   integer*8 nl(NPMAX),nloc               !More params of plans
   integer*8 plan(NPMAX)                  !Pointers to stored plans
+  integer lastplan                        !Per-thread MRU plan index
   logical found_plan
-  data nplan/0/                          !Number of stored plans
+  data nplan/0/,lastplan/0/              !Number of stored plans
   common/patience/npatience,nthreads     !Patience and threads for FFTW plans
   include 'fftw3.f90'                    !FFTW definitions
   save plan,nplan,nn,ns,nf,nl
+!$omp threadprivate(lastplan)
 
   if(nfft.lt.0) go to 999
 
   nloc=loc(a)
   found_plan = .false.
 
-  do i=1,nplan
-     if(nfft.eq.nn(i) .and. isign.eq.ns(i) .and.                     &
-          iform.eq.nf(i) .and. nloc.eq.nl(i)) then
+! Fast path: consecutive transforms usually hit the same array and size, so
+! check the plan this thread used last before scanning the whole table.
+! This matters for the FT8 inner loop, which issues many 32-point FFTs.
+  if(lastplan.ge.1 .and. lastplan.le.nplan) then
+     if(nfft.eq.nn(lastplan) .and. isign.eq.ns(lastplan) .and.      &
+          iform.eq.nf(lastplan) .and. nloc.eq.nl(lastplan)) then
         found_plan = .true.
-        exit
+        i = lastplan
      end if
-  enddo
+  end if
 
-  if(i.ge.NPMAX) stop 'Too many FFTW plans requested.'
+  if (.not. found_plan) then
+     i = 0
+     do i=1,nplan
+        if(nfft.eq.nn(i) .and. isign.eq.ns(i) .and.                  &
+             iform.eq.nf(i) .and. nloc.eq.nl(i)) then
+           found_plan = .true.
+           exit
+        end if
+     enddo
+  end if
 
   if (.not. found_plan) then
   !$omp critical(four2a_setup)
-     nplan=nplan+1
-     i=nplan
+! Re-scan under the lock: another thread may have added this plan while we
+! were searching without it.
+     do i=1,nplan
+        if(nfft.eq.nn(i) .and. isign.eq.ns(i) .and.                  &
+             iform.eq.nf(i) .and. nloc.eq.nl(i)) then
+           found_plan = .true.
+           exit
+        end if
+     enddo
+
+     if (.not. found_plan) then
+     i=nplan+1
+     if(i.ge.NPMAX) stop 'Too many FFTW plans requested.'
 
      nn(i)=nfft
      ns(i)=isign
      nf(i)=iform
      nl(i)=nloc
 
-! Planning: FFTW_ESTIMATE, FFTW_ESTIMATE_PATIENT, FFTW_MEASURE, 
+! Planning: FFTW_ESTIMATE, FFTW_ESTIMATE_PATIENT, FFTW_MEASURE,
 !            FFTW_PATIENT,  FFTW_EXHAUSTIVE
      nflags=FFTW_ESTIMATE
      if(npatience.eq.1) nflags=FFTW_ESTIMATE_PATIENT
@@ -90,9 +115,17 @@ subroutine four2a(a,nfft,ndim,isign,iform)
         if(iform.le.0) jz=nfft/2+1
         a(1:jz)=aa(1:jz)
      endif
+
+! Publish the slot only once it is fully initialised, so a thread scanning
+! 1..nplan without the lock can never observe a half-written entry.
+     !$omp flush
+     nplan=i
+     !$omp flush
+     endif
   !$omp end critical(four2a_setup)
   end if
 
+  lastplan=i
   call sfftw_execute(plan(i))
   return
 
@@ -109,6 +142,7 @@ subroutine four2a(a,nfft,ndim,isign,iform)
   enddo
 
   nplan=0
+  lastplan=0
   !$omp end critical(four2a)
 
   return

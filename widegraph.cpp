@@ -83,8 +83,6 @@ WideGraph::WideGraph(QSettings * settings, JTDXDateTime * jtdxtime, QWidget *par
   ui->gainSpecLabel->setText("Gain " + QString::number(ui->gain2dSlider->value()));
   ui->zeroSpecLabel->setText("Zero " + QString::number(ui->zero2dSlider->value()));
 
-  int n = m_settings->value("BinsPerPixel",5).toInt(); if(!(n>=1 && n<=100)) n=5;
-
   m_timestamp = 1; int itstamp=m_settings->value("Timestamp",1).toInt();
   QString ststamp=m_settings->value("Timestamp","1").toString();
   if(ststamp == "0" || ststamp == "1" || ststamp == "2") m_timestamp = itstamp; 
@@ -110,7 +108,11 @@ WideGraph::WideGraph(QSettings * settings, JTDXDateTime * jtdxtime, QWidget *par
     ui->widePlot->setBreadth(m_settings->value("PlotWidth",1000).toInt());
   else ui->widePlot->setBreadth(1000);
 
-  ui->bppSpinBox->setValue(n);
+  int nbpp=m_settings->value("BinsPerPixel",5).toInt(); if(!(nbpp>=1 && nbpp<=100)) nbpp=5;
+  if (nbpp == ui->bppSpinBox->value ())
+    ui->widePlot->setBinsPerPixel(nbpp);
+  else
+    ui->bppSpinBox->setValue(nbpp);
 
   m_Percent2DScreen=m_settings->value("Percent2D",30).toInt();
   if(!(m_Percent2DScreen>=0 && m_Percent2DScreen<=100)) m_Percent2DScreen =30;
@@ -124,9 +126,6 @@ WideGraph::WideGraph(QSettings * settings, JTDXDateTime * jtdxtime, QWidget *par
   ui->widePlot->setCumulative(m_settings->value("Cumulative",false).toBool());
   if(ui->widePlot->current()) ui->spec2dComboBox->setCurrentIndex(0);
   if(ui->widePlot->cumulative()) ui->spec2dComboBox->setCurrentIndex(1);
-
-  int nbpp=m_settings->value("BinsPerPixel",5).toInt(); if(!(nbpp>=1 && nbpp<=100)) nbpp=5;
-  ui->widePlot->setBinsPerPixel(nbpp);
 
   if(m_settings->value("StartFreq").toInt()>=0 && m_settings->value("StartFreq").toInt()<=4900) {
     ui->widePlot->setStartFreq(m_settings->value("StartFreq",0).toInt());
@@ -185,7 +184,7 @@ void WideGraph::saveSettings()                                           //saveS
   m_settings->setValue ("Plot2dGain", ui->widePlot->plot2dGain());
   m_settings->setValue ("Plot2dZero", ui->widePlot->plot2dZero());
   m_settings->setValue ("PlotWidth", ui->widePlot->plotWidth ());
-  m_settings->setValue ("BinsPerPixel", ui->bppSpinBox->value ());
+//  m_settings->setValue ("BinsPerPixel", ui->bppSpinBox->value ());
   m_settings->setValue ("Percent2D",m_Percent2DScreen);
   m_settings->setValue ("WaterfallAvg", ui->waterfallAvgSpinBox->value ());
   m_settings->setValue ("Current", ui->widePlot->current());

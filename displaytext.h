@@ -4,6 +4,7 @@
 #define DISPLAYTEXT_H
 
 #include <QTextEdit>
+#include <QStringList>
 #include "logbook/logbook.h"
 #include "decodedtext.h"
 #include "qsohistory.h"
@@ -20,12 +21,12 @@ public:
     void setMyContinent (QString const&);
     void setContentFont (QFont const&);
     void insertLineSpacer(QString const&);
-    int displayDecodedText(DecodedText* decodedText, QString myCall, QString hisCall, QString hisGrid,
-                           bool once_notified, LogBook logBook, QsoHistory& qsoHistory,
-                           QsoHistory& qsoHistory2, double dialFreq = 0, const QString app_mode = "",
+    int displayDecodedText(DecodedText* decodedText, QString const& myCall, QString const& hisCall, QString const& hisGrid,
+                           bool once_notified, LogBook& logBook, QsoHistory& qsoHistory,
+                           QsoHistory& qsoHistory2, double dialFreq = 0, QString const& app_mode = QString(),
                            bool bypassRxfFilters = false, bool bypassAllFilters = false, int rx_frq = 0,
-                           QStringList wantedCallList = QStringList(), QStringList wantedPrefixList = QStringList(), QStringList wantedGridList = QStringList(),
-                           QStringList wantedCountryList = QStringList(), bool windowPopup = false, QWidget* window = NULL);
+                           QStringList const& wantedCallList = QStringList(), QStringList const& wantedPrefixList = QStringList(), QStringList const& wantedGridList = QStringList(),
+                           QStringList const& wantedCountryList = QStringList(), bool windowPopup = false, QWidget* window = NULL);
     void displayTransmittedText(QString text, QString myCall, QString hisCall, QString skip_tx1, QString modeTx, qint32 txFreq,
                                 QColor color_TxMsg, QsoHistory& qsoHistory);
     void displayQSY(QString text);
@@ -77,6 +78,10 @@ private:
     bool beepOnNewPx_;
     bool beepOnNewCall_;
     bool beepOnMyCall_;
+    bool audioAlerts_;
+    QString audioAlertsDir_;
+    // plays <audioAlertsDir_>/<category>.wav, falling back to the system bell
+    void playAlert (QString const& category) const;
     bool RR73Marker_;
     bool otherMessagesMarker_;
     bool enableCountryFilter_;
@@ -117,6 +122,8 @@ private:
     QString hideContinents_;
     QString countries_;
     QString callsigns_;
+    QStringList countriesList_;
+    QStringList callsignsList_;
     
     
 };

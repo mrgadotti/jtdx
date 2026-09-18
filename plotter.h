@@ -130,6 +130,7 @@ private:
   QPixmap m_HoverOverlayPixmap;
   QPixmap m_WaterfallPixmap;
   QPixmap m_2DPixmap;
+  QPixmap m_2DOverlayPixmap;
   QPixmap m_ScalePixmap;
   QPixmap m_OverlayPixmap;
   QPoint m_pos;

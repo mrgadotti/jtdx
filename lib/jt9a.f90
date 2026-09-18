@@ -23,6 +23,7 @@ subroutine jt9a()
   type(dec_data), pointer, volatile :: shared_data !also makes target volatile
   type(params_block) :: local_params
   logical fileExists
+  integer :: nreq=-1, nlastreq=-1   ! the request being served, and the last one served
 
 ! Multiple instances:
   i0 = len(trim(shm_key))
@@ -47,7 +48,7 @@ subroutine jt9a()
   endif
 
 
-  inquire(file=trim(temp_dir)//'/.quit',exist=fileExists)
+11 inquire(file=trim(temp_dir)//'/.quit',exist=fileExists)
   if(fileExists) then
      i1=detach_jtdxjt9()
      go to 999
@@ -62,6 +63,7 @@ subroutine jt9a()
   endif
   call c_f_pointer(address_jtdxjt9(),shared_data)
   local_params=shared_data%params !save a copy because jtdx.exe carries on accessing
+  nreq=local_params%ndecreq   ! the request this pass serves
   call flush(6)
 
   nnmode=local_params%nmode
@@ -109,10 +111,19 @@ subroutine jt9a()
 
 !  call timer('decoder ',0)
   call multimode_decoder(local_params)
+  nlastreq=nreq   ! served; anything newer than this is work waiting
 !  call timer('decoder ',1)
 
+! Ported from CE3TSK's jtdx_contest: this wait is where a decode request used to be lost. It
+! sleeps while .lock is ABSENT, and .lock going absent is exactly how the GUI asks for a decode
+! - so a request that arrived before the decoder got here was never noticed, and the two sides
+! deadlocked: the GUI waiting for <DecodeFinished>, the decoder sleeping here for a lock that
+! only <DecodeFinished> would have recreated. Serving by request NUMBER cannot miss one, and
+! re-decoding the same audio in a loop is impossible, because a request is served once and then
+! equals nlastreq.
 100 inquire(file=trim(temp_dir)//'/.lock',exist=fileExists)
   if(fileExists) go to 10
+  if(shared_data%params%ndecreq.ne.nlastreq) go to 11
   call sleep_msec(100)
   go to 100
 

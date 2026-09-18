@@ -79,6 +79,7 @@
      logical(c_bool) :: lskiptx1
      logical(c_bool) :: lforcesync
      logical(c_bool) :: learlystart
+     integer(c_int) :: ndecreq        ! the decode request counter (commons.h has the why)
  end type params_block
 
   type, bind(C) :: dec_data

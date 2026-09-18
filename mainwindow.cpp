@@ -28,11 +28,16 @@
 #include <QButtonGroup>
 #include <QUdpSocket>
 #include <QtMath>
+#include <QWheelEvent>          // CE3TSK: dial wheel tuning
+#include <QElapsedTimer>        // CE3TSK: dial wheel tuning
 #if QT_VERSION >= QT_VERSION_CHECK (5, 15, 0)
 #include <QRandomGenerator>
 #endif
 
 #include "revision_utils.hpp"
+#include "uilimits.h"           // CE3TSK: the .ui size limits against the current font
+#include "contestreply.h"      // CE3TSK: which Tx answers a message addressed to me
+#include "contestignore.h"     // CE3TSK: WW Digi - stations to leave alone
 #include "qt_helpers.hpp"
 #include "soundout.h"
 #include "soundin.h"
@@ -128,6 +133,8 @@ namespace
   QRegularExpression dxCall_alphabet {"[A-Za-z0-9/]*"};
   QRegularExpression dxGrid_alphabet {"[A-Ra-r]{2,2}[0-9]{2,2}[A-Xa-x]{2,2}[0-9]{2,2}[A-Xa-x]{2,2}"};
   QRegularExpression words_re {R"(^(?:(?<word1>(?:CQ|DE|QRZ)(?:\s?DX|\s(?:[A-Z]{2}|\d{3}))|[A-Z0-9/]+)\s)(?:(?<word2>[A-Z0-9/]+)(?:\s(?<word3>[-+A-Z0-9]+)(?:\s(?<word4>(?:OOO|(?!RR73)[A-R]{2}[0-9]{2})))?)?)?)"};
+  QRegularExpression crlf_re {"\r|\n"};
+  QRegularExpression freetext_specials_re {R"([@#&^])"};
   constexpr int default_rx_audio_buffer_frames {-1}; // lets Qt decide
   constexpr int default_tx_audio_buffer_frames {-1}; // lets Qt decide
 
@@ -327,6 +334,7 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   m_rigOk {false},
   m_bandChanged {false},
   m_useDarkStyle {false},
+  m_wwDigi {false},   /* CE3TSK: WW Digi contest mode */
   m_lostaudio {false},
   m_lasthint {false},
   m_monitoroff {false},
@@ -530,6 +538,9 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   // Network message handlers
   connect (m_messageClient, &MessageClient::reply, this, &MainWindow::replyToUDP);
   connect (m_messageClient, &MessageClient::replay, this, &MainWindow::replayDecodes);
+  connect (m_messageClient, &MessageClient::location, this, [this] (QString const& grid) {
+      if (grid.size () >= 4) m_config.set_dynamic_grid (grid);
+    });
   connect (m_messageClient, &MessageClient::halt_tx, [this] (bool enableTx_only) {
       if (m_config.accept_udp_requests ()) {
         if (enableTx_only) { if (ui->enableTxButton->isChecked ()) ui->enableTxButton->click(); }
@@ -849,6 +860,9 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   connect (ui->bandComboBox->lineEdit (), &QLineEdit::textEdited, [this] (QString const&) {m_bandEdited = true; if(m_config.write_decoded_debug()) writeToALLTXT("bandComboBox line edited to " + ui->bandComboBox->lineEdit()->text());});
 
   // hook up configuration signals
+  connect (&m_config, &Configuration::data_files_updated, this, [this] () {
+      m_logInitNeeded = true;   // picked up by killFile(), which rebuilds the logbook
+    });
   connect (&m_config, &Configuration::transceiver_update, this, &MainWindow::handle_transceiver_update);
   connect (&m_config, &Configuration::transceiver_TCIframesWritten, this, &MainWindow::dataSink);
   connect (&m_config, &Configuration::transceiver_TCImodActive, this, &MainWindow::tci_mod_active);
@@ -903,6 +917,9 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   StopTuneTimer.setSingleShot(true); connect(&StopTuneTimer, SIGNAL(timeout()), this, SLOT(stop_tuning()));
   RxQSYTimer.setSingleShot(true); connect(&RxQSYTimer, SIGNAL(timeout()), this, SLOT(RxQSY()));
   minuteTimer.setSingleShot(true); connect (&minuteTimer, &QTimer::timeout, this, &MainWindow::on_the_minute);
+  m_dialWheelTimer.setSingleShot (true);   // CE3TSK: dial wheel tuning, see dialFrequencyWheel ()
+  m_dialWheelTimer.setInterval (200);
+  connect (&m_dialWheelTimer, &QTimer::timeout, this, &MainWindow::applyDialWheel);
 
   connect(m_wideGraph.data (), SIGNAL(setFreq3(int,int)), this, SLOT(setFreq4(int,int)));
   connect(m_wideGraph.data (), SIGNAL(setRxFreq3(int)), this, SLOT(setRxFreq4(int)));
@@ -941,6 +958,7 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   ui->labDist->setStyleSheet("border: 0px;");
 
   m_useDarkStyle = m_config.useDarkStyle();
+  refreshSpecialOp ();   /* CE3TSK: before anything below reads m_wwDigi */
   readSettings();		         //Restore user's setup params
 
   QString t;
@@ -1012,7 +1030,7 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
       , "-e", QDir::toNativeSeparators (m_appDir)
       , "-a", QDir::toNativeSeparators (m_dataDir.absolutePath ())
       , "-t", QDir::toNativeSeparators (m_config.temp_dir ().absolutePath ())
-      , "-r", QDir::toNativeSeparators (m_config.data_dir ().absolutePath ())
+      , "-r", QDir::toNativeSeparators (m_dataDir.absolutePath ())   // ALLCALL7.TXT lives here
       };
   QProcessEnvironment new_env {m_env};
   new_env.insert  ("OMP_STACKSIZE", "10M");
@@ -1140,9 +1158,14 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   mode_label->setText(m_mode);
   m_lastloggedtime=m_jtdxtime->currentDateTimeUtc2().addSecs(-7*int(m_TRperiod));
   QFile f0 {m_dataDir.absoluteFilePath ("CALL3.TXT")};
-  if(!f0.exists()) { 
+  if(!f0.exists()) {
   QFile f1 {m_config.data_dir ().absoluteFilePath ("CALL3.TXT")};
   f1.copy(m_dataDir.absoluteFilePath ("CALL3.TXT"));
+  }
+  // the decoder is pointed at the writable copy so a downloaded update is picked
+  // up; seed it from the installed one the first time
+  if(!QFile::exists (m_dataDir.absoluteFilePath ("ALLCALL7.TXT"))) {
+    QFile {m_config.data_dir ().absoluteFilePath ("ALLCALL7.TXT")}.copy (m_dataDir.absoluteFilePath ("ALLCALL7.TXT"));
   }
   m_lastDisplayFreq=m_lastMonitoredFrequency;
   m_bMyCallStd=stdCall(m_config.my_callsign ());
@@ -1190,6 +1213,7 @@ void MainWindow::writeSettings()
 {
   m_settings->beginGroup("MainWindow");
   m_settings->setValue("geometry",saveGeometry ());
+  m_settings->setValue("geometryMinHint",minimumSizeHint ());   // CE3TSK: see restoreMainGeometry ()
   m_settings->setValue("state",saveState ());
   m_settings->setValue("vertSplitter",ui->splitter->saveState());
   m_settings->setValue("MRUdir",m_path);
@@ -1281,13 +1305,36 @@ void MainWindow::writeSettings()
   m_settings->endGroup();
 }
 
+/* Ported from CE3TSK's jtdx_contest: restore the saved main window geometry. A saved size can
+   be below what the layout needs for one of two reasons. The operator narrowed the window on
+   purpose - Qt lets it be dragged down to the .ui's minimum, although the controls start to clip
+   before that - and that is the operator's choice, so it reopens exactly as saved. Or it was
+   saved under a smaller font, and then Qt would crush the children further than the operator
+   ever saw: only this grows the window, by as much as the layout's minimum has risen since the
+   save and never past that minimum, so a large window is left alone. Clamping to sizeHint (),
+   and then to minimumSizeHint (), both threw a deliberately narrowed width away. */
+void MainWindow::restoreMainGeometry ()
+{
+  restoreGeometry (m_geometry);
+  if (!m_geometryMinHint.isValid ()) return;   // saved before the minimum was recorded: as saved
+  auto const needed = minimumSizeHint ();
+  auto const growth = (needed - m_geometryMinHint).expandedTo (QSize {0, 0});
+  resize (size ().expandedTo ((size () + growth).boundedTo (needed)));
+}
+
 //---------------------------------------------------------- readSettings()
 void MainWindow::readSettings()
 {
   m_settings->beginGroup("MainWindow");
   
   m_geometry = m_settings->value ("geometry",saveGeometry()).toByteArray();
-  restoreGeometry(m_geometry);
+  m_geometryMinHint = m_settings->value ("geometryMinHint").toSize ();   // CE3TSK
+  restoreMainGeometry ();   // CE3TSK
+  /* CE3TSK: the .ui's hard size limits are reconciled with the font in use - see uilimits.h for
+     what is raised and why a button is measured by its label rather than by its sizeHint.
+     Configuration::set_application_font does the same for a font changed at run time; this
+     covers start-up, when the font is applied before this window exists. */
+  JTDX::fit_size_limits (this);
   restoreState (m_settings->value ("state",saveState ()).toByteArray ());
   ui->splitter->restoreState(m_settings->value("vertSplitter").toByteArray());
   m_path = m_settings->value("MRUdir",m_config.save_directory ().absolutePath ()).toString ();
@@ -1807,8 +1854,6 @@ void MainWindow::dataSink(qint64 frames)
   if(m_mode=="WSPR-2") wspr_downsample_(dec_data.d2,&k);
   if(ihsym <=0) return;
 //  printf("%s(%0.1f) dataSink %s %d %d\n",m_jtdxtime->currentDateTimeUtc2().toString("hh:mm:ss.zzz").toStdString().c_str(),m_jtdxtime->GetOffset(),last.toString("hh:mm:ss.zzz").toStdString().c_str(),ihsym,k);
-  QString t;
-  t = QString::asprintf(" Rx noise: %5.1f ",px);
   ui->signal_meter_widget->setValue(px); // Update thermometer
   if(m_monitoring || m_diskData) {
     m_wideGraph->dataSink2(s,df3,ihsym,m_diskData);
@@ -2011,6 +2056,14 @@ void MainWindow::on_actionSettings_triggered()               //Setup Dialog
       if(m_config.write_decoded_debug()) writeToALLTXT("Configuration settings change accepted");
       ui->decodedTextBrowser->setConfiguration (&m_config);
       ui->decodedTextBrowser2->setConfiguration (&m_config);
+      /* CE3TSK: the contest setting decides what Tx2/Tx3 carry, so the standard messages are
+         rebuilt whenever it changes, and the ignore list is dropped - it only means anything
+         inside a contest. */
+      {
+        bool const was = m_wwDigi;
+        refreshSpecialOp ();
+        if (was != m_wwDigi) { m_contestIgnore.clear (); ui->genStdMsgsPushButton->click (); }
+      }
       if (m_config.useDarkStyle() != m_useDarkStyle) {
         m_useDarkStyle = m_config.useDarkStyle();
         styleChanged();
@@ -2437,6 +2490,7 @@ void MainWindow::displayDialFrequency ()
   Frequency dial_frequency {m_rigState.ptt () && m_rigState.split () ?
       m_rigState.tx_frequency () : m_rigState.frequency ()};
   if(m_monitoroff && m_config.rig_name()=="None") dial_frequency=m_freqNominal;
+  if (dialWheelHolding ()) dial_frequency = m_dialWheelTarget;   // CE3TSK: the wheel's target, not the rig's older report
   // lookup band
   auto const& band_name = m_config.bands ()->find (dial_frequency);
 //  printf("last band %s curband %s band %s freq %lld\n",m_lastBand.toStdString().c_str(),ui->bandComboBox->currentText().toStdString().c_str(),band_name.toStdString().c_str(),dial_frequency);
@@ -2595,6 +2649,92 @@ void MainWindow::statusChanged()
   }
 }
 
+/* Ported from CE3TSK's jtdx_contest: tuning with the mouse wheel over the dial frequency. Only
+   the three kHz digits after the decimal point respond - in "7.074 000" the 0, the 7 and the 4 -
+   so a notch moves the dial by 100, 10 or 1 kHz, carrying into the next digit the way a sum does
+   (7.079 + 1 kHz = 7.080, 7.000 - 1 kHz = 6.999). The MHz digits would change the band and the Hz
+   digits are finer than any use, so both are left alone, and so is a step that would take the
+   dial out of the band it is in. Notches in a burst show on the display at once and reach the rig
+   as one QSY 200 ms after the last, through band_changed () like the band selector; until the rig
+   reports the new frequency the display holds the target. Nothing happens while transmitting or
+   tuning. */
+bool MainWindow::dialFrequencyWheel (QWheelEvent * event)
+{
+  if (m_transmitting || m_tune) return false;
+  auto const * const label = ui->labDialFreq;
+  auto const text = label->text ();   // "7.074 000": the kHz digits are 7, 6 and 5 from the end in any locale
+  if (text.size () < 8) return false;
+  QFontMetrics const metrics {label->font ()};
+  int const margin {label->margin ()};
+  auto const area = label->contentsRect ().adjusted (margin, margin, -margin, -margin);
+  int const left {area.left () + (area.width () - metrics.horizontalAdvance (text)) / 2};   // the .ui centres the text
+  int const x {event->position ().toPoint ().x ()};
+  int digit {-1};
+  for (int i = 0; i < 3; ++i)
+    {
+      int const at {text.size () - 7 + i};
+      int const from {left + metrics.horizontalAdvance (text.left (at))};
+      if (text.at (at).isDigit () && x >= from && x < from + metrics.horizontalAdvance (text.at (at))) digit = i;
+    }
+  if (digit < 0) return false;
+  m_dialWheelDelta += event->angleDelta ().y ();
+  int const notches {m_dialWheelDelta / 120};
+  if (!notches) return true;   // part of a notch, from a touchpad
+  m_dialWheelDelta -= notches * 120;
+  Frequency const from {dialWheelHolding () ? m_dialWheelTarget : m_freqNominal};
+  qint64 const to {static_cast<qint64> (from) + notches * (digit == 0 ? 100000 : digit == 1 ? 10000 : 1000)};
+  if (to <= 0 || m_config.bands ()->find (static_cast<Frequency> (to)) != m_config.bands ()->find (from)) return true;   // stays in its band
+  m_dialWheelTarget = static_cast<Frequency> (to);
+  m_dialWheelClock.start ();
+  m_dialWheelTimer.start ();
+  displayDialFrequency ();
+  return true;
+}
+
+void MainWindow::applyDialWheel ()
+{
+  auto const target = m_dialWheelTarget;
+  if (m_transmitting || m_tune || target == m_freqNominal) return;
+  m_bandEdited = true;
+  band_changed (target); if(m_config.write_decoded_debug()) writeToALLTXT("Band changed from dial wheel, frequency: " + QString::number(target));
+  m_dialWheelClock.start ();   // hold the target on the display while the rig catches up
+  displayDialFrequency ();
+}
+
+bool MainWindow::dialWheelHolding () const
+{
+  return m_dialWheelClock.isValid () && m_dialWheelClock.elapsed () < 1500 && !m_transmitting;
+}
+
+/* Ported from CE3TSK's jtdx_contest: a double click on the DX Call button, or on the callsign box
+   beside it, opens the call's qrz.com page - https://www.qrz.com/db/CE3TSK. A compound call keeps
+   its slash exactly as it is: qrz.com answers /db/VP2E/CE3TSK but returns 404 for the
+   percent-encoded %2F, and the box's validator allows only letters, digits and '/', so nothing
+   here needs encoding. An empty box does nothing. The button's other actions are untouched: a
+   double click delivers a single clicked (), which spots to dxsummit as before when that is
+   enabled, and m_spotDXsummit stops a second spot. */
+/* CE3TSK: follow the contest setting. Kept as one place so the flag, the QSO histories and
+   anything else that needs to know cannot drift apart. */
+void MainWindow::refreshSpecialOp ()
+{
+  m_wwDigi = m_config.wwDigi ();
+}
+
+/* CE3TSK: the contest is on but my own grid is not a usable 4 character square - in WW Digi the
+   grid is the exchange, so there is nothing legitimate to transmit. genStdMsgs clears the
+   messages instead of putting a malformed one on the air. */
+bool MainWindow::wwDigiNoGrid () const
+{
+  return m_wwDigi && !const_cast<MainWindow *> (this)->gridOK (m_config.my_grid ().left (4));
+}
+
+void MainWindow::lookupDxCallOnQrz ()
+{
+  auto const call = ui->dxCallEntry->text ().trimmed ().toUpper ();
+  if (call.isEmpty ()) return;
+  QDesktopServices::openUrl (QUrl {"https://www.qrz.com/db/" + call});
+}
+
 bool MainWindow::eventFilter(QObject *object, QEvent *event)  //eventFilter()
 {
   switch (event->type())
@@ -2620,6 +2760,20 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)  //eventFilter()
 
     case QEvent::ToolTip:
       if(!m_showTooltips) return true;
+      break;
+
+    case QEvent::Wheel:
+      // CE3TSK: the wheel over a kHz digit of the dial frequency tunes it
+      if (object == ui->labDialFreq && dialFrequencyWheel (static_cast<QWheelEvent *> (event))) return true;
+      break;
+
+    case QEvent::MouseButtonDblClick:
+      // CE3TSK: the DX Call button or the callsign box looks the call up on qrz.com
+      if (object == ui->pbSpotDXCall || object == ui->dxCallEntry)
+        {
+          lookupDxCallOnQrz ();
+          if (object == ui->pbSpotDXCall) return true;   // the box keeps its own word selection
+        }
       break;
 
     default: break;
@@ -3413,6 +3567,14 @@ void MainWindow::decode()                                       //decode()
   //newdat=1  ==> this is new data, must do the big FFT
   //nagain=1  ==> decode only at fQSO +/- Tol
 
+  /* Ported from CE3TSK's jtdx_contest: the decode request counter, incremented before the
+     block is published so the decoder serves this request by NUMBER rather than by the .lock
+     edge. The removal below is the edge that used to be missed whenever it landed while
+     jtdxjt9 was still inside multimode_decoder - see commons.h and the wait in lib/jt9a.f90.
+     It sits after the newdat offset is taken below only in reading order: ndecreq is the last
+     field of params, so it is inside the copied range either way. */
+  ++dec_data.params.ndecreq;
+
   char *to = (char*)mem_jtdxjt9->data();
   char *from = (char*) dec_data.ss;
   int size=sizeof(struct dec_data);
@@ -3451,6 +3613,26 @@ void MainWindow::process_Auto()
   int rx = ui->RxFreqSpinBox->value ();
   int tx = ui->TxFreqSpinBox->value ();
   QStringList StrStatus = {"NONE","RFIN","RCQ","SCQ","RCALL","SCALL","RREPORT","SREPORT","RRREPORT","SRREPORT","RRR","SRR","RRR73","SRR73","R73","S73","FIN"};
+  /* Ported from CE3TSK's jtdx_contest: WW Digi - a station who answers our exchange with a
+     signal report ("CE3TSK DL6FKR -10") is running ordinary FT8/FT4, not the contest. That QSO
+     cannot complete: neither side ever sends what the other waits for, and answering him again
+     next period only repeats the deadlock. So he is dropped and skipped for five minutes; a
+     double click on him clears that again, because the operator overrules it. His exchange is a
+     grid, so anything that parses as a number is the giveaway. */
+  if (m_wwDigi && !hisCall.isEmpty () && !rpt.isEmpty ()) {
+    bool numeric = false;
+    rpt.toInt (&numeric);
+    if (numeric) {
+      m_contestIgnore.add (Radio::base_callsign (hisCall), m_jtdxtime->currentMSecsSinceEpoch2 ());
+      clearDX (" cleared, WW Digi: he sent a report, he is not in the contest");
+      return;
+    }
+  }
+  if (m_wwDigi && !hisCall.isEmpty ()
+      && m_contestIgnore.has (Radio::base_callsign (hisCall), m_jtdxtime->currentMSecsSinceEpoch2 ())) {
+    clearDX (" cleared, WW Digi: still ignored");
+    return;
+  }
   if (!hisCall.isEmpty ()) {
     if (m_houndMode) count = -1; //marker for changing status to FIN when status is RRR73
     m_status = m_qsoHistory.autoseq(hisCall,grid,rpt,rx,tx,time,count,prio,mode);
@@ -3824,7 +4006,7 @@ void MainWindow::readFromStdout()                             //readFromStdout
           m_notified=true;
        }
 	   
-      DecodedText decodedtext {QString::fromUtf8 (t.constData ()).remove (QRegularExpression {"\r|\n"}),this};
+      DecodedText decodedtext {QString::fromUtf8 (t.constData ()).remove (crlf_re)};
 //      DecodedText decodedtext {"161545  -4  0.1 1939 & CQ RT9K/4    ",this};
 	  QString tcut = t.replace("\n","");
 	  if (!m_mode.startsWith("FT")) {
@@ -4155,8 +4337,13 @@ void MainWindow::guiUpdate()
 
   if(m_transmitting or m_enableTx or m_tune) {
 // Check for "txboth" (testing purposes only)
-    QFile f(m_appDir + "/txboth");
-    if(f.exists() and fmod(tsec,m_TRperiod)<49.96) m_bTxTime=true; //<(1.0 + 85.0*m_nsps/12000.0)
+    static qint64 lastTxbothCheck = 0;
+    static bool txbothExists = false;
+    if (ms - lastTxbothCheck >= 1000 || ms < lastTxbothCheck) {
+      txbothExists = QFile(m_appDir + "/txboth").exists();
+      lastTxbothCheck = ms;
+    }
+    if(txbothExists and fmod(tsec,m_TRperiod)<49.96) m_bTxTime=true; //<(1.0 + 85.0*m_nsps/12000.0)
 
 // Don't transmit another mode in the WSPR sub-band
     Frequency onAirFreq = m_freqNominal + ui->TxFreqSpinBox->value();
@@ -4634,7 +4821,9 @@ void MainWindow::guiUpdate()
     m_sec0=nsec;
     if(!m_monitoring and !m_diskData) ui->signal_meter_widget->setValue(0);
     displayDialFrequency ();
-    if (m_geometry_restored > 0) { m_geometry_restored -=1; if (m_geometry_restored == 0) restoreGeometry (m_geometry);}
+    /* CE3TSK: the delayed re-restore goes through restoreMainGeometry () so it cannot undo the
+       growth applied at start-up */
+    if (m_geometry_restored > 0) { m_geometry_restored -=1; if (m_geometry_restored == 0) restoreMainGeometry ();}
 //workaround to recover decoding in case if .lock deletion event is not received by proc_jtdxjt9, Decode button hung up issue
 /*    quint64 timeout=76000; 
     if(m_mode=="FT4") timeout=10000;
@@ -4967,7 +5156,14 @@ void MainWindow::processMessage(QString const& messages, int position, bool alt,
   
   QString t2a;
   t2a = t2;
-  DecodedText decodedtext {t2a,this};
+  DecodedText decodedtext {t2a};
+
+  /* CE3TSK: a double click is the operator overruling the WW Digi ignore list - whoever he just
+     picked is worked, whatever we concluded about him five minutes ago. */
+  if (m_wwDigi) {
+    auto const picked = Radio::base_callsign (decodedtext.call ());
+    if (!picked.isEmpty ()) m_contestIgnore.remove (picked);
+  }
 
   bool addWanted = (alt && ctrl);
   if(!addWanted) {
@@ -5090,7 +5286,7 @@ void MainWindow::processMessage(QString const& messages, int position, bool alt,
 
   int i9=m_QSOText.indexOf(decodedtext.string());
   if (i9<0 and !decodedtext.isTX() and m_decodedText2) {
-    DecodedText decodedtext {t2disp,this};
+    DecodedText decodedtext {t2disp};
 	if (!t2.contains (m_baseCall) || !m_showMyCallMsgRxWindow) {
 		ui->decodedTextBrowser2->displayDecodedText(&decodedtext
                                                   ,m_baseCall
@@ -5205,12 +5401,21 @@ void MainWindow::processMessage(QString const& messages, int position, bool alt,
         }
       }
       else {
-        m_ntx=2;
-		m_QSOProgress = REPORT;
-        m_nlasttx=2;
-        ui->txrb2->setChecked(true);
+        /* Ported from CE3TSK's jtdx_contest: this branch is reached when his message ends in a
+           grid, or carries nothing after my call. Outside the contest that is Tx2 as it always
+           was. In WW Digi his grid IS his exchange, so the answer is Tx3 - "HISCALL MYCALL R
+           MYGRID", what the auto-sequencer sends there; a bare Tx2 would repeat his exchange
+           back without the R, i.e. behave as if I had called him. reply_tx_to_me can only
+           return 2 or 3 here, and returns 2 whenever the contest is off. */
+        bool const hasLast = t4.size () > 7;
+        int const tx = reply_tx_to_me (m_wwDigi, hasLast, hasLast ? t4.at (7) : QString {},
+                                       hasLast && gridOK (t4.at (7)));
+        m_ntx=tx;
+		m_QSOProgress = 3 == tx ? ROGER_REPORT : REPORT;
+        m_nlasttx=tx;
+        if(3 == tx) ui->txrb3->setChecked(true); else ui->txrb2->setChecked(true);
         if(ui->tabWidget->currentIndex()==1) {
-          ui->genMsg->setText(ui->tx2->text());
+          ui->genMsg->setText(3 == tx ? ui->tx3->text() : ui->tx2->text());
           m_ntx=7;
           ui->rbGenMsg->setChecked(true);
         }
@@ -5367,6 +5572,13 @@ void MainWindow::genStdMsgs(QString rpt)                       //genStdMsgs()
 //  auto is_compound = my_callsign != m_baseCall;
 //  auto is_type_one = is_compound && shortList (my_callsign);
   auto const& my_grid = m_config.my_grid ().left (4);
+  /* CE3TSK: no exchange, no contest. In WW Digi the grid IS the exchange, so an invalid or
+     missing one would put a malformed message on the air every period. */
+  if(wwDigiNoGrid ()) {
+    ui->tx1->setText(""); ui->tx2->setText(""); ui->tx3->setText("");
+    ui->tx4->setText(""); ui->tx5->setCurrentText(""); ui->genMsg->setText("");
+    return;
+  }
   auto const& hisBase = Radio::base_callsign (hisCall);
   m_bMyCallStd=stdCall(my_callsign);
   m_bHisCallStd=stdCall(hisCall);
@@ -5390,6 +5602,11 @@ void MainWindow::genStdMsgs(QString rpt)                       //genStdMsgs()
     myrpt = QString::asprintf("%+2.2d",n);
     QString t2,t3;
     QString sent=myrpt;
+    /* Ported from CE3TSK's jtdx_contest: in the WW Digi contest the exchange is the 4 character
+       grid, sent where the signal report normally goes - so Tx2 becomes "HISCALL MYCALL MYGRID"
+       and Tx3 "HISCALL MYCALL R MYGRID". wwDigiNoGrid() has already refused to generate anything
+       if my own grid is not a valid 4 character square, so my_grid is safe to send here. */
+    if(m_wwDigi) sent=my_grid;
     QString rs,rst;
     int nn=(n+36)/6;
     if(nn<2) nn=2;
@@ -5775,9 +5992,9 @@ void MainWindow::on_tx5_currentTextChanged (QString const& text) //tx5 edited
   bool isAllowedAuto73=isAutoSeq73(text);
   if(!m_Tx5setAutoSeqOff && !isAllowedAuto73) m_Tx5setAutoSeqOff=true;
   if(isAllowedAuto73) m_Tx5setAutoSeqOff=false;
-  if(!text.contains(QRegularExpression {R"([@#&^])"}) && !text.isEmpty()) {
+  if(!text.contains(freetext_specials_re) && !text.isEmpty()) {
     QString t="161545  -4  0.1 1939 & " + text;
-    DecodedText decodedtext {t,this};
+    DecodedText decodedtext {t};
 //      DecodedText decodedtext {"161545  -4  0.1 1939 & CQ RT9K/4    "};
     bool stdfreemsg = decodedtext.isStandardMessage();
     if(stdfreemsg) {
@@ -6539,6 +6756,7 @@ void MainWindow::on_bandComboBox_activated (int index)
 
 void MainWindow::band_changed (Frequency f)
 {
+  m_dialWheelTimer.stop (); m_dialWheelClock.invalidate ();   // CE3TSK: any QSY ends a wheel burst, applyDialWheel () restarts the hold
   if (m_bandEdited) {
     if (!m_mode.startsWith ("WSPR")) { // band hopping preserves auto Tx
       if (f + m_wideGraph->nStartFreq () > m_freqNominal + ui->TxFreqSpinBox->value ()
@@ -6807,9 +7025,9 @@ void MainWindow::on_freeTextMsg_currentTextChanged (QString const& text)
   bool isAllowedAuto73=isAutoSeq73(text);
   if(!m_FTsetAutoSeqOff && !isAutoSeq73(text)) m_FTsetAutoSeqOff=true;
   if(isAllowedAuto73) m_FTsetAutoSeqOff=false;
-  if(!text.contains(QRegularExpression {R"([@#&^])"}) && !text.isEmpty()) {
+  if(!text.contains(freetext_specials_re) && !text.isEmpty()) {
     QString t="161545  -4  0.1 1939 & " + text;
-    DecodedText decodedtext {t,this};
+    DecodedText decodedtext {t};
 //      DecodedText decodedtext {"161545  -4  0.1 1939 & CQ RT9K/4    ",this};
     bool stdfreemsg = decodedtext.isStandardMessage();
     if(stdfreemsg) {
@@ -7567,7 +7785,7 @@ void MainWindow::replyToUDP (QTime time, qint32 snr, float delta_time, quint32 d
           // find the linefeed at the end of the line
           position = ui->decodedTextBrowser->toPlainText().indexOf("\n",position);
           auto start = messages.left (position).lastIndexOf (QChar::LineFeed) + 1;
-          DecodedText message {messages.mid (start, position - start),this};
+          DecodedText message {messages.mid (start, position - start)};
           m_decodedText2 = true;
 // keyboard modifiers and low confidence(Hint) '*' symbol are not supported yet in UDP 'reply' procedure
 //          Qt::KeyboardModifiers kbmod {modifiers << 24};

@@ -1,0 +1,160 @@
+JTDX Changelog
+==============
+
+v4.0.2
+------
+
+New features
+  - Settings > Sync has a new "Data files" section that downloads the
+    shared data files instead of relying on whatever shipped with the
+    package: cty.dat (country-files.com), the Logbook of the World user
+    activity list (ARRL), and CALL3.TXT in both the terrestrial and EME
+    variants.  The previous CALL3.TXT is kept as CALL3_backup.TXT.
+    After cty.dat or the LoTW list is updated the logbook is rebuilt
+    automatically, so new entities and LoTW membership take effect
+    without a restart.  The first three are ported from WSJT-X.
+  - The same section can also update ALLCALL7.TXT, the callsign database
+    the decoder uses to reject false FT8/FT4 decodes.  It is published
+    as a dated archive rather than under a fixed name, so JTDX reads the
+    project file feed, picks the newest ALLCALL7_<date>_rc<n>.zip and
+    unpacks it.  The copy bundled with this release dates from 2022 and
+    holds about 72000 callsigns; the current one holds nearly 100000.
+    A decoder restart is needed for a new file to take effect.
+  - Notification sounds: the per-event notifications on the
+    Notifications tab could only ring the system bell, which on many
+    Linux desktops is silent.  They can now play a distinct .wav from a
+    chosen folder for each event - MyCall, DXCC, Grid, CQZone, ITUZone,
+    Prefix, NewCall and Wanted.  Any file that is absent falls back to
+    the system bell, so an empty folder behaves exactly as before.
+  - UDP "Location" message (type 11) is now implemented; it was
+    previously a reserved slot.  A locator sent by an external
+    application overrides the configured grid for the running session
+    and is not written to the settings.
+
+Bug fixes
+  - The decoder was pointed at the installed, read-only data directory
+    for ALLCALL7.TXT, so an updated file could never be picked up. It
+    now reads the writable per-user copy, seeded from the installed one
+    on first run.
+
+Internals
+  - New NetworkAccessManager (SSL error handling shared across network
+    users) and FileDownload (redirect-following download to a file),
+    both ported from WSJT-X, plus a small read-only ZIP reader built on
+    zlib for the callsign database archive.  zlib is now a build
+    dependency.
+
+
+v4.0.1
+------
+
+Bug fixes
+  - Band Activity / Rx Frequency windows no longer lose decodes once the
+    10000-line buffer fills.  The old trim walked to the wrong block, so
+    from that point on the newest decode was dropped and only every
+    second line was kept.  All lines are now retained in a contiguous
+    window.
+  - four2a: the FFTW plan table could be scanned by one thread while
+    another was publishing a new entry, so a partially initialised slot
+    could be picked up and the wrong plan executed.  The table is now
+    re-scanned under the lock and a slot is published only after it is
+    fully written.
+  - jt9: the FFTW wisdom path was truncated at 80 characters, so wisdom
+    was never loaded when the data directory path was long and every
+    start re-planned from scratch.
+
+Performance
+  - osd174_91 (the ordered-statistics decoder used by FT8 and FT4) no
+    longer allocates and frees ~2 MB of working buffers on every call;
+    the buffers are kept per thread, matching what osd174 already did.
+  - osd174_91 / osd174: the pattern table reset cleared all 525001
+    entries when only the first 2**ntau are ever addressed, touching
+    2 MB to use 64 KB.  Verified bit-identical against the previous
+    implementation over all ndeep settings.
+  - Decoded-text handling: the CQ callsign regular expression is now
+    compiled once instead of on every CQ decode, the digit test in
+    deCallAndGrid no longer builds a QRegExp per call, and the free-text
+    validation regex is no longer recompiled on every keystroke.
+
+Notes
+  - The decoder produces identical output to 4.0.0.  The OSD and LDPC
+    changes were checked against the previous implementations on
+    randomised inputs (20000 LDPC trials, 2000 OSD calls covering every
+    ndeep) with zero differences.
+
+
+v4.0.0
+------
+
+Performance
+  - GUI: removed per-decode deep copies of the logbook and the wanted
+    call/prefix/grid/country lists, turned the decoded-message helper
+    into a lightweight value type with statically compiled regular
+    expressions, cached the country/callsign filter lists, and removed
+    redundant string/regex work from the decode loop.
+  - Waterfall and 2D plotter: replaced the per-frame median sort with an
+    O(n) selection reusing a thread-local scratch buffer, cached the 2D
+    overlay background instead of copying it on every draw, and reduced
+    clock lookups inside the draw path.
+  - Signal meter now repaints only when its value or peak actually
+    changes; the "txboth" test-file probe is throttled to once per
+    second.
+  - Fortran decoder: per-thread most-recently-used FFTW plan cache
+    (fewer plan lookups in the FT8 inner loop), reused OSD working
+    buffers instead of allocating ~2 MB on every call, and replaced
+    array sections with explicit loops in the FT8 sync metric to avoid
+    temporary array creation.
+
+Improvements (ported from WSJT-X)
+  - Adopted decoder performance and robustness work from upstream
+    WSJT-X: per-thread private scratch buffers so the concurrent FT8
+    decode sections no longer race, plus the associated OSD and FFT
+    optimisations.
+  - Simplified the multi-threaded FT8 band split: the hand-unrolled
+    chain of OpenMP sections is now a single worksharing loop with
+    identical slice boundaries and thread indexing.
+
+Build and packaging
+  - New JTDX_NATIVE_OPT option (default ON) to build with
+    -march=native / -mtune=native; disable it when producing binaries
+    for other machines.
+  - Debian packaging: let dpkg-shlibdeps generate the runtime library
+    dependencies (correct t64 names on Ubuntu 24.04 and derivatives)
+    instead of the stale hard-coded list, keeping only
+    libqt5multimedia5-plugins and the hamlib requirement.
+
+
+v2.3.1
+------
+
+New Features
+  - Settings > Sync: NTP-based clock synchronization, alongside the
+    existing decoded-signal clock sync. Configurable NTP server
+    (default: pool.ntp.org, supports both IPv4 and IPv6), an automatic
+    re-sync interval (Manual / 5 min / 30 min / 1 hour), and a
+    "Sync NTP server now" button for on-demand synchronization.
+
+
+v2.3.0
+------
+
+Translations
+  - Updated all existing translations (ca_ES, da_DK, en_US, es_ES,
+    et_EE, fr_FR, hr_HR, hu_HU, it_IT, ja_JP, lv_LV, nl_NL, pl_PL,
+    pt_BR, pt_PT, ru_RU, sv_SE, zh_CN, zh_HK).
+  - Added new Turkish (tr_TR) and Ukrainian (uk_UA) translations.
+
+Fixes
+  - About dialog: made the credits label's links clickable and
+    adjusted the dialog layout.
+  - DX Lab Suite Commander CAT: fixed command_with_reply() to return
+    the decoded reply instead of discarding it under some conditions.
+  - Frequency list: added the QO-100 satellite FT8 frequency
+    (10489.540 MHz).
+  - HRD CAT: increased the Yaesu inter-command delay (250 -> 350 ms)
+    and the reply retry count (3 -> 30) for more reliable rig control.
+  - PTT polling: ensure the initial PTT state is always initialized.
+  - Waterfall (Bins/Pixel): removed a stale duplicate read of the
+    setting that could override the value the user just set in the
+    spinner.
+  - Waterfall dialog: layout fixes (spin box widths, palette label).
